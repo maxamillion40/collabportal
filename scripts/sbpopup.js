@@ -18,7 +18,7 @@
 				data: "",
 				type: "GET",
 				success: function(data) {
-					$("#ui-id-1").html(data);
+					$(".ui-dialog-title").html(data);
 				}
 			});
 		},
