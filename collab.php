@@ -32,7 +32,7 @@
 		<meta name="keywords" content="scratch,collabs,dach,deutsch" />
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/homepage.css" />
+		<link rel="stylesheet" href="styles/cp.css" />
 		<link rel="stylesheet" href="styles/jquery-ui-1.10.3.custom.min.css" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
