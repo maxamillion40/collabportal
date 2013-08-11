@@ -32,13 +32,15 @@ function navigate(to,dialog=true)	{
 }
 
 //Launch Tinymce
-tinymce.init({
-	plugins: "link lists emoticons image sb",
-	selector: "textarea",
-	language: "de",
-	toolbar: "undo redo | bold italic underline | link unlink | image sb | numlist bullist | emoticons",
-	menubar: false,
-	statusbar: false,
-	width: "100%",
-	height: 300,
-});
+if(tinymce)	{
+	tinymce.init({
+		plugins: "link lists emoticons image sb",
+		selector: "textarea",
+		language: "de",
+		toolbar: "undo redo | bold italic underline | link unlink | image sb | numlist bullist | emoticons",
+		menubar: false,
+		statusbar: false,
+		width: "100%",
+		height: 300,
+	});
+}
