@@ -1,2 +1,0 @@
-int x 		=> Logo des Collab mit ID x
-none.png	=> Logo für Collabs ohne eigenes Logo
