@@ -24,7 +24,7 @@
 		<script src="scripts/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="scripts/init.js"></script>
 	</head>
-	<body onLoad="nojs">
+	<body>
 		<div id="pagewrapper">
 			<!-- This is the blue box on the top of the site -->
 				<?php
