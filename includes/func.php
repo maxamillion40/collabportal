@@ -1,6 +1,6 @@
 ﻿<?php
 	function mysql_auto_connect()	{
-		$db = mysql_connect("localhost","root","281297");
+		$db = mysql_connect("localhost","root","");
 		mysql_select_db("scratchcollabs");
 		mysql_set_charset("utf8",$db);
 	}
