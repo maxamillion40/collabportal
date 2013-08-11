@@ -32,7 +32,7 @@ function navigate(to,dialog=true)	{
 }
 
 //Launch Tinymce
-if(tinymce)	{
+if(typeof(tinymce) !== "undefined")	{
 	tinymce.init({
 		plugins: "link lists emoticons image sb",
 		selector: "textarea",
