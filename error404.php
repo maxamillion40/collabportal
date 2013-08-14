@@ -40,6 +40,7 @@
 							<div id="error404">
 								<img src="img/cat.png" alt="Scratch Cat" />
 								<p><b>HALLO LIREX!!!!!</b></p>
+								<p><b>HALLO WEBDESIGNER!!!!!</b></p>
 							</div>
 						</div>
 					</div>
