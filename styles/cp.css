@@ -16,7 +16,9 @@ header ul li	{
 	right: 0;
 	height: 34px;
 	border-right: 1px #149acb solid;
-	background-color: #0f8bc0;
+}
+#bye {
+   	background-color: #0f8bc0;
     overflow: hidden;
     border-radius: 0;
 	transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
