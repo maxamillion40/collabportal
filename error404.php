@@ -39,7 +39,7 @@
 						<div class="inner">
 							<div id="error404">
 								<img src="img/cat.png" alt="Scratch Cat" />
-								<p>Diese Seite gibt es nicht.</p>
+								<p><b>HALLO LIREX!!!!!</b></p>
 							</div>
 						</div>
 					</div>
