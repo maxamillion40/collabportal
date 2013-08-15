@@ -1,3 +1,4 @@
+
 body	{
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -10,6 +11,9 @@ header .logo	{
 header ul li	{
 	margin-left: -5px !important;
 }
+
+/* Login und Logout Button */
+
 #bye, #join	{
 	position: absolute;
 	top: 1px;
