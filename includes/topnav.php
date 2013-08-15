@@ -4,7 +4,7 @@
 		<a href="./" class="logo" id="trans"><span class="scratch"></span></a>
 		<!-- Nav -->
 		<ul class="site-nav">
-			<li><a href="./">Python</a></li>
+			<li><a href="new.php">Neues Collab</a></li>
 			<li><a href="./">Java</a></li>
 			<li><a href="./">C++</a></li>
 			<li><a href="./">Delphi</a></li>
