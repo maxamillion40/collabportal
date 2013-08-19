@@ -128,7 +128,7 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-										<table>	
+										<table id="info">	
 											<tr>
 												<td class="collab-td">Start:</td>
 												<td><?php echo $tage[date("l",$collab[0]["start"])]; echo date(", d.m.Y h:i",$collab[0]["start"]); ?></td>

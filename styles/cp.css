@@ -201,3 +201,6 @@ iframe	{
 .box-no-padding	{
 	padding: 0 !important;
 }
+#info tr td:last-child	{
+	padding-left: 5px;
+}
