@@ -169,12 +169,12 @@
 								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Mitglieder Icon" height="19" width="19" /> Mitglieder (<?php echo count($members["people"])+1; ?>)</h4>
 							</div>
 							<div class="box-content">
-								<div class="inner">
-										<ul id="people">
+								<div class="inner box-no-padding">
+										<ul id="members">
 											<?php
-												echo "<li class='founder'># ".$members["founder"]."</li>";
+												echo "<li class='founder member'> ".$members["founder"]."</li>";
 												foreach($members["people"] as $mitglied)	{
-													echo "<li>".$mitglied."</li>";
+													echo "<li class='member'>".$mitglied."</li>";
 												}
 											?>
 										</ul>
