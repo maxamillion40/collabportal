@@ -15,7 +15,7 @@
 				}
 				if(is_loggedin())	{
 					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
-					echo "<li id='bye'><a href='action.php?logout'><img src='img/logout.png' height='35' /></a><br/><span id='logout-sign'>Logout</span></li>";
+					echo "<li id='bye'><a href='action.php?logout'><img src='img/logout.png' height='35' /><br/><span id='logout-sign'>Logout</span></a></li>";
 				}
 				else	{
 					echo "<li id=\"join\">

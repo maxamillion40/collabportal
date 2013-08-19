@@ -28,6 +28,9 @@ header ul li	{
 	transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
 	-webkit-transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
 }
+#bye span	{
+	margin-left: -15px;
+}
 #bye:hover {
     height: 70px;
     background-color: #0f8bc0;
