@@ -169,3 +169,11 @@ iframe	{
 	background: #F6A828 !important;
 	text-shadow: 0px 1px #000000;
 }
+#footer	{
+	background-image: url(../img/cat_cropped.png);
+	background-repeat: no-repeat;
+	background-position: 20px center;
+}
+#footer p	{
+	margin-bottom: 0;
+}
