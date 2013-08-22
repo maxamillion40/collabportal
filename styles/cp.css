@@ -1,3 +1,15 @@
+@keyframes pop {
+    10%  {top: -35px;}
+    20%  {top: 2px;}
+    90%  {top: 2px;}
+    100% {top: -35px;}
+}
+@keyframes pop2 {
+    0%   {}
+    10%  {}
+    90%  {}
+    100% {}
+}
 body	{
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -44,7 +56,19 @@ header ul li	{
     display: inline-block;
     position: absolute;
     top: 35px;
+}
+.result-message {
+    background-color: #F9A539;
+    animation: pop 5s;
+    color: #fff;
+    font-size: 15px;
     text-align: center;
+    padding: 5px 10px;
+    display: inline-block;
+    position: absolute;
+    top: -35px;
+    z-index: 1;
+    right: auto;
 }
 #welcome	{
 	position: absolute;

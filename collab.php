@@ -191,13 +191,11 @@
 									<?php
 										//Wenn User ein Mitlgied ist
 										if(in_array($_SESSION["user"],$members["people"]))	{
-											echo "<button class='half' disabled>Beitreten</button>";
 											echo "<button class='half sec' onClick=\"navigate('action.php?leave&id=".$collab[0]["id"]."')\">Austreten</button><br />";
 										}
 										//Wenn kein Mitglied
 										else	{
 											echo "<button class='half' onClick=\"navigate('action.php?join&id=".$collab[0]["id"]."');\">Beitreten</button>";
-											echo "<button class='half sec' disabled>Austreten</button><br />";
 										}
 										if($members["founder"] == $_SESSION["user"])	{
 											echo "<button class='full' onClick=\"navigate('admin.php?id=".$collab[0]["id"]."','false');\">Collab verwalten</button>";
