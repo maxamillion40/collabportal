@@ -6,7 +6,21 @@
     90%  {top: 12px;}
     100% {top: -35px;}
 }
+@-webkit-keyframes pop {
+    10%  {top: -35px;}
+    20%  {top: 12px;}
+    25%  {top: 2px;}
+    85%  {top: 2px;}
+    90%  {top: 12px;}
+    100% {top: -35px;}
+}
 @keyframes pop2 {
+    10%  {top: -35px;}
+    20%  {top: 2px;}
+    90%  {top: 2px;}
+    100% {top: -35px;}
+}
+@-webkit-keyframes pop2 {
     10%  {top: -35px;}
     20%  {top: 2px;}
     90%  {top: 2px;}
@@ -59,9 +73,24 @@ margin-left: -15px;
     position: absolute;
     top: 35px;
 }
-.result-message {
+.orange .result-message {
     background-color: #F9A539;
     animation: pop 5s;
+    -webkit-animation: pop 5s;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    padding: 5px 10px;
+    display: inline-block;
+    position: absolute;
+    top: -35px;
+    z-index: 1;
+    right: auto;
+}
+.red .result-message {
+    background-color: #E85F29;
+    animation: pop 5s;
+    -webkit-animation: pop 5s;
     color: #fff;
     font-size: 15px;
     text-align: center;

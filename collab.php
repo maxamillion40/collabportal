@@ -52,7 +52,7 @@
 				?>
 			<!-- Main Content -->	
 			<div class="container" id="content">
-				<?php
+				<!-- <?php
 					if(isset($_GET["error"]))	{
 						if($_GET["error"] == "notin")	{
 							echo "<div class='ui-state-error'>Es ist ein Fehler aufgetreten! Du kannst nicht aus einem Collab austreten, in dem du nicht Mitglied bist!</div>";
@@ -64,7 +64,7 @@
 							echo "<div class='ui-state-error'>Du kannst nicht aus deinem eigenen Collab austreten!</div>";
 						}
 						if($_GET["error"] == "notext")	{
-							echo "<div class='ui-state-error'>Du hast kein Nachricht eingegeben!</div>";
+							echo "<div class='ui-state-error'>Du hast keine Nachricht eingegeben!</div>";
 						}
 					}
 					if(isset($_GET["result"]))	{
@@ -81,7 +81,7 @@
 							echo "<div class='ui-state-highlight'>Die Nachricht wurde zensiert!</div>";
 						}
 					}
-				?>
+				?> -->
 				<div class="cols clearfix">
 					<div class="col-11">
 						<article class="box collab">

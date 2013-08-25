@@ -5,27 +5,48 @@
 		<!-- Nav -->
 		<ul class="site-nav">
 			<li><a href="new.php">Neues Collab</a></li>
-			<li><a href="./">Java</a></li>
-			<li><a href="./">C++</a></li>
-			<li><a href="./">Delphi</a></li>
+			<li><a href="./">Meine Collabs</a></li>
+			<li><a href="./">Hilfe</a></li>
+			<li><a href="./">Scratch</a></li>
 			<?php
 		        $res = "";
 				if(isset($_GET["result"]))	{
 					$res = $_GET["result"];
 				}
+				$err = "";
+				if(isset($_GET["error"]))	{
+					$err = $_GET["error"];
+				}
 				$uname = "";
 				if(isset($_GET["uname"]))	{
 					$uname = $_GET["uname"];
 				}
-				    if($res == "login") {
-                        echo "<span class='result-message'>Willkommen zur&uuml;ck! Du bist nun eingeloggt.</span>";
+				
+                function errnotice($code,$message) {
+		            if($GLOBALS["err"] == $code) {
+                    echo "<span class='red'><span class='result-message'>".$message."</span></span>";
                     }
-                    if($res == "logout") {
-                        echo "<span class='result-message'>Du wurdest ausgeloggt. Bis bald!</span>";
+                }
+                function resnotice($code,$message) {
+		            if($GLOBALS["res"] == $code) {
+                    echo "<span class='orange'><span class='result-message'>".$message."</span></span>";
                     }
-                    if($res == "censored") {
-                        echo "<span class='result-message'>Die Nachricht wurde Zensiert.</span>";
-                    }
+                }
+				    /* Benachrichtigungen */
+				    resnotice("login","Willkommen zur&uuml;ck!");
+                    resnotice("logout","Du wurdest ausgeloggt. Bis bald!");
+                    resnotice("censored","Die Nachricht wurde zensiert!");
+                    resnotice("msgok","Deine Nachricht wurde gespeichert!");
+                    /* Fehlermeldungen */
+                    errnotice("notin","Du bist kein Mitglied in diesem Collab!");
+                    errnotice("alreadyin","Du bist bereits Mitglied in diesem Collab!");
+                    errnotice("own","Du kannst aus deinem Collab nicht austreten!");
+					errnotice("notext","Du hast keine Nachricht eingegeben!");
+					errnotice("nologin","Logge dich ein, um Collabs zu betrachten!");
+					errnotice("noid","Interner Fehler, konnte Nachricht nicht zuordnen!");
+					errnotice("unknownuser","Dieser Nutzer existiert nicht!");
+					errnotice("badpass","Falsches Passwort oder Nutzername!");
+					
 				if(is_loggedin())	{
 					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
 					echo "<li id='bye'><a href='action.php?logout'><img src='img/logout.png' height='35' /><br/><span id='logout-sign'>Logout</span></a></li>";

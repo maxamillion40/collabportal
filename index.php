@@ -33,7 +33,7 @@
 			<!-- Main Content -->	
 			<div class="container" id="content">
 				<noscript><div class="ui-state-error">Um die Funktionen des CollabPortals in vollem Umfang nutzen zu können, musst du JavaScript aktivieren.</div><br /></noscript>
-			<?php
+			    <?php /*
 				if(isset($_GET["error"]))	{
 					if($_GET["error"] == "nologin")	{
 						echo "<div class='ui-state-error'>Bitte logge dich ein, um Collabs zu betrachten!.</div>";
@@ -47,19 +47,19 @@
 					if($_GET["error"] == "badpass")	{
 							echo "<div class='ui-state-error'>Dieses Passwort scheint nicht zum angegebenen Nutzernamen zu passen. Vertippt?</div>";
 					}
-				}
+				} */
 				if(isset($_GET["result"]))	{
-					if($_GET["result"] == "login")	{
+					/* if($_GET["result"] == "login")	{
 						echo "<div class='ui-state-highlight'>Willkommen zurück! Du bist nun eingeloggt!</div>";
 					}
 					if($_GET["result"] == "logout")	{
 						echo "<div class='ui-state-highlight'>Du bist nun ausgeloggt! Bis bald!</div>";
-					}
+					} */
 					if($_GET["result"] == "signup")	{
 						echo "<div class='ui-state-highlight'>Dein Account wurde angelegt, ".$_GET["name"].". Du kannst dich nun einloggen!</div>";
 					}
 				}
-			?>
+			    ?>
 				<!-- div für obere boxen -->
 				<div class="cols clearfix" style="top: -10px;">
 					<!-- 1. Box -->
