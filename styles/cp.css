@@ -52,11 +52,11 @@ border-right: 1px #149acb solid;
     background-color: #0f8bc0;
     overflow: hidden;
     border-radius: 0;
-transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
--webkit-transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
+    transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
+    -webkit-transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
 }
 #bye span	{
-margin-left: -15px;
+    margin-left: -15px;
 }
 #bye:hover {
     height: 70px;
@@ -100,6 +100,18 @@ margin-left: -15px;
     top: -35px;
     z-index: 1;
     right: auto;
+}
+#lbn {
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url(../img/Orb3.png) no-repeat;
+    width: 35px;
+    height: 35px;
+    padding-left: 35px;
+}
+#bye:hover #lbn {
+    background: url(../img/Orb4.png) no-repeat;
 }
 #welcome	{
 position: absolute;
