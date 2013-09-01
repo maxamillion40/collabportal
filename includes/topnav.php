@@ -5,7 +5,7 @@
 		<!-- Nav -->
 		<ul class="site-nav">
 			<li><a href="new.php">Neues Collab</a></li>
-			<li><a href="./">Meine Collabs</a></li>
+			<li><a href="./">Mitglieder</a></li>
 			<li><a href="./">Hilfe</a></li>
 			<li><a href="./">Scratch</a></li>
 			<?php
@@ -49,7 +49,14 @@
 					
 				if(is_loggedin())	{
 					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
-					echo "<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb2.png' height='35' /><br/><span id='logout-sign'>Logout</span></a></li>";
+                    echo "<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb2.png' height='35' /><br/><span id='logout-sign'>Logout</span></a></li>";
+					echo "<div class='amenu'><li id='bmenu'><a><img id='mbn' src='img/menu2.png' height='35' /></a></li>
+                            <ul id='menulink'>
+                                <li><a>Meine Collabs</a></li><br/>
+                                <li><a>Neues Collab</a></li><br/>
+                                <li><a>Bla</a></li><br/>
+                                <li><a>Einstellungen</a></li>
+                            </ul></div>";
 				}
 				else	{
 					echo "<li id=\"join\">

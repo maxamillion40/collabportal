@@ -44,11 +44,14 @@ margin-left: -5px !important;
 #bye, #join	{
 position: absolute;
 top: 1px;
-right: 0;
 height: 34px;
 border-right: 1px #149acb solid;
 }
+#join {
+    right: 0;
+}
 #bye {
+    right: 66px;
     background-color: #0f8bc0;
     overflow: hidden;
     border-radius: 0;
@@ -116,8 +119,59 @@ border-right: 1px #149acb solid;
 #welcome	{
 position: absolute;
 top: 1px;
-right: 66px;
+right: 132px;
 height: 34px;
+}
+#bmenu {
+position: absolute;
+padding: 0;
+top: 1px;
+right: 0;
+width: 66px;
+height: 34px;
+border-right: #149acb 1px solid;
+border-left: none;
+}
+#menulink {
+position: absolute;
+overflow: hidden;
+top: 34px;
+right: 0;
+height: 0;
+width: 66px;
+background-color: #0f8bc0;
+border-radius: 0px;
+border-top: 1px #149acb solid;
+opacity: 1;
+transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 0.25s 0.25s;
+-webkit-transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 0.25s 0.25s;
+}
+#menulink li {
+    text-align: left;
+    width: 140px;
+    height: 35px;
+    border-left: none;
+}
+.amenu:hover #menulink {
+height: 140px;
+width: 132px;
+top: 34px;
+border-radius: 0px 0px 10px 10px;
+opacity: 1;
+transition: opacity 0.25s, width 0.25s 0.25s, height 0.25s, border-radius 0.25s;
+-webkit-transition: opacity 0.25s, width 0.25s 0.25s, height 0.25s, border-radius 0.25s;
+}
+#mbn {
+display: block;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+background: url(../img/menu.png) no-repeat;
+width: 35px;
+height: 35px;
+padding-left: 35px
+}
+.amenu:hover #mbn {
+background: url(../img/menu2.png) no-repeat;
 }
 #login	{
 width: 200px;
