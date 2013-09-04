@@ -1,17 +1,11 @@
 ﻿$(document).ready(function() {
 	//generate tooltips
 	$(document).tooltip();
-	//Generate accordion menu
-	$("#accordion").accordion({heightStyle: "content"});
 	//Remove tooltips for textarea
 	$("textarea").tooltip({ disabled: true });
 	//Login bubble
 	$("#join a").click(function()	{
 		$("#login").toggle("fade");
-	});
-	//Hide info boxes on click
-	$(".ui-state-error, .ui-state-highlight").click(function()	{
-		$(this).fadeOut(2000);
 	});
 });
 
