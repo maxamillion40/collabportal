@@ -129,44 +129,46 @@ header ul li	{
 	right: 66px;
 	width: 66px;
 	height: 34px;
-	border-right: #149acb 1px solid;
-	border-left: none;
+	border-left: #149acb 1px solid;
 }
 #menulink {
 	position: absolute;
 	overflow: hidden;
 	top: 34px;
-	right: 0;
+	right: 66px;
 	height: 0;
 	width: 66px;
 	background-color: #0f8bc0;
 	border-radius: 0px;
+	border: none;
 	border-top: 1px #149acb solid;
 	opacity: 1;
-	transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 0.25s 0.25s;
-	-webkit-transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 0.25s 0.25s;
+	transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 0.25s 0.25s, box-shadow 0.25s 0.25s;
+	-webkit-transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 0.25s 0.25s, box-shadow 0.25s 0.25s;
 }
 #menulink li {
     text-align: left;
     width: 140px;
     height: 35px;
-    border-left: none;
+    border: none;
 }
 #amenu:hover #menulink {
 	height: 140px;
 	width: 132px;
 	top: 34px;
-	border-radius: 0px 0px 10px 10px;
+	box-shadow: 0px 2px 2px grey;
+    border-radius: 0px 0px 10px 10px;
 	opacity: 1;
-	transition: opacity 0.25s, width 0.25s 0.25s, height 0.25s, border-radius 0.25s;
-	-webkit-transition: opacity 0.25s, width 0.25s 0.25s, height 0.25s, border-radius 0.25s;
+	transition: opacity 0.25s, width 0.25s 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
+	-webkit-transition: opacity 0.25s, width 0.25s 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }
 #mbn {
 	display: block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	background: url(../img/menu.png) no-repeat;
-	width: 35px;
+	right: 66px;
+    width: 35px;
 	height: 35px;
 	padding-left: 35px
 }
