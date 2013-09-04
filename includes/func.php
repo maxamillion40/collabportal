@@ -30,4 +30,9 @@
 			echo "<span class='orange'><span class='result-message'>".$message."</span></span>";
 		}
 	}
+	function print_array(array $in)	{
+		echo "<pre>";
+		print_r($in);
+		echo "</pre>";
+	}
 ?>
