@@ -41,7 +41,7 @@
 					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/menu2.png' height='35' /></a></li>
                             <ul id='menulink'>
                                 <li><a>Meine Collabs</a></li><br/>
-                                <li><a>Neues Collab</a></li><br/>
+                                <li><a href=\"new.php\">Neues Collab</a></li><br/>
                                 <li><a>Bla</a></li><br/>
                                 <li><a>Einstellungen</a></li>
                             </ul></div>";
