@@ -51,7 +51,7 @@ border-right: 1px #149acb solid;
     right: 0;
 }
 #bye {
-    right: 66px;
+    right: 0px;
     background-color: #0f8bc0;
     overflow: hidden;
     border-radius: 0;
@@ -126,7 +126,7 @@ height: 34px;
 position: absolute;
 padding: 0;
 top: 1px;
-right: 0;
+right: 66px;
 width: 66px;
 height: 34px;
 border-right: #149acb 1px solid;
@@ -152,7 +152,7 @@ transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 
     height: 35px;
     border-left: none;
 }
-.amenu:hover #menulink {
+#amenu:hover #menulink {
 height: 140px;
 width: 132px;
 top: 34px;
@@ -170,7 +170,7 @@ width: 35px;
 height: 35px;
 padding-left: 35px
 }
-.amenu:hover #mbn {
+#amenu:hover #mbn {
 background: url(../img/menu2.png) no-repeat;
 }
 #login	{
