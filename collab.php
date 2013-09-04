@@ -162,11 +162,11 @@
 																echo "Mitglied";
 															}
 															else	{
-																echo "---";
+																echo "Gast";
 															}
 														}
 														else	{
-															echo "Gast";
+															echo "Anonymer Gast";
 														}
 												?></td>
 											</tr>
