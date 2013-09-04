@@ -4,7 +4,9 @@
 	mysql_auto_connect();
 	$collab	= mysql_get("SELECT * FROM collabs WHERE `id`='".mysql_real_escape_string($_GET["id"])."'");
 	$messages	= mysql_get("SELECT * FROM collabmessages WHERE `collab`='".mysql_real_escape_string($_GET["id"])."' ORDER BY `timestamp` DESC");
-	$members	= unserialize($collab[0]["mitglieder"]);
+	$collab[0]["mitglieder"]	= unserialize($collab[0]["mitglieder"]);
+	$collab[0]["rang"] = "obsolete";
+	$collab[0]["von"] = "obsolete";
 	mysql_close();
 	if(count($collab) != 1)	{
 		header("Location: index.php?error=nocollab");
@@ -136,20 +138,27 @@
 											</tr>
 											<tr>
 												<td>Gründer:</td>
-												<td><?php echo $collab[0]["von"]; ?></td>
+												<td><?php echo $collab[0]["mitglieder"]["founder"]; ?></td>
 											</tr>
 											<tr>
 												<td>Status:</td>
-												<td><?php if($collab[0]["status"] == "open") { echo "offen"; } else { echo "beendet"; } ?></td>
+												<td><?php 
+													if($collab[0]["status"] == "open")	{
+														echo "offen";
+													}
+													else	{
+														echo "beendet";
+													}
+												?></td>
 											</tr>
 											<tr>
 												<td>Rang:</td>
 												<td><?php
 														if(isset($_SESSION["user"]))	{
-															if($members["founder"] == $_SESSION["user"])	{
+															if($collab[0]["mitglieder"]["founder"] == $_SESSION["user"])	{
 																echo "Gründer";
 															}
-															elseif(in_array($_SESSION["user"],$members["people"]))	{
+															elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
 																echo "Mitglied";
 															}
 															else	{
@@ -168,14 +177,14 @@
 						<!-- Members -->
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Mitglieder Icon" height="19" width="19" /> Mitglieder (<?php echo count($members["people"])+1; ?>)</h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Mitglieder Icon" height="19" width="19" /> Mitglieder (<?php echo count($collab[0]["mitglieder"]["people"])+1; ?>)</h4>
 							</div>
 							<div class="box-content">
 								<div class="inner box-no-padding">
 										<ul id="members">
 											<?php
-												echo "<li class='founder member'> ".$members["founder"]."</li>";
-												foreach($members["people"] as $mitglied)	{
+												echo "<li class='founder member'> ".$collab[0]["mitglieder"]["founder"]."</li>";
+												foreach($collab[0]["mitglieder"]["people"] as $mitglied)	{
 													echo "<li class='member'>".$mitglied."</li>";
 												}
 											?>
@@ -191,16 +200,23 @@
 							<div class="box-content">
 								<div class="inner">
 									<?php
-										//Wenn User ein Mitlgied ist
-										if(in_array($_SESSION["user"],$members["people"]))	{
-											echo "<button class='half sec' onClick=\"navigate('action.php?leave&id=".$collab[0]["id"]."')\">Austreten</button><br />";
+										if(isset($_SESSION["user"]))	{
+											print_array($collab);
+											if(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
+												//Buttons für normale Mitglieder
+												echo "normal";
+											}
+											elseif($_SESSION["user"] == $collab[0]["mitglieder"]["founder"])	{
+												//Buttons für Gründer
+												echo "Gründer";
+											}
+											else	{
+												//Keine Buttons
+												echo "<p>Diese Funktionen stehen nur Mitgliedern zur Verfügung.</p>";
+											}
 										}
-										//Wenn kein Mitglied
 										else	{
-											echo "<button class='half' onClick=\"navigate('action.php?join&id=".$collab[0]["id"]."');\">Beitreten</button>";
-										}
-										if($members["founder"] == $_SESSION["user"])	{
-											echo "<button class='full' onClick=\"navigate('admin.php?id=".$collab[0]["id"]."','false');\">Collab verwalten</button>";
+											echo "<p>Diese Funktionen stehen nur Mitgliedern zur Verfügung.</p>";
 										}
 									?>
 								</div>
