@@ -72,13 +72,13 @@
 								Merke dir dein Passwort gut, wenn es einmal gesetzt wurde, können wir es dir nicht mehr mitteilen, denn es wird verschlüsselt gespeichert!
 							</p>
 							<form action="action.php?signup" method="post">
-								<input value="<?php if(isset($_GET["name"])) {echo $_GET["name"];} ?>" type="text" name="name" placeholder="Gewünschter Nutzername" required autocomplete="off" title="Mit welchem Namen möchtest du dich hier anmelden und mit anderen Scratchern schreiben?" />
-								<input value="<?php if(isset($_GET["email"])) {echo $_GET["email"];} ?>" type="email" name="email" placeholder="Deine Email Adresse" required autocomplete="off" title="Deine Email Adresse brauchen wir nur, um Mehrfachanmeldungen zu verhindern." />
-								<input value="<?php if(isset($_GET["scratch"])) {echo $_GET["scratch"];} ?>" type="text" name="scratch" placeholder="Dein Scratch Account" required autocomplete="off" title="Wie lautet dein Nutzername auf Scratch?" />
-								<input type="password" name="pass" placeholder="Passwort"  required autocomplete="off" title="Dein Passwort sollte nicht das gleiche sein wie bei Scratch." />
-								<input type="password" name="pass_check" placeholder="Passwort wiederholen" required autocomplete="off" title="Bitte das Passwort wiederholen." />
-								<label><input type="checkbox" name="rules" value="accept" required title="Wirklich?" /> Nutzungsbedingungen gelesen und akzeptiert</label>
-								<input type="submit" class="button grey" value="Registrieren" />
+								<input value="<?php if(isset($_GET["name"])) {echo $_GET["name"];} ?>" type="text" name="name" placeholder="Gewünschter Nutzername" required autocomplete="off" title="Mit welchem Namen möchtest du dich hier anmelden und mit anderen Scratchern schreiben?" autofocus tabindex="1" />
+								<input value="<?php if(isset($_GET["email"])) {echo $_GET["email"];} ?>" type="email" name="email" placeholder="Deine Email Adresse" required autocomplete="off" title="Deine Email Adresse brauchen wir nur, um Mehrfachanmeldungen zu verhindern." tabindex="2" />
+								<input value="<?php if(isset($_GET["scratch"])) {echo $_GET["scratch"];} ?>" type="text" name="scratch" placeholder="Dein Scratch Account" required autocomplete="off" title="Wie lautet dein Nutzername auf Scratch?" tabindex="3" />
+								<input type="password" name="pass" placeholder="Passwort"  required autocomplete="off" title="Dein Passwort sollte nicht das gleiche sein wie bei Scratch." tabindex="4" />
+								<input type="password" name="pass_check" placeholder="Passwort wiederholen" required autocomplete="off" title="Bitte das Passwort wiederholen." tabindex="5" />
+								<label><input type="checkbox" name="rules" value="accept" required title="Wirklich?" tabindex="6" /> Nutzungsbedingungen gelesen und akzeptiert</label>
+								<input type="submit" class="button grey" value="Registrieren" tabindex="7" />
 							</form>
 						</div>
 					</div>
