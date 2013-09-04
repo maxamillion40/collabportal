@@ -4,11 +4,16 @@
 	include("../includes/func.php");
 	mysql_auto_connect();
 	$members	= unserialize(mysql_get("SELECT `mitglieder` FROM `collabs` WHERE id='".mysql_real_escape_string($_GET["id"])."'")[0]["mitglieder"]);
-	if(!in_array($_SESSION["user"],$members["people"]) and $members["founder"] != $_SESSION["user"])	{
-		echo "var member = false; \n";
+	if(is_loggedin())	{
+		if(!in_array($_SESSION["user"],$members["people"]) and $members["founder"] != $_SESSION["user"])	{
+			echo "var member = false; \n";
+		}
+		else	{
+			echo "var member = true; \n";
+		}
 	}
 	else	{
-		echo "var member = true; \n";
+		echo "var member = false \n";
 	}
 ?>
 function chat()	{

@@ -94,12 +94,7 @@
 									//Create a list of all collabs
 									foreach($collabs as $collab)	{
 										echo "<li class='project thumb item'>";
-										if(is_loggedin())	{
-											echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
-										}
-										else	{
-											echo "<img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' title='Nur angemeldete Nutzer können Collabs betrachten.' />";
-										}
+										echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
 										echo "<span class='title'>".$collab["name"]."</span>";
 										echo "<span class='owner'>".$collab["von"]."</span>";
 										echo "</li>";

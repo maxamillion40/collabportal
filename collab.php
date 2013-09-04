@@ -9,9 +9,6 @@
 	if(count($collab) != 1)	{
 		header("Location: index.php?error=nocollab");
 	}
-	if(!is_loggedin())	{
-		header("Location: index.php?error=nologin");
-	}
 	$tage	= array();
 		$tage["Monday"] = "Montag";
 		$tage["Tuesday"] = "Dienstag";
