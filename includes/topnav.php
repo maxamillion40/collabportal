@@ -21,17 +21,6 @@
 				if(isset($_GET["uname"]))	{
 					$uname = $_GET["uname"];
 				}
-				
-                function errnotice($code,$message) {
-		            if($GLOBALS["err"] == $code) {
-                    echo "<span class='red'><span class='result-message'>".$message."</span></span>";
-                    }
-                }
-                function resnotice($code,$message) {
-		            if($GLOBALS["res"] == $code) {
-                    echo "<span class='orange'><span class='result-message'>".$message."</span></span>";
-                    }
-                }
 				    /* Benachrichtigungen */
 				    resnotice("login","Willkommen zur&uuml;ck!");
                     resnotice("logout","Du wurdest ausgeloggt. Bis bald!");
