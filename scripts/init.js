@@ -1,6 +1,4 @@
 ﻿$(document).ready(function() {
-	//generate tooltips
-	$(document).tooltip();
 	//Remove tooltips for textarea
 	$("textarea").tooltip({ disabled: true });
 	//Login bubble
