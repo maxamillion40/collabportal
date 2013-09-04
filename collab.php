@@ -145,15 +145,20 @@
 											<tr>
 												<td>Rang:</td>
 												<td><?php
-													if($members["founder"] == $_SESSION["user"])	{
-														echo "Gründer";
-													}
-													elseif(in_array($_SESSION["user"],$members["people"]))	{
-														echo "Mitglied";
-													}
-													else	{
-														echo "---";
-													}
+														if(isset($_SESSION["user"]))	{
+															if($members["founder"] == $_SESSION["user"])	{
+																echo "Gründer";
+															}
+															elseif(in_array($_SESSION["user"],$members["people"]))	{
+																echo "Mitglied";
+															}
+															else	{
+																echo "---";
+															}
+														}
+														else	{
+															echo "Gast";
+														}
 												?></td>
 											</tr>
 										</table>
