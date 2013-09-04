@@ -5,10 +5,6 @@
 	$("#accordion").accordion({heightStyle: "content"});
 	//Remove tooltips for textarea
 	$("textarea").tooltip({ disabled: true });
-	//fade out info boxes
-	setTimeout(function(){
-		$(".ui-state-error, .ui-state-highlight, .remove").fadeOut(2000);
-	},5000);
 	//Login bubble
 	$("#join a").click(function()	{
 		$("#login").toggle("fade");
