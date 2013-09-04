@@ -4,10 +4,10 @@
 		<a href="./" class="logo" id="trans"><span class="scratch"></span></a>
 		<!-- Nav -->
 		<ul class="site-nav">
-			<li><a href="new.php">Neues Collab</a></li>
-			<li><a href="./">Mitglieder</a></li>
+			<li><a href="http://scratch.mit.edu/projects/editor/">Entwickeln</a></li>
+			<li><a href="http://scratch.mit.edu/explore/?date=this_month">Entdecken</a></li>
+			<li><a href="http://scratch.mit.edu/discuss/13/">Diskutieren</a></li>
 			<li><a href="./">Hilfe</a></li>
-			<li><a href="./">Scratch</a></li>
 			<?php
 		        $res = "";
 				if(isset($_GET["result"]))	{
