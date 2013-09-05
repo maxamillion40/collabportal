@@ -29,9 +29,11 @@
 		<meta name="keywords" content="scratch,collabs,dach,deutsch" />
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/cp.css" />/>
+		<link rel="stylesheet" href="styles/cp.css" />
+		<link rel="stylesheet" href="styles/jquery-ui-1.10.3.custom.min.css" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
+		<script src="scripts/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="scripts/jquery/jquery.getUrlParam.js"></script>
 		<script src="scripts/tinymce/tinymce.min.js"></script>
 		<script src="scripts/init.js"></script>
@@ -200,11 +202,11 @@
 											print_array($collab);
 											if(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
 												//Buttons für normale Mitglieder
-												echo "normal";
+												echo "<button>Austreten</button>";
 											}
 											elseif($_SESSION["user"] == $collab[0]["mitglieder"]["founder"])	{
 												//Buttons für Gründer
-												echo "Gründer";
+												echo "<button>Verwaltung</button>";
 											}
 											else	{
 												//Keine Buttons
