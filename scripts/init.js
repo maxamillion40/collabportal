@@ -1,6 +1,4 @@
 ﻿$(document).ready(function() {
-	//Remove tooltips for textarea
-	$("textarea").tooltip({ disabled: true });
 	//Login bubble
 	$("#join a").click(function()	{
 		$("#login").toggle("fade");
