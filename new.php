@@ -16,10 +16,8 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
-		<link rel="stylesheet" href="styles/jquery-ui-1.10.3.custom.min.css" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
-		<script src="scripts/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="scripts/tinymce/tinymce.min.js"></script>
 		<script src="scripts/init.js"></script>
 	</head>
