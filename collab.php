@@ -5,8 +5,6 @@
 	$collab	= mysql_get("SELECT * FROM collabs WHERE `id`='".mysql_real_escape_string($_GET["id"])."'");
 	$messages	= mysql_get("SELECT * FROM collabmessages WHERE `collab`='".mysql_real_escape_string($_GET["id"])."' ORDER BY `timestamp` DESC");
 	$collab[0]["mitglieder"]	= unserialize($collab[0]["mitglieder"]);
-	$collab[0]["rang"] = "obsolete";
-	$collab[0]["von"] = "obsolete";
 	mysql_close();
 	if(count($collab) != 1)	{
 		header("Location: index.php?error=nocollab");
