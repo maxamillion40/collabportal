@@ -31,7 +31,7 @@
 				?>
 			<!-- Main Content -->	
 			<div class="container" id="content">
-			<?php
+			<!-- <?php
 				if(isset($_GET["error"]))	{
 					if($_GET["error"] == "namenotavailable")	{
 						echo "<div class='ui-state-error'>Dieser Nutzername ist nicht verfügbar!</div>";
@@ -58,7 +58,7 @@
 				if(isset($_GET["result"]))	{
 					//
 				}
-			?>
+			?> -->
 				<article class="box">
 					<div class="box-head">
 						<h4>Registrieren</h4>
