@@ -7,7 +7,7 @@
 			<li><a href="http://scratch.mit.edu/projects/editor/">Entwickeln</a></li>
 			<li><a href="http://scratch.mit.edu/explore/?date=this_month">Entdecken</a></li>
 			<li><a href="http://scratch.mit.edu/discuss/13/">Diskutieren</a></li>
-			<li><a href="./">Hilfe</a></li>
+			<li id="addborder"><a href="./">Hilfe</a></li>
 			<?php
 		        $res = "";
 				if(isset($_GET["result"]))	{
@@ -25,21 +25,8 @@
 				if(isset($_GET["name"]))	{
 					$name = $_GET["name"];
 				}
-				    /* Benachrichtigungen */
-				    resnotice("login","Willkommen zur&uuml;ck!");
-                    resnotice("logout","Du wurdest ausgeloggt. Bis bald!");
-                    resnotice("censored","Die Nachricht wurde zensiert!");
-                    resnotice("msgok","Deine Nachricht wurde gespeichert!");
-					resnotice("signup","Dein Account wurde angelegt, ".$name.".");
-                    /* Fehlermeldungen */
-                    errnotice("notin","Du bist kein Mitglied in diesem Collab!");
-                    errnotice("alreadyin","Du bist bereits Mitglied in diesem Collab!");
-                    errnotice("own","Du kannst aus deinem Collab nicht austreten!");
-					errnotice("notext","Du hast keine Nachricht eingegeben!");
-					errnotice("nologin","Logge dich ein, um Collabs zu betrachten!");
-					errnotice("noid","Interner Fehler, konnte Nachricht nicht zuordnen!");
-					errnotice("unknownuser","Dieser Nutzer existiert nicht!");
-					errnotice("badpass","Falsches Passwort oder Nutzername!");
+				
+                    require_once("includes/notices.php");
 					
 				if(is_loggedin())	{
 					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
@@ -47,10 +34,11 @@
                             <ul id='menulink'>
                                 <li><a>Meine Collabs</a></li><br/>
                                 <li><a href=\"new.php\">Neues Collab</a></li><br/>
-                                <li><a>Bla</a></li><br/>
-                                <li><a>Einstellungen</a></li>
+                                <li><a>Mitglieder</a></li><br/>
+                                <li><a>Einstellungen</a></li><br/>
+                                <li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><span id='logout-sign'>Logout</span></a></li>
                             </ul></div>";
-					 echo "<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb2.png' height='35' /><br/><span id='logout-sign'>Logout</span></a></li>";
+					 /* echo "<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><br/><span id='logout-sign'>Logout</span></a></li>"; */
 				}
 				else	{
 					echo "<li id=\"join\">

@@ -1,18 +1,18 @@
 @keyframes pop {
-    10%  {top: -35px;}
+    10%  {top: -70px;}
     20%  {top: 12px;}
     25%  {top: 2px;}
     85%  {top: 2px;}
     90%  {top: 12px;}
-    100% {top: -35px;}
+    100% {top: -70px;}
 }
 @-webkit-keyframes pop {
-    10%  {top: -35px;}
+    10%  {top: -70px;}
     20%  {top: 12px;}
     25%  {top: 2px;}
     85%  {top: 2px;}
     90%  {top: 12px;}
-    100% {top: -35px;}
+    100% {top: -70px;}
 }
 @keyframes pop2 {
     10%  {top: -35px;}
@@ -41,101 +41,77 @@ header ul li	{
 
 /* Login und Logout Button */
 
-#bye, #join	{
+#join {
 	position: absolute;
 	top: 1px;
 	height: 34px;
 	border-right: 1px #149acb solid;
-}
-#join {
     right: 0;
 }
-#bye {
-    right: 0px;
-    background-color: #0f8bc0;
-    overflow: hidden;
-    border-radius: 0;
-    transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
-    -webkit-transition: height 0.5s, box-shadow 0.5s, border-radius 0.5s;
-}
-#bye span	{
-    margin-left: -15px;
-}
-#bye:hover {
-    height: 70px;
-    background-color: #0f8bc0;
-    box-shadow: 0px 1px 5px grey;
-    border-radius: 0px 0px 10px 10px;
-}
-#logout-sign {
+.result-message {
+    animation: pop 5s;
+    -webkit-animation: pop 5s;
     color: #fff;
     font-size: 15px;
     text-align: center;
-    padding:0 10px;
+    padding: 5px 10px;
     display: inline-block;
     position: absolute;
-    top: 35px;
+    top: -70px;
+    z-index: 1;
+    right: auto;
+    margin-left: 3px;
 }
 .orange .result-message {
     background-color: #F9A539;
-    animation: pop 5s;
-    -webkit-animation: pop 5s;
-    color: #fff;
-    font-size: 15px;
-    text-align: center;
-    padding: 5px 10px;
-    display: inline-block;
-    position: absolute;
-    top: -35px;
-    z-index: 1;
-    right: auto;
 }
 .red .result-message {
     background-color: #E85F29;
-    animation: pop 5s;
-    -webkit-animation: pop 5s;
-    color: #fff;
-    font-size: 15px;
-    text-align: center;
-    padding: 5px 10px;
-    display: inline-block;
+}
+#addborder {
+    border-right: 1px #149acb solid;
+}
+#logout-sign {
     position: absolute;
-    top: -35px;
-    z-index: 1;
     right: auto;
+    top: 140px; 
+    padding-left: 45px;
 }
 #lbn {
     display: block;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background: url(../img/Orb5.png) no-repeat;
-    width: 35px;
+    width: 0px;
     height: 35px;
-    padding-left: 35px;
+    padding-right: 140px;
+}
+#bye:hover {
+    background-color: #0f8bc0;
 }
 #bye:hover #lbn {
     background: url(../img/Orb4.png) no-repeat;
 }
 #welcome	{
 	position: absolute;
-	top: 1px;
-	right: 132px;
-	height: 34px;
-}
+	top: 0px;
+	right: 67px;
+	height: 35px;
+} 
 #bmenu {
 	position: absolute;
 	padding: 0;
-	top: 1px;
-	right: 66px;
+	top: 0px;
+	right: 0px;
 	width: 66px;
-	height: 34px;
-	border-left: #149acb 1px solid;
+	height: 35px;
+	border-right: #149acb 1px solid;
 }
 #menulink {
 	position: absolute;
 	overflow: hidden;
 	top: 34px;
-	right: 66px;
+	right: 0px;
 	height: 0;
 	width: 66px;
 	background-color: #0f8bc0;
@@ -143,24 +119,22 @@ header ul li	{
 	border: none;
 	border-top: 1px #149acb solid;
 	opacity: 1;
-	transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 0.25s 0.25s, box-shadow 0.25s 0.25s;
-	-webkit-transition: opacity 0.25s 0.25s, width 0.25s, height 0.25s 0.25s, border-radius 0.25s 0.25s, box-shadow 0.25s 0.25s;
+	transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
+	-webkit-transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }
 #menulink li {
     text-align: left;
     width: 140px;
     height: 35px;
-    border: none;
+    border-left: none;
 }
 #amenu:hover #menulink {
-	height: 140px;
+	height: 175px;
 	width: 132px;
-	top: 34px;
+	top: 35px;
 	box-shadow: 0px 2px 2px grey;
     border-radius: 0px 0px 10px 10px;
 	opacity: 1;
-	transition: opacity 0.25s, width 0.25s 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
-	-webkit-transition: opacity 0.25s, width 0.25s 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }
 #mbn {
 	display: block;
