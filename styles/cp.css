@@ -301,3 +301,6 @@ iframe	{
 #info tr td:last-child	{
 	padding-left: 5px;
 }
+#dialogbox	{
+	background: white;
+}
