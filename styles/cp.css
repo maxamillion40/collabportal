@@ -68,7 +68,7 @@ header ul li	{
 .red .result-message {
     background-color: #E85F29;
 }
-#addborder {
+.addborder {
     border-right: 1px #149acb solid;
 }
 #logout-sign {
@@ -110,7 +110,7 @@ header ul li	{
 #menulink {
 	position: absolute;
 	overflow: hidden;
-	top: 34px;
+	top: 35px;
 	right: 0px;
 	height: 0;
 	width: 66px;
@@ -118,7 +118,7 @@ header ul li	{
 	border-radius: 0px;
 	border: none;
 	border-top: 1px #149acb solid;
-	opacity: 1;
+	opacity: 0;
 	transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 	-webkit-transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }

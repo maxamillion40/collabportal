@@ -1,6 +1,6 @@
 <?php
 /* Benachrichtigungen */
-    resnotice("login","Willkommen zur&uuml;ck!");
+    resnotice("login","Willkommen zurÃ¼ck!");
     resnotice("logout","Du wurdest ausgeloggt. Bis bald!");
     resnotice("censored","Die Nachricht wurde zensiert!");
     resnotice("msgok","Deine Nachricht wurde gespeichert!");
@@ -14,10 +14,11 @@
     errnotice("noid","Interner Fehler, konnte Nachricht nicht zuordnen!");
     errnotice("unknownuser","Dieser Nutzer existiert nicht!");
     errnotice("badpass","Falsches Passwort oder Nutzername!");
-    errnotice("namenotavailable","Dieser Nutzername ist nicht verfügbar!");
-    errnotice("badmail","Das scheint keine gültige Email Adresse zu sein.");
+        /* Hinweis: Badpass wurde von join.php anders interpretiert als von anderen Seiten, deswegen existiert es hier doppelt. */
+    errnotice("namenotavailable","Dieser Nutzername ist nicht verfÃ¼gbar!");
+    errnotice("badmail","Das scheint keine gÃ¼ltige Email Adresse zu sein.");
     errnotice("badprofile","Dieses Scratchprofil existiert nicht!");
-    errnotice("badpass","Die Passwörter stimmen nicht überein!");
+    errnotice("badpass","Die PasswÃ¶rter stimmen nicht Ã¼berein!");
     errnotice("badpasslogin","Das Passwort war leider nicht korrekt!");
     errnotice("mailnotavailable","Diese Email Adresse wird bereits verwendet!");
 ?>
