@@ -29,7 +29,7 @@
 			echo "Scratch Profil ok.<br />";
 			//3. Stimmen $pass und $pass_check überein?
 			if($pass != $pass_check)	{
-				die(header("Location: join.php?view=signup&error=badpass&scratch=$scratch&name=$username&email=$mail"));
+				die(header("Location: join.php?view=signup&error=badpassb&scratch=$scratch&name=$username&email=$mail"));
 			}
 			echo "Passwort ok.";
 			//4. Wurde die Mailadresse schonmal benutzt?

@@ -14,11 +14,10 @@
     errnotice("noid","Interner Fehler, konnte Nachricht nicht zuordnen!");
     errnotice("unknownuser","Dieser Nutzer existiert nicht!");
     errnotice("badpass","Falsches Passwort oder Nutzername!");
-        /* Hinweis: Badpass wurde von join.php anders interpretiert als von anderen Seiten, deswegen existiert es hier doppelt. */
     errnotice("namenotavailable","Dieser Nutzername ist nicht verfügbar!");
     errnotice("badmail","Das scheint keine gültige Email Adresse zu sein.");
     errnotice("badprofile","Dieses Scratchprofil existiert nicht!");
-    errnotice("badpass","Die Passwörter stimmen nicht überein!");
+    errnotice("badpassb","Die Passwörter stimmen nicht überein!");
     errnotice("badpasslogin","Das Passwort war leider nicht korrekt!");
     errnotice("mailnotavailable","Diese Email Adresse wird bereits verwendet!");
 ?>
