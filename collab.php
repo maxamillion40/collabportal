@@ -199,18 +199,17 @@
 								<div class="inner">
 									<?php
 										if(isset($_SESSION["user"]))	{
-											print_array($collab);
 											if(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
 												//Buttons für normale Mitglieder
-												echo "<button>Austreten</button>";
+												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."')\">Austreten</button>";
 											}
 											elseif($_SESSION["user"] == $collab[0]["mitglieder"]["founder"])	{
 												//Buttons für Gründer
 												echo "<button>Verwaltung</button>";
 											}
 											else	{
-												//Keine Buttons
-												echo "<p>Diese Funktionen stehen nur Mitgliedern zur Verfügung.</p>";
+												//Buttons für Gäste
+												echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."');\">Beitreten</button>";
 											}
 										}
 										else	{
