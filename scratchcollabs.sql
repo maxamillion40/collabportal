@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 14. Sep 2013 um 15:36
+-- Erstellungszeit: 14. Sep 2013 um 15:49
 -- Server Version: 5.5.27
 -- PHP-Version: 5.4.7
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `collabs` (
   `status` char(20) NOT NULL DEFAULT 'open',
   `logo` char(100) NOT NULL DEFAULT 'none.png',
   `start` char(50) NOT NULL,
-  `settings` text NOT NULL,
+  `settings` char(255) NOT NULL DEFAULT 'a:2:{s:11:"members_max";b:0;s:12:"confirm_join";b:0;}',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
