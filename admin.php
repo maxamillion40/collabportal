@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	require_once("includes/func.php");
+	mysql_auto_connect();
+	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=" . $_GET["id"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +37,9 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									
+									<?php
+										print_array($collab);
+									?>
 								</div>
 							</div>
 						</article>
