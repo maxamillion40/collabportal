@@ -175,7 +175,7 @@
 											}
 											elseif($_SESSION["user"] == $collab[0]["mitglieder"]["founder"])	{
 												//Buttons für Gründer
-												echo "<button onClick=\"navigate('action.php?admin&id=".$_GET["id"]."');\">Verwaltung</button>";
+												echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">Verwaltung</button>";
 											}
 											else	{
 												//Buttons für Gäste
