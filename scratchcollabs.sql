@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 14. Sep 2013 um 15:49
+-- Erstellungszeit: 14. Sep 2013 um 15:59
 -- Server Version: 5.5.27
 -- PHP-Version: 5.4.7
 
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `collabmessages` (
 CREATE TABLE IF NOT EXISTS `collabs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(50) NOT NULL,
+  `owner` char(25) NOT NULL,
   `desc` text NOT NULL,
   `mitglieder` text NOT NULL,
   `status` char(20) NOT NULL DEFAULT 'open',

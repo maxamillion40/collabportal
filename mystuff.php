@@ -4,7 +4,7 @@
 	mysql_auto_connect();
 	if(is_loggedin()) {
 		$user = $_SESSION['user'];
-		$mycollabs = mysql_get("SELECT * FROM collabs WHERE `von`='$user'");
+		$mycollabs = mysql_get("SELECT * FROM collabs WHERE `owner`='$user'");
 	}
 	else {
 		die(header("Location: index.php?error=nologin"));
