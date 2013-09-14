@@ -22,4 +22,5 @@
     errnotice("badpassb","Die Passwörter stimmen nicht überein!");
     errnotice("badpasslogin","Das Passwort war leider nicht korrekt!");
     errnotice("mailnotavailable","Diese Email Adresse wird bereits verwendet!");
+	errnotice("badaction","Diese Aktion konnte nicht ausgeführt werden!");
 ?>
