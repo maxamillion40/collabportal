@@ -3,6 +3,7 @@
 	require_once("includes/func.php");
 	mysql_auto_connect();
 	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=" . $_GET["id"]);
+	$collab[0]["settings"] = unserialize($collab[0]["settings"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,6 +41,19 @@
 									<?php
 										print_array($collab);
 									?>
+									<table>
+										<tr>
+											<td>Maximale Mitgliederzahl:</td>
+											<td><?php
+												if(!is_int($collab[0]["settings"]["members_max"]))	{
+													echo "Nicht definiert";
+												}
+												else	{
+													echo $collab[0]["settings"]["members_max"];
+												}
+											?></td>
+										</tr>
+									</table>
 								</div>
 							</div>
 						</article>
