@@ -5,6 +5,8 @@
     resnotice("censored","Die Nachricht wurde zensiert!");
     resnotice("msgok","Deine Nachricht wurde gespeichert!");
     resnotice("signup","Dein Account wurde angelegt, ".$name.".");
+	resnotice("joinok","Du bist nun Mitglied!");
+	resnotice("leaveok","Du bist soeben ausgetreten!");
 /* Fehlermeldungen */
     errnotice("notin","Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin","Du bist bereits Mitglied in diesem Collab!");
