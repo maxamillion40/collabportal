@@ -171,7 +171,7 @@
 										if(isset($_SESSION["user"]))	{
 											if(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
 												//Buttons für normale Mitglieder
-												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."')\">Austreten</button>";
+												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','Willst du wirklich aus diesem Collab austreten?')\">Austreten</button>";
 											}
 											elseif($_SESSION["user"] == $collab[0]["mitglieder"]["founder"])	{
 												//Buttons für Gründer
@@ -179,7 +179,7 @@
 											}
 											else	{
 												//Buttons für Gäste
-												echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."');\">Beitreten</button>";
+												echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst!');\">Beitreten</button>";
 											}
 										}
 										else	{

@@ -6,9 +6,9 @@
 });
 
 //A function to redirect the user
-function navigate(to,dialog=true)	{
-	if(dialog == true)	{
-		if(confirm("Bist du sicher?"))	{
+function navigate(to,dialog=null)	{
+	if(typeof(dialog) == "string")	{
+		if(confirm(dialog))	{
 			window.location = to;
 		}
 	}
