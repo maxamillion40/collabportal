@@ -37,7 +37,7 @@
 								<div class="inner">
 									<h4>Geschichte</h4>
 										Das Collabportal wurde am 03.02.2013 von webdesigner97 ins Leben gerufen, um das deutsche Scratchforum zu entlasten und die Verwaltung von Collabs zu vereinfachen. 
-										Es ist seit dem 12.08.2013 im Zuge der Umrüstung auf das aktuelle Design von Scratch eine Zusammenarbeit von webdesigner97 und Lirex. 
+										Es ist seit dem 08.08.2013 im Zuge der Umrüstung auf das aktuelle Design von Scratch eine Zusammenarbeit von webdesigner97 und Lirex. 
 										Bei Fragen kannst du dich gerne <a href="./" >hier</a> an diese wenden, oder am besten erst einmal in der Hilfe nachschauen.
 									<hr/>
 									<h4>Zukünftige Pläne</h4>
