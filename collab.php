@@ -49,36 +49,6 @@
 				?>
 			<!-- Main Content -->	
 			<div class="container" id="content">
-				<!-- <?php
-					if(isset($_GET["error"]))	{
-						if($_GET["error"] == "notin")	{
-							echo "<div class='ui-state-error'>Es ist ein Fehler aufgetreten! Du kannst nicht aus einem Collab austreten, in dem du nicht Mitglied bist!</div>";
-						}
-						if($_GET["error"] == "alreadyin")	{
-							echo "<div class='ui-state-error'>Es ist ein Fehler aufgetreten! Du bist bereits Mitglied in diesem Collab!</div>";
-						}
-						if($_GET["error"] == "own")	{
-							echo "<div class='ui-state-error'>Du kannst nicht aus deinem eigenen Collab austreten!</div>";
-						}
-						if($_GET["error"] == "notext")	{
-							echo "<div class='ui-state-error'>Du hast keine Nachricht eingegeben!</div>";
-						}
-					}
-					if(isset($_GET["result"]))	{
-						if($_GET["result"] == "leaveok")	{
-							echo "<div class='ui-state-highlight'>Du bist aus diesem Collab ausgetreten!</div>";
-						}
-						if($_GET["result"] == "joinok")	{
-							echo "<div class='ui-state-highlight'>Du bist nun Mitglied in diesem Collab!</div>";
-						}
-						if($_GET["result"] == "msgok")	{
-							echo "<div class='ui-state-highlight'>Deine Nachricht wurde gespeichert!</div>";
-						}
-						if($_GET["result"] == "censored")	{
-							echo "<div class='ui-state-highlight'>Die Nachricht wurde zensiert!</div>";
-						}
-					}
-				?> -->
 				<div class="cols clearfix">
 					<div class="col-11">
 						<article class="box collab">

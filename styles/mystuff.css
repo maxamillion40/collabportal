@@ -1,0 +1,44 @@
+.inner h4 {
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.inner hr {
+	color: #fff;
+}
+.box-content {
+	padding-bottom: 20px;
+}
+h3 {
+	font-size: 22px;
+}
+#newcollab {
+	position: absolute;
+	right: 10px;
+	top: 3px;
+}
+
+#msu {
+	list-style: none;
+}
+#msu .image {
+	border: 1px lightgrey solid;
+}
+
+.stats {
+	display: inline;
+	position: absolute;
+	float: right;
+}
+.stats tr {
+	background-color: #f7f7f7; 
+	border: 2px #fff solid;
+	transition: background-color 0.25s;
+	-webkit-transition: background-color 0.25s;
+}
+.stats tr:hover {
+	background-color: #e0e0e0;
+	cursor: default;
+}
+.stats td {
+	padding: 1px 3px;
+}

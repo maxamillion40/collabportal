@@ -10,7 +10,7 @@
     errnotice("alreadyin","Du bist bereits Mitglied in diesem Collab!");
     errnotice("own","Du kannst aus deinem Collab nicht austreten!");
     errnotice("notext","Du hast keine Nachricht eingegeben!");
-    errnotice("nologin","Logge dich ein, um Collabs zu betrachten!");
+    errnotice("nologin","Logge dich ein, um deine Collabs zu betrachten!");
     errnotice("noid","Interner Fehler, konnte Nachricht nicht zuordnen!");
     errnotice("unknownuser","Dieser Nutzer existiert nicht!");
     errnotice("badpass","Falsches Passwort oder Nutzername!");

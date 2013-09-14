@@ -32,11 +32,11 @@
 					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
 					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/menu2.png' height='35' /></a></li>
                             <ul id='menulink'>
-                                <li><a>Meine Collabs</a></li><br/>
-                                <li><a href=\"new.php\">Neues Collab</a></li><br/>
-                                <li><a>Mitglieder</a></li><br/>
-                                <li><a>Einstellungen</a></li><br/>
-                                <li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><span id='logout-sign'>Logout</span></a></li>
+                                <li><a href='mystuff.php'>Meine Collabs</a></li><br/>
+								<li><a>Profil</a></li><br/>
+                                <li><a href='about.php'>Das CollabPortal</a></li><br/>
+								<li><a href='help.php'>Hilfe</a></li><br/>
+								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><span id='logout-sign'>Logout</span></a></li>
                             </ul></div>";
 					 /* echo "<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><br/><span id='logout-sign'>Logout</span></a></li>"; */
 				}
