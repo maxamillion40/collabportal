@@ -46,6 +46,7 @@
 							<div class="box-content">
 								<div class="inner">
 									<?php
+										print_array($mycollabs);
 										echo "<ul id='msu'>";
 										if(count($mycollabs) > 0)	{
 											//Collabliste
@@ -56,9 +57,10 @@
 													echo "<tr><td><b>Name:</b></td><td>".$collab["name"]."</td></tr>";
 													echo "<tr><td><b>Status:</b></td><td>".$collab["status"]."</td></tr>";
 													echo "<tr><td><b>Mitglieder:</b></td><td><ul class='cmembers'>";
-												//foreach($collab["id"]["mitglieder"]["people"] as $member) {
-												//	echo "<li>".$member."</li>";
-												//}
+													$collab["mitglieder"] = unserialize($collab["mitglieder"]);
+													foreach($collab["mitglieder"]["people"] as $member) {
+														echo "<li>".$member."</li>";
+													}
 												echo "</ul></td></tr></table></li><hr/>";
 											}
 										}
