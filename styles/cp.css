@@ -156,6 +156,10 @@ header ul li	{
 #amenu:hover #mbn {
 	background: url(../img/menu2.png) no-repeat;
 }
+
+.right {
+	cursor: help !important;
+}
 #login	{
 	width: 200px;
 	height: 135px;
