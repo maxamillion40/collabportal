@@ -21,6 +21,7 @@
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/init.js"></script>
+		<script src="scripts/admin.js"></script>
 	</head>
 	<body>
 		<div id="pagewrapper">
@@ -39,10 +40,10 @@
 							<div class="box-content">
 								<div class="inner">
 									<table border="1">
-										<tr>
-											<td><input type="checkbox" /></td>
+										<tr id="row-max-members">
+											<td><input type="checkbox" id="check-max-members" /></td>
 											<td>Maximale Mitgliederzahl</td>
-											<td><input type="number" /></td>
+											<td><input type="number" id="input-max-members" /></td>
 											<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
 										</tr>
 										<tr>
