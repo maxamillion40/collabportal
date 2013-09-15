@@ -39,28 +39,30 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<table border="1">
-										<tr id="row-max-members">
-											<td><input type="checkbox" id="check-max-members" <?php
-												if(gettype($collab[0]["settings"]["members_max"]) != "boolean")	{
-													echo "checked='checked' ";
-												}
-											?> /></td>
-											<td>Maximale Mitgliederzahl</td>
-											<td><input type="number" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab[0]["settings"]["members_max"]; ?>" /></td>
-											<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
-										</tr>
-										<tr id="row-confirm-join">
-											<td><input type="checkbox" id="check-confirm-join" /></td>
-											<td>Beitritt bestätigen</td>
-											<td>&nbsp;</td>
-											<td>Neue Mitglieder müssen zunächst vom von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
-										</tr>
-									</table>
-									<button type="submit">Änderungen speichern</button>
-									<?php
-										print_array($collab);
-									?>
+									<form action="action.php?settings" method="post">
+										<table border="1">
+											<tr id="row-max-members">
+												<td><input type="checkbox" id="check-max-members" <?php
+													if(gettype($collab[0]["settings"]["members_max"]) != "boolean")	{
+														echo "checked='checked' ";
+													}
+												?> /></td>
+												<td>Maximale Mitgliederzahl</td>
+												<td><input type="number" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab[0]["settings"]["members_max"]; ?>" /></td>
+												<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
+											</tr>
+											<tr id="row-confirm-join">
+												<td><input type="checkbox" id="check-confirm-join" /></td>
+												<td>Beitritt bestätigen</td>
+												<td>&nbsp;</td>
+												<td>Neue Mitglieder müssen zunächst vom von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
+											</tr>
+										</table>
+										<button type="submit">Änderungen speichern</button>
+										<?php
+											print_array($collab);
+										?>
+									</form>
 								</div>
 							</div>
 						</article>
