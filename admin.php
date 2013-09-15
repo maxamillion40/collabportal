@@ -41,9 +41,13 @@
 								<div class="inner">
 									<table border="1">
 										<tr id="row-max-members">
-											<td><input type="checkbox" id="check-max-members" /></td>
+											<td><input type="checkbox" id="check-max-members" <?php
+												if(gettype($collab[0]["settings"]["members_max"]) != "boolean")	{
+													echo "checked='checked' ";
+												}
+											?> /></td>
 											<td>Maximale Mitgliederzahl</td>
-											<td><input type="number" id="input-max-members" /></td>
+											<td><input type="number" id="input-max-members" placeholder="Zahl" value="<?php echo $collab[0]["settings"]["members_max"]; ?>" /></td>
 											<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
 										</tr>
 										<tr id="row-confirm-join">

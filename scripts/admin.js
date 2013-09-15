@@ -1,35 +1,55 @@
-﻿$(document).ready(function() {
+﻿$(document).ready(function()	{
+	//
+	// Handler on page load
+	//
+	
+	if($("#check-max-members").is(":checked"))	{
+		$("#row-max-members").css("color","#322F31");
+		$("#input-max-members").removeAttr("disabled");
+		$("#row-max-members").removeClass("static-bg");
+	}
+	else	{
+		$("#row-max-members").css("color","#9F9F9F");
+		$("#input-max-members").attr("disabled","disabled");
+		$("#input-max-members").attr("value","");
+		$("#row-max-members").addClass("static-bg");
+	}
+	//
+	if($("#check-confirm-join").is(":checked"))	{
+		$("#row-confirm-join").css("color","#322F31");
+		$("#row-confirm-join").removeClass("static-bg");
+	}
+	else	{
+		$("#row-confirm-join").css("color","#9F9F9F");
+		$("#row-confirm-join").addClass("static-bg");
+	}
+	
+	//
+	// Handler for click on a setting
+	//
+	
 	$("#check-max-members").click(function()	{
-		var state = $(this).is(":checked");
-		if(state == false)	{
-			$("#row-max-members").addClass("static-bg");
-			$("#row-max-members").children().each(function()	{
-				$(this).css("color","#CFCFCF");
-				$("#input-max-members").attr("disabled","disabled").attr("value","");
-			});
+		if($("#check-max-members").is(":checked"))	{
+			$("#row-max-members").css("color","#322F31");
+			$("#input-max-members").removeAttr("disabled");
+			$("#row-max-members").removeClass("static-bg");
 		}
 		else	{
-			$("#row-max-members").removeClass("static-bg");
-			$("#row-max-members").children().each(function()	{
-				$(this).css("color","#322F31");
-				$("#input-max-members").removeAttr("disabled");
-			});
+			$("#row-max-members").css("color","#9F9F9F");
+			$("#input-max-members").attr("disabled","disabled");
+			$("#input-max-members").attr("value","");
+			$("#row-max-members").addClass("static-bg");
 		}
 	});
 	//
 	$("#check-confirm-join").click(function()	{
-		var state = $(this).is(":checked");
-		if(state == false)	{
-			$("#row-confirm-join").addClass("static-bg");
-			$("#row-confirm-join").children().each(function()	{
-				$(this).css("color","#CFCFCF");
-			});
+		if($("#check-confirm-join").is(":checked"))	{
+			$("#row-confirm-join").css("color","#322F31");
+			$("#row-confirm-join").removeClass("static-bg");
 		}
 		else	{
-			$("#row-confirm-join").removeClass("static-bg");
-			$("#row-confirm-join").children().each(function()	{
-				$(this).css("color","#322F31");
-			});
+			$("#row-confirm-join").css("color","#9F9F9F");
+			$("#row-confirm-join").addClass("static-bg");
 		}
 	});
 });
