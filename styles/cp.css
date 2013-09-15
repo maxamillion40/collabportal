@@ -283,9 +283,14 @@ iframe	{
 	background-image: url(../img/cat_cropped.png);
 	background-repeat: no-repeat;
 	background-position: 20px center;
+	line-height: 0.8462em;
 }
 #footer p	{
 	margin-bottom: 0;
+}
+#footer-menu {
+	font-size: 0.8462em;
+	text-align. center;
 }
 #members	{
 	list-style-type: none;
