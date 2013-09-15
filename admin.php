@@ -46,8 +46,8 @@
 											<td><input type="number" id="input-max-members" /></td>
 											<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
 										</tr>
-										<tr>
-											<td><input type="checkbox" /></td>
+										<tr id="row-confirm-join">
+											<td><input type="checkbox" id="check-confirm-join" /></td>
 											<td>Beitritt bestätigen</td>
 											<td>&nbsp;</td>
 											<td>Neue Mitglieder müssen zunächst vom von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
