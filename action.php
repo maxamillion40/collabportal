@@ -36,6 +36,10 @@
 			include_once("libs/censore.php");
 			exit;
 		}
+		if(isset($_GET["settings"]))	{
+			include_once("libs/settings.php");
+			exit;
+		}
 		header("Location: index.php?error=badaction");
 	}
 ?>
