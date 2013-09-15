@@ -47,7 +47,7 @@
 												}
 											?> /></td>
 											<td>Maximale Mitgliederzahl</td>
-											<td><input type="number" id="input-max-members" placeholder="Zahl" value="<?php echo $collab[0]["settings"]["members_max"]; ?>" /></td>
+											<td><input type="number" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab[0]["settings"]["members_max"]; ?>" /></td>
 											<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
 										</tr>
 										<tr id="row-confirm-join">
@@ -57,6 +57,7 @@
 											<td>Neue Mitglieder müssen zunächst vom von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
 										</tr>
 									</table>
+									<button type="submit">Änderungen speichern</button>
 									<?php
 										print_array($collab);
 									?>
