@@ -17,7 +17,7 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
-		<link rel="stylesheet" href="styles/about.css" />
+		<link rel="stylesheet" href="styles/admin.css" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/init.js"></script>
@@ -38,22 +38,23 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
+									<table border="1">
+										<tr>
+											<td><input type="checkbox" /></td>
+											<td>Maximale Mitgliederzahl</td>
+											<td><input type="number" /></td>
+											<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox" /></td>
+											<td>Beitritt bestätigen</td>
+											<td>&nbsp;</td>
+											<td>Neue Mitglieder müssen zunächst vom von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
+										</tr>
+									</table>
 									<?php
 										print_array($collab);
 									?>
-									<table>
-										<tr>
-											<td>Maximale Mitgliederzahl:</td>
-											<td><?php
-												if(!is_int($collab[0]["settings"]["members_max"]))	{
-													echo "Nicht definiert";
-												}
-												else	{
-													echo $collab[0]["settings"]["members_max"];
-												}
-											?></td>
-										</tr>
-									</table>
 								</div>
 							</div>
 						</article>

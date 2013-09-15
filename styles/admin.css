@@ -1,0 +1,22 @@
+table	{
+	width: 100%;
+}
+table tr	{
+	background: #F7F7F7;
+	transition: background 0.25s;
+	height: 30px;
+	border-bottom: 5px white solid;
+}
+table tr td	{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+table tr td:first-child	{
+	width: 0;
+}
+table tr td:last-child	{
+	width: 400px;
+}
+table tr:hover	{
+	background: #E0E0E0;
+}
