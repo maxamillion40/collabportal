@@ -31,7 +31,7 @@
 		}
 	}
 	function print_array(array $in)	{
-		echo "<pre>";
+		echo "<pre style='width: 100%; overflow-x: scroll; border: 1px orange dotted; padding: 10px;'>";
 		print_r($in);
 		echo "</pre>";
 	}
