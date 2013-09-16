@@ -11,7 +11,7 @@
 		echo "Du bist nicht drin!";
 		$members["people"][] = $who;
 		$members = serialize($members);
-		mysql_query("UPDATE collabs SET `mitglieder`='$members'") or die(mysql_error());
+		mysql_query("UPDATE collabs SET `mitglieder`='$members' WHERE `id`='".mysql_real_escape_string($_GET["id"])."'") or die(mysql_error());
 		header("Location: collab.php?id=".$_GET["id"]."&result=joinok");
 	}
 ?>
