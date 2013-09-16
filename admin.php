@@ -60,7 +60,7 @@
 												?>/></td>
 												<td>Beitritt bestätigen</td>
 												<td>&nbsp;</td>
-												<td>Neue Mitglieder müssen zunächst vom von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
+												<td>Neue Mitglieder müssen zunächst von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
 											</tr>
 										</table>
 										<button type="submit">Änderungen speichern</button>
