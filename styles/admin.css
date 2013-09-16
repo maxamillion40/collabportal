@@ -26,3 +26,26 @@ table tr:hover	{
 .static-bg:hover	{
 	background: #F7F7F7;
 }
+#members	{
+	list-style-type: none;
+	width: 100%;
+	margin: 0;
+}
+#members li	{
+	margin: 0;
+	height: 32px;
+	border-bottom: 1px #EBEBEB solid;
+	padding-left: 20px;
+	padding-right: 5px;
+	line-height: 32px;
+	font-size: 14px;
+}
+#members li:last-child	{
+	border-bottom: none;
+}
+.li-right	{
+	float: right;
+}
+.red, .red:hover, .red:active	{
+	color: red;
+}

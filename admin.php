@@ -73,11 +73,11 @@
 								<h4>Mitglieder</h4>
 							</div>
 							<div class="box-content">
-								<div class="inner">
-									<ul>
+								<div class="inner box-no-padding">
+									<ul id="members">
 										<?php
 											foreach($collab[0]["mitglieder"]["people"] as $member)	{
-												echo "<li>".$member."</li>";
+												echo "<li>".$member."<span class='li-right'><a>Nachricht</a> <a class='red'>Kicken</a></span></li>";
 											}
 										?>
 									</ul>
