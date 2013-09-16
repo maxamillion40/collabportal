@@ -33,6 +33,7 @@
 			$("#row-max-members").css("color","#322F31");
 			$("#input-max-members").removeAttr("disabled");
 			$("#row-max-members").removeClass("static-bg");
+			$("#input-max-members").attr("value","2");
 		}
 		else	{
 			$("#row-max-members").css("color","#9F9F9F");

@@ -4,6 +4,7 @@
 	mysql_auto_connect();
 	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=" . $_GET["id"]);
 	$collab[0]["settings"] = unserialize($collab[0]["settings"]);
+	$collab[0]["mitglieder"] = unserialize($collab[0]["mitglieder"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,14 +36,14 @@
 					<!-- Über -->	
 						<article class="box ">
 							<div class="box-head">
-								<h4>Collabverwaltung</h4>
+								<h4>Einstellungen</h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<form action="action.php?settings" method="post">
+									<form action="action.php?settings&id=<?php echo $collab[0]["id"]; ?>" method="post">
 										<table border="1">
 											<tr id="row-max-members">
-												<td><input type="checkbox" id="check-max-members" <?php
+												<td><input type="checkbox" id="check-max-members" name="check-max-members" <?php
 													if(gettype($collab[0]["settings"]["members_max"]) != "boolean")	{
 														echo "checked='checked' ";
 													}
@@ -52,17 +53,34 @@
 												<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
 											</tr>
 											<tr id="row-confirm-join">
-												<td><input type="checkbox" id="check-confirm-join" /></td>
+												<td><input type="checkbox" id="check-confirm-join" name="check-confirm-join" <?php
+													if($collab[0]["settings"]["confirm_join"] == true)	{
+														echo "checked='checked' ";
+													}
+												?>/></td>
 												<td>Beitritt bestätigen</td>
 												<td>&nbsp;</td>
 												<td>Neue Mitglieder müssen zunächst vom von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
 											</tr>
 										</table>
 										<button type="submit">Änderungen speichern</button>
-										<?php
-											print_array($collab);
-										?>
 									</form>
+								</div>
+							</div>
+						</article>
+						<article class="box ">
+							<div class="box-head">
+								<h4>Mitglieder</h4>
+							</div>
+							<div class="box-content">
+								<div class="inner">
+									<ul>
+										<?php
+											foreach($collab[0]["mitglieder"]["people"] as $member)	{
+												echo "<li>".$member."</li>";
+											}
+										?>
+									</ul>
 								</div>
 							</div>
 						</article>
