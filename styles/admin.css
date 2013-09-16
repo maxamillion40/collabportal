@@ -20,11 +20,8 @@ table tr td:last-child	{
 table tr:hover	{
 	background: #E0E0E0;
 }
-.static-bg	{
-	background: #F7F7F7;
-}
-.static-bg:hover	{
-	background: #F7F7F7;
+.static-bg, .static-bg:hover	{
+	background: #F9F9F9;
 }
 #members	{
 	list-style-type: none;
