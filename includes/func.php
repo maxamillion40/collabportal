@@ -35,7 +35,7 @@
 		print_r($in);
 		echo "</pre>";
 	}
-	function get_filename_and_query()	{
+	function get_uri()	{
 		return "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 	}
 ?>
