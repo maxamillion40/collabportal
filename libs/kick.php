@@ -17,5 +17,5 @@
 	//
 	$collab[0]["mitglieder"] = serialize($collab[0]["mitglieder"]);
 	mysql_query("UPDATE `collabs` SET `mitglieder`='".$collab[0]["mitglieder"]."' WHERE `id`='".$id."'");
-	header("Location: collab.php?id=$id&result=kickok");
+	header("Location: admin.php?id=$id&result=kickok");
 ?>
