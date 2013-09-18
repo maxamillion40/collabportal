@@ -33,7 +33,7 @@
                     require_once("includes/notices.php");
 					
 				if(is_loggedin())	{
-					echo "<li id='msg-icon'><a><img src='img/msg.png' alt='Msg' /></a></li>";
+					echo "<li id='msg-icon'><a href='messages.php'><img src='img/msg.png' alt='Msg' /></a></li>";
 					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
 					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/menu2.png' height='35' /></a></li>
                             <ul id='menulink'>
