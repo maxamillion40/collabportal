@@ -40,6 +40,9 @@ table tr:hover	{
 #members li:last-child	{
 	border-bottom: none;
 }
+#members li:hover	{
+	background: #F7F7F7;
+}
 .li-right	{
 	float: right;
 }
