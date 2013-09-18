@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 14. Sep 2013 um 15:59
+-- Erstellungszeit: 18. Sep 2013 um 19:44
 -- Server Version: 5.5.27
 -- PHP-Version: 5.4.7
 
@@ -72,6 +72,23 @@ CREATE TABLE IF NOT EXISTS `featured_collab` (
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `messages`
+--
+
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` char(50) NOT NULL,
+  `regard` char(50) NOT NULL,
+  `read` tinyint(4) NOT NULL DEFAULT '0',
+  `sender` char(50) NOT NULL,
+  `to` char(50) NOT NULL,
+  `msg` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `users`
 --
 
@@ -82,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `mail` char(100) NOT NULL,
   `scratch` char(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
