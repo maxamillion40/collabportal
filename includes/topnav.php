@@ -1,4 +1,8 @@
-﻿<header>
+﻿<?php
+	require_once("func.php");
+	$return_to = get_uri();
+?>
+<header>
 	<div class="container">
 		<!-- Logo -->
 		<a href="./" class="logo" id="trans"><span class="scratch"></span></a>
@@ -46,7 +50,7 @@
 							<div id=\"login\">
 								<div id=\"arrow\"></div>
 								<div id=\"form\">
-									<form action=\"action.php?login\" method=\"post\">
+									<form action=\"action.php?login&return=$return_to\" method=\"post\">
 										<input type=\"text\" name=\"name\" placeholder=\"Nutzername\" required value=\"".$uname."\" />
 										<input type=\"password\" name=\"pass\" placeholder=\"Passwort\" required />
 										<input type=\"submit\" value=\"Login\" class=\"button grey\" />

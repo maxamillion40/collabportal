@@ -3,8 +3,8 @@
 	require_once("includes/func.php");
 	mysql_auto_connect();
 	//Is there a param in the URI?
-	if(substr_count($_SERVER["REQUEST_URI"],"?") != 1)	{
-		header("Location: index.php");
+	if($_SERVER["QUERY_STRING"] == "")	{
+		//header("Location: index.php");
 	}
 	else	{
 		//Check the parameter and include its script
