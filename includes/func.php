@@ -38,4 +38,13 @@
 	function get_uri()	{
 		return "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 	}
+	function send_pm(array $data)	{
+		if(!isset($data["sender"]) || !isset($data["to"]) || !isset($data["msg"]))	{
+			return false;
+		}
+		if(!isset($data["regard"]))	{
+			$data["regard"] = "[Kein Betreff]";
+		}
+		mysql_query("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES('".$data["regard"]."','".time()."','".$data["sender"]."','".$data["to"]."','".$data["msg"]."')");
+	}
 ?>

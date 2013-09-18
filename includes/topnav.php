@@ -33,6 +33,7 @@
                     require_once("includes/notices.php");
 					
 				if(is_loggedin())	{
+					echo "<li id='msg-icon'><a><img src='img/msg.png' alt='Msg' /></a></li>";
 					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
 					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/menu2.png' height='35' /></a></li>
                             <ul id='menulink'>
@@ -42,7 +43,6 @@
 								<li><a href='help.php'>Hilfe</a></li><br/>
 								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><span id='logout-sign'>Logout</span></a></li>
                             </ul></div>";
-					 /* echo "<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><br/><span id='logout-sign'>Logout</span></a></li>"; */
 				}
 				else	{
 					echo "<li id=\"join\">

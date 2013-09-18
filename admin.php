@@ -1,6 +1,9 @@
 <?php
 	session_start();
 	require_once("includes/func.php");
+	if(!is_loggedin())	{
+		die(header("Location: index.php?error=nologin"));
+	}
 	mysql_auto_connect();
 	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=" . $_GET["id"]);
 	$collab[0]["settings"] = unserialize($collab[0]["settings"]);
@@ -74,11 +77,16 @@
 								<h4>Mitglieder</h4>
 							</div>
 							<div class="box-content">
-								<div class="inner box-no-padding">
+								<div class="inner <?php if(count($collab[0]["mitglieder"]["people"]) > 0)	{ echo "box-no-padding"; } ?>">
 									<ul id="members">
 										<?php
-											foreach($collab[0]["mitglieder"]["people"] as $member)	{
-												echo "<li>".$member."<span class='li-right'><a>Nachricht</a> <a class='red' href='action.php?kick=$member&id=$id'>Kicken</a></span></li>";
+											if(count($collab[0]["mitglieder"]["people"]) > 0)	{
+												foreach($collab[0]["mitglieder"]["people"] as $member)	{
+													echo "<li>".$member."<span class='li-right'><a>Nachricht</a> <a class='red' href='action.php?kick=$member&id=$id'>Kicken</a></span></li>";
+												}
+											}
+											else	{
+												echo "Noch bist du allein...";
 											}
 										?>
 									</ul>

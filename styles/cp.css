@@ -95,7 +95,7 @@ header ul li	{
 #welcome	{
 	position: absolute;
 	top: 0px;
-	right: 67px;
+	right: 120px;
 	height: 35px;
 } 
 #bmenu {
@@ -319,4 +319,9 @@ iframe	{
 }
 #dialogbox	{
 	background: white;
+}
+#msg-icon	{
+	position: absolute;
+	right: 67px;
+	height: 35px;
 }
