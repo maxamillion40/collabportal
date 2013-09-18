@@ -7,6 +7,7 @@
     resnotice("signup","Dein Account wurde angelegt, ".$name.".");
 	resnotice("joinok","Du bist nun Mitglied!");
 	resnotice("leaveok","Du bist soeben ausgetreten!");
+	resnotice("kickok","Mitglied gekickt!");
 /* Fehlermeldungen */
     errnotice("notin","Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin","Du bist bereits Mitglied in diesem Collab!");

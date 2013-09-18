@@ -40,6 +40,10 @@
 			include_once("libs/settings.php");
 			exit;
 		}
+		if(isset($_GET["kick"]))	{
+			include_once("libs/kick.php");
+			exit;
+		}
 		header("Location: index.php?error=badaction");
 	}
 ?>

@@ -5,6 +5,7 @@
 	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=" . $_GET["id"]);
 	$collab[0]["settings"] = unserialize($collab[0]["settings"]);
 	$collab[0]["mitglieder"] = unserialize($collab[0]["mitglieder"]);
+	$id = $_GET["id"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -77,7 +78,7 @@
 									<ul id="members">
 										<?php
 											foreach($collab[0]["mitglieder"]["people"] as $member)	{
-												echo "<li>".$member."<span class='li-right'><a>Nachricht</a> <a class='red'>Kicken</a></span></li>";
+												echo "<li>".$member."<span class='li-right'><a>Nachricht</a> <a class='red' href='action.php?kick=$member&id=$id'>Kicken</a></span></li>";
 											}
 										?>
 									</ul>
