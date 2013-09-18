@@ -35,4 +35,7 @@
 		print_r($in);
 		echo "</pre>";
 	}
+	function get_filename_and_query()	{
+		return basename($_SERVER["SCRIPT_FILENAME"])."?".$_SERVER["QUERY_STRING"];
+	}
 ?>
