@@ -36,10 +36,6 @@
 		echo "</pre>";
 	}
 	function get_filename_and_query()	{
-		$ret = basename($_SERVER["SCRIPT_FILENAME"]);
-		if($_SERVER["QUERY_STRING"] != "")	{
-			$ret .= "?".$_SERVER["QUERY_STRING"];
-		}
-		return $ret;
+		return "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 	}
 ?>
