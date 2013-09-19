@@ -5,7 +5,7 @@
 		header("Location: index.php");
 	}
 	mysql_auto_connect();
-	$unread = count(mysql_get("SELECT * FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
+	$unread = count(mysql_get("SELECT `id` FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
 	$msg = mysql_get("SELECT * FROM `messages` WHERE `to`='".$_SESSION["user"]."' ORDER BY `read` ASC, `date` DESC");
 	mysql_close();
 ?>

@@ -325,3 +325,18 @@ iframe	{
 	right: 67px;
 	height: 35px;
 }
+#notificationsCount	{
+	color: white;
+	background: #F9A739;
+	width: 13px;
+	height: 14px;
+	font-size: 10px;
+	line-height: 13px;
+	text-align: center;
+	display: block;
+	position: absolute;
+	top: 4px;
+	right: 6px;
+	border-radius: 5px;
+	font-family: "Segoe UI",sand-serif;
+}
