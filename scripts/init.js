@@ -30,3 +30,9 @@ if(typeof(tinymce) !== "undefined")	{
 		height: 300,
 	});
 }
+
+//Unread messages animation
+window.setInterval(function()	{
+	$("#notificationsCount").slideUp();
+	$("#notificationsCount").slideDown();
+},5000)
