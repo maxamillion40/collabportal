@@ -31,7 +31,7 @@
 			else	{
 				echo "<div class='msg msgid-".$msg["id"]."'>";
 				echo "<div class='msg-head'>";
-					echo $msg["absender"]." am ".$tage[date("l",$msg["timestamp"])].", ".date("d.m.Y h:i",$msg["timestamp"]);
+					echo $msg["absender"]." am ".$tage[date("l",$msg["timestamp"])].", ".date("d.m.Y H:i",$msg["timestamp"]);
 					echo "</div>";
 				echo "<div class='msg-body'>";
 					echo "<span style='font-style: italic;'>Diese Nachricht wurde vom Collabgründer zensiert.";
