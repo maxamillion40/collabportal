@@ -1,0 +1,19 @@
+   ________________________
+  /_______________________/|
+  | _____       _       _ ||
+  ||_   _|_____| |____ | |||
+  |  | |    |    |    ||_|||
+  |  | | [] | [] | [] | _ ||
+  |  |_|____|____|____||_|||
+  |_______________________|/
+
+===== <| ToDo-Liste |> =====
+
+	- "Über" und Hilfeseiten ausbauen
+!	- CP in IE und Chrome zum laufen bekommen
+	- Passwortoptionen (E-Mail) und Profileinstellungen
+	- Mitgliederliste
+	- Nachrichtensystem
+?	- Englische Version
+?	- Mobile Version
+	- ...To be continued...
