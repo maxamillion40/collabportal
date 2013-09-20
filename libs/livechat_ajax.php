@@ -21,7 +21,7 @@
 			if(!$msg["censored"])	{
 				echo "<div class='msg msgid-".$msg["id"]."'>";
 				echo "<div class='msg-head'>";
-					echo "<button onClick='javascript: navigate(\"action.php?censore&collab=".$collab."&msg=".$msg["id"]."\");' class='censore-button' title='Zensieren'>X</button> ".$msg["absender"]." am ".$tage[date("l",$msg["timestamp"])].", ".date("d.m.Y h:i",$msg["timestamp"]);
+					echo "<button onClick='javascript: navigate(\"action.php?censore&collab=".$collab."&msg=".$msg["id"]."\");' class='censore-button' title='Zensieren'>X</button> ".$msg["absender"]." am ".$tage[date("l",$msg["timestamp"])].", ".date("d.m.Y H:i",$msg["timestamp"]);
 					echo "</div>";
 				echo "<div class='msg-body'>";
 					echo $msg["message"];
