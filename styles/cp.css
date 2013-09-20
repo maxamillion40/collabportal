@@ -26,6 +26,11 @@
     90%  {top: 2px;}
     100% {top: -35px;}
 }
+@keyframes msgc {
+	90%		{height: 14px;}
+	95%		{height: 0px;}
+	100%	{height: 14px;}
+}
 body	{
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -331,7 +336,7 @@ iframe	{
 #notificationsCount	{
 	color: white;
 	background: #F9A739;
-	width: 13px;
+	width: 14px;
 	height: 14px;
 	font-size: 10px;
 	line-height: 13px;
@@ -340,6 +345,8 @@ iframe	{
 	position: absolute;
 	top: 4px;
 	right: 6px;
-	border-radius: 5px;
+	border-radius: 7px;
 	font-family: "Segoe UI",sand-serif;
+	overflow: hidden;
+	animation: msgc 5s infinite linear;
 }

@@ -32,7 +32,7 @@ if(typeof(tinymce) !== "undefined")	{
 }
 
 //Unread messages animation
-window.setInterval(function()	{
+/* window.setInterval(function()	{
 	$("#notificationsCount").slideUp();
 	$("#notificationsCount").slideDown();
-},5000)
+},5000) */
