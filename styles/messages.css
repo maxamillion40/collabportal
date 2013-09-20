@@ -13,3 +13,13 @@
 .read	{
 	width: 10%;
 }
+#msg-table tr	{
+	background: #F7F7F7;
+	border-bottom: 3px white solid;
+	height: 30px;
+	transition: background-color 0.25s;
+	cursor: pointer;
+}
+#msg-table tr:hover	{
+	background: #E0E0E0;
+}
