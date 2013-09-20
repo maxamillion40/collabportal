@@ -266,6 +266,9 @@ input[type=checkbox]	{
 	box-shadow: 2px 2px 5px #FFFFCC;
 	background-image: url(../img/sharp_highlight.png);
 }
+.msg-body p	{
+	word-wrap: break-word;
+}
 .msg *	{
 	max-width: 570px;
 }
