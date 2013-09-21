@@ -24,6 +24,7 @@
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/init.js"></script>
+		<script src="scripts/messages.js"></script>
 	</head>
 	<body>
 		<div id="pagewrapper">
@@ -59,7 +60,7 @@
 									echo "<col class='read' />";
 									echo "</colgroup>";
 									foreach($msg as $m)	{
-										echo "<tr>";
+										echo "<tr id='msg-".$m["id"]."'>";
 											echo "<td class=''>".date("d.m.Y H:i",$m["date"])."</td>";
 											echo "<td>".$m["sender"]."</td>";
 											echo "<td>".$m["regard"]."</td>";
