@@ -12,8 +12,7 @@
 	- "Über" und Hilfeseiten ausbauen
 !	- CP in IE und Chrome zum laufen bekommen
 	- Passwortoptionen (E-Mail) und Profileinstellungen
-	- Mitgliederliste
-	- Nachrichtensystem
+webD	- Mitgliederliste
+webD	- Nachrichtensystem
 ?	- Englische Version
 ?	- Mobile Version
-	- ...To be continued...
