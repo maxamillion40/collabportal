@@ -2,7 +2,9 @@
 	require_once("func.php");
 	mysql_auto_connect();
 	$return_to = get_uri();
-	$unread = count(mysql_get("SELECT `id` FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
+	if(is_loggedin())	{
+		$unread = count(mysql_get("SELECT `id` FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
+	}
 ?>
 <header>
 	<div class="container">
