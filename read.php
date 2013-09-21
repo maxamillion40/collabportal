@@ -14,6 +14,9 @@
 		header("Location: messages.php?error=nopriv");
 		print_array($msg);
 	}
+	if($msg["read"] == 0)	{
+		mysql_query("UPDATE `messages` SET `read`='1' WHERE `id`='".$msg["id"]."'");
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +30,7 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
-		<link rel="stylesheet" href="styles/about.css" />
+		<link rel="stylesheet" href="styles/messages.css" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/init.js"></script>
@@ -42,12 +45,12 @@
 			<div class="container" id="content">
 				<div class="cols clearfix" style="top: -10px; padding-left: 10px; padding-right: 10px;">
 					<!-- Über -->	
-						<article class="box ">
+						<article class="box">
 							<div class="box-head">
 								<h4><?php echo $msg["regard"]; ?></h4>
 							</div>
 							<div class="box-content">
-								<div class="inner">
+								<div class="inner box-no-padding">
 									<div id="msg-head">
 										<p><?php echo $msg["sender"]; ?> am <?php echo date("d.m.Y \u\m H:i",$msg["date"]); ?></p>
 									</div>

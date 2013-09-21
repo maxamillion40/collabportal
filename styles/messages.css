@@ -23,3 +23,24 @@
 #msg-table tr:hover	{
 	background: #E0E0E0;
 }
+.box-no-padding	{
+	padding: 0;
+}
+#msg-head	{
+	padding-left: 45px;
+	border-bottom: 1px solid #EBEBEB;
+	height: 25px;
+	line-height: 25px;
+}
+#msg-body	{
+	padding: 5px;
+}
+article	{
+	min-height: 300px;
+}
+.inner	{
+	min-height: 300px;
+}
+.unread	{
+	font-weight: bold;
+}

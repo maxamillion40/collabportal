@@ -60,7 +60,21 @@
 									echo "<col class='read' />";
 									echo "</colgroup>";
 									foreach($msg as $m)	{
-										echo "<tr id='msg-".$m["id"]."'>";
+										if($m["read"] == 1)	{
+											echo "<tr id='msg-".$m["id"]."'>";
+												echo "<td class=''>".date("d.m.Y H:i",$m["date"])."</td>";
+												echo "<td>".$m["sender"]."</td>";
+												echo "<td>".$m["regard"]."</td>";
+												if($m["read"] == "0")	{
+													echo "<td>Ungelesen</td>";
+												}
+												else	{
+													echo "<td>Gelesen</td>";
+												}
+											echo "</tr>";
+										}
+										else	{
+											echo "<tr id='msg-".$m["id"]."' class='unread'>";
 											echo "<td class=''>".date("d.m.Y H:i",$m["date"])."</td>";
 											echo "<td>".$m["sender"]."</td>";
 											echo "<td>".$m["regard"]."</td>";
@@ -71,6 +85,7 @@
 												echo "<td>Gelesen</td>";
 											}
 										echo "</tr>";
+										}
 									}
 									echo "</table>";
 								}
