@@ -36,7 +36,7 @@
 			<div class="container" id="content">
 				<article class="box">
 					<div class="box-head">
-						<h4>Posteingang</h4>
+						<h3>Posteingang</h3><span id='newcollab'><a href='./'><button class="button blue">+ Neue Nachricht</button></a></span>
 					</div>
 					<div class="box-content">
 						<div class="inner">
