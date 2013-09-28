@@ -38,7 +38,7 @@
 						<article style="max-height: 315px;" class="box ">
 							<div class="box-head">
 								<h4>Vorgestelltes Collab</h4>
-								<a class="right" title="Hier wird das letzte erfolgreich beendete Collab vorgestellt.">?</a>
+								<a class="right" id="help"><span>?</span></a>
 							</div>
 							<div class="box-content" style="height: 279px;">
 								<div class="inner">
