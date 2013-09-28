@@ -164,20 +164,17 @@ header ul li	{
 
 #help {
 	cursor: help !important;
-	transition: max-width 0s;
-	height: 1.5em;
 	overflow: hidden;
 	max-width: 10px;
+	height: 1.5em;
+	transition: max-width 0.25s;
+	-webkit-transition: max-width 0.25s;
 }
 #help:hover span {
 	display: none;
 }
 #help:hover {
-	transition: max-width 0.25s;
 	max-width: 300px;
-}
-#help:after {
-	word-wrap: normal;
 }
 #help:hover:after {
 	content:"Hier wird das letzte beendete Collab vorgestellt.";
