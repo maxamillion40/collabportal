@@ -7,6 +7,12 @@
 	$password	= md5(mysql_real_escape_string($_POST["pass"]));
 	$pass_ctrl	= mysql_get("SELECT `pass` FROM `users` WHERE name='$username'")[0]["pass"];
 	$return_to	= $_GET["return"] or "";
+	if(strstr($return_to,"?"))	{
+		$return_to .= "&result=login";
+	}
+	else	{
+		$return_to .= "?result=login";
+	}
 	//Does the user exist?
 	if(count($pass_ctrl) != 1)	{
 		die(header("Location: index.php?uname=$username&error=unknownuser"));
@@ -17,7 +23,7 @@
 		session_start();
 		$_SESSION["user"] = $username;
 		$_SESSION["login"] = true;
-		header("Location: ".$return_to."?result=login");
+		header("Location: ".$return_to);
 	}
 	else	{
 		//wrong password
