@@ -32,10 +32,10 @@
 			<div class="container" id="content">
 				<noscript><div class="ui-state-error">Um die Funktionen des CollabPortals in vollem Umfang nutzen zu können, musst du JavaScript aktivieren.</div><br /></noscript>
 				<!-- div für obere boxen -->
-				<div class="cols clearfix" style="top: -10px;">
+				<div class="cols" style="top: -10px;">
 					<!-- 1. Box -->
 					<div class="col-9">	
-						<article style="max-height: 315px;" class="box ">
+						<article style="max-height: 315px;" class="box">
 							<div class="box-head">
 								<h4>Vorgestelltes Collab</h4>
 								<a class="right" id="help"><span>?</span></a>
