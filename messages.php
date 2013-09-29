@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="styles/messages.css" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
+		<script src="scripts/tinymce/tinymce.min.js"></script>
 		<script src="scripts/init.js"></script>
 		<script src="scripts/messages.js"></script>
 	</head>
@@ -36,7 +37,7 @@
 			<div class="container" id="content">
 				<article class="box">
 					<div class="box-head">
-						<h3>Posteingang</h3><span id='newcollab'><a href='./'><button class="button blue">+ Neue Nachricht</button></a></span>
+						<h3>Posteingang</h3><span class='box-header-button'><a href='#new'><button class="button blue">+ Neue Nachricht</button></a></span>
 					</div>
 					<div class="box-content">
 						<div class="inner">
@@ -90,6 +91,21 @@
 									echo "</table>";
 								}
 							?>
+						</div>
+					</div>
+				</article>
+				<article class="box" id="new">
+					<div class="box-head">
+						<h4>Neue Nachricht</h4>
+					</div>
+					<div class="box-content">
+						<div class="inner">
+							<form action="action.php?sendmessage" method="post">
+								<input type="text" name="sendto" placeholder="Empfänger" required />
+								<input type="text" name="regard" placeholder="Betreff" />
+								<textarea name="msg" required></textarea>
+								<input type="submit" value="Senden" class="button grey" />
+							</form>
 						</div>
 					</div>
 				</article>

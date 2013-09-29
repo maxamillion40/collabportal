@@ -44,7 +44,7 @@ article	{
 .unread	{
 	font-weight: bold;
 }
-#newcollab {
+.box-header-button {
 	position: absolute;
 	right: 10px;
 	top: 3px;

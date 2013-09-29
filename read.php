@@ -47,7 +47,7 @@
 					<!-- Über -->	
 						<article class="box">
 							<div class="box-head">
-								<h4><?php echo $msg["regard"]; ?></h4>
+								<h3><?php echo $msg["regard"]; ?></h3><span class='box-header-button'><a href='./'><button class="button blue">Antworten</button></a></span>
 							</div>
 							<div class="box-content">
 								<div class="inner box-no-padding">
