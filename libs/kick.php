@@ -15,6 +15,14 @@
 	}
 	unset($collab[0]["mitglieder"]["people"][array_search($kick,$collab[0]["mitglieder"]["people"])]);
 	//
+	//Benachrichtigung
+		$message = array(
+			"sender" => "Systemnachricht",
+			"to" => $kick,
+			"msg" => "Du wurdest aus einem Collab geworfen!",
+			"regard" => "Du wurdest gekickt!"
+		);
+		send_pm($message);
 	$collab[0]["mitglieder"] = serialize($collab[0]["mitglieder"]);
 	mysql_query("UPDATE `collabs` SET `mitglieder`='".$collab[0]["mitglieder"]."' WHERE `id`='".$id."'");
 	header("Location: admin.php?id=$id&result=kickok");

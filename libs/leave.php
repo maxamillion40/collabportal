@@ -11,6 +11,14 @@
 	}
 	else	{
 		unset($members["people"][array_search($who,$members["people"])]);
+		//Benachrichtigung
+		$message = array(
+			"sender" => "Systemnachricht",
+			"to" => $members["founder"],
+			"msg" => "$who hat dein Collab X verlassen",
+			"regard" => "$who hat dein Collab verlassen!"
+		);
+		send_pm($message);
 		$members	= serialize($members);
 		mysql_query("UPDATE collabs SET `mitglieder`='$members' WHERE `id`='$id'");
 		header("Location: collab.php?id=".$id."&result=leaveok");
