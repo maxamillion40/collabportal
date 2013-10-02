@@ -8,13 +8,19 @@
 	if($regard == "" or $sendto == "" or $msg == "")	{
 		die(header("Location: messages.php?error=emptyfields"));
 	}
+	//Split $sendto into singles
+	$sendto = explode(";",$sendto);
+	unset($sendto[count($sendto) - 1]);
+	print_array($sendto);
 	//Prepare message
-	$message = array(
-		"sender" => $_SESSION["user"],
-		"to" => $sendto,
-		"msg" => $msg,
-		"regard" => $regard
-	);
-	send_pm($message);
+	foreach($sendto as $send)	{
+		$message = array(
+			"sender" => $_SESSION["user"],
+			"to" => $send,
+			"msg" => $msg,
+			"regard" => $regard
+		);
+		send_pm($message);
+	}
 	header("Location: messages.php?result=sent");
 ?>
