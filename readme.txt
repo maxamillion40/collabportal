@@ -11,3 +11,12 @@
 ./
 	action.php	Wird von den Inhaltsseiten mit parameter aufgerufen und included die entsprechenden scripts
 	*.php		Inhaltsseite
+
+== Wie man Nachrichten sendet ==
+$message = array(
+	"sender" => "Absender",
+	"to" => "Empfänger",
+	"msg" => "Nachricht (auch HTML)",
+	"regard" => "Betreff; optional"
+);
+send_pm($message);
