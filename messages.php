@@ -103,7 +103,7 @@
 							<form action="action.php?sendmessage" method="post">
 								<input type="text" name="sendto" placeholder="Empfänger" required />
 								<input type="text" name="regard" placeholder="Betreff" />
-								<textarea name="msg" required></textarea>
+								<textarea name="msg"></textarea>
 								<input type="submit" value="Senden" class="button grey" />
 							</form>
 						</div>

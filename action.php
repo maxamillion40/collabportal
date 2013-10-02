@@ -4,7 +4,7 @@
 	mysql_auto_connect();
 	//Is there a param in the URI?
 	if($_SERVER["QUERY_STRING"] == "")	{
-		//header("Location: index.php");
+		header("Location: index.php");
 	}
 	else	{
 		//Check the parameter and include its script
@@ -42,6 +42,10 @@
 		}
 		if(isset($_GET["kick"]))	{
 			include_once("libs/kick.php");
+			exit;
+		}
+		if(isset($_GET["sendmessage"]))	{
+			include_once("libs/sendmessage.php");
 			exit;
 		}
 		header("Location: index.php?error=badaction");

@@ -8,6 +8,7 @@
 	resnotice("joinok","Du bist nun Mitglied!");
 	resnotice("leaveok","Du bist soeben ausgetreten!");
 	resnotice("kickok","Mitglied gekickt!");
+	resnotice("sent","Nachricht gesendet!");
 /* Fehlermeldungen */
     errnotice("notin","Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin","Du bist bereits Mitglied in diesem Collab!");
