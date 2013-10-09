@@ -1,5 +1,7 @@
+Bitte committe mal nichts bis ich diese Anmerkung entfernt habe, ich habe einige größere Änderungen vorgenommen.
+
 == Verzeichnisse ==
-./			enthält alle Dateien des CollabPortals
+./		enthält alle Dateien des CollabPortals
 ./img		enthält alle Grafiken (außer jQueryUI)
 ./includes	enthält den Footer, die Navigation und mysql Funktionen
 ./libs		alle PHP Skripts, die Aufgaben erledigen (Login, Registrierung, Collabbeitritt etc.)
