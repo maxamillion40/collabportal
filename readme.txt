@@ -1,12 +1,13 @@
-Bitte committe mal nichts bis ich diese Anmerkung entfernt habe, ich habe einige größere Änderungen vorgenommen.
+Bitte committe mal nichts bis ich diese Anmerkung entfernt habe, ich habe einige grï¿½ï¿½ere ï¿½nderungen vorgenommen.
+Wann darf ich denn wieder weitermachen?
 
 == Verzeichnisse ==
-./		enthält alle Dateien des CollabPortals
-./img		enthält alle Grafiken (außer jQueryUI)
-./includes	enthält den Footer, die Navigation und mysql Funktionen
+./		enthï¿½lt alle Dateien des CollabPortals
+./img		enthï¿½lt alle Grafiken (auï¿½er jQueryUI)
+./includes	enthï¿½lt den Footer, die Navigation und mysql Funktionen
 ./libs		alle PHP Skripts, die Aufgaben erledigen (Login, Registrierung, Collabbeitritt etc.)
 ./logos		hierhin werden alle Collablogos hochgeladen, wir arbeiten hier meistens nicht
-./scripts	enthält alle Javascripts, einschließlich jQuery, jQueryUI und tinymce
+./scripts	enthï¿½lt alle Javascripts, einschlieï¿½lich jQuery, jQueryUI und tinymce
 ./styles	hier sind die Stylesheets zu finden
 
 == Dateien ==
@@ -17,7 +18,7 @@ Bitte committe mal nichts bis ich diese Anmerkung entfernt habe, ich habe einige
 == Wie man Nachrichten sendet ==
 $message = array(
 	"sender" => "Absender",
-	"to" => "Empfänger",
+	"to" => "Empfï¿½nger",
 	"msg" => "Nachricht (auch HTML)",
 	"regard" => "Betreff; optional"
 );
