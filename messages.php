@@ -101,7 +101,7 @@
 					<div class="box-content">
 						<div class="inner">
 							<form action="action.php?sendmessage" method="post">
-								<input type="text" name="sendto" placeholder="Empfänger" required onBlur="javascript: divide_sendto();" />
+								<input type="text" name="sendto" placeholder="Empfänger" required onBlur="javascript: divide_sendto();" value="<?php if(isset($_GET["to"])) { echo $_GET["to"] . ";"; } ?>" />
 								<input type="text" name="regard" placeholder="Betreff" />
 								<textarea name="msg"></textarea>
 								<input type="submit" value="Senden" class="button grey" />

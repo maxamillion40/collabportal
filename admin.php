@@ -82,7 +82,7 @@
 										<?php
 											if(count($collab[0]["mitglieder"]["people"]) > 0)	{
 												foreach($collab[0]["mitglieder"]["people"] as $member)	{
-													echo "<li>".$member."<span class='li-right'><a>Nachricht</a> <a class='red' href='action.php?kick=$member&id=$id'>Kicken</a></span></li>";
+													echo "<li>".$member."<span class='li-right'><a href='messages.php?to=$member#new'>Nachricht</a> <a class='red' href='action.php?kick=$member&id=$id'>Kicken</a></span></li>";
 												}
 											}
 											else	{
