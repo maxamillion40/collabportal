@@ -29,18 +29,18 @@
 			<div class="container" id="content">
 				<div class="cols clearfix" style="top: -10px; padding-left: 10px; padding-right: 10px;">
 					<!-- Hilfe -->
-						<article class="box ">
+						<article class="box">
 							<div class="box-head">
 								<h4>Hilfe</h4>
 							</div>
 							<div class="box-content" style="height: auto;">
 								<div class="inner">
 									<h4>Kurzhilfe</h4>
-										Hier wird bald eine Kurzanleitung zur Benutung des CollabPortals folgen.
+										<p>Hier wird bald eine Kurzanleitung zur Benutzung des CollabPortals folgen.</p>
 									<h4>Wiki-Artikel</h4>
-										Das CollabPortal hat auch einen Artikel im <a href="http://scratch-dach.info" >deutschsprachigen Scratch Wiki</a>: <a href="http://scratch-dach.info/wiki/CollabPortal" >http://scratch-dach.info/wiki/CollabPortal</a>.
+										<p>Das CollabPortal hat auch einen Artikel im deutschsprachigen Scratch-Wiki: <a href="http://scratch-dach.info/wiki/CollabPortal" >http://scratch-dach.info/wiki/CollabPortal</a>.</p>
 									<h4>FAQ</h4>
-										Hier werden häufig gestellte Fragen beantwortet werden, zur Zeit wurden aber noch nicht besonders viele gestellt.
+										<p>Hier werden häufig gestellte Fragen beantwortet werden, zur Zeit wurden aber noch nicht besonders viele gestellt.</p>
 								</div>
 							</div>
 						</article>
