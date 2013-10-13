@@ -50,7 +50,7 @@
 								<h3><?php echo $msg["regard"]; ?></h3>
 								<?php
 									if($msg["sender"] != "Systemnachricht")	{
-										echo "<span class='box-header-button'><a href='./'><button class='button blue'>Antworten</button></a></span>";
+										echo "<span class='box-header-button'><a href='messages.php?to=".$msg["sender"]."&regard=Re: ".$msg["regard"]."#new'><button class='button blue'>Antworten</button></a></span>";
 									}
 								?>
 							</div>
