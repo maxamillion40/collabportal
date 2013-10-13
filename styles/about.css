@@ -8,3 +8,35 @@
 .box-content {
 	padding-bottom: 20px;
 }
+
+/* -- ToDo -- */
+
+#planned {
+	width: 100%;
+	cursor: default;
+}
+#planned th,td {
+	padding: 3px 6px;
+	text-align: left;
+}
+#planned td:nth-child(even) {
+	background-color: #f0f0f0;
+	transition: background-color 0.25s;
+	-webkit-transition: background-color 0.25s;
+	border-top: #ffffff 2px solid;
+	border-bottom: #ffffff 2px solid;
+}
+#planned td:nth-child(odd) {
+	background-color: #e8e8e8;
+	transition: background-color 0.125s;
+	-webkit-transition: background-color 0.125s;
+	border-top: #ffffff 2px solid;
+	border-bottom: #ffffff 2px solid;
+}
+#planned th,#planned tr:hover td {
+	background-color: #e0e0e0;
+}
+#planned td[colspan="5"] {
+	font-weight: bold;
+	border-bottom: none;
+}

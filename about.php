@@ -31,21 +31,78 @@
 					<!-- Über -->	
 						<article class="box ">
 							<div class="box-head">
-								<h4>Über das Collabportal</h4>
+								<h4>Über ScratchCollabs</h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
 									<h4>Geschichte</h4>
-										Das Collabportal wurde am 03.02.2013 von webdesigner97 ins Leben gerufen, um das deutsche Scratchforum zu entlasten und die Verwaltung von Collabs zu vereinfachen. 
-										Es ist seit dem 08.08.2013 im Zuge der Umrüstung auf das aktuelle Design von Scratch eine Zusammenarbeit von webdesigner97 und Lirex. 
-										Bei Fragen kannst du dich gerne <a href="./" >hier</a> an diese wenden, oder am besten erst einmal in der Hilfe nachschauen.
-									<hr/>
+										<p>ScratchCollabs wurde am 03.02.2013 von webdesigner97 ins Leben gerufen, um das deutsche Scratchforum zu entlasten und die Verwaltung von Collabs zu vereinfachen. 
+										Es ist seit dem 08.08.2013 im Zuge der Umrüstung auf das aktuelle Design von Scratch eine Zusammenarbeit von <b>webdesigner97</b> und <b>Lirex</b> (<a href="team.php"><b>das Team</b></a>). 
+										Bei Fragen kannst du in der <a href='help.php'>Hilfe</a> nachschauen oder dich gerne <a href="contact.php" >hier</a> an das Team wenden.</p>
+									<h4>Ziele</h4>
+										<p>ScratchCollabs soll das Verwalten von Collabs vereinfachen. Durch Funktionen wie das Zulassen und Kicken von Mitgliedern sowie der Geheimhaltung ist es einfach, Projekte in Ruhe zu Entwickeln.</p>
 									<h4>Zukünftige Pläne</h4>
-										<ul>
-											<li>Englischsprachige Version</li>
-											<li>Passwortreset per E-Mail</li>
-										</ul>
-										Zögere nicht, Vorschläge für neue Funktionen des CollabPortals <a href="./" >hier</a> einzureichen.
+										<table id="planned">
+											<tr>
+												<th>Priorität</th>
+												<th>Funktion</th>
+												<th>Zuständiger</th>
+												<th>Status</th>
+												<th>Geplante Fertigstellung</th>
+											</tr>
+											<tr>
+												<td>!</td>
+												<td>CP in IE und Chrome zum laufen bekommen</td>
+												<td>Team</td>
+												<td>In Arbeit</td>
+												<td>Unbekannt</td>
+											</tr>
+											<tr>
+												<td>-</td>
+												<td>"Über" und Hilfeseiten ausbauen</td>
+												<td>Lirex</td>
+												<td>In Arbeit</td>
+												<td>Bald</td>
+											</tr>
+											<tr>
+												<td>-</td>
+												<td>Nachrichtensystem</td>
+												<td>webdesigner97</td>
+												<td>In Arbeit</td>
+												<td>Bald</td>
+											</tr>
+											<tr>
+												<td>-</td>
+												<td>Mitgliederliste</td>
+												<td>webdesigner97</td>
+												<td>Ausstehend</td>
+												<td>Unbekannt</td>
+											</tr>
+											<tr>
+												<td>-</td>
+												<td>Passwortoptionen (E-Mail) und Profileinstellungen</td>
+												<td>-</td>
+												<td>Ausstehend</td>
+												<td>Unbekannt</td>
+											</tr>
+											<tr>
+												<td>?</td>
+												<td>Englische Version</td>
+												<td>-</td>
+												<td>Realisierung fragwürdig</td>
+												<td>Unbekannt</td>
+											</tr>
+											<tr>
+												<td>?</td>
+												<td>Mobile Version</td>
+												<td>-</td>
+												<td>Realisierung fragwürdig</td>
+												<td>Unbekannt</td>
+											</tr>
+											<tr>
+												<td colspan="5">Zögere nicht, Vorschläge für neue Funktionen <a href="./" >hier</a> einzureichen.</td>
+											</tr>
+										</table>
 								</div>
 							</div>
 						</article>
