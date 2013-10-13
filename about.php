@@ -75,8 +75,8 @@
 												<td>-</td>
 												<td>Mitgliederliste</td>
 												<td>webdesigner97</td>
-												<td>Ausstehend</td>
-												<td>Unbekannt</td>
+												<td>In Arbeit</td>
+												<td>Demnächst</td>
 											</tr>
 											<tr>
 												<td>-</td>
