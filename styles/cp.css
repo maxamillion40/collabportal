@@ -44,22 +44,36 @@ header ul li	{
 	margin-left: -5px !important;
 }
 
+/* Fix für Fehlendes attribut in main.css */
+
+.box .box-head {
+	border-radius: 10px;
+}
 /* Login und Logout Button */
 
 #join {
 	position: absolute;
-	top: 1px;
-	height: 34px;
+	top: 0px;
+	height: 35px;
 	border-right: 1px #149acb solid;
     right: 0;
 }
+#asc {
+	position: absolute;
+	top: 0px;
+	right: 108px;
+	height: 35px;
+}
+
+/* Meldungen */
+
 .result-message {
     animation: pop 5s;
     -webkit-animation: pop 5s;
     color: #fff;
     font-size: 15px;
     text-align: center;
-    padding: 5px 10px;
+	padding: 5px 1px;
     display: inline-block;
     position: absolute;
     top: -70px;
@@ -69,10 +83,24 @@ header ul li	{
 }
 .orange .result-message {
     background-color: #F9A539;
+	border: 1px #d99032 solid;
 }
 .red .result-message {
     background-color: #E85F29;
+	border: 1px #a62f00 solid;
 }
+.message-inner {
+	padding: 6px 10px;
+}
+.orange .message-inner {
+	border-top: 1px #f9bb6b solid;
+}
+.red .message-inner {
+	border-top: 1px #e88158 solid;
+}
+
+/* Navigation */
+
 .addborder {
     border-right: 1px #149acb solid;
 }
@@ -122,7 +150,7 @@ header ul li	{
 	width: 66px;
 	background-color: #0f8bc0;
 	border-radius: 0px;
-	border: 1px #149acb solid;
+	border-top: #149acb 1px solid;
 	opacity: 0;
 	transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 	-webkit-transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
@@ -185,6 +213,7 @@ header ul li	{
 	background: #0F8BC0;
 	position: fixed;
 	top: 50px;
+	right: auto;
 	cursor: default;
 	display: none;
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
@@ -360,7 +389,8 @@ iframe	{
 	top: 4px;
 	right: 6px;
 	border-radius: 7px;
-	font-family: "Segoe UI",sand-serif;
+	font-family: "Segoe UI Bold",sans-serif;
+	font-weight: 900;
 	overflow: hidden;
 	animation: msgc 5s infinite linear;
 }
