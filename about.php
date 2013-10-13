@@ -58,6 +58,13 @@
 												<td>Unbekannt</td>
 											</tr>
 											<tr>
+												<td>!</td>
+												<td>Fehlerseite(n) ausbauen, insbesondere 404</td>
+												<td>-</td>
+												<td>Ausstehend</td>
+												<td>Unbekannt</td>
+											</tr>
+											<tr>
 												<td>-</td>
 												<td>"Über" und Hilfeseiten ausbauen</td>
 												<td>Lirex</td>
@@ -101,6 +108,9 @@
 											</tr>
 											<tr>
 												<td colspan="5">Zögere nicht, Vorschläge für neue Funktionen <a href="./" >hier</a> einzureichen.</td>
+											</tr>
+											<tr>
+												<td colspan="5">Release spätestens am: 01.01.2014 14:00 Uhr</td>
 											</tr>
 										</table>
 								</div>
