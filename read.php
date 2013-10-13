@@ -47,7 +47,12 @@
 					<!-- Über -->	
 						<article class="box">
 							<div class="box-head">
-								<h3><?php echo $msg["regard"]; ?></h3><span class='box-header-button'><a href='./'><button class="button blue">Antworten</button></a></span>
+								<h3><?php echo $msg["regard"]; ?></h3>
+								<?php
+									if($msg["sender"] != "Systemnachricht")	{
+										echo "<span class='box-header-button'><a href='./'><button class='button blue'>Antworten</button></a></span>";
+									}
+								?>
 							</div>
 							<div class="box-content">
 								<div class="inner box-no-padding">
