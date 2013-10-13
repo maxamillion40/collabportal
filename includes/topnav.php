@@ -47,13 +47,14 @@
                             <ul id='menulink'>
                                 <li><a href='mystuff.php'>Meine Collabs</a></li><br/>
 								<li><a>Profil</a></li><br/>
-                                <li><a href='about.php'>Das CollabPortal</a></li><br/>
+                                <li><a href='about.php'>Über ScratchCollabs</a></li><br/>
 								<li><a href='help.php'>Hilfe</a></li><br/>
 								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><span id='logout-sign'>Logout</span></a></li>
                             </ul></div>";
 				}
 				else	{
-					echo "<li id=\"join\">
+					echo "<li id=\"asc\"><a href=\"about.php\">Was ist ScratchCollabs?</a></li>
+					<li id=\"join\">
 							<a>Mitmachen!</a>
 							<div id=\"login\">
 								<div id=\"arrow\"></div>
