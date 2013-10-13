@@ -21,6 +21,11 @@
 		send_pm($message);
 		$members	= serialize($members);
 		mysql_query("UPDATE collabs SET `mitglieder`='$members' WHERE `id`='$id'");
-		header("Location: collab.php?id=".$id."&result=leaveok");
+		if(isset($_GET["red"])) {
+			header("Location: mystuff.php?result=leaveok");
+		}
+		else {
+			header("Location: collab.php?id=".$id."&result=leaveok");
+		}
 	}
 ?>
