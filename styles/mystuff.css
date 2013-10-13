@@ -5,6 +5,9 @@
 .inner hr {
 	color: #fff;
 }
+.strong hr {
+	color: #000;
+}
 .box-content {
 	padding-bottom: 20px;
 }
@@ -17,17 +20,24 @@ h3 {
 	top: 3px;
 }
 
-#msu {
+#msu,#msm {
 	list-style: none;
 }
-#msu .image {
+#msu .image,#msm .image {
 	border: 1px lightgrey solid;
+}
+#msu .button,#msm .button {
+	position: absolute;
+	margin-top: 35px;
+	z-index: 99;
+	right: 20px;
 }
 
 .stats {
 	display: inline;
 	position: absolute;
 	float: right;
+	width: 100%;
 }
 .stats tr {
 	background-color: #f7f7f7; 
@@ -39,6 +49,7 @@ h3 {
 	background-color: #e0e0e0;
 	cursor: default;
 }
-.stats td {
-	padding: 1px 3px;
+.stats td,th {
+	padding: 2px 4px;
+	text-align: left;
 }
