@@ -65,6 +65,13 @@
 												<td>Unbekannt</td>
 											</tr>
 											<tr>
+												<td>!</td>
+												<td>Metadaten</td>
+												<td>-</td>
+												<td>Ausstehend</td>
+												<td>Unbekannt</td>
+											</tr>
+											<tr>
 												<td>-</td>
 												<td>"Über" und Hilfeseiten ausbauen</td>
 												<td>Lirex</td>
