@@ -399,3 +399,9 @@ iframe	{
 	right: 10px;
 	top: 3px;
 }
+#dbtime	{
+	font-size: 8px !important;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}

@@ -13,12 +13,17 @@
 		}
 	}
 	function mysql_get($query)	{
+		$starttime = microtime();
+		//
 		$rs	= mysql_query($query) or die(mysql_error());
 		$return = array();
 		while($row = mysql_fetch_assoc($rs))	{
 			$return[] = $row;
 		}
 		$return = auto_unserialize($return);
+		//
+		$endtime = microtime();
+		$_SERVER["__REQUEST_TIME"] = ($endtime - $starttime) / 1000;
 		return($return);
 	}
 	function errnotice($code,$message) {
