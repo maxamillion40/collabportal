@@ -68,7 +68,6 @@
 										echo "<span class='strong'><hr/></span>";
 											$count = 0;
 											foreach($collabmember as $collab)	{
-												$collab["mitglieder"] = unserialize($collab["mitglieder"]);
 												if(in_array($_SESSION["user"],$collab["mitglieder"]["people"]))	{
 													echo "<button class='button grey' onClick=\"navigate('action.php?leave&red&id=".$collab["id"]."','Willst du wirklich aus dem Collab &bdquo;".$collab["name"]."&ldquo; austreten?')\">Austreten</button><li>";
 													echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
