@@ -6,9 +6,10 @@
 	}
 	mysql_auto_connect();
 	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=" . $_GET["id"]);
-	$collab[0]["settings"] = unserialize($collab[0]["settings"]);
-	$collab[0]["mitglieder"] = unserialize($collab[0]["mitglieder"]);
 	$id = $_GET["id"];
+	if(count($collab) !=1 or $collab[0]["mitglieder"]["founder"] != $_SESSION["user"])	{
+		die(header("Location: mystuff.php?error=notmine"));
+	}
 ?>
 <!DOCTYPE html>
 <html>

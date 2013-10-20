@@ -9,7 +9,6 @@
 		die(header("Location: index.php?error=badaction"));
 	}
 	//
-	$collab[0]["mitglieder"] = unserialize($collab[0]["mitglieder"]);
 	if(!in_array($kick,$collab[0]["mitglieder"]["people"]))	{
 		die(header("Location: collab.php?id=$id&error=badaction"));
 	}

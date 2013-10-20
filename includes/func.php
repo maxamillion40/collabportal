@@ -18,6 +18,7 @@
 		while($row = mysql_fetch_assoc($rs))	{
 			$return[] = $row;
 		}
+		$return = auto_unserialize($return);
 		return($return);
 	}
 	function errnotice($code,$message) {
@@ -46,5 +47,16 @@
 			$data["regard"] = "[Kein Betreff]";
 		}
 		mysql_query("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES('".$data["regard"]."','".time()."','".$data["sender"]."','".$data["to"]."','".$data["msg"]."')");
+	}
+	function auto_unserialize(array $in)	{
+		foreach($in as &$elem)	{
+			if(is_array($elem))	{
+				$elem = auto_unserialize($elem);
+			}
+			if(is_string($elem) and @unserialize($elem))	{
+				$elem = @unserialize($elem);
+			}
+		}
+		return $in;
 	}
 ?>

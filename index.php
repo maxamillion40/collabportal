@@ -94,7 +94,7 @@
 										echo "<li class='project thumb item'>";
 										echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
 										echo "<span class='title'>".$collab["name"]."</span>";
-										echo "<span class='owner'>".unserialize($collab["mitglieder"])["founder"]."</span>";
+										echo "<span class='owner'>".$collab["mitglieder"]["founder"]."</span>";
 										echo "</li>";
 									}
 								}
