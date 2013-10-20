@@ -82,7 +82,7 @@
 				</div>
 			<article class="box" >
 				<div class="box-head">
-					<h4>Aktive Collabs (<?php echo count($collabs); ?>)</h4>
+					<h3>Aktive Collabs (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><a href="new.php"><button class="button blue">+ Neues Collab</button></a></span>
 				</div>
 				<div class="box-content slider-carousel">
 					<div class="viewport">
