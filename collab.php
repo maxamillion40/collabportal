@@ -178,7 +178,14 @@
 											}
 											else	{
 												//Buttons für Gäste
-												echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst!');\">Beitreten</button>";
+												if($collab[0]["settings"]["members_max"] != false)	{
+													if(count($collab[0]["mitglieder"]["people"]) + 1 < $collab[0]["settings"]["members_max"])	{
+														echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst!');\">Beitreten</button>";
+													}
+													else	{
+														echo "Maximale Mitgliederzahl erreicht";
+													}
+												}
 											}
 										}
 										else	{
