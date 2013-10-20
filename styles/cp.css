@@ -394,3 +394,8 @@ iframe	{
 	overflow: hidden;
 	animation: msgc 5s infinite linear;
 }
+.box-header-button {
+	position: absolute;
+	right: 10px;
+	top: 3px;
+}
