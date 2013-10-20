@@ -30,4 +30,5 @@
 	errnotice("nocollab",			"Fehler beim Auslesen der Datenbank!");
 	errnotice("emptyfields",		"Du hast nicht alle Felder ausgefüllt!");
 	errnotice("nopage",				"Diese Seite existiert nicht!");
+	errnotice("notmine",			"Dieses Collab gehört dir nicht!");
 ?>
