@@ -73,7 +73,7 @@ header ul li	{
     color: #fff;
     font-size: 15px;
     text-align: center;
-	padding: 5px 1px;
+	padding: 4px 1px;
     display: inline-block;
     position: absolute;
     top: -70px;
@@ -84,13 +84,15 @@ header ul li	{
 .orange .result-message {
     background-color: #F9A539;
 	border: 1px #d99032 solid;
+	box-shadow: 0px 0px 3px #d99032;
 }
 .red .result-message {
     background-color: #E85F29;
 	border: 1px #a62f00 solid;
+	box-shadow: 0px 0px 3px #a62f00;
 }
 .message-inner {
-	padding: 6px 10px;
+	padding: 5px 10px;
 }
 .orange .message-inner {
 	border-top: 1px #f9bb6b solid;
@@ -197,12 +199,14 @@ header ul li	{
 	height: 1.5em;
 	transition: max-width 0.25s;
 	-webkit-transition: max-width 0.25s;
-}
-#help:hover span {
-	display: none;
+	text-decoration: none;
+	padding: 0px 5px;
 }
 #help:hover {
 	max-width: 300px;
+}
+#help:hover span {
+	display: none;
 }
 #help:hover:after {
 	content:"Hier wird das letzte beendete Collab vorgestellt.";
