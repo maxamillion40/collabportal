@@ -46,6 +46,3 @@ table tr:hover	{
 .li-right	{
 	float: right;
 }
-.red, .red:hover, .red:active	{
-	color: red;
-}

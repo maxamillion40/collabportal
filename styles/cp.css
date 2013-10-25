@@ -412,3 +412,9 @@ iframe	{
 .hidden	{
 	display: none;
 }
+a.green, a.green:hover, a.green:active	{
+	color: green;
+}
+a.red, a.red:hover, a.red:active	{
+	color: red;
+}
