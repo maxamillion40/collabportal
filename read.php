@@ -48,11 +48,14 @@
 						<article class="box">
 							<div class="box-head">
 								<h3><?php echo $msg["regard"]; ?></h3>
-								<?php
-									if($msg["sender"] != "Systemnachricht")	{
-										echo "<span class='box-header-button'><a href='messages.php?to=".$msg["sender"]."&regard=Re: ".$msg["regard"]."#new'><button class='button blue'>Antworten</button></a></span>";
-									}
-								?>
+								<span class="box-header-button">
+									<?php
+										if($msg["sender"] != "Systemnachricht")	{
+											echo "<a href='messages.php?to=".$msg["sender"]."&regard=Re: ".$msg["regard"]."#new'><button class='button blue'>Antworten</button></a>";
+										}
+									?>
+									<a href="action.php?delete&id=<?php echo $msg["id"]; ?>"><button class="button grey">Löschen</button></a>
+								</span>
 							</div>
 							<div class="box-content">
 								<div class="inner box-no-padding">

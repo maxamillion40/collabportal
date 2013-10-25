@@ -12,6 +12,7 @@
 	resnotice("settingsok",			"Die Einstellungen wurden aktualsisiert!");
 	resnotice("applicationok",		"Dein Beitrittantrag wurde versendet!");
 	resnotice("acceptok",			"Mitglied aufgenommen!");
+	resnotice("delok",				"Nachricht gelöscht!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
@@ -33,4 +34,5 @@
 	errnotice("emptyfields",		"Du hast nicht alle Felder ausgefüllt!");
 	errnotice("nopage",				"Diese Seite existiert nicht!");
 	errnotice("notmine",			"Dieses Collab gehört dir nicht!");
+	errnotice("notyours",			"Diese Nachricht konnte nicht gelöscht werden!");
 ?>
