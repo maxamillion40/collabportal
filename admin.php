@@ -41,7 +41,7 @@
 					<!-- Über -->	
 						<article class="box ">
 							<div class="box-head">
-								<h4>Einstellungen</h4>
+								<h3>Einstellungen</h3><span class="box-header-button"><a href="collab.php?id=<?php echo $_GET["id"]; ?>"><button>&larr; Zurück</button></a></span>
 							</div>
 							<div class="box-content">
 								<div class="inner">
