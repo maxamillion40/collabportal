@@ -128,6 +128,9 @@
 															elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
 																echo "Mitglied";
 															}
+															elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
+																echo "Anwärter";
+															}
 															else	{
 																echo "Gast";
 															}
