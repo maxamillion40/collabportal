@@ -4,6 +4,9 @@
 	if(!is_loggedin())	{
 		die(header("Location: index.php?error=nologin"));
 	}
+		if(!isset($_GET["id"])) {
+		die(header("Location: mystuff.php?error=nocollab"));
+	}
 	mysql_auto_connect();
 	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=" . $_GET["id"]);
 	$id = $_GET["id"];
