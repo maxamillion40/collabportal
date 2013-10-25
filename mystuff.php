@@ -42,7 +42,7 @@
 					<!-- Liste -->	
 						<article class="box ">
 							<div class="box-head">
-								<h3>Meine Collabs</h3><span id='newcollab'><a href='new.php'><button>+ Neues Collab</button></a></span>
+								<h3>Meine Collabs</h3><span id='newcollab'><a href='new.php'><button class="button blue">+ Neues Collab</button></a></span>
 							</div>
 							<div class="box-content">
 								<div class="inner">
