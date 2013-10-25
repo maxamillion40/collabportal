@@ -48,6 +48,10 @@
 			include_once("libs/sendmessage.php");
 			exit;
 		}
+		if(isset($_GET["accept"]))	{
+			include_once("libs/accept.php");
+			exit;
+		}
 		header("Location: index.php?error=badaction");
 	}
 ?>

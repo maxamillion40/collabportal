@@ -104,7 +104,7 @@
 										<?php
 											if(count($collab[0]["mitglieder"]["candidates"]) > 0)	{
 												foreach($collab[0]["mitglieder"]["candidates"] as $candidate)	{
-													echo "<li>".$candidate."<span class='li-right'><a href='messages.php?to=$candidate#new'>Nachricht</a> <a class='red' href='action.php?kick=$candidate&id=$id'>Zurückweisen</a></span></li>";
+													echo "<li>".$candidate."<span class='li-right'><a class='green' href='action.php?accept&who=$candidate&id=".$_GET["id"]."'>Aufnehmen</a> <a href='messages.php?to=$candidate#new'>Nachricht</a> <a class='red' href='action.php?kick=$candidate&id=$id'>Zurückweisen</a></span></li>";
 												}
 											}
 											else	{

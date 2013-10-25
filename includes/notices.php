@@ -11,6 +11,7 @@
 	resnotice("sent",				"Nachricht gesendet!");
 	resnotice("settingsok",			"Die Einstellungen wurden aktualsisiert!");
 	resnotice("applicationok",		"Dein Beitrittantrag wurde versendet!");
+	resnotice("acceptok",			"Mitglied aufgenommen!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
