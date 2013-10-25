@@ -82,15 +82,15 @@
 												<td>-</td>
 												<td>Nachrichtensystem</td>
 												<td>webdesigner97</td>
-												<td>In Arbeit</td>
-												<td>Bald</td>
+												<td>abgschlossen</td>
+												<td>FERTIG!</td>
 											</tr>
 											<tr>
 												<td>-</td>
 												<td>Mitgliederliste</td>
 												<td>webdesigner97</td>
-												<td>In Arbeit</td>
-												<td>Demnächst</td>
+												<td>abgeschlossen</td>
+												<td>FERTIG!</td>
 											</tr>
 											<tr>
 												<td>-</td>
