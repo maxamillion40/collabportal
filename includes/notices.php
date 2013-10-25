@@ -16,7 +16,7 @@
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
-    errnotice("own",				"Du kannst aus deinem Collab nicht austreten!");
+    errnotice("own",				"Du kannst nicht aus deinem eigenen Collab austreten!");
     errnotice("notext",				"Du hast keine Nachricht eingegeben!");
     errnotice("nologin",			"Logge dich ein, um deine Collabs zu betrachten!");
     errnotice("noid",				"Interner Fehler, konnte Nachricht nicht zuordnen!");
