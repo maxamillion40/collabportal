@@ -56,7 +56,7 @@
 											echo "</tr>";
 											echo "<tr>";
 											echo "<td colspan='2'>";
-											echo "von: ".$featured[0]["mitglieder"];
+											echo "<b>Mitglieder: </b>".$featured[0]["mitglieder"];
 											echo "</td>";
 											echo "</tr>";
 											echo "</table>";
