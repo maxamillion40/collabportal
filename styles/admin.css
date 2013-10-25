@@ -23,12 +23,12 @@ table tr:hover	{
 .static-bg, .static-bg:hover	{
 	background: #F9F9F9;
 }
-#members	{
+.members	{
 	list-style-type: none;
 	width: 100%;
 	margin: 0;
 }
-#members li	{
+.members li	{
 	margin: 0;
 	height: 32px;
 	border-bottom: 1px #EBEBEB solid;
@@ -37,10 +37,10 @@ table tr:hover	{
 	line-height: 32px;
 	font-size: 14px;
 }
-#members li:last-child	{
+.members li:last-child	{
 	border-bottom: none;
 }
-#members li:hover	{
+.members li:hover	{
 	background: #F7F7F7;
 }
 .li-right	{

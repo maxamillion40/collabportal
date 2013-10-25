@@ -39,7 +39,7 @@
 			<div class="container" id="content">
 				<div class="cols clearfix" style="top: -10px; padding-left: 10px; padding-right: 10px;">
 					<!-- Über -->	
-						<article class="box ">
+						<article class="box">
 							<div class="box-head">
 								<h3>Einstellungen</h3><span class="box-header-button"><a href="collab.php?id=<?php echo $_GET["id"]; ?>"><button>&larr; Zurück</button></a></span>
 							</div>
@@ -73,13 +73,13 @@
 								</div>
 							</div>
 						</article>
-						<article class="box ">
+						<article class="box">
 							<div class="box-head">
 								<h4>Mitglieder</h4>
 							</div>
 							<div class="box-content">
 								<div class="inner <?php if(count($collab[0]["mitglieder"]["people"]) > 0)	{ echo "box-no-padding"; } ?>">
-									<ul id="members">
+									<ul class="members">
 										<?php
 											if(count($collab[0]["mitglieder"]["people"]) > 0)	{
 												foreach($collab[0]["mitglieder"]["people"] as $member)	{
@@ -88,6 +88,27 @@
 											}
 											else	{
 												echo "Noch bist du allein...";
+											}
+										?>
+									</ul>
+								</div>
+							</div>
+						</article>
+						<article class="box<?php if($collab[0]["settings"]["confirm_join"] == false) { echo " hidden"; } ?>">
+							<div class="box-head">
+								<h4>Anwärter</h4>
+							</div>
+							<div class="box-content">
+								<div class="inner <?php if(count($collab[0]["mitglieder"]["candidates"]) > 0)	{ echo "box-no-padding"; } ?>">
+									<ul class="members">
+										<?php
+											if(count($collab[0]["mitglieder"]["candidates"]) > 0)	{
+												foreach($collab[0]["mitglieder"]["candidates"] as $candidate)	{
+													echo "<li>".$candidate."<span class='li-right'><a href='messages.php?to=$candidate#new'>Nachricht</a> <a class='red' href='action.php?kick=$candidate&id=$id'>Zurückweisen</a></span></li>";
+												}
+											}
+											else	{
+												echo "Es hat sich noch niemand beworben...";
 											}
 										?>
 									</ul>

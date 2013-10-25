@@ -10,6 +10,7 @@
 	resnotice("kickok",				"Mitglied gekickt!");
 	resnotice("sent",				"Nachricht gesendet!");
 	resnotice("settingsok",			"Die Einstellungen wurden aktualsisiert!");
+	resnotice("applicationok",		"Dein Beitrittantrag wurde versendet!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");

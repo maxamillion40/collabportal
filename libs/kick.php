@@ -9,10 +9,11 @@
 		die(header("Location: index.php?error=badaction"));
 	}
 	//
-	if(!in_array($kick,$collab[0]["mitglieder"]["people"]))	{
+	if(!in_array($kick,$collab[0]["mitglieder"]["people"]) and !in_array($kick,$collab[0]["mitglieder"]["candidates"]))	{
 		die(header("Location: collab.php?id=$id&error=badaction"));
 	}
 	unset($collab[0]["mitglieder"]["people"][array_search($kick,$collab[0]["mitglieder"]["people"])]);
+	unset($collab[0]["mitglieder"]["candidates"][array_search($kick,$collab[0]["mitglieder"]["candidates"])]);
 	//
 	//Benachrichtigung
 		$message = array(

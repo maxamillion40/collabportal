@@ -176,13 +176,23 @@
 												//Buttons für Gründer
 												echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">Verwaltung</button>";
 											}
+											elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
+												echo "Dein Mitgliedsantrag ist in Bearbeitung.";
+											}
 											else	{
 												//Buttons für Gäste
-												if(count($collab[0]["mitglieder"]["people"]) + 1 < $collab[0]["settings"]["members_max"] or $collab[0]["settings"]["members_max"] == false)	{
-													echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst!');\">Beitreten</button>";
+												if(count($collab[0]["mitglieder"]["people"]) + 1 < $collab[0]["settings"]["members_max"] or $collab[0]["settings"]["members_max"] == false and !in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
+													echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst!');\">";
+													if($collab[0]["settings"]["confirm_join"] == true)	{
+														echo "Bewerben";
+													}
+													else	{
+														echo "Beitreten";
+													}
+													echo "</button>";
 												}
 												else	{
-													echo "Maximale Mitgliederzahl erreicht";
+													echo "Maximale Mitgliederzahl erreicht.";
 												}
 											}
 										}
