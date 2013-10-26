@@ -1,5 +1,5 @@
 ﻿//A function to redirect the user
-function navigate(to,dialog=null)	{
+function navigate(to,dialog)	{
 	if(typeof(dialog) == "string")	{
 		if(confirm(dialog))	{
 			window.location = to;
