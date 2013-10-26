@@ -3,7 +3,7 @@
 	//
 	$kick	= $_GET["kick"];
 	$id		= mysql_real_escape_string($_GET["id"]);
-	$collab	= mysql_get("SELECT `mitglieder` FROM `collabs` WHERE `id`=$id");
+	$collab	= mysql_get("SELECT `mitglieder`,`name` FROM `collabs` WHERE `id`=$id");
 	//
 	if(count($collab) != 1)	{
 		die(header("Location: index.php?error=badaction"));
@@ -19,8 +19,8 @@
 		$message = array(
 			"sender" => "Systemnachricht",
 			"to" => $kick,
-			"msg" => "Du wurdest aus einem Collab geworfen!",
-			"regard" => "Du wurdest gekickt!"
+			"msg" => "Du wurdest aus dem Collab <a href=\"collab.php?id=$id\">".$collab[0]["name"]."</a> geworfen und hast dort nun keine weiteren Rechte mehr!",
+			"regard" => "Du wurdest aus ".$collab[0]["name"]." gekickt!"
 		);
 		send_pm($message);
 	$collab[0]["mitglieder"] = serialize($collab[0]["mitglieder"]);

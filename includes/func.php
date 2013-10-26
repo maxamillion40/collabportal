@@ -46,12 +46,13 @@
 	}
 	function send_pm(array $data)	{
 		if(!isset($data["sender"]) || !isset($data["to"]) || !isset($data["msg"]))	{
-			return false;
+			die("Message header incomplete");
 		}
 		if(!isset($data["regard"]))	{
 			$data["regard"] = "[Kein Betreff]";
 		}
-		mysql_query("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES('".$data["regard"]."','".time()."','".$data["sender"]."','".$data["to"]."','".$data["msg"]."')");
+		mysql_query("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES('".$data["regard"]."','".time()."','".$data["sender"]."','".$data["to"]."','".$data["msg"]."')") or die(mysql_error());
+		print_array($data);
 	}
 	function auto_unserialize(array $in)	{
 		foreach($in as &$elem)	{
