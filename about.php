@@ -61,16 +61,16 @@
 											<tr>
 												<td>!</td>
 												<td>Fehlerseite(n) ausbauen, insbesondere 404</td>
-												<td>-</td>
-												<td>Ausstehend</td>
-												<td>Unbekannt</td>
+												<td>webdesigner97</td>
+												<td>in Arbeit</td>
+												<td>demnächst</td>
 											</tr>
 											<tr>
 												<td>!</td>
 												<td>Metadaten</td>
 												<td>webdesigner97</td>
-												<td>Ausstehend</td>
-												<td>Unbekannt</td>
+												<td>abgeschlossen</td>
+												<td>FERTIG!</td>
 											</tr>
 											<tr>
 												<td>-</td>
