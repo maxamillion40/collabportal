@@ -1,0 +1,11 @@
+#box404	{
+	width: 350px;
+	height: 150px;
+	border: 10px #B6B7BA solid;
+	padding: 69px 34px;
+	border-radius: 140px;
+	margin-left: 150px;
+}
+.centered	{
+	text-align: center;
+}
