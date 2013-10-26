@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="styles/cp.css" />
 		<!-- Scripts -->
 		<script src="scripts/init.js"></script>
+		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 	</head>
 	<body>
 		<div id="pagewrapper">

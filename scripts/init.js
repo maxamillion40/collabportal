@@ -1,11 +1,4 @@
-﻿$(document).ready(function() {
-	//Login bubble
-	$("#join a").click(function()	{
-		$("#login").toggle("fade");
-	});
-});
-
-//A function to redirect the user
+﻿//A function to redirect the user
 function navigate(to,dialog=null)	{
 	if(typeof(dialog) == "string")	{
 		if(confirm(dialog))	{
@@ -31,8 +24,13 @@ if(typeof(tinymce) !== "undefined")	{
 	});
 }
 
-//Unread messages animation
-/* window.setInterval(function()	{
-	$("#notificationsCount").slideUp();
-	$("#notificationsCount").slideDown();
-},5000) */
+// Login box
+function loginbox()	{
+var LI = document.getElementById("login");
+	if(LI.style.display == "none") {
+		LI.style.display = "block";
+	}
+	else {
+		LI.style.display = "none";
+	}
+}

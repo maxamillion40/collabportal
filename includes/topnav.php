@@ -55,15 +55,7 @@
 				else	{
 					echo "<li id=\"asc\"><a href=\"about.php\">Was ist ScratchCollabs?</a></li>
 					<li id=\"join\">
-							<a onclick='
-							var LI = document.getElementById(\"login\");
-								if(LI.style.display == \"none\") {
-									LI.style.display = \"block\";
-								}
-								else {
-									LI.style.display = \"none\";
-								}
-							'>Mitmachen!</a>
+							<a onclick='loginbox();'>Mitmachen!</a>
 							<div id=\"login\" style=\"display: none;\">
 								<div id=\"arrow\"></div>
 								<div id=\"form\">
