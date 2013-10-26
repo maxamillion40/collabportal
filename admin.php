@@ -28,6 +28,8 @@
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
 		<link rel="stylesheet" href="styles/admin.css" />
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/init.js"></script>
@@ -58,7 +60,7 @@
 													}
 												?> /></td>
 												<td>Maximale Mitgliederzahl</td>
-												<td><input type="number" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab[0]["settings"]["members_max"]; ?>" /></td>
+												<td><input type="number" min="1" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab[0]["settings"]["members_max"]; ?>" /></td>
 												<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
 											</tr>
 											<tr id="row-confirm-join">

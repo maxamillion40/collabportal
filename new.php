@@ -18,6 +18,8 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/tinymce/tinymce.min.js"></script>
