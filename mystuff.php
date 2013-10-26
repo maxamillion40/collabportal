@@ -48,7 +48,6 @@
 							<div class="box-content">
 								<div class="inner">
 									<?php
-										print_array($mycollabs);
 										echo "<ul id='msu'><hr/>";
 										if(count($mycollabs) > 0)	{
 											//Collabliste
