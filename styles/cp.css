@@ -219,7 +219,6 @@ header ul li	{
 	top: 50px;
 	right: auto;
 	cursor: default;
-	display: none;
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 #login #arrow	{
