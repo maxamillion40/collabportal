@@ -52,12 +52,12 @@
 											echo "</td>";
 											echo "<td>";
 											echo "<a href='".$featured[0]["url"]."' id='featured-h'>".$featured[0]["name"]."</a>";
-											echo "<div id='featured-desc'>".$featured[0]["desc"]."</div>";
+											echo "<div id='featured-desc'><p>".$featured[0]["desc"]."</p></div>";
 											echo "</td>";
 											echo "</tr>";
 											echo "<tr>";
 											echo "<td colspan='2'>";
-											echo "<b>Mitglieder: </b>".$featured[0]["mitglieder"];
+											echo "<p><b>Mitglieder: </b>".$featured[0]["mitglieder"]."</p>";
 											echo "</td>";
 											echo "</tr>";
 											echo "</table>";
