@@ -83,7 +83,11 @@
 				</div>
 			<article class="box" >
 				<div class="box-head">
-					<h3>Aktive Collabs (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><a href="new.php"><button class="button blue">+ Neues Collab</button></a></span>
+					<h3>Aktive Collabs (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><?php
+						if(is_loggedin())	{
+							echo '<a href="new.php"><button class="button blue">+ Neues Collab</button></a></span>';
+						}
+					?>
 				</div>
 				<div class="box-content slider-carousel">
 					<div class="viewport">

@@ -247,12 +247,19 @@ input	{
 	right: 15px;
 	color: #FFFFFF;
 }
-#login #form input	{
-	width: 180px;
+#login #form input[type=text], #login #form input[type=password]	{
 	margin: 0;
+	margin-bottom: 4px;
+	width: 180px;
+	height: 20px;
+	line-height: 20px;
+	-webkit-box-sizing: content-box;
 }
 #login #form input[type=submit]	{
 	width: 190px;
+	margin: 0;
+	height: 30px;
+	line-height: 30px;
 	box-shadow: none;
 }
 .ui-state-highlight, .ui-state-error	{
@@ -377,7 +384,11 @@ iframe	{
 #msg-icon	{
 	position: absolute;
 	right: 67px;
+	top: 0;
 	height: 35px;
+}
+#msg-icon img	{
+	margin-top: 10px;
 }
 #notificationsCount	{
 	color: white;
