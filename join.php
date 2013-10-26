@@ -16,6 +16,8 @@
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
 		<meta name="keywords" content="scratch,collabs,dach,deutsch" />
+		<meta name="robots" content="index,follow" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
