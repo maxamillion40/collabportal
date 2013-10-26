@@ -1,5 +1,7 @@
 # robots.txt für ScratchCollabs
 
+Sitemap: htp://example.com/sitemap.php
+
 User-agent: *
 Disallow: /action.php
 Disallow: /libs/
