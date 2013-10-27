@@ -437,3 +437,9 @@ a.red, a.red:hover, a.red:active	{
 p, td	{
 	font-size: 13px;
 }
+pre	{
+	margin: 5px 15px;
+}
+pre .scratchblocks2-container	{
+	margin: 0;
+}

@@ -32,10 +32,12 @@
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
 		<link rel="stylesheet" href="styles/messages.css" />
+		<link rel="stylesheet" href="styles/scratchblocks2.css" />
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
+		<script src="scripts/scratchblocks2.js"></script>
 		<script src="scripts/init.js"></script>
 	</head>
 	<body>
