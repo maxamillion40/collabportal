@@ -50,7 +50,7 @@
 								<h3>Schritt 2: Beschreibung</h3>
 								<div>
 									<p>Beschreibe dein Collab möglichst genau, erwähne auch das Ziel und die die Inhalte der gemeinsamen Arbeit</p>
-										<textarea name="desc" required></textarea>
+										<textarea name="desc"></textarea>
 								</div>
 								<!-- Third step -->
 								<h3>Schritt 3: Einstellungen</h3>
