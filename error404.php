@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
 		<link rel="stylesheet" href="styles/error404.css" />
+		<link rel="stylesheet" href="styles/scratchblocks2.css" />
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- Scripts -->
@@ -43,12 +44,19 @@
 							<p class="centered">Wir haben unser Bestes gegeben, aber diese Seite konnten wir einfach nicht finden...</p>
 							<p class="centered">Hast du dich vielleicht vertippt oder hast du einen sehr alten Link benutzt?</p>
 							<div id="box404">
-								<img src="img/script404.png" width="305" height="129" border="0" usemap="#map" />
-								<map name="map">
-									<area shape="rect" coords="14,39,146,63" href="index.php" alt="Zurück zu Startseite" />
-									<area shape="rect" coords="14,63,184,88" href="javascript: history.back();" alt="Zurück zur vorherigen Seite" />
-									<area shape="rect" coords="0,100,77,130" href="http://scratch.mit.edu" alt="Scratch on!" />
-								</map>
+								<div class="blocks scratchblocks2-container">
+									<div class="script">
+										<div class="cwrap control cap">
+											<div class="stack control cstart">If <div class="boolean operators"><div class="boolean obsolete">Seite nicht gefunden</div> and <div class="boolean operators">not <div class="boolean obsolete">vertippt</div></div></div></div><div class="comment attached"><div>Klick mich</div></div>
+											<div class="cmouth">
+												<div class="stack motion" style="cursor:pointer;" onClick="history.back();">Gehe zur vorherigen Seite</div></a>
+												<div class="stack motion" style="cursor:pointer;" onClick="navigate('index.php');">Gehe zur Startseite</div>
+												<div class="stack motion" style="cursor:pointer;" onClick="navigate('http://scratch.mit.edu');">Scratch on!</div>
+											</div>
+											<div class="stack cend control"></div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
