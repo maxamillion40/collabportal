@@ -208,10 +208,6 @@
 											echo "<p>Diese Funktionen stehen nur Mitgliedern zur Verfügung.</p>";
 										}
 									?>
-									<pre class="blocks scratchblocks2-container">
-										<div class="stack motion">hide</div>
-										<div class="stack motion">show</div>
-									</pre>
 								</div>
 							</div>
 						</article>

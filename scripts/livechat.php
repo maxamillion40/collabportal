@@ -18,19 +18,21 @@
 ?>
 function chat()	{
 	$.ajax({
-		url: "libs/livechat_ajax.php?id="+$(document).getUrlParam("id"),
+		url: "libs/livechat_ajax.php?id=" + $(document).getUrlParam("id"),
 		data: "",
 		type: "POST",
 		success: function(data) {
 			$("#livechat").html(data);
-			scratchblocks2.parse("pre.blocks");
+			scratchblocks2.parse("#livechat pre.blocks");
 		}
 	});
 }
 
 if(member == true)	{
-	window.onload = chat();
-	window.setInterval("chat()",10000);
+	window.onload = function()	{
+		chat();
+	};
+	window.setInterval("chat()",3500);
 }
 else	{
 	$(document).ready(function()	{
