@@ -1,6 +1,10 @@
 <?php
 	session_start();
 	require_once("includes/func.php");
+	
+	mysql_auto_connect();
+	$questions	= mysql_get("SELECT * FROM faq ORDER BY `id` ASC");
+	mysql_close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,61 +61,21 @@
 										<p>Du hast eine Frage? Stelle sie <a href="./">hier</a> oder <a href="contact.php">kontaktiere uns</a>!<br/>Klicke auf die Überschriften, um einen Permalink zu erhalten.</p>
 										<!-- Hier kommt später mal PHP-Code hin, damit Fragen und Antworten vom Admin über die Datenbank hinzugefügt werden können. -->
 									<div id="questions">
-										<div id="1"><a href="help.php#1" onclick="lscrollup()"><h4>Was ist das Collabportal?</h4></a>
-											<p>Siehe: <a href="about.php">Über ScratchCollabs</a>.</p></div>
-										<div id="2"><a href="help.php#2" onclick="lscrollup()"><h4>Was ist Scratch?</h4></a>
-											<p>Siehe: <a href="http://scratch.mit.edu/about" >Über Scratch</a>.</p></div>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
-											b<br>
+									<?php
+									foreach($questions as $question) {
+										echo "<div id='".$question["id"]."'><a href='help.php#".$question["id"]."' onclick=\"lscrollup()\"><h4>".$question["question"]."</h4></a>";
+										echo "<p>".$question["answer"]."</p></div>";
+									}
+									if(isset($_SESSION["user"])) {
+										if($_SESSION["user"] == "Lirex" or $_SESSION["user"] == "webdesigner97") {
+											echo "<form action='action.php?newquestion' method='post'>";
+											echo "<input type='text' name='question' placeholder='Frage' title='Frage (Maximal 255 zeichen)' required maxlength='255' tabindex='1' />";
+											echo "<input type='text' name='answer' placeholder='Antwort' title='Antwort (Maximal 255 zeichen)' required maxlength='255' tabindex='2' />";
+											echo "<input type='submit' class='button grey' value='Absenden' tabindex='3' />";
+											echo "</form>";
+										}
+									}
+									?>
 									</div>
 								</div>
 							</div>

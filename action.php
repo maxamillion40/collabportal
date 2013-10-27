@@ -56,6 +56,10 @@
 			include_once("libs/delete.php");
 			exit;
 		}
+		if(isset($_GET["newquestion"]))	{	
+			include_once("libs/newquestion.php");
+			exit;
+		}
 		header("Location: index.php?error=badaction");
 	}
 ?>

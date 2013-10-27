@@ -13,6 +13,7 @@
 	resnotice("applicationok",		"Dein Beitrittantrag wurde versendet!");
 	resnotice("acceptok",			"Mitglied aufgenommen!");
 	resnotice("delok",				"Nachricht gelöscht!");
+	resnotice("qok",				"Frage eingefügt!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
