@@ -1,5 +1,7 @@
 ﻿$(document).ready(function()	{
-	scratchblocks2.parse("pre.blocks");
+	if(typeof(scratchblocks2) !== "undefined")	{
+		scratchblocks2.parse("pre.blocks");
+	}
 });
 
 //A function to redirect the user

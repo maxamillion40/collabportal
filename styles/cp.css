@@ -310,6 +310,9 @@ input[type=checkbox]	{
 .mce-i-sb	{
 	background-image: url(../scripts/tinymce/plugins/sb/icon.png) !important;
 }
+.mce-i-scratchblocks2	{
+	background-image: url(../scripts/tinymce/plugins/scratchblocks2/icon.png) !important;
+}
 .msg	{
 	background-image: url(../img/sharp.png);
 	background-repeat: no-repeat;
