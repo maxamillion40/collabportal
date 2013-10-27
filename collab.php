@@ -32,6 +32,7 @@
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
 		<link rel="stylesheet" href="styles/jquery-ui-1.10.3.custom.min.css" />
+		<link rel="stylesheet" href="styles/scratchblocks2.css" />
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- Scripts -->
@@ -207,6 +208,10 @@
 											echo "<p>Diese Funktionen stehen nur Mitgliedern zur Verfügung.</p>";
 										}
 									?>
+									<pre class="blocks scratchblocks2-container">
+										<div class="stack motion">hide</div>
+										<div class="stack motion">show</div>
+									</pre>
 								</div>
 							</div>
 						</article>

@@ -1,4 +1,8 @@
-﻿//A function to redirect the user
+﻿$(document).ready(function()	{
+	scratchblocks2.parse("pre.blocks");
+});
+
+//A function to redirect the user
 function navigate(to,dialog)	{
 	if(typeof(dialog) == "string")	{
 		if(confirm(dialog))	{
@@ -13,10 +17,10 @@ function navigate(to,dialog)	{
 //Launch Tinymce
 if(typeof(tinymce) !== "undefined")	{
 	tinymce.init({
-		plugins: "link lists emoticons image sb",
+		plugins: "link lists emoticons image sb scratchblocks2",
 		selector: "textarea",
 		language: "de",
-		toolbar: "undo redo | bold italic underline | link unlink | image sb | numlist bullist | emoticons",
+		toolbar: "undo redo | bold italic underline | link unlink | image sb scratchblocks | numlist bullist | emoticons",
 		menubar: false,
 		statusbar: false,
 		width: "100%",

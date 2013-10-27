@@ -17,13 +17,14 @@
 	}
 ?>
 function chat()	{
-$.ajax({
-	url: "libs/livechat_ajax.php?id="+$(document).getUrlParam("id"),
-	data: "",
-	type: "POST",
-	success: function(data) {
-		$("#livechat").html(data);
-	}
+	$.ajax({
+		url: "libs/livechat_ajax.php?id="+$(document).getUrlParam("id"),
+		data: "",
+		type: "POST",
+		success: function(data) {
+			$("#livechat").html(data);
+			scratchblocks2.parse("pre.blocks");
+		}
 	});
 }
 
