@@ -55,9 +55,9 @@
 								<!-- Third step -->
 								<h3>Schritt 3: Einstellungen</h3>
 								<div>
-									<p>Du kannst noch einige weitere Einstellungen machen</p>
-									<input type="number" name="max_members" placeholder="Maximale Mitgliederzahl" min="2" max="100" step="1" />
+									<p>Sobald du dein Collab veröffentlicht hast, kannst du weitere Einstellungen in der <i>Verwaltung</i> machen.</p>
 								</div>
+								<button type="submit" class="button blue">Collab starten</button>
 							</form>
 						</div>
 					</div>
