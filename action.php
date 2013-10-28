@@ -60,6 +60,10 @@
 			include_once("libs/newquestion.php");
 			exit;
 		}
+		if(isset($_GET["new"]))	{	
+			include_once("libs/new.php");
+			exit;
+		}
 		header("Location: index.php?error=badaction");
 	}
 ?>
