@@ -14,6 +14,7 @@
 	resnotice("acceptok",			"Mitglied aufgenommen!");
 	resnotice("delok",				"Nachricht gelöscht!");
 	resnotice("qok",				"Frage eingefügt!");
+	resnotice("collabok",			"Dein Collab wurde erfolgreich gestartet!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
@@ -36,4 +37,5 @@
 	errnotice("nopage",				"Diese Seite existiert nicht!");
 	errnotice("notmine",			"Dieses Collab gehört dir nicht!");
 	errnotice("notyours",			"Diese Nachricht konnte nicht gelöscht werden!");
+	errnotice("noaccess",			"Auf diese Seite hast du keinen Zugriff!");
 ?>
