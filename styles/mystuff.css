@@ -1,12 +1,12 @@
 .inner h4 {
 	padding-top: 10px;
 	padding-bottom: 5px;
+	margin-bottom: 7px;
+	width: 100%;
+	border-bottom: #554747 2px solid;
 }
 .inner hr {
 	color: #fff;
-}
-.strong hr {
-	color: #000;
 }
 .box-content {
 	padding-bottom: 20px;
@@ -31,6 +31,10 @@ h3 {
 	margin-top: 35px;
 	z-index: 99;
 	right: 20px;
+}
+#msu li {
+	padding-bottom: 2px;
+	border-bottom: #8d8d8d 1px solid;
 }
 
 .stats {

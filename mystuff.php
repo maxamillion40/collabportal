@@ -5,7 +5,7 @@
 	if(is_loggedin()) {
 		$user = $_SESSION['user'];
 		$mycollabs = mysql_get("SELECT * FROM collabs WHERE `owner`='$user'");
-		$collabmember = mysql_get("SELECT * FROM collabs");
+		$collabmember = mysql_get("SELECT * FROM collabs ORDER BY `status` ASC");
 	}
 	else {
 		die(header("Location: index.php?error=nologin"));
@@ -50,9 +50,11 @@
 							<div class="box-content">
 								<div class="inner">
 									<?php
-										echo "<ul id='msu'><hr/>";
+										echo "<ul id='msu'>";
+										echo "<h4>Eigner</h4>";
 										if(count($mycollabs) > 0)	{
 											//Collabliste
+											echo "<div id='own'>";
 											foreach($mycollabs as $collab)	{
 												echo "<button class='button grey' onClick=\"navigate('admin.php?id=".$collab["id"]."');\">Verwaltung</button><li>";
 												echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
@@ -60,14 +62,16 @@
 													echo "<tr><th>Name:</th><td>".$collab["name"]."</td></tr>";
 													echo "<tr><th>Status:</th><td>".$collab["status"]."</td></tr>";
 													echo "<tr><th>Rang:</th><th>Eigner</th></tr>";
-												echo "</td></tr></table></li><hr/>";
+												echo "</td></tr></table></li>";
 											}
+											echo "</div>";
 										}
 										else	{
 											//Keine Collabs
-											echo "Du hast noch keine Collabs erstellt. <a href='new.php'>Erstelle eins!</a>";
+											echo "Du hast noch keine Collabs erstellt. <a href='new.php'>Gründe eins</a>!<hr/>";
 										}
-										echo "<span class='strong'><hr/></span>";
+										echo "<h4>Mitglied</h4>";
+										echo "<div id='member'>";
 											$count = 0;
 											foreach($collabmember as $collab)	{
 												if(in_array($_SESSION["user"],$collab["mitglieder"]["people"]))	{
@@ -78,14 +82,14 @@
 														echo "<tr><th>Status:</th><td>".$collab["status"]."</td></tr>";
 														echo "<tr><th>Rang:</th><td>Mitglied</td></tr>";
 														echo "<tr><th>Gründer:</th><td>".$collab["owner"]."</td></tr>";
-													echo "</td></tr></table></li><hr/>";
+													echo "</td></tr></table></li>";
 													$count++;
 												}
 											}
 										if($count == 0) {
-											echo "Du hast noch an keinem Collab teilgenommen. <a href='./'>Nimm an einem teil!</a><hr/>";
+											echo "Du hast noch an keinem Collab teilgenommen. <a href='./'>Nimm an einem teil</a>!<hr/>";
 										}
-										echo "</ul>";
+										echo "</div></ul>";
 									?>
 								</div>
 							</div>
