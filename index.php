@@ -4,6 +4,7 @@
 	mysql_auto_connect();
 	$featured	= mysql_get("SELECT * FROM featured_collab");
 	$collabs	= mysql_get("SELECT * FROM collabs WHERE `status`='open'");
+	$news		= mysql_get("SELECT * FROM `news` ORDER BY `date` DESC LIMIT 0,3");
 	mysql_close();
 ?>
 <!DOCTYPE html>
@@ -19,6 +20,7 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
+		<link rel="stylesheet" href="styles/index.css" />
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- Scripts -->
@@ -71,13 +73,27 @@
 					</div>
 					<!-- 2. Box -->
 					<div class="col-7">	
-						<article style="max-height: 315px;" class="box ">
+						<article style="max-height: 315px;" class="box">
 							<div class="box-head">
 								<h4>Ankündigungen</h4>
 							</div>
 							<div class="box-content" style="height: 279px;">
-								<div class="inner">
-									
+								<div class="inner box-no-padding">
+									<div id="news-feed">
+										<ul class="event-list">
+											<?php
+												foreach($news as $entry)	{
+													echo "<li>";
+													echo "<img class='event-img' src='".$entry["pic"]."' alt='News' width='54' height='54' />";
+													echo "<div class='msg-content'>";
+													echo "<p class='event-headline'>".$entry["headline"]."</p>";
+													echo "<p class='event-msg'>".$entry["msg"]."</p>";
+													echo "</div>";
+													echo "</li>";
+												}
+											?>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</article>

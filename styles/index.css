@@ -1,0 +1,28 @@
+.event-list	{
+	list-style-type: none;
+	margin: 0;
+	height: 280px;
+}
+.event-list li	{
+	margin: 0;
+	height: 93px;
+	display: block;
+	border-bottom: 1px #EBEBEB solid;
+}
+.event-list li:last-child	{
+	border: none;
+}
+.event-img	{
+	margin-left: 20px;
+	margin-top: 20px;
+	float: left;
+}
+.msg-content	{
+	margin-left: 85px;
+	height: 93px;
+	padding: 5px;
+}
+.event-headline	{
+	color: #1AA0D8;
+	font-weight: bold;
+}
