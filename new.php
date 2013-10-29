@@ -44,7 +44,7 @@
 								<h3>Schritt 1: Collabname</h3>
 								<div>
 									<p>Überlege dir einen aussagekräftigen Namen für dein Collab, der auch einen ersten Hinweis auf das Projekt gibt (z.B. "Stadtsimulation")</p>
-									<input type="text" name="collabname" placeholder="Collabname" required />
+									<input type="text" name="collabname" placeholder="Collabname" required maxlength="40" />
 								</div>
 								<!-- Second step -->
 								<h3>Schritt 2: Beschreibung</h3>
