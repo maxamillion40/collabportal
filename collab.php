@@ -31,6 +31,7 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
+		<link rel="stylesheet" href="styles/collab.css" />
 		<link rel="stylesheet" href="styles/jquery-ui-1.10.3.custom.min.css" />
 		<link rel="stylesheet" href="styles/scratchblocks2.css" />
 		<!-- Favicon -->
@@ -81,12 +82,13 @@
 									<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
 										<textarea name="msg"></textarea><br />
 										<button type="submit">Senden</button>
+										<span id="countdown-wrapper"><span id="chat-countdown"></span></span>
 									</form>
 								<div id="livechat">
-								<div id="loading">
-									<img src="img/loader.gif" alt="Loading chat..." />
-									<p>Loading chat messages...</p>
-								</div>
+									<div id="loading">
+										<img src="img/loader.gif" alt="Loading chat..." />
+										<p>Loading chat messages...</p>
+									</div>
 								</div>
 								</div>
 							</div>

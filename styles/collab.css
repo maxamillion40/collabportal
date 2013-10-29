@@ -1,0 +1,12 @@
+#chat-countdown	{
+	display: inline-block;
+	width: 0px;
+	height: 20px;
+	background: #64BEDF;
+}
+#countdown-wrapper	{
+	display: inline-block;
+	background: #cdd0d4;
+	width: 100px;
+	height: 20px;
+}
