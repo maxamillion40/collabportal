@@ -255,6 +255,9 @@ input	{
 	line-height: 20px;
 	-webkit-box-sizing: content-box;
 }
+input	{
+	-webkit-box-sizing: content-box;
+}
 #login #form input[type=submit]	{
 	width: 190px;
 	margin: 0;
