@@ -47,7 +47,7 @@
 					<!-- Über -->	
 						<article class="box">
 							<div class="box-head">
-								<h3>Einstellungen</h3><span class="box-header-button"><a href="collab.php?id=<?php echo $_GET["id"]; ?>"><button>&larr; Zurück</button></a></span>
+								<h3>Einstellungen</h3><span class="box-header-button"><a href="collab.php?id=<?php echo $_GET["id"]; ?>"><button>Zum Collab</button></a></span>
 							</div>
 							<div class="box-content">
 								<div class="inner">
