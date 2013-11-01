@@ -10,7 +10,7 @@
 	$msg = $msg[1];
 	$msg = mysql_get("SELECT * FROM `messages` WHERE `id`='$msg'");
 	$msg = $msg[0];
-	if($msg["to"] != $_SESSION["user"])	{
+	if(strtolower($msg["to"]) != strtolower($_SESSION["user"]))	{
 		header("Location: messages.php?error=nopriv");
 		print_array($msg);
 	}

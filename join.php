@@ -35,34 +35,6 @@
 				?>
 			<!-- Main Content -->	
 			<div class="container" id="content">
-			<!-- <?php
-				if(isset($_GET["error"]))	{
-					if($_GET["error"] == "namenotavailable")	{
-						echo "<div class='ui-state-error'>Dieser Nutzername ist nicht verfügbar!</div>";
-					}
-					if($_GET["error"] == "badmail")	{
-						echo "<div class='ui-state-error'>Das scheint keine gültige Email Adresse zu sein. Eine Email Adresse braucht ein '@' und mindestens einen '.'!</div>";
-					}
-					if($_GET["error"] == "badprofile")	{
-						echo "<div class='ui-state-error'>Dieses Scratchprofil existiert nicht!</div>";
-					}
-					if($_GET["error"] == "badpass")	{
-						echo "<div class='ui-state-error'>Die Passwörter stimmen nicht überein!</div>";
-					}
-					if($_GET["error"] == "badpasslogin")	{
-						echo "<div class='ui-state-error'>Das Passwort war leider nicht korrekt!</div>";
-					}
-					if($_GET["error"] == "unknownuser")	{
-						echo "<div class='ui-state-error'>Dieser Nutzer ist leider nicht bekannt!</div>";
-					}
-					if($_GET["error"] == "mailnotavailable")	{
-						echo "<div class='ui-state-error'>Es hat sich bereits jemand mit dieser Emailadresse registriert!</div>";
-					}
-				}
-				if(isset($_GET["result"]))	{
-					//
-				}
-			?> -->
 				<article class="box">
 					<div class="box-head">
 						<h4>Registrieren</h4>
@@ -80,6 +52,7 @@
 								<input type="password" name="pass" placeholder="Passwort"  required autocomplete="off" title="Dein Passwort sollte nicht das gleiche sein wie bei Scratch." tabindex="4" />
 								<input type="password" name="pass_check" placeholder="Passwort wiederholen" required autocomplete="off" title="Bitte das Passwort wiederholen." tabindex="5" />
 								<label><input type="checkbox" name="rules" value="accept" required title="Wirklich?" tabindex="6" /> Nutzungsbedingungen gelesen und akzeptiert</label>
+								<?php // include("includes/captcha.php"); ?><img src="includes/captcha.php" /><br/>
 								<input type="submit" class="button grey" value="Registrieren" tabindex="7" />
 							</form>
 						</div>
