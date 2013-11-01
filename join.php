@@ -52,7 +52,6 @@
 								<input type="password" name="pass" placeholder="Passwort"  required autocomplete="off" title="Dein Passwort sollte nicht das gleiche sein wie bei Scratch." tabindex="4" />
 								<input type="password" name="pass_check" placeholder="Passwort wiederholen" required autocomplete="off" title="Bitte das Passwort wiederholen." tabindex="5" />
 								<label><input type="checkbox" name="rules" value="accept" required title="Wirklich?" tabindex="6" /> Nutzungsbedingungen gelesen und akzeptiert</label>
-								<?php // include("includes/captcha.php"); ?><img src="includes/captcha.php" /><br/>
 								<input type="submit" class="button grey" value="Registrieren" tabindex="7" />
 							</form>
 						</div>
