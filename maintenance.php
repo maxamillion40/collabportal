@@ -8,7 +8,7 @@
 	}
 	//
 	mysql_auto_connect();
-	$news = mysql_get("SELECT * FROM `news` ORDER BY `date` DESC LIMIT 0,3");
+	$news = mysql_get("SELECT * FROM `news` ORDER BY `date` DESC");
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,6 +29,14 @@
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/init.js"></script>
+		<script>
+			function update(input,preview)	{
+				var input = $("#" + input);
+				var preview = $("#" + preview);
+				var text = input.val();
+				preview.html(text);
+			}
+		</script>
 	</head>
 	<body>
 		<div id="pagewrapper">
@@ -45,14 +53,50 @@
 								<h4>Ankündigungen</h4>
 							</div>
 							<div class="box-content">
-								<div class="inner">
-									<?php
-										foreach($news as $entry)	{
-											echo "<div class='news-entry'>";
-											echo "<p>".$entry["date"]."</p>";
-											echo "</div>";
-										}
-									?>
+								<div class="inner box-no-padding">
+									<ul class="event-list">
+										<?php
+											foreach($news as $entry)	{
+												echo "<li id='event-".$entry["id"]."'>";
+												echo "<div class='event-actions'>";
+												echo "<a href='action.php?delnews&id=".$entry["id"]."'><button class='button grey'>Löschen</button></a>";
+												echo "</div>";
+												echo "<img id='event-img-".$entry["id"]."' class='event-img' src='img/".$entry["pic"]."' alt='News' width='54' height='54' />";
+												echo "<div class='msg-content'>";
+												echo "<p id='event-headline-".$entry["id"]."' class='event-headline'>".$entry["headline"]." (".date("d.m.Y",$entry["date"]).")</p>";
+												echo "<p id='event-msg-".$entry["id"]."'class='event-msg'>".$entry["msg"]."</p>";
+												echo "</div>";
+												echo "</li>";
+											}
+										?>
+									</ul>
+								</div>
+							</div>
+						</article>
+						<article class="box">
+							<div class="box-head">
+								<h4>Neue Ankündigung</h4>
+							</div>
+							<div class="box-content">
+								<div class="inner min">
+									<form id="news" action="action.php?newnews" method="post">
+										<select name="pic">
+											<option onClick="$('#event-preview-img').attr('src','img/icon_info.png');">info</option>
+											<option onClick="$('#event-preview-img').attr('src','img/icon_update.png');">update</option>
+										</select>
+										<input onKeyUp="update('headline-input','event-preview-headline');" id="headline-input" name="headline" placeholder="Titel" required /><br />
+										<input onKeyUp="update('msg-input','event-preview-msg');" id="msg-input" name="msg" placeholder="Nachricht" required />
+										<input type="submit" class="button blue" value="Speichern" />
+									</form>
+									<ul id="event-preview">
+										<li>
+											<img id="event-preview-img" class="event-img" src="img/icon_info.png" alt="" width="54" height="54" />
+											<div class="msg-content">
+												<p id="event-preview-headline" class="event-headline"></p>
+												<p id="event-preview-msg" class="event-msg"></p>
+											</div>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</article>

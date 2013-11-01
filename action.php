@@ -64,6 +64,14 @@
 			include_once("libs/new.php");
 			exit;
 		}
+		if(isset($_GET["delnews"]))	{	
+			include_once("libs/delnews.php");
+			exit;
+		}
+		if(isset($_GET["newnews"]))	{	
+			include_once("libs/newnews.php");
+			exit;
+		}
 		header("Location: index.php?error=badaction");
 	}
 ?>
