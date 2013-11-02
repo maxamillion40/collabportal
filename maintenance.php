@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once("includes/func.php");
-	if(!is_loggedin() and (!isset($_SESSION["user"]) or $_SESSION["user"] != "webdesigner97" or $_SESSION["user"] != "lirex"))	{
+	if($_SESSION["user"] != "webdesigner97" and $_SESSION["user"] != "lirex")	{
 		header("HTTP/1.1 403");
 		header("Location: index.php?error=noaccess");
 		exit;
