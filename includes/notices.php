@@ -36,7 +36,7 @@
     errnotice("mailnotavailable",	"Diese Email Adresse wird bereits verwendet!");
 	errnotice("badaction",			"Diese Aktion konnte nicht ausgeführt werden!");
 	errnotice("nopriv",				"Du bist kein Empfänger dieser Nachricht!");
-	errnotice("nocollab",			"Fehler beim Auslesen der Datenbank!");
+	errnotice("nocollab",			"Collab nicht gefunden!");
 	errnotice("emptyfields",		"Du hast nicht alle Felder ausgefüllt!");
 	errnotice("nopage",				"Diese Seite existiert nicht!");
 	errnotice("notmine",			"Dieses Collab gehört dir nicht!");

@@ -4,7 +4,8 @@
 	mysql_auto_connect();
 	//Is there a param in the URI?
 	if($_SERVER["QUERY_STRING"] == "")	{
-		header("Location: index.php");
+		header("HTTP/1.0 403");
+		header("Location: error403.php?error=noaccess");
 	}
 	else	{
 		//Check the parameter and include its script
@@ -76,6 +77,5 @@
 			include_once("libs/answer.php");
 			exit;
 		}
-		header("Location: index.php?error=badaction");
 	}
 ?>

@@ -6,7 +6,8 @@
 	$messages	= mysql_get("SELECT * FROM collabmessages WHERE `collab`='".mysql_real_escape_string($_GET["id"])."' ORDER BY `timestamp` DESC");
 	mysql_close();
 	if(count($collab) != 1)	{
-		header("Location: index.php?error=nocollab");
+		header("HTTP/1.0 404");
+		header("Location: error404.php?error=nocollab");
 	}
 	$tage	= array();
 		$tage["Monday"] = "Montag";
