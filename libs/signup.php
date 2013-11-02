@@ -4,7 +4,7 @@
 		include_once("includes/func.php");
 		mysql_auto_connect();
 		$users = mysql_get("SELECT * FROM users");
-		$username	= mb_strtolower(mysql_real_escape_string($_POST["name"]),"UTF-8");
+		$username	= ucfirst(mysql_real_escape_string($_POST["name"]));
 		$mail		= mysql_real_escape_string($_POST["email"]);
 		$scratch	= mysql_real_escape_string($_POST["scratch"]);
 		$pass		= mysql_real_escape_string($_POST["pass"]);
