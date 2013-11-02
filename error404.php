@@ -5,6 +5,8 @@
 	mysql_auto_connect();
 	$featured = mysql_get("SELECT * FROM featured_collab");
 	mysql_close();
+	
+	$url = "http://" . $_SERVER["SERVER_NAME"] . "/collabs2";
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,15 +19,15 @@
 		<meta name="robots" content="noindex,nofollow" />
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 		<!-- Stylesheets -->
-		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/cp.css" />
-		<link rel="stylesheet" href="styles/error404.css" />
-		<link rel="stylesheet" href="styles/scratchblocks2.css" />
+		<link rel="stylesheet" href="<?php echo $url; ?>/styles/main.css" />
+		<link rel="stylesheet" href="<?php echo $url; ?>/styles/cp.css" />
+		<link rel="stylesheet" href="<?php echo $url; ?>/styles/error404.css" />
+		<link rel="stylesheet" href="<?php echo $url; ?>/styles/scratchblocks2.css" />
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="shortcut icon" href="<?php echo $url; ?>/favicon.ico" />
 		<!-- Scripts -->
-		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
-		<script src="scripts/init.js"></script>
+		<script src="<?php echo $url; ?>/scripts/jquery/jquery-1.10.2.min.js"></script>
+		<script src="<?php echo $url; ?>/scripts/init.js"></script>
 	</head>
 	<body>
 		<div id="pagewrapper">
@@ -50,7 +52,7 @@
 											<div class="stack control cstart">If <div class="boolean operators"><div class="boolean obsolete">Seite nicht gefunden</div> and <div class="boolean operators">not <div class="boolean obsolete">vertippt</div></div></div></div><div class="comment attached"><div>Klick mich</div></div>
 											<div class="cmouth">
 												<div class="stack motion" style="cursor:pointer;" onClick="history.back();">Gehe zur vorherigen Seite</div></a>
-												<div class="stack motion" style="cursor:pointer;" onClick="navigate('index.php');">Gehe zur Startseite</div>
+												<div class="stack motion" style="cursor:pointer;" onClick="navigate('<?php echo $url; ?>/index.php');">Gehe zur Startseite</div>
 												<div class="stack motion" style="cursor:pointer;" onClick="navigate('http://scratch.mit.edu');">Scratch on!</div>
 											</div>
 											<div class="stack cend control"></div>
