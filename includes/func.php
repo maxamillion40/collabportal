@@ -26,7 +26,7 @@
 		$return = auto_unserialize($return);
 		//
 		$endtime = microtime();
-		$_SERVER["DB_TIMES"][] = ($endtime - $starttime) / 1000;
+		$_SERVER["DB_TIMES"][] = ($endtime - $starttime);
 		return($return);
 	}
 	function errnotice($code,$message) {
