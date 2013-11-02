@@ -14,6 +14,9 @@
 	}
 	function mysql_get($query)	{
 		$starttime = microtime();
+		if(!isset($_SERVER["DB_TIMES"]))	{
+			$_SERVER["DB_TIMES"] = array();
+		}
 		//
 		$rs	= mysql_query($query) or die(mysql_error());
 		$return = array();
@@ -23,7 +26,7 @@
 		$return = auto_unserialize($return);
 		//
 		$endtime = microtime();
-		$_SERVER["__REQUEST_TIME"] = ($endtime - $starttime) / 1000;
+		$_SERVER["DB_TIMES"][] = ($endtime - $starttime) / 1000;
 		return($return);
 	}
 	function errnotice($code,$message) {

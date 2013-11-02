@@ -9,6 +9,7 @@
 	//
 	mysql_auto_connect();
 	$news = mysql_get("SELECT * FROM `news` ORDER BY `date` DESC");
+	$questions = mysql_get("SELECT * FROM `faq` WHERE `answer`='unbeantwortet'");
 ?>
 <!DOCTYPE html>
 <html>
@@ -97,6 +98,26 @@
 											</div>
 										</li>
 									</ul>
+								</div>
+							</div>
+						</article>
+						<article class="box">
+							<div class="box-head">
+								<h4>Offene Fragen (<?php echo count($questions); ?>)</h4>
+							</div>
+							<div class="box-content">
+								<div class="inner box-no-padding">
+									<?php
+										foreach($questions as $q)	{
+											echo "<div class='question'>";
+											echo "<form action='action.php?answer&id=".$q["id"]."' method='post'>";
+											echo "Frage: <input type='text' name='question' value='".$q["question"]."' /></p>";
+											echo "Antwort: <input type='text' name='answer' required />";
+											echo "<button type='submit' class='button blue'>Frage beantworten</button>";
+											echo "</form>";
+											echo "</div>";
+										}
+									?>
 								</div>
 							</div>
 						</article>

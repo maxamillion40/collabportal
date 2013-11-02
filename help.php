@@ -66,14 +66,11 @@
 										echo "<div id='".$question["id"]."'><a href='help.php#".$question["id"]."' onclick=\"lscrollup()\"><h4>".$question["question"]."</h4></a>";
 										echo "<p>".$question["answer"]."</p></div>";
 									}
-									if(isset($_SESSION["user"])) {
-										if($_SESSION["user"] == "Lirex" or $_SESSION["user"] == "webdesigner97") {
+									if(is_loggedin()) {
 											echo "<form action='action.php?newquestion' method='post'>";
-											echo "<input type='text' name='question' placeholder='Frage' title='Frage (Maximal 255 zeichen)' required maxlength='255' tabindex='1' />";
-											echo "<input type='text' name='answer' placeholder='Antwort' title='Antwort (Maximal 255 zeichen)' required maxlength='255' tabindex='2' />";
-											echo "<input type='submit' class='button grey' value='Absenden' tabindex='3' />";
+											echo "<input type='text' name='question' placeholder='Frage stellen' title='Frage (Maximal 255 zeichen)' required maxlength='255' tabindex='1' />";
+											echo "<input type='submit' class='button blue' value='Absenden' tabindex='3' />";
 											echo "</form>";
-										}
 									}
 									?>
 									</div>

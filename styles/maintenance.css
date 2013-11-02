@@ -69,3 +69,7 @@ option	{
 	background: rgba(255,0,0,0.6);
 	text-shadow: none;
 }
+.question	{
+	border-bottom: 1px #EBEBEB solid;
+	padding: 5px;
+}

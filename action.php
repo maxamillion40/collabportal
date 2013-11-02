@@ -72,6 +72,10 @@
 			include_once("libs/newnews.php");
 			exit;
 		}
+		if(isset($_GET["answer"]))	{	
+			include_once("libs/answer.php");
+			exit;
+		}
 		header("Location: index.php?error=badaction");
 	}
 ?>

@@ -17,6 +17,7 @@
 	resnotice("collabok",			"Dein Collab wurde erfolgreich gestartet!");
 	resnotice("delnewsok",			"Der Newseintrag wurde gelöscht!");
 	resnotice("newsok",				"Ankündigung eingetragen!");
+	resnotice("answerok",			"Frage beantwortet!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
