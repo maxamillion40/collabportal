@@ -15,7 +15,7 @@
 			<li><a href="http://scratch.mit.edu/projects/editor/">Entwickeln</a></li>
 			<li><a href="http://scratch.mit.edu/explore/?date=this_month">Entdecken</a></li>
 			<li><a href="http://scratch.mit.edu/discuss/13/">Diskutieren</a></li>
-			<li class="addborder"><a href="./">Hilfe</a></li>
+			<li class="addborder"><a href="help.php">Hilfe</a></li>
 			<?php
 		        $res = "";
 				if(isset($_GET["result"]))	{
