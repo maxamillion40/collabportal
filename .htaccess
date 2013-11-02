@@ -1,1 +1,2 @@
 ErrorDocument 404 /collabs2/error404.php?error=nopage
+ErrorDocument 403 /collabs2/error403.php?error=noaccess
