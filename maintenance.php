@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once("includes/func.php");
-	if($_SESSION["user"] != "webdesigner97" and $_SESSION["user"] != "lirex")	{
+	if(strtolower($_SESSION["user"]) != "webdesigner97" and strtolower($_SESSION["user"]) != "lirex")	{
 		header("HTTP/1.1 403");
 		header("Location: index.php?error=noaccess");
 		exit;
