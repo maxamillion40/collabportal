@@ -60,8 +60,12 @@ option	{
 	border-bottom: 1px #EBEBEB solid;
 }
 .min	{
-	min-height: 300px;
+	min-height: 120px;
 }
 #news	{
 	margin: 10px;
+}
+.invisible	{
+	background: rgba(255,0,0,0.6);
+	text-shadow: none;
 }

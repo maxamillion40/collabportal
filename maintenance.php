@@ -56,8 +56,14 @@
 								<div class="inner box-no-padding">
 									<ul class="event-list">
 										<?php
+											$i = 1;
 											foreach($news as $entry)	{
-												echo "<li id='event-".$entry["id"]."'>";
+												if($i > 3)	{
+													echo "<li id='event-".$entry["id"]."' class='invisible'>";
+												}
+												else	{
+													echo "<li id='event-".$entry["id"]."'>";
+												}
 												echo "<div class='event-actions'>";
 												echo "<a href='action.php?delnews&id=".$entry["id"]."'><button class='button grey'>Löschen</button></a>";
 												echo "</div>";
@@ -67,6 +73,7 @@
 												echo "<p id='event-msg-".$entry["id"]."'class='event-msg'>".$entry["msg"]."</p>";
 												echo "</div>";
 												echo "</li>";
+												$i++;
 											}
 										?>
 									</ul>
