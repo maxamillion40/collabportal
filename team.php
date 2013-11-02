@@ -41,7 +41,8 @@
 								<div class="inner">
 									<h3>Administratoren</h3>
 										<img src="http://cdn.scratch.mit.edu/get_image/user/909333_75x75.png?v=1367988496.15" width="75px" /><div class="desc"><h4>webdesigner97</h4>
-										webdesigner97 ist Gründer und Hauptadministrator des Collabportals. [...]</div>
+										webdesigner97 ist Gründer und Hauptadministrator des Collabportals. Bei der Entwicklung übernimmt er viele grundlegende Aufgaben, bspw. die Pflege der
+										Datenbank, Ausarbeitung neuer Funktionen und die Arbeit "unter der Motorhaube". Nutzer können sich bei Problemen, Fragen, Kritik und Ideen jederzeit an ihn wenden.</div>
 										<img src="http://cdn.scratch.mit.edu/get_image/user/1900672_75x75.png?v=1380467242.62" width="75px" /><div class="desc"><h4>Lirex</h4>
 										Lirex stieß am 8. August 2013 dazu, nachdem er die Entwicklung des Collabportals seit den Anfängen Ende 2012 mitverfolgt hatte.
 										Er ist für diverse Texte und Grafiken, die FAQ und für das Design zuständig. Zudem moderiert Lirex das Collabportal und ist Ansprechpartner bei Problemen.</div>
