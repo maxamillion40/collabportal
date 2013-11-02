@@ -29,14 +29,7 @@
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/init.js"></script>
-		<script>
-			function update(input,preview)	{
-				var input = $("#" + input);
-				var preview = $("#" + preview);
-				var text = input.val();
-				preview.html(text);
-			}
-		</script>
+		<script src="scripts/maintenance.js"></script>
 	</head>
 	<body>
 		<div id="pagewrapper">
@@ -65,7 +58,7 @@
 													echo "<li id='event-".$entry["id"]."'>";
 												}
 												echo "<div class='event-actions'>";
-												echo "<a href='action.php?delnews&id=".$entry["id"]."'><button class='button grey'>Löschen</button></a>";
+												echo "<a onClick='navigate(\"action.php?delnews&id=".$entry["id"]."\", \"Wirklich löschen?\");'><button class='button grey'>Löschen</button></a>";
 												echo "</div>";
 												echo "<img id='event-img-".$entry["id"]."' class='event-img' src='img/".$entry["pic"]."' alt='News' width='54' height='54' />";
 												echo "<div class='msg-content'>";
