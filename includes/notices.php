@@ -19,6 +19,8 @@
 	resnotice("newsok",				"Ankündigung eingetragen!");
 	resnotice("answerok",			"Frage beantwortet!");
 	resnotice("qok",				"Deine Frage wurde gespeichert!");
+	resnotice("delallok",			"Nachrichten gelöscht!");
+	resnotice("readallok",			"Nachrichten als gelsen markiert!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
