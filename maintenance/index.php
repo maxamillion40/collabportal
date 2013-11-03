@@ -2,16 +2,16 @@
 	session_start();
 	set_include_path($_SERVER["DOCUMENT_ROOT"]."/collabs2");
 	require_once("includes/func.php");
-	if(strtolower($_SESSION["user"]) != "webdesigner97" and strtolower($_SESSION["user"]) != "lirex")	{
+	mysql_auto_connect();
+	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'")[0]["class"];
+	if($class != "Moderator" and $class != "Administrator")	{
 		header("HTTP/1.1 403");
-		header("Location: ../error403.php?error=noaccess");
+		//header("Location: ../error403.php?error=noaccess");
 		exit;
 	}
 	//
-	mysql_auto_connect();
 	$news = mysql_get("SELECT `id` FROM `news` ORDER BY `date` DESC");
 	$questions = mysql_get("SELECT `id` FROM `faq` WHERE `answer`='unbeantwortet'");
-	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'");
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,7 +49,7 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<p>Dein Rang: <?php echo $class[0]["class"]; ?></p>
+									<p>Dein Rang: <?php echo $class; ?></p>
 									<p><a href="news.php">Ankündigungen</a>: <?php echo count($news); ?>/3</p>
 									<p><a href="faq.php">Fragen</a>: <?php echo count($questions); ?></p>
 								</div>
