@@ -85,5 +85,9 @@
 			include_once("libs/closecollab.php");
 			exit;
 		}
+		if(isset($_GET["delq"]))	{	
+			include_once("libs/delq.php");
+			exit;
+		}
 	}
 ?>

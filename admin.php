@@ -139,7 +139,7 @@
 											echo "<li>Dein Collab wird nicht mehr als aktiv auf der Startseite angezeigt</li>";
 											echo "</ul>";
 											echo "<label><input type='checkbox' id='success' name='success' value='true' /> Wir konnten unser Projekt erfolgreich beenden</label>";
-											echo "<div id='enter-url'><input type='type' name='url' placeholder='Projektnummer' required /><textarea redquired maxlength='100' name='desc' placeholder='Kurzbeschreibung'></textarea></div>";
+											echo "<div id='enter-url'><input type='type' name='url' placeholder='Projektnummer' /><textarea maxlength='100' name='desc' placeholder='Kurzbeschreibung'></textarea></div>";
 											echo "<button type='submit' class='button blue'>Collab beenden</button>";
 											echo "</form>";
 										}

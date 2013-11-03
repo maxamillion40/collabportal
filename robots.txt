@@ -4,5 +4,7 @@ Sitemap: htp://example.com/sitemap.php
 
 User-agent: *
 Disallow: /action.php
+Disallow: /collab.php
 Disallow: /libs/
 Disallow: /includes/
+Disallow: /maintenance/
