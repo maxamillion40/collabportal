@@ -1,5 +1,5 @@
 ﻿<?php
-	header("HTTP/1.1 404 Not Found");
+	header("HTTP/1.1 403 Forbidden");
 	session_start();
 	require_once("includes/func.php");
 	mysql_auto_connect();

@@ -77,5 +77,9 @@
 			include_once("libs/answer.php");
 			exit;
 		}
+		if(isset($_GET["msgdo"]))	{	
+			include_once("libs/msgdo.php");
+			exit;
+		}
 	}
 ?>

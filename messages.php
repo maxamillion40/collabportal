@@ -57,8 +57,12 @@
 							</p>
 							<?php
 								if(count($msg) > 0)	{
+									echo "<p><label><input type='checkbox' id='select-all' /> Alle auswählen</label></p>";
+									echo "<hr />";
+									echo "<form action='action.php?msgdo' method='post'>";
 									echo "<table id='msg-table'>";
 									echo "<colgroup>";
+									echo "<col class='check'>";
 									echo "<col class='sendtime' />";
 									echo "<col class='sender' />";
 									echo "<col class='regard' />";
@@ -67,6 +71,7 @@
 									foreach($msg as $m)	{
 										if($m["read"] == 1)	{
 											echo "<tr id='msg-".$m["id"]."'>";
+												echo "<td><input type='checkbox' name='sel[]' value='".$m["id"]."' /></td>";
 												echo "<td class=''>".date("d.m.Y H:i",$m["date"])."</td>";
 												echo "<td>".$m["sender"]."</td>";
 												echo "<td>".$m["regard"]."</td>";
@@ -80,6 +85,7 @@
 										}
 										else	{
 											echo "<tr id='msg-".$m["id"]."' class='unread'>";
+											echo "<td><input type='checkbox' name='sel[]' value='".$m["id"]."' /></td>";
 											echo "<td class=''>".date("d.m.Y H:i",$m["date"])."</td>";
 											echo "<td>".$m["sender"]."</td>";
 											echo "<td>".$m["regard"]."</td>";
@@ -93,6 +99,8 @@
 										}
 									}
 									echo "</table>";
+									echo "<hr /><p>Ausgewählte Nachrichten <select name='do-what'><option>Löschen</option><option>Als gelesen markieren</option></select><button type='submit'>Los!</button></p>";
+									echo "</form>";
 								}
 							?>
 						</div>
