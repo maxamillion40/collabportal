@@ -21,6 +21,8 @@
 	resnotice("qok",				"Deine Frage wurde gespeichert!");
 	resnotice("delallok",			"Nachrichten gelöscht!");
 	resnotice("readallok",			"Nachrichten als gelsen markiert!");
+	resnotice("closedandshow",		"Collab beendet und zum Showroom hinzugefügt!");
+	resnotice("closed",				"Collab beendet!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");

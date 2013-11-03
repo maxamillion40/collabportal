@@ -121,6 +121,35 @@
 								</div>
 							</div>
 						</article>
+						<article class="box">
+							<div class="box-head">
+								<h4>Collab beenden</h4>
+							</div>
+							<div class="box-content">
+								<div class="inner">
+									<?php
+										$time = time();
+										if($time - $collab[0]["start"] > 86400)	{
+											echo "<form action='action.php?closecollab&id=".$collab[0]["id"]."' method='post'>";
+											echo "<p>Hier kannst du dein Collab beenden. Bitte beachte dabei ein paar grundlegende Dinge:</p>";
+											echo "<ul>";
+											echo "<li>Beendete Collabs können <u>nicht</u> wieder geöffnet werden</li>";
+											echo "<li>Im Chat können keine weiteren Nachrichten mehr ausgetauscht werden</li>";
+											echo "<li>Alle Mitglieder erhalten eine Nachricht, die sie über die Beendung benachrichtigt</li>";
+											echo "<li>Dein Collab wird nicht mehr als aktiv auf der Startseite angezeigt</li>";
+											echo "</ul>";
+											echo "<label><input type='checkbox' id='success' name='success' value='true' /> Wir konnten unser Projekt erfolgreich beenden</label>";
+											echo "<div id='enter-url'><input type='type' name='url' placeholder='Projektnummer' required /><textarea redquired maxlength='100' name='desc' placeholder='Kurzbeschreibung'></textarea></div>";
+											echo "<button type='submit' class='button blue'>Collab beenden</button>";
+											echo "</form>";
+										}
+										else	{
+											echo "Du kannst dein Collab erst 24 Stunden nach dessen Start beenden.";
+										}
+									?>
+								</div>
+							</div>
+						</article>
 					</div>
 				</div>
 		</div>

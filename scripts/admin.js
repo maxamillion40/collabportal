@@ -53,4 +53,14 @@
 			$("#row-confirm-join").addClass("static-bg");
 		}
 	});
+	// Collab beenden
+	$("#success").click(function()	{
+		var state = $("#success").prop("checked");
+		if(state == true)	{
+			$("#enter-url").show();
+		}
+		else	{
+			$("#enter-url").hide();
+		}
+	});
 });

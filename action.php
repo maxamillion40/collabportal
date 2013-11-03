@@ -81,5 +81,9 @@
 			include_once("libs/msgdo.php");
 			exit;
 		}
+		if(isset($_GET["closecollab"]))	{	
+			include_once("libs/closecollab.php");
+			exit;
+		}
 	}
 ?>

@@ -46,3 +46,6 @@ table tr:hover	{
 .li-right	{
 	float: right;
 }
+#enter-url	{
+	display: none;
+}
