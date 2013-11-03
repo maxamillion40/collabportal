@@ -44,7 +44,7 @@ header ul li	{
 	margin-left: -5px !important;
 }
 
-/* Fix für Fehlendes attribut in main.css */
+/* Fix für Fehlendes Attribut in main.css */
 
 .box .box-head {
 	border-radius: 10px;
@@ -355,9 +355,9 @@ iframe	{
 #footer p	{
 	margin-bottom: 0;
 }
-#footer-menu {
+.footer-menu {
 	font-size: 0.8462em;
-	text-align. center;
+	text-align: center;
 }
 #members	{
 	list-style-type: none;
