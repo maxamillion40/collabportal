@@ -85,6 +85,7 @@
 										<select name="pic">
 											<option onClick="$('#event-preview-img').attr('src','../img/icon_info.png');">info</option>
 											<option onClick="$('#event-preview-img').attr('src','../img/icon_update.png');">update</option>
+											<option onClick="$('#event-preview-img').attr('src','../img/icon_tip.png');">tip</option>
 										</select>
 										<input onKeyUp="update('headline-input','event-preview-headline');" id="headline-input" name="headline" placeholder="Titel" required /><br />
 										<input onKeyUp="update('msg-input','event-preview-msg');" id="msg-input" name="msg" placeholder="Nachricht" required />
