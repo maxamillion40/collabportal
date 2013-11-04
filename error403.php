@@ -39,7 +39,7 @@
 			<div class="container" id="content">
 				<article class="box">
 					<div class="box-head">
-						<h4>Hier hättest du nicht hinkommen sollen...</h4>
+						<h4>Nix gibt's!<!--Hier hättest du nicht hinkommen sollen...--></h4>
 					</div>
 					<div class="box-content" id="box-404">
 						<div class="inner">
@@ -49,10 +49,10 @@
 								<div class="blocks scratchblocks2-container">
 									<div class="script">
 										<div class="cwrap control cap">
-											<div class="stack control cstart">If <div class="boolean operators">not <div class="boolean sensing">Nutzer <div class="dropdown"><?php if(is_loggedin()) { echo $_SESSION["user"]; } else { echo "Anonym"; } ?></div> hat Zugriff</div></div></div><div class="comment attached"><div>Klick mich</div></div>
+											<div class="stack control cstart">Falls <div class="boolean operators">nicht <div class="boolean sensing">Nutzer <div class="dropdown"><?php if(is_loggedin()) { echo $_SESSION["user"]; } else { echo "Anonym"; } ?></div> hat Zugriff</div></div></div>
 											<div class="cmouth">
 												<div class="stack sensing">Frage <div class="string">Warum bist du hier?</div> und warte</div></a>
-												<div class="stack motion" style="cursor:pointer;" onClick="navigate('<?php echo $url; ?>/index.php');">Gehe zur Startseite</div>
+												<div class="stack motion" style="cursor:pointer;" onClick="navigate('<?php echo $url; ?>/index.php');">Gehe zur Startseite</div><div class="comment attached"><div>Klick mich</div></div>
 											</div>
 											<div class="stack cend control"></div>
 										</div>

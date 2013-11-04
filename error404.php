@@ -49,9 +49,9 @@
 								<div class="blocks scratchblocks2-container">
 									<div class="script">
 										<div class="cwrap control cap">
-											<div class="stack control cstart">If <div class="boolean operators"><div class="boolean obsolete">Seite nicht gefunden</div> and <div class="boolean operators">not <div class="boolean obsolete">vertippt</div></div></div></div><div class="comment attached"><div>Klick mich</div></div>
+											<div class="stack control cstart">Falls <div class="boolean operators"><div class="boolean obsolete">Seite nicht gefunden</div> und <div class="boolean operators">nicht <div class="boolean sensing">vertippt</div></div></div></div>
 											<div class="cmouth">
-												<div class="stack motion" style="cursor:pointer;" onClick="history.back();">Gehe zur vorherigen Seite</div></a>
+												<div class="stack motion" style="cursor:pointer;" onClick="history.back();">Gehe zur vorherigen Seite</div></a><div class="comment attached"><div>Klick mich</div></div>
 												<div class="stack motion" style="cursor:pointer;" onClick="navigate('<?php echo $url; ?>/index.php');">Gehe zur Startseite</div>
 												<div class="stack motion" style="cursor:pointer;" onClick="navigate('http://scratch.mit.edu');">Scratch on!</div>
 											</div>
