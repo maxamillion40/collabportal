@@ -3,7 +3,7 @@
 	require_once("includes/func.php");
 	
 	mysql_auto_connect();
-	$questions	= mysql_get("SELECT * FROM faq ORDER BY `id` ASC");
+	$questions	= mysql_get("SELECT * FROM faq WHERE `answer`!='unbeantwortet' ORDER BY `id` ASC");
 	mysql_close();
 ?>
 <!DOCTYPE html>
