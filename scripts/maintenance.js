@@ -16,4 +16,20 @@ $(document).ready(function()	{
 			window.location = "../" + link;
 		}
 	})
+	$("#userlist").tablesorter();
 });
+
+function search(what)	{
+	$("#userlist td").each(function()	{
+		if($(this).html() == what)	{
+			$(this).parent().css("font-weight","bold");
+		}
+	});
+}
+
+function reset()	{
+	$("#userlist td").each(function()	{
+		$(this).css("font-weight","normal");
+		$("#search").val("");
+	});
+}

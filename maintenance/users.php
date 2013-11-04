@@ -10,14 +10,13 @@
 		exit;
 	}
 	//
-	$news = mysql_get("SELECT `id` FROM `news` ORDER BY `date` DESC");
-	$questions = mysql_get("SELECT `id` FROM `faq` WHERE `answer`='unbeantwortet'");
-	$users = mysql_get("SELECT `id` FROM `users`");
+	$users = mysql_get("SELECT * FROM `users` ORDER BY `name` ASC");
+	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'");
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Adminbereich &raquo; ScratchCollabs in DACH</title>
+		<title>User Verwaltung &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -32,6 +31,7 @@
 		<link rel="shortcut icon" href="../favicon.ico" />
 		<!-- Scripts -->
 		<script src="../scripts/jquery/jquery-1.10.2.min.js"></script>
+		<script src="../scripts/jquery.tablesorter.min.js"></script>
 		<script src="../scripts/init.js"></script>
 		<script src="../scripts/maintenance.js"></script>
 	</head>
@@ -46,14 +46,35 @@
 				<div class="cols clearfix" style="top: -10px; padding-left: 10px; padding-right: 10px;">
 						<article class="box">
 							<div class="box-head">
-								<h3>Übersicht</h3><span class="box-header-button"><a href="../index.php"><button class="button blue">Zurück zum CollabPortal</button></a></span>
+								<h3><a href="index.php">Übersicht</a> &rarr; Benutzer</h3>
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<p>Dein Rang: <?php echo $class; ?></p>
-									<p><a href="news.php">Ankündigungen</a>: <?php echo count($news); ?>/3</p>
-									<p><a href="faq.php">Fragen</a>: <?php echo count($questions); ?></p>
-									<p><a href="users.php">Benutzer</a>: <?php echo count($users); ?></p>
+									<input type="text" id="search" placeholder="Suchen..." style="display: inline;" /><button class="button blue" onClick="javascript: search($('#search').val());">Los</button><button class="button grey" onClick="javascript: reset();">Reset</button>
+									<table id="userlist">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Name</th>
+												<th>E-Mail</th>
+												<th>Scratch Account</th>
+												<th>Rang</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+												foreach($users as $u)	{
+													echo "<tr>";
+													echo "<td>".$u["id"]."</td>";
+													echo "<td>".$u["name"]."</td>";
+													echo "<td>".$u["mail"]."</td>";
+													echo "<td><a href='http://scratch.mit.edu/users/".$u["name"]."' target='_blank'>".$u["name"]."</a></td>";
+													echo "<td>".$u["class"]."</td>";
+													echo "</tr>";
+												}
+											?>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</article>

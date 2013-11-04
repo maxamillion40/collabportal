@@ -73,3 +73,47 @@ option	{
 	border-bottom: 1px #EBEBEB solid;
 	padding: 5px;
 }
+#userlist {
+	width: 100%;
+	cursor: default;
+}
+#userlist th,td {
+	padding: 3px 6px;
+	text-align: left;
+}
+#userlist th	{
+	cursor: pointer;
+}
+#userlist td:nth-child(even) {
+	background-color: #f0f0f0;
+	transition: background-color 0.25s;
+	-webkit-transition: background-color 0.25s;
+	border-top: #ffffff 2px solid;
+	border-bottom: #ffffff 2px solid;
+}
+#userlist td:nth-child(odd) {
+	background-color: #e8e8e8;
+	transition: background-color 0.125s;
+	-webkit-transition: background-color 0.125s;
+	border-top: #ffffff 2px solid;
+	border-bottom: #ffffff 2px solid;
+}
+#userlist th,#userlist tr:hover td {
+	background-color: #e0e0e0;
+}
+#userlist td[colspan="5"] {
+	font-weight: bold;
+	border-bottom: none;
+}
+th.headerSortUp { 
+    background-image: url(http://tablesorter.com/themes/blue/asc.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+    background-color: #BABABA !important;
+}
+th.headerSortDown { 
+    background-image: url(http://tablesorter.com/themes/blue/desc.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+    background-color: #BABABA !important;
+}
