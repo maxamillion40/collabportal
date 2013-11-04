@@ -5,6 +5,10 @@
 	preview.html(text);
 }
 $(document).ready(function()	{
+	$("img").error(function()	{
+		var src = $(this).attr("src");
+		$(this).attr("src", "../" + src);
+	});
 	$("header a:not([href^='http://'])").click(function(e)	{
 		e.preventDefault();
 		var link = this.href.split("/").pop();
