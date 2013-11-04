@@ -57,14 +57,14 @@
 												<td>!</td>
 												<td>maintenance.php</td>
 												<td>webdesigner97</td>
-												<td>in Arbeit</td>
-												<td>demnächst</td>
+												<td>abgeschlossen</td>
+												<td>FERTIG!</td>
 											</tr>
 											<tr>
 												<td>!</td>
 												<td>CP in IE und Chrome zum laufen bekommen</td>
 												<td>Team</td>
-												<td>abgschlossen</td>
+												<td>abgeschlossen</td>
 												<td>FERTIG!</td>
 											</tr>
 											<tr>
