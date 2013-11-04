@@ -105,6 +105,11 @@ option	{
 	font-weight: bold;
 	border-bottom: none;
 }
+th.header	{
+	background-image: url(http://tablesorter.com/themes/blue/bg.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+}
 th.headerSortUp { 
     background-image: url(http://tablesorter.com/themes/blue/asc.gif);
 	background-position: center right;
