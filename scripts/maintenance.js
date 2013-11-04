@@ -5,8 +5,11 @@
 	preview.html(text);
 }
 $(document).ready(function()	{
-	$("header a").click(function(e)	{
+	$("header a:not([href^='http://'])").click(function(e)	{
 		e.preventDefault();
-		alert("Bitte benutze den Button \"Zurück zum Collabportal\" in der Übersicht, um zum CollabPortal zurückzukehren..");
+		var link = this.href.split("/").pop();
+		if(link != "")	{
+			window.location = "../" + link;
+		}
 	})
 });
