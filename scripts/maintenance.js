@@ -20,7 +20,7 @@ $(document).ready(function()	{
 });
 
 function search(what)	{
-	$("#userlist td").each(function()	{
+	$("#userlist tbody td, #userlist td").each(function()	{
 		if($(this).html() == what)	{
 			$(this).parent().css("font-weight","bold");
 		}
