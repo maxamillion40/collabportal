@@ -84,7 +84,7 @@
 											<?php
 												foreach($news as $entry)	{
 													echo "<li>";
-													echo "<img class='event-img' src='img/".$entry["pic"]."' alt='News' width='54' height='54' />";
+													echo "<img class='event-img' src='img/".$entry["pic"]."' alt='News' width='50' height='50' />";
 													echo "<div class='msg-content'>";
 													echo "<p class='event-headline'>".$entry["headline"]."</p>";
 													echo "<p class='event-msg'>".$entry["msg"]."</p>";

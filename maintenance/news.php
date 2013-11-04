@@ -93,7 +93,7 @@
 									</form>
 									<ul id="event-preview">
 										<li>
-											<img id="event-preview-img" class="event-img" src="../img/icon_info.png" alt="" width="54" height="54" />
+											<img id="event-preview-img" class="event-img" src="../img/icon_info.png" alt="" width="50" height="50" />
 											<div class="msg-content">
 												<p id="event-preview-headline" class="event-headline"></p>
 												<p id="event-preview-msg" class="event-msg"></p>
