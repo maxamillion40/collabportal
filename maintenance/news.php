@@ -4,9 +4,9 @@
 	require_once("includes/func.php");
 	mysql_auto_connect();
 	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'")[0]["class"];
-	if($class != "Moderator" and $class != "Administrator")	{
+	if($class != "Administrator")	{
 		header("HTTP/1.1 403");
-		//header("Location: ../error403.php?error=noaccess");
+		header("Location: ../error403.php?error=noaccess");
 		exit;
 	}
 	//
