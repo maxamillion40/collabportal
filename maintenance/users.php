@@ -55,7 +55,7 @@
 										<thead>
 											<tr>
 												<th>ID</th>
-												<th>Name</th>
+												<th class="headerSortDown">Name</th>
 												<th>E-Mail</th>
 												<th>Scratch Account</th>
 												<th>Rang</th>
