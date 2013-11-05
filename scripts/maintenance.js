@@ -16,6 +16,12 @@ $(document).ready(function()	{
 			window.location = "../" + link;
 		}
 	})
+	$("#trans").click(function()	{
+		var href = this.href.split("/");
+		href.length = href.length - 2;
+		href = href.join("/");
+		window.location = href;
+	});
 	$("#userlist").tablesorter();
 });
 
