@@ -22,7 +22,13 @@ $(document).ready(function()	{
 		href = href.join("/");
 		window.location = href;
 	});
-	$("#userlist").tablesorter();
+	$("#userlist").tablesorter({
+		headers: {
+			7: {
+				sorter: false
+			}
+		}
+	});
 });
 
 function search(what)	{

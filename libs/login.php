@@ -5,7 +5,8 @@
 	//Get data
 	$username	= mysql_real_escape_string($_POST["name"]);
 	$password	= md5(mysql_real_escape_string($_POST["pass"]));
-	$pass_ctrl	= mysql_get("SELECT `pass` FROM `users` WHERE name='$username'")[0]["pass"];
+	$pass_ctrl	= mysql_get("SELECT `pass` FROM `users` WHERE `name`='$username'")[0]["pass"];
+	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='$username'")[0]["class"];
 	$return_to	= $_GET["return"] or "";
 	if(strstr($return_to,"?"))	{
 		$return_to .= "&result=login";
@@ -19,12 +20,17 @@
 	}
 	//Check password
 	if($password == $pass_ctrl)	{
-		//ok
-		session_start();
-		$_SESSION["user"] = $username;
-		$_SESSION["login"] = true;
-		mysql_query("UPDATE `users` SET `last_login`='".time()."', `last_ip`='".$_SERVER["REMOTE_ADDR"]."' WHERE `name`='$username'");
-		header("Location: ".$return_to);
+		if($class != "Banned")	{
+			//ok
+			session_start();
+			$_SESSION["user"] = $username;
+			$_SESSION["login"] = true;
+			mysql_query("UPDATE `users` SET `last_login`='".time()."', `last_ip`='".$_SERVER["REMOTE_ADDR"]."' WHERE `name`='$username'");
+			header("Location: ".$return_to);
+		}
+		else	{
+			header("Location: index.php?error=banned");
+		}
 	}
 	else	{
 		//wrong password

@@ -31,12 +31,15 @@
 	width: 100px;
 }
 select	{
+	width: 100px;
+}
+select[name=pic]	{
 	width: 54px;
 	height: 54px;
 	float: left;
 	margin-right: 10px;
 }
-option	{
+select[name=pic] option	{
 	width: 54px;
 	height: 54px;
 }

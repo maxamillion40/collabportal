@@ -24,6 +24,7 @@
 	resnotice("closedandshow",		"Collab beendet und zum Showroom hinzugefügt!");
 	resnotice("closed",				"Collab beendet!");
 	resnotice("delqok",				"Frage gelöscht!");
+	resnotice("classok",			"User Rang geändert!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
@@ -47,4 +48,6 @@
 	errnotice("notmine",			"Dieses Collab gehört dir nicht!");
 	errnotice("notyours",			"Diese Nachricht konnte nicht gelöscht werden!");
 	errnotice("noaccess",			"Auf diese Seite hast du keinen Zugriff!");
+	errnotice("badclass",			"Für diese Aktion reicht dein Rang nicht aus!");
+	errnotice("banned",				"Login nicht möglich, du wurdest gebannt!");
 ?>

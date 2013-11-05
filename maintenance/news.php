@@ -5,8 +5,7 @@
 	mysql_auto_connect();
 	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'")[0]["class"];
 	if($class != "Administrator")	{
-		header("HTTP/1.1 403");
-		header("Location: ../error403.php?error=noaccess");
+		header("Location: index.php?error=badclass");
 		exit;
 	}
 	//

@@ -54,13 +54,14 @@
 									<table id="userlist">
 										<thead>
 											<tr>
-												<th>ID</th>
+												<th>#</th>
 												<th class="headerSortDown">Name</th>
 												<th>E-Mail</th>
 												<th>Scratch Account</th>
 												<th>Letzte IP</th>
 												<th>Letzter Login</th>
 												<th>Rang</th>
+												<th>Rang ändern</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -74,6 +75,7 @@
 													echo "<td>".$u["last_ip"]."</td>";
 													echo "<td>".date("d.m.Y H:i",$u["last_login"])."</td>";
 													echo "<td>".$u["class"]."</td>";
+													echo "<td><select><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=User\")'>User</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=Moderator\")'>Moderator</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=Banned\")'>Banned</option></select></td>";
 													echo "</tr>";
 												}
 											?>
