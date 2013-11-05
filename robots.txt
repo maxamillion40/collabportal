@@ -1,6 +1,6 @@
 # robots.txt für ScratchCollabs
 
-Sitemap: htp://example.com/sitemap.php
+Sitemap: http://example.com/sitemap.php
 
 User-agent: *
 Disallow: /action.php
@@ -8,3 +8,10 @@ Disallow: /collab.php
 Disallow: /libs/
 Disallow: /includes/
 Disallow: /maintenance/
+Disallow: /error404.php
+Disallow: /error403.php
+Disallow: /admin.php
+Disallow: /messages.php
+Disallow: /mystuff.php
+Disallow: /new.php
+Disallow: /read.php
