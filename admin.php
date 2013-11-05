@@ -32,6 +32,7 @@
 		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
+		<script src="scripts/tinymce/tinymce.min.js"></script>
 		<script src="scripts/init.js"></script>
 		<script src="scripts/admin.js"></script>
 	</head>
@@ -118,6 +119,22 @@
 											}
 										?>
 									</ul>
+								</div>
+							</div>
+						</article>
+						<article class="box">
+							<div class="box-head">
+								<h4>Collab bearbeiten</h4>
+							</div>
+							<div class="box-content">
+								<div class="inner <?php if(count($collab[0]["mitglieder"]["candidates"]) > 0)	{ echo "box-no-padding"; } ?>">
+									<form action="action.php?editcollab&id=<?php echo $collab[0]["id"] ?>" method="post">
+										<input type="text" name="name" maxlength="50" value="<?php echo $collab[0]["name"]; ?>" placeholder="Name des Collabs" />
+										<textarea name="desc"><?php
+											echo $collab[0]["desc"];
+										?></textarea>
+										<button class="button blue">Speichern</button>
+									</form>
 								</div>
 							</div>
 						</article>

@@ -25,6 +25,7 @@
 	resnotice("closed",				"Collab beendet!");
 	resnotice("delqok",				"Frage gelöscht!");
 	resnotice("classok",			"User Rang geändert!");
+	resnotice("editok",				"Änderungen gespeichert!");
 /* Fehlermeldungen */
     errnotice("notin",				"Du bist kein Mitglied in diesem Collab!");
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
