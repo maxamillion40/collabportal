@@ -58,6 +58,8 @@
 												<th class="headerSortDown">Name</th>
 												<th>E-Mail</th>
 												<th>Scratch Account</th>
+												<th>Letzte IP</th>
+												<th>Letzter Login</th>
 												<th>Rang</th>
 											</tr>
 										</thead>
@@ -69,6 +71,8 @@
 													echo "<td>".$u["name"]."</td>";
 													echo "<td>".$u["mail"]."</td>";
 													echo "<td><a href='http://scratch.mit.edu/users/".$u["name"]."' target='_blank'>".$u["name"]."</a></td>";
+													echo "<td>".$u["last_ip"]."</td>";
+													echo "<td>".date("d.m.Y H:i",$u["last_login"])."</td>";
 													echo "<td>".$u["class"]."</td>";
 													echo "</tr>";
 												}

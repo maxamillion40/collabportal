@@ -106,18 +106,18 @@ option	{
 	border-bottom: none;
 }
 th.header	{
-	background-image: url(http://tablesorter.com/themes/blue/bg.gif);
+	background-image: url(../img/bg.gif);
 	background-position: center right;
 	background-repeat: no-repeat;
 }
 th.headerSortUp { 
-    background-image: url(http://tablesorter.com/themes/blue/asc.gif);
+    background-image: url(../img/asc.gif);
 	background-position: center right;
 	background-repeat: no-repeat;
     background-color: #BABABA !important;
 }
 th.headerSortDown { 
-    background-image: url(http://tablesorter.com/themes/blue/desc.gif);
+    background-image: url(../img/desc.gif);
 	background-position: center right;
 	background-repeat: no-repeat;
     background-color: #BABABA !important;

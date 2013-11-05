@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Nov 2013 um 17:15
+-- Erstellungszeit: 05. Nov 2013 um 13:30
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `headline` char(100) NOT NULL,
   `msg` char(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -132,6 +132,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `mail` char(100) NOT NULL,
   `scratch` char(100) NOT NULL,
   `class` char(30) NOT NULL DEFAULT 'user',
+  `last_login` int(11) NOT NULL,
+  `last_ip` char(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 

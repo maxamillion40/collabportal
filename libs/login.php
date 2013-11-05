@@ -23,6 +23,7 @@
 		session_start();
 		$_SESSION["user"] = $username;
 		$_SESSION["login"] = true;
+		mysql_query("UPDATE `users` SET `last_login`='".time()."', `last_ip`='".$_SERVER["REMOTE_ADDR"]."' WHERE `name`='$username'");
 		header("Location: ".$return_to);
 	}
 	else	{
