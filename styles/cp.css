@@ -446,3 +446,6 @@ pre	{
 pre .scratchblocks2-container	{
 	margin: 0;
 }
+input[type=file]	{
+	display: inline;
+}
