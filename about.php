@@ -105,9 +105,9 @@
 											<tr>
 												<td>-</td>
 												<td>Passwortoptionen (E-Mail) und Profileinstellungen</td>
-												<td>-</td>
-												<td>Ausstehend</td>
-												<td>Unbekannt</td>
+												<td>webdesigner97</td>
+												<td>In Arbeit</td>
+												<td>demnächst</td>
 											</tr>
 											<tr>
 												<td>?</td>
