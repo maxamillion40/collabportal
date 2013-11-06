@@ -51,4 +51,6 @@
 	errnotice("noaccess",			"Auf diese Seite hast du keinen Zugriff!");
 	errnotice("badclass",			"Für diese Aktion reicht dein Rang nicht aus!");
 	errnotice("banned",				"Login nicht möglich, du wurdest gebannt!");
+	errnotice("toobig",				"Diese Datei ist zu groß!");
+	errnotice("badmimetype",		"Diese Datei ist keine Grafik!");
 ?>

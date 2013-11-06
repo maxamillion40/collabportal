@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Über &raquo; ScratchCollabs in DACH</title>
+		<title>Verwaltung &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -128,7 +128,13 @@
 							</div>
 							<div class="box-content">
 								<div class="inner <?php if(count($collab[0]["mitglieder"]["candidates"]) > 0)	{ echo "box-no-padding"; } ?>">
-									<form action="action.php?editcollab&id=<?php echo $collab[0]["id"] ?>" method="post">
+									<form action="action.php?editcollab&id=<?php echo $collab[0]["id"] ?>" method="post" enctype="multipart/form-data">
+										<?php
+											if($collab[0]["logo"] != "none.png")	{
+												echo "<img style='float: right;' src='logos/".$collab[0]["logo"]."' alt='Logo' width='144' height='108' />";
+											}
+										?>
+										<p style="margin-bottom: 30px;">Logo: <input type="hidden" name="MAX_FILE_SIZE" value="100000" /><input type="file" name="logo" /></p>
 										<input type="text" name="name" maxlength="50" value="<?php echo $collab[0]["name"]; ?>" placeholder="Name des Collabs" />
 										<textarea name="desc"><?php
 											echo $collab[0]["desc"];
