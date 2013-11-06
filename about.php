@@ -54,60 +54,25 @@
 												<th>Geplante Fertigstellung</th>
 											</tr>
 											<tr>
-												<td>!</td>
-												<td>maintenance.php</td>
-												<td>webdesigner97</td>
-												<td>abgeschlossen</td>
-												<td>FERTIG!</td>
-											</tr>
-											<tr>
-												<td>!</td>
-												<td>CP in IE und Chrome zum laufen bekommen</td>
-												<td>Team</td>
-												<td>abgeschlossen</td>
-												<td>FERTIG!</td>
-											</tr>
-											<tr>
-												<td>!</td>
-												<td>Fehlerseite(n) ausbauen, insbesondere 404</td>
-												<td>webdesigner97</td>
-												<td>abgeschlossen</td>
-												<td>FERTIG!</td>
-											</tr>
-											<tr>
-												<td>!</td>
-												<td>Metadaten</td>
-												<td>webdesigner97</td>
-												<td>abgeschlossen</td>
-												<td>FERTIG!</td>
-											</tr>
-											<tr>
 												<td>-</td>
 												<td>"Über" und Hilfeseiten ausbauen</td>
 												<td>Lirex</td>
 												<td>In Arbeit</td>
-												<td>Bald</td>
-											</tr>
-											<tr>
-												<td>-</td>
-												<td>Nachrichtensystem</td>
-												<td>webdesigner97</td>
-												<td>abgschlossen</td>
-												<td>FERTIG!</td>
-											</tr>
-											<tr>
-												<td>-</td>
-												<td>Mitgliederliste</td>
-												<td>webdesigner97</td>
-												<td>abgeschlossen</td>
-												<td>FERTIG!</td>
+												<td>Demnächst</td>
 											</tr>
 											<tr>
 												<td>-</td>
 												<td>Passwortoptionen (E-Mail) und Profileinstellungen</td>
 												<td>webdesigner97</td>
 												<td>In Arbeit</td>
-												<td>demnächst</td>
+												<td>Demnächst</td>
+											</tr>
+											<tr>
+												<td>-</td>
+												<td>Showroom</td>
+												<td>-</td>
+												<td>ausstehendt</td>
+												<td>Demnächst</td>
 											</tr>
 											<tr>
 												<td>?</td>
