@@ -5,3 +5,7 @@
 	Order Deny,Allow 
 	Allow from All 
 </Files>
+<Files "getprojectname.php"> 
+	Order Deny,Allow 
+	Allow from All 
+</Files>
