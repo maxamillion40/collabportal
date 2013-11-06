@@ -4,8 +4,8 @@
 	mysql_auto_connect();
 	if(is_loggedin()) {
 		$user = $_SESSION['user'];
-		$mycollabs = mysql_get("SELECT * FROM collabs WHERE `owner`='$user'");
-		$collabmember = mysql_get("SELECT * FROM collabs ORDER BY `status` ASC");
+		$mycollabs = mysql_get("SELECT * FROM collabs WHERE `owner`='$user' ORDER BY `start` DESC");
+		$collabmember = mysql_get("SELECT * FROM collabs ORDER BY `start` DESC");
 	}
 	else {
 		die(header("Location: index.php?error=nologin"));
