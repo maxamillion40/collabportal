@@ -13,7 +13,7 @@
 			die(header("Location: admin.php?id=$id&error=toobig"));
 		}
 		if($logo["type"] != "image/png" and $logo["type"] != "image/jpeg" and $logo["type"] != "image/gif")	{
-			die(header("Location: admin.php?id=$id&error=badmimetype"));
+			die(header("Location: admin.php?id=$id&error=badmimetype&mime=".$logo["type"]));
 		}
 		move_uploaded_file($logo["tmp_name"], "logos/".$id.".png");
 		mysql_query("UPDATE `collabs` SET `logo`='".$id.".png' WHERE id='".$id."'") or die(mysql_error());

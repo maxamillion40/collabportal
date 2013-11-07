@@ -46,9 +46,9 @@
 					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/menu2.png' height='35' /></a></li>
                             <ul id='menulink'>
                                 <li><a href='mystuff.php'>Meine Collabs</a></li><br/>
-								<li><a>Profil</a></li><br/>
                                 <li><a href='about.php'>Über ScratchCollabs</a></li><br/>
 								<li><a href='help.php'>Hilfe</a></li><br/>
+								<li><a href='settings.php'>Einstellungen</a></li><br/>
 								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb4.png' height='35' /><span id='logout-sign'>Logout</span></a></li>
                             </ul></div>";
 				}

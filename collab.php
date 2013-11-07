@@ -83,7 +83,7 @@
 									<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
 										<textarea name="msg"></textarea><br />
 										<button type="submit">Senden</button>
-										<span id="countdown-wrapper"><span id="chat-countdown"></span></span>
+										<!-- <span id="countdown-wrapper"><span id="chat-countdown"></span></span> -->
 									</form>
 								<div id="livechat">
 									<div id="loading">
