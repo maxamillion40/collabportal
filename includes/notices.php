@@ -31,7 +31,7 @@
     errnotice("alreadyin",			"Du bist bereits Mitglied in diesem Collab!");
     errnotice("own",				"Du kannst nicht aus deinem eigenen Collab austreten!");
     errnotice("notext",				"Du hast keine Nachricht eingegeben!");
-    errnotice("nologin",			"Logge dich ein, um deine Collabs zu betrachten!");
+    errnotice("nologin",			"Logge dich ein, um diese Funktion zu nutzen!");
     errnotice("noid",				"Interner Fehler, konnte Nachricht nicht zuordnen!");
     errnotice("unknownuser",		"Dieser Nutzer existiert nicht!");
     errnotice("badpass",			"Falsches Passwort oder Nutzername!");
@@ -53,4 +53,6 @@
 	errnotice("banned",				"Login nicht möglich, du wurdest gebannt!");
 	errnotice("toobig",				"Diese Datei ist zu groß!");
 	errnotice("badmimetype",		"Diese Datei ist keine Grafik!");
+	errnotice("nomatch",			"Die neuen Passwörter stimmen nicht überein!");
+	errnotice("oldwrong",			"Altes Passwort falsch!");
 ?>

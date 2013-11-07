@@ -64,8 +64,8 @@
 												<td>-</td>
 												<td>Passwortoptionen (E-Mail) und Profileinstellungen</td>
 												<td>webdesigner97</td>
-												<td>In Arbeit</td>
-												<td>Demnächst</td>
+												<td>abgeschlossen</td>
+												<td>FERTIG!</td>
 											</tr>
 											<tr>
 												<td>-</td>

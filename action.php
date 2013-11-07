@@ -97,6 +97,14 @@
 			include_once("libs/editcollab.php");
 			exit;
 		}
+		if(isset($_GET["setmail"]))	{	
+			include_once("libs/setmail.php");
+			exit;
+		}
+		if(isset($_GET["setpass"]))	{	
+			include_once("libs/setpass.php");
+			exit;
+		}
 		//
 		header("HTTP/1.0 404");
 		header("Location: error404.php?error=notfound");
