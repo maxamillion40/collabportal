@@ -116,9 +116,10 @@ header ul li	{
     display: block;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background: url(../img/Orb.png) no-repeat;
-	background-position: 0 0;
-    width: 0px;
+    background-image: url(../img/topnav.png);
+	background-repeat: no-repeat;
+	background-position: -35px 0px;
+    width: 35px;
     height: 35px;
     padding-right: 140px;
 }
@@ -126,12 +127,12 @@ header ul li	{
     background-color: #0f8bc0;
 }
 #bye:hover #lbn {
-    background-position: 0px -35px;
+    background-position: -35px -35px;
 }
 #welcome	{
 	position: absolute;
 	top: 0px;
-	right: 120px;
+	right: 133px;
 	height: 35px;
 } 
 #bmenu {
@@ -183,7 +184,7 @@ header ul li	{
 	display: block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	background-image: url(../img/menu.png);
+	background-image: url(../img/topnav.png);
 	background-position: 0 0;
 	right: 66px;
     width: 35px;
@@ -390,13 +391,25 @@ iframe	{
 	background: white;
 }
 #msg-icon	{
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	position: absolute;
 	right: 67px;
 	top: 0;
+	width: 66px;
 	height: 35px;
 }
-#msg-icon img	{
-	margin-top: 10px;
+#msg-image {
+	display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-image: url(../img/topnav.png);
+	background-repeat: no-repeat;
+	background-position: 0px -70px;
+    width: 35px;
+    height: 35px;
+    padding-right: 140px;
 }
 #notificationsCount	{
 	color: white;

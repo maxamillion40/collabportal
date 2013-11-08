@@ -37,19 +37,19 @@
                     require_once("includes/notices.php");
 					
 				if(is_loggedin())	{
-					echo "<li id='msg-icon'><a href='messages.php'><img src='img/msg.png' alt='Msg' /></a>";
+					echo "<li id='msg-icon'><a href='messages.php'><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>";
 					if($unread > 0)	{
 						echo "<span id='notificationsCount'>".$unread."</span>";
 					}
 					echo "</li>";
 					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
-					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/menu.png' height='35' /></a></li>
+					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a></li>
                             <ul id='menulink'>
                                 <li><a href='mystuff.php'>Meine Collabs</a></li><br/>
                                 <li><a href='about.php'>Über ScratchCollabs</a></li><br/>
 								<li><a href='help.php'>Hilfe</a></li><br/>
 								<li><a href='settings.php'>Einstellungen</a></li><br/>
-								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/Orb.png' height='35' /><span id='logout-sign'>Logout</span></a></li>
+								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'>Logout</span></a></li>
                             </ul></div>";
 				}
 				else	{
