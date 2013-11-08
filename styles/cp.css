@@ -116,7 +116,8 @@ header ul li	{
     display: block;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background: url(../img/Orb5.png) no-repeat;
+    background: url(../img/Orb.png) no-repeat;
+	background-position: 0 0;
     width: 0px;
     height: 35px;
     padding-right: 140px;
@@ -125,7 +126,7 @@ header ul li	{
     background-color: #0f8bc0;
 }
 #bye:hover #lbn {
-    background: url(../img/Orb4.png) no-repeat;
+    background-position: 0px -35px;
 }
 #welcome	{
 	position: absolute;
