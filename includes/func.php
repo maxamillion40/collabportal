@@ -54,7 +54,7 @@
 		if(!isset($data["regard"]))	{
 			$data["regard"] = "[Kein Betreff]";
 		}
-		mysql_query("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES('".$data["regard"]."','".time()."','".$data["sender"]."','".$data["to"]."','".$data["msg"]."')") or die(mysql_error());
+		mysql_query("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES('".$data["regard"]."','".time()."','".$data["sender"]."','".$data["to"]."','".mysql_real_escape_string($data["msg"])."')") or die(mysql_error());
 		print_array($data);
 	}
 	function auto_unserialize(array $in)	{

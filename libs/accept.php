@@ -1,11 +1,11 @@
 ﻿<?php
 	$id = mysql_real_escape_string($_GET["id"]);
 	$new = mysql_real_escape_string($_GET["who"]);
-	$members = mysql_get("SELECT `mitglieder` FROM `collabs` WHERE `id`=$id")[0]["mitglieder"];
-	if(in_array($new,$members["candidates"]))	{
-		$members["people"][] = $new;
-		unset($members["candidates"][array_search($kick,$members["candidates"])]);
-		$members = serialize($members);
+	$members = mysql_get("SELECT `mitglieder` FROM `collabs` WHERE `id`=$id");
+	if(in_array($new,$members[0]["mitglieder"]["candidates"]))	{
+		$members[0]["mitglieder"]["people"][] = $new;
+		unset($members[0]["mitglieder"]["candidates"][array_search($kick,$members[0]["mitglieder"]["candidates"])]);
+		$members = serialize($members[0]["mitglieder"]);
 		mysql_query("UPDATE `collabs` SET `mitglieder`='$members' WHERE `id`='$id'");
 		$pm = array(
 			"to" => $new,
