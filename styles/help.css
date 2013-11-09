@@ -23,3 +23,6 @@ hr {
 #questions div:target {
 	background-color: #e0e0e0;
 }
+#nq {
+	padding-top: 10px;
+}

@@ -58,7 +58,7 @@
 										<p>Das CollabPortal hat auch einen Artikel im deutschsprachigen Scratch-Wiki: <a href="http://scratch-dach.info/wiki/CollabPortal" >http://scratch-dach.info/wiki/CollabPortal</a>.</p>
 									<hr/>
 									<h3>FAQ</h3>
-										<p>Du hast eine Frage? Stelle sie <a href="./">hier</a> oder <a href="contact.php">kontaktiere uns</a>!<br/>Klicke auf die Überschriften, um einen Permalink zu erhalten.</p>
+										<p>Du hast eine Frage? Stelle sie <a href="#nq" onclick="lscrollup()">unten</a> oder <a href="contact.php">kontaktiere uns</a>!<br/>Klicke auf die Überschriften, um einen Permalink zu erhalten.</p>
 										<!-- Hier kommt später mal PHP-Code hin, damit Fragen und Antworten vom Admin über die Datenbank hinzugefügt werden können. -->
 									<div id="questions">
 									<?php
@@ -66,11 +66,15 @@
 										echo "<div id='".$question["id"]."'><a href='help.php#".$question["id"]."' onclick=\"lscrollup()\"><h4>".$question["question"]."</h4></a>";
 										echo "<p>".$question["answer"]."</p></div>";
 									}
+									echo "<h4>Frage stellen</h4>";
 									if(is_loggedin()) {
-											echo "<form action='action.php?newquestion' method='post'>";
-											echo "<input type='text' name='question' placeholder='Frage stellen' title='Frage (Maximal 255 zeichen)' required maxlength='255' tabindex='1' />";
-											echo "<input type='submit' class='button blue' value='Absenden' tabindex='3' />";
-											echo "</form>";
+										echo "<form id='nq' action='action.php?newquestion' method='post'>";
+										echo "<input type='text' name='question' placeholder='Frage (Maximal 255 Zeichen)' title='Frage stellen' required maxlength='255' tabindex='1' />";
+										echo "<input type='submit' class='button blue' value='Absenden' tabindex='3' />";
+										echo "</form>";
+									}
+									else {
+										echo "Diese Funktion steht nur angemeldeten Benutzern zur Verfügung.";
 									}
 									?>
 									</div>
