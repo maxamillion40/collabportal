@@ -66,7 +66,7 @@
 								<div class="inner">
 									<?php
 										if($collab[0]["logo"] != "none.png")	{
-											echo "<img src='logos/".$collab[0]["logo"]."' alt='".$collab[0]["name"]." - Logo' width='144' height='108' style='float: left; margin: 5px;'  />";
+											echo "<img src='logos/".$collab[0]["logo"]."' alt='".$collab[0]["name"]." - Logo' width='144' height='108' style='float: left; margin: 5px; border: 1px solid #DDDDDD' />";
 										}
 										echo "<p>".$collab[0]["desc"]."</p>";
 									?>
