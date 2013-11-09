@@ -1,11 +1,11 @@
 ﻿<?php
 	session_start();
-	header("Content-type: application/javascript");
+	header("Content-type: application/javascript;charset='UTF-8'");
 	include("../includes/func.php");
 	mysql_auto_connect();
-	$members	= mysql_get("SELECT `mitglieder` FROM `collabs` WHERE id='".mysql_real_escape_string($_GET["id"])."'")[0]["mitglieder"];
+	$members	= mysql_get("SELECT `mitglieder` FROM `collabs` WHERE id='".mysql_real_escape_string($_GET["id"])."'");
 	if(is_loggedin())	{
-		if(!in_array($_SESSION["user"],$members["people"]) and $members["founder"] != $_SESSION["user"])	{
+		if(!in_array($_SESSION["user"],$members[0]["mitglieder"]["people"]) and $members[0]["mitglieder"]["founder"] != $_SESSION["user"])	{
 			echo "var member = false; \n";
 		}
 		else	{

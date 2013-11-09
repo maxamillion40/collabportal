@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	set_include_path($_SERVER["DOCUMENT_ROOT"]."/collabs2");
+	set_include_path($_SERVER["DOCUMENT_ROOT"]);
 	require_once("includes/func.php");
 	mysql_auto_connect();
-	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'")[0]["class"];
-	if($class != "Moderator" and $class != "Administrator")	{
+	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'");
+	if($class[0]["class"] != "Moderator" and $class[0]["class"] != "Administrator")	{
 		header("HTTP/1.1 403");
 		header("Location: ../error403.php?error=noaccess");
 		exit;

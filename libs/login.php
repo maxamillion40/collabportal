@@ -5,8 +5,8 @@
 	//Get data
 	$username	= mysql_real_escape_string($_POST["name"]);
 	$password	= md5(mysql_real_escape_string($_POST["pass"]));
-	$pass_ctrl	= mysql_get("SELECT `pass` FROM `users` WHERE `name`='$username'")[0]["pass"];
-	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='$username'")[0]["class"];
+	$pass_ctrl	= mysql_get("SELECT `pass` FROM `users` WHERE `name`='$username'");
+	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='$username'");
 	$return_to	= $_GET["return"] or "";
 	if(strstr($return_to,"?"))	{
 		$return_to .= "&result=login";
@@ -19,8 +19,8 @@
 		die(header("Location: index.php?uname=$username&error=unknownuser"));
 	}
 	//Check password
-	if($password == $pass_ctrl)	{
-		if($class != "Banned")	{
+	if($password == $pass_ctrl[0]["pass"])	{
+		if($class[0]["class"] != "Banned")	{
 			//ok
 			session_start();
 			$_SESSION["user"] = $username;
