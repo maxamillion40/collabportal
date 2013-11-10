@@ -3,7 +3,9 @@
 	require_once("includes/func.php");
 	mysql_auto_connect();
 	$collab	= mysql_get("SELECT * FROM collabs WHERE `id`='".mysql_real_escape_string($_GET["id"])."'");
-	$messages	= mysql_get("SELECT * FROM collabmessages WHERE `collab`='".mysql_real_escape_string($_GET["id"])."' ORDER BY `timestamp` DESC");
+	if(is_loggedin())	{
+		$messages	= mysql_get("SELECT * FROM collabmessages WHERE `collab`='".mysql_real_escape_string($_GET["id"])."' ORDER BY `timestamp` DESC");
+	}
 	mysql_close();
 	if(count($collab) != 1)	{
 		header("HTTP/1.0 404");

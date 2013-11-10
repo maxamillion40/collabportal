@@ -3,7 +3,7 @@
 	mysql_auto_connect();
 	
 	//Get data
-	$username	= mysql_real_escape_string($_POST["name"]);
+	$username	= ucfirst(mysql_real_escape_string($_POST["name"]));
 	$password	= md5(mysql_real_escape_string($_POST["pass"]));
 	$pass_ctrl	= mysql_get("SELECT `pass` FROM `users` WHERE `name`='$username'");
 	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='$username'");
