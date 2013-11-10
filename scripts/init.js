@@ -26,7 +26,7 @@ if(typeof(tinymce) !== "undefined")	{
 		menubar: false,
 		statusbar: false,
 		width: "100%",
-		height: 300,
+		height: 200,
 	});
 }
 

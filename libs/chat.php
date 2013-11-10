@@ -14,5 +14,5 @@
 	//Insert message into db
 	mysql_query("INSERT INTO `collabmessages`(`timestamp`,`absender`,`collab`,`message`) VALUES('$time','$von','$collab','$msg')");
 	//Back to collab page
-	header("Location: collab.php?id=$collab&result=msgok");
+	header("Location: collab.php?id=$collab&result=msgok#livechat");
 ?>

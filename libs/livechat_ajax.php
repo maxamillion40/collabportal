@@ -1,6 +1,7 @@
 ﻿<?php
 	session_start();
 	include_once("../includes/func.php");
+	header("Content-type: text/html;charset='UTF-8'");
 	mysql_auto_connect();
 	//Get id
 	$collab = $_GET["id"];

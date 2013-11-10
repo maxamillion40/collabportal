@@ -35,7 +35,6 @@
 				?>
 			<!-- Main Content -->	
 			<div class="container" id="content">
-				<noscript><div class="ui-state-error">Um die Funktionen des CollabPortals in vollem Umfang nutzen zu können, musst du JavaScript aktivieren.</div><br /></noscript>
 				<!-- div für obere boxen -->
 				<div class="cols" style="top: -10px;">
 					<!-- 1. Box -->
@@ -48,7 +47,7 @@
 							<div class="box-content" style="height: 279px;">
 								<div class="inner">
 									<?php
-										if(count($featured > 0))	{
+										if(count($featured) > 0)	{
 											echo "<table id='featured-collab'>";
 											echo "<tr>";
 											echo "<td>";

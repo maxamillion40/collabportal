@@ -1,6 +1,6 @@
 ﻿<?php
 	session_start();
-	header("Content-type: application/javascript;charset='UTF-8'");
+	header("Content-type: application/javascript");
 	include("../includes/func.php");
 	mysql_auto_connect();
 	$members	= mysql_get("SELECT `mitglieder` FROM `collabs` WHERE id='".mysql_real_escape_string($_GET["id"])."'");
@@ -21,6 +21,7 @@ function chat()	{
 		url: "libs/livechat_ajax.php?id=" + $(document).getUrlParam("id"),
 		data: "",
 		type: "POST",
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success: function(data) {
 			$("#livechat").html(data);
 			scratchblocks2.parse("#livechat pre.blocks");
