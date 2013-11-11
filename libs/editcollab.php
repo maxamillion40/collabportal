@@ -18,6 +18,6 @@
 		move_uploaded_file($logo["tmp_name"], "logos/".$id.".png");
 		mysql_query("UPDATE `collabs` SET `logo`='".$id.".png' WHERE id='".$id."'") or die(mysql_error());
 	}
-	mysql_query("UPDATE `collabs` SET `desc`='$desc', `name`='$name' WHERE `id`='{$id}'");
+	mysql_query("UPDATE `collabs` SET `desc`='$desc', `name`='$name' WHERE id='$id'");
 	header("Location: admin.php?id=$id&result=editok");
 ?>
