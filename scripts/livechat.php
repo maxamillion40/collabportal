@@ -29,22 +29,39 @@ function getAllMessages(id)	{
 		dataType: "json",
 		type: "GET",
 		success: function(data)	{
+			// Message count
 			var oldcount = msg["msgCount"];
 			var newcount = data["msgCount"];
+			// Inform user about new messages
 			msg = data;
-			if(newcount > oldcount)	{
-				window.setInterval(function()	{
+			if(newcount > oldcount && $("#livechat").visible(true) == false)	{
+				msgInterval = window.setInterval(function()	{
 					$("title").html(newcount - oldcount + " neue Nachrichten");
-				},1000);
-				window.setInterval(function()	{
-					$("title").html(title);
+					window.setTimeout(function()	{
+						$("title").html(title);
+					},1000);
 				},2000);
-				
 			}
+			// Insert messages
+			$("#livechat").html("");
+			var max = msg["msgCount"];
+			for(i=0;i<max;i++)	{
+				var output;
+				var m = msg["msgList"][i];
+				var output = "<div class='msg msg-" + m["id"] + "'><div class='msg-head'>" + m["absender"] + " am " + m["timestamp"] + "</div><div class='msg-body'>" + m["message"] + "</div></div>";
+				$("#livechat").append(output);
+			}
+			scratchblocks2.parse("pre.blocks");
 		},
 		error: function(jqXHR, textStatus, errorThrown)	{
-			return false;
+			//
 		}
 	});
 }
 getAllMessages(cid);
+
+window.setInterval(function()	{
+	if($("#livechat").visible(true))	{
+		window.clearInterval(msgInterval);
+	}
+},500);

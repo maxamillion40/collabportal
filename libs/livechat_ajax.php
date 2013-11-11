@@ -20,6 +20,9 @@
 	$output = array();
 	$output["msgCount"] = count($messages);
 	$output["msgList"] = $messages;
+	for($i=0;$i<$output["msgCount"];$i++)	{
+		$output["msgList"][$i]["timestamp"] = date("d.m.Y H:i", $output["msgList"][$i]["timestamp"]);
+	}
 	//Print json array
 	echo json_encode($output);
 ?>
