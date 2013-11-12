@@ -70,8 +70,8 @@ window.setInterval(function()	{
 },3000);
 
 $(document).on("show.visibility",function()	{
-	windos_focus = true;
+	window_focus = true;
 });
 $(document).on("hide.visibility",function()	{
-	windos_focus = false;
+	window_focus = false;
 });
