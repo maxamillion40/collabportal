@@ -44,6 +44,7 @@
 		<script src="scripts/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="scripts/jquery/jquery.getUrlParam.js"></script>
 		<script src="scripts/jquery.visible.min.js"></script>
+		<script src="scripts/jquery.visibility.js"></script>
 		<script src="scripts/tinymce/tinymce.min.js"></script>
 		<script src="scripts/scratchblocks2.js"></script>
 		<script src="scripts/init.js"></script>

@@ -16,12 +16,12 @@
 		echo "var member = false \n";
 	}
 ?>
+var window_focus = true;
 var title = $("title").html();
 var cid = $(document).getUrlParam("id");
 var msgInterval;
 var msg = new Array;
 	msg["msgCount"] = Number.POSITIVE_INFINITY;
-	msg["msgCount"] = 1;
 //
 function getAllMessages(id)	{
 	$.ajax({
@@ -34,7 +34,7 @@ function getAllMessages(id)	{
 			var newcount = data["msgCount"];
 			// Inform user about new messages
 			msg = data;
-			if(newcount > oldcount && $("#livechat").visible(true) == false)	{
+			if((newcount > oldcount && $("#livechat").visible(true) == false) || window_focus == false)	{
 				msgInterval = window.setInterval(function()	{
 					$("title").html(newcount - oldcount + " neue Nachrichten");
 					window.setTimeout(function()	{
@@ -65,3 +65,13 @@ window.setInterval(function()	{
 		window.clearInterval(msgInterval);
 	}
 },500);
+window.setInterval(function()	{
+	getAllMessages(cid);
+},3000);
+
+$(document).on("show.visibility",function()	{
+	windos_focus = true;
+});
+$(document).on("hide.visibility",function()	{
+	windos_focus = false;
+});
