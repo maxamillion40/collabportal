@@ -14,3 +14,44 @@
 	margin-top: 0.5em;
 	border-bottom: #8d8d8d 1px solid;
 }
+.desc p {
+	min-height: 50px;
+}
+.t-block {
+	position: absolute;
+	width: 70px;
+	height: 43px;
+	background: linear-gradient(#1a9ed7, #178bbd);
+	box-shadow: 0 5px 0 #11658a, 0 5px 6px grey;
+	border: #1a9ed7 1px solid;
+	border-radius: 10px;
+	margin-top: 5px;
+	padding-top: 22px;
+	text-align: center;
+	color: #fff;
+	font-family: "Segoe-UI-Bold", sans-serif;
+	font-size: 3.5em;
+	text-shadow: 0 -2px 0 #178bbd;
+	transition: padding 0.25s 0.25s, height 0.25s 0.25s;
+}
+.t-block .rotate {
+	font-size: 0.25em;
+	text-shadow: 0 -1px 0 #178bbd;
+	text-align: center;
+	padding-top: 8px;
+	transform: scale(0.25,0.25);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.25s, transform 0.25s, visibility 0.25s 0.25s;
+}
+.t-block:hover {
+	height: 50px;
+	padding-top: 15px;
+	transition: padding 0.25s, height 0.25s;
+}
+.t-block:hover .rotate {
+	visibility: visible;
+	opacity: 1;
+	transform: scale(1,1);
+	transition: opacity 0.25s 0.25s, transform 0.25s 0.25s, visibility 0.25s;
+}

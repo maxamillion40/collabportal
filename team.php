@@ -41,14 +41,15 @@
 								<div class="inner">
 									<h3>Administratoren</h3>
 										<img src="http://cdn.scratch.mit.edu/get_image/user/909333_75x75.png?v=1367988496.15" width="75px" /><div class="desc"><h4>webdesigner97</h4>
-										webdesigner97 ist Gründer und Hauptadministrator des Collabportals. Bei der Entwicklung übernimmt er viele grundlegende Aufgaben, bspw. die Pflege der
-										Datenbank, Ausarbeitung neuer Funktionen und die Arbeit "unter der Motorhaube". Nutzer können sich bei Problemen, Fragen, Kritik und Ideen jederzeit an ihn wenden.</div>
+										<p>webdesigner97 ist Gründer und Hauptadministrator des Collabportals. Bei der Entwicklung übernimmt er viele grundlegende Aufgaben, bspw. die Pflege der
+										Datenbank, Ausarbeitung neuer Funktionen und die Arbeit "unter der Motorhaube". Nutzer können sich bei Problemen, Fragen, Kritik und Ideen jederzeit an ihn wenden.</p></div>
 										<img src="http://cdn.scratch.mit.edu/get_image/user/1900672_75x75.png?v=1380467242.62" width="75px" /><div class="desc"><h4>Lirex</h4>
-										Lirex stieß am 8. August 2013 dazu, nachdem er die Entwicklung des Collabportals seit den Anfängen Ende 2012 mitverfolgt hatte.
-										Er ist für diverse Texte und Grafiken, die FAQ und für das Design zuständig. Zudem moderiert Lirex das Collabportal und ist Ansprechpartner bei Problemen.</div>
+										<p>Lirex stieß am 8. August 2013 dazu, nachdem er die Entwicklung des Collabportals seit den Anfängen Ende 2012 mitverfolgt hatte.
+										Er ist für diverse Texte und Grafiken, die FAQ und für das Design zuständig. Zudem moderiert Lirex das Collabportal und ist Ansprechpartner bei Problemen.</p></div>
 									<h3>Moderatoren</h3>
 									<h3>Tester</h3>
-										<!-- Hier kommen besondere Tester hin -->
+										<div class="t-block">T<div class="rotate">Tester</div></div><div class="desc"><h4>akhof</h4>
+										<p>akhof war der erste Tester des Collabportals und ist permanenter Tester der pre-Beta.</p></div>
 									<h3>Betatester</h3>
 										<ul class="desc">
 											<li>Ominöse Person</li>
@@ -56,7 +57,7 @@
 									<h3>Danke außerdem an:</h3>
 										<ul class="desc">
 											<li>LiFaytheGoblin (Logo, Ideengeberin)</li>
-											<li>Das Scratch Team (Scratch)</li>
+											<li>Das Scratch Team (Bereitstellung des Designs)</li>
 										</ul>
 								</div>
 							</div>
