@@ -63,6 +63,7 @@ function getAllMessages(id)	{
 	}
 	else	{
 		$("#livechat").html("Nachrichten sind nur für Mitglieder sichtbar.");
+		$("#msgbox").remove();
 	}
 }
 
