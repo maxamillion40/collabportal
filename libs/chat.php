@@ -11,6 +11,7 @@
 	$msg = str_replace(";)", "<img src=\"http://cbeta.scratchcollabs.pf-control.de/scripts/tinymce/plugins/emoticons/img/smiley-wink.gif\" alt=\";)\" />",$msg);
 	$msg = str_replace(":P", "<img src=\"http://cbeta.scratchcollabs.pf-control.de/scripts/tinymce/plugins/emoticons/img/smiley-tongue-out.gif\" alt=\":P\" />",$msg);
 	$msg = str_replace(":O","<img src=\"http://cbeta.scratchcollabs.pf-control.de/scripts/tinymce/plugins/emoticons/img/smiley-surprised.gif\" alt=\":O\" />",$msg);
+	$msg = str_replace(":D","<img src=\"http://cbeta.scratchcollabs.pf-control.de/scripts/tinymce/plugins/emoticons/img/smiley-laughing.gif\" alt=\":D\" />",$msg);
 	//Check data
 	if($msg == "")	{
 		die(header("Location: collab.php?id=$collab&error=notext"));
