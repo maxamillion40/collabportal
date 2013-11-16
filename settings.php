@@ -53,7 +53,7 @@
 									<!-- # -->
 									<h3>Passwort</h3>
 									<form action="action.php?setpass" method="post">
-										<p>Zu deiner eigenen Sicherheit solltest du dein passwort regelmäßig ändern. Bitte denke daran, dass du nicht das gleiche Passwort wie auf scratch.mit.edu verwenden solltest.</p>
+										<p>Zu deiner eigenen Sicherheit solltest du dein Passwort regelmäßig ändern. Bitte denke daran, dass du nicht das gleiche Passwort wie auf scratch.mit.edu verwenden solltest.</p>
 										<input type="password" name="old" placeholder="Altes Passwort" required />
 										<input type="password" name="new" placeholder="Neues Passwort" required />
 										<input type="password" name="new-2" placeholder="Passwort bestätigen" required />
