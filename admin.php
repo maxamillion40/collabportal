@@ -13,6 +13,9 @@
 	if(count($collab) !=1 or $collab[0]["mitglieder"]["founder"] != $_SESSION["user"])	{
 		die(header("Location: mystuff.php?error=notmine"));
 	}
+	if($collab[0]["status"] != "open")	{
+		die(header("Location: collab.php?id=".$_GET["id"]."&error=closed"));
+	}
 ?>
 <!DOCTYPE html>
 <html>
