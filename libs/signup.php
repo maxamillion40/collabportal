@@ -44,7 +44,7 @@
 		header("Location: index.php?result=signup&name=$username");
 		//Begrüßungsnachricht
 		$message = array(
-			"sender" => "Systemnachricht",
+			"sender" => "CollabPortal Team",
 			"to" => $username,
 			"msg" => get_include_contents("includes/welcome.html"),
 			"regard" => "Willkommen im CollabPortal!"
