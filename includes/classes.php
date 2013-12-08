@@ -1,5 +1,5 @@
 ﻿<?php
-	function mysql_get($query, $arg=array())	{
+	function mysql_do($query, $arg=array())	{
 		$conn = new PDO("mysql:host=localhost;dbname=scratchcollabs","root","",array(
 			PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
 		));
@@ -22,7 +22,7 @@
 		var $settings;
 		public function __construct($id)	{
 			// Load all collab data from DB
-			$data = mysql_get("SELECT * FROM collabs WHERE id=?",array($id));
+			$data = mysql_do("SELECT * FROM collabs WHERE id=?",array($id));
 			$this->id = $data[0]["id"];
 			$this->name = $data[0]["name"];
 			$this->starttime = $data[0]["start"];
@@ -59,7 +59,7 @@
 		var $last_login;
 		var $last_ip;
 		public function __construct($name)	{
-			$data = mysql_get("SELECT * FROM users WHERE name=?",array($name));
+			$data = mysql_do("SELECT * FROM users WHERE name=?",array($name));
 			if(count($data) == 1)	{
 				$this->id = $data[0]["id"];
 				$this->name = $data[0]["name"];
