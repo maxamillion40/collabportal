@@ -71,7 +71,7 @@
 												<td>-</td>
 												<td>Showroom</td>
 												<td>-</td>
-												<td>ausstehendt</td>
+												<td>ausstehend</td>
 												<td>Demnächst</td>
 											</tr>
 											<tr>
