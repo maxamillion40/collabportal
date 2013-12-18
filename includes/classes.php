@@ -1,15 +1,4 @@
 ﻿<?php
-	function mysql_do($query, $arg=array())	{
-		$conn = new PDO("mysql:host=localhost;dbname=scratchcollabs","root","",array(
-			PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
-		));
-		if(count($arg > 0))	{
-			$stmt = $conn->prepare($query);
-			$stmt->execute($arg);
-			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			return $result;
-		}
-	}
 	class collab	{
 		var $id;
 		var $name;

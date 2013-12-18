@@ -1,12 +1,13 @@
 ﻿<?php
-	session_start();
+	/*session_start();
 	require_once("includes/func.php");
 	require_once("includes/db.php");
 	mysql_auto_connect();
 	$featured	= mysql_get("SELECT * FROM featured_collab ORDER BY `id` DESC LIMIT 0,1");
 	$collabs	= mysql_get("SELECT * FROM collabs WHERE `status`='open'");
 	$news		= mysql_get("SELECT * FROM `news` ORDER BY `date` DESC LIMIT 0,3");
-	mysql_close();
+	mysql_close();*/
+	require_once("includes/loader.php");
 ?>
 <!DOCTYPE html>
 <html>
