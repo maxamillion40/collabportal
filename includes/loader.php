@@ -1,7 +1,7 @@
 ﻿<?php
 	session_start();
+	set_include_path("./includes/");
 
-	require_once("mysql.php");
 	require_once("db.php");
 	require_once("classes.php");
 	

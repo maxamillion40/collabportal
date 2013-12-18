@@ -11,13 +11,14 @@
 		var $settings;
 		public function __construct($id)	{
 			// Load all collab data from DB
-			$data = mysql_do("SELECT * FROM collabs WHERE id=?",array($id));
+			$mysql = new mysqlConn;
+			$data = $mysql->get("SELECT * FROM collabs WHERE id=?",array($id));
 			$this->id = $data[0]["id"];
 			$this->name = $data[0]["name"];
 			$this->starttime = $data[0]["start"];
 			$this->members = unserialize($data[0]["mitglieder"]);
 			$this->status = $data[0]["status"];
-			$this->owner = $this->members["founder"];
+			$this->owner = new user($this->members["founder"]);
 			$this->desc = $data[0]["desc"];
 			$this->logo = $data[0]["logo"];
 			$this->settings = unserialize($data[0]["settings"]);
@@ -37,6 +38,9 @@
 		public function close()	{
 			// MySQL query for closing
 		}
+		public function fromArray($data)	{
+			// Convert an array of collabs to objects
+		}
 	}
 	class user	{
 		var $id;
@@ -48,7 +52,8 @@
 		var $last_login;
 		var $last_ip;
 		public function __construct($name)	{
-			$data = mysql_do("SELECT * FROM users WHERE name=?",array($name));
+			$mysql = new mysqlConn;
+			$data = $mysql->get("SELECT * FROM users WHERE name=?",array($name));
 			if(count($data) == 1)	{
 				$this->id = $data[0]["id"];
 				$this->name = $data[0]["name"];

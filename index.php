@@ -7,7 +7,15 @@
 	$collabs	= mysql_get("SELECT * FROM collabs WHERE `status`='open'");
 	$news		= mysql_get("SELECT * FROM `news` ORDER BY `date` DESC LIMIT 0,3");
 	mysql_close();*/
+	
 	require_once("includes/loader.php");
+	$mysql = new mysqlConn();
+	$featured = $mysql->get("SELECT * FROM featured_collab ORDER BY id DESC LIMIT 0,1");
+	$news = $mysql->get("SELECT * FROM news ORDER BY date DESC LIMIT 0,3");
+	$collabs = $mysql->get("SELECT id FROM collabs WHERE `status`='open'");
+	foreach($collabs as &$collab)	{
+		$collab = new collab($collab["id"]);
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -116,9 +124,9 @@
 									//Create a list of all collabs
 									foreach($collabs as $collab)	{
 										echo "<li class='project thumb item'>";
-										echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
-										echo "<span class='title'>".$collab["name"]."</span>";
-										echo "<span class='owner'>".$collab["mitglieder"]["founder"]."</span>";
+										echo "<a href='collab.php?id=".$collab->id."'><img src='logos/".$collab->logo."' width='144' height='108' class='image' alt='".$collab->name."' /></a>";
+										echo "<span class='title'>".$collab->name."</span>";
+										echo "<span class='owner'>".$collab->owner->name."</span>";
 										echo "</li>";
 									}
 								}

@@ -14,11 +14,11 @@
 			private $rs;
 		// Methods
 			// Constructor
-			function __construct($data)	{
-				$this->user = $data["dbuser"];
-				$this->pass = $data["dbpass"];
-				$this->server = $data["dbserver"];
-				$this->dbname = $data["dbname"];
+			function __construct()	{
+				$this->user = CP_DBUSER;
+				$this->pass = CP_DBPASS;
+				$this->server = CP_DBSERVER;
+				$this->dbname = CP_DBNAME;
 				$this->rs = new PDO("mysql:host=" . $this->server . ";dbname=" . $this->dbname, $this->user, $this->pass, array(
 					PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
 				));
@@ -30,7 +30,7 @@
 					$return = array();
 					$query = $this->rs->prepare($query);
 					$query->execute($args);
-					return $query->fetch(PDO::FETCH_ASSOC);
+					return $query->fetchAll();
 				}
 				catch(PDOException $e)	{
 					print_r($e);
