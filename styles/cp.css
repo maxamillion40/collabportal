@@ -57,6 +57,11 @@ header ul li	{
 	height: 35px;
 	border-right: 1px #149acb solid;
     right: 0;
+	width: 106px;
+}
+#join a	{
+	width: 78px;
+	text-align: center;
 }
 #asc {
 	position: absolute;
