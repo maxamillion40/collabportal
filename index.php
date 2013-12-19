@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Start &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Home"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -42,7 +42,7 @@
 					<div class="col-9">	
 						<article style="max-height: 315px;" class="box">
 							<div class="box-head">
-								<h4>Vorgestelltes Collab</h4>
+								<h4><?php echo __("Featured Collab"); ?></h4>
 								<a class="right" id="help"><span>?</span></a>
 							</div>
 							<div class="box-content" style="height: 279px;">
@@ -75,7 +75,7 @@
 					<div class="col-7">	
 						<article style="max-height: 315px;" class="box">
 							<div class="box-head">
-								<h4>Ankündigungen</h4>
+								<h4><?php echo __("News"); ?></h4>
 							</div>
 							<div class="box-content" style="height: 279px;">
 								<div class="inner box-no-padding">
@@ -101,9 +101,9 @@
 				</div>
 			<article class="box" >
 				<div class="box-head">
-					<h3>Aktive Collabs (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><?php
+					<h3><?php echo __("Active Collabs"); ?> (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><?php
 						if(is_loggedin())	{
-							echo '<a href="new.php"><button class="button blue">+ Neues Collab</button></a></span>';
+							echo '<a href="new.php"><button class="button blue">+ ' . __("New Collab") . '</button></a></span>';
 						}
 					?>
 				</div>
