@@ -2,6 +2,8 @@
 	session_start();
 	set_include_path("./includes/");
 
+	require_once("func.php");
+	require_once("locale.php");
 	require_once("db.php");
 	require_once("classes.php");
 	

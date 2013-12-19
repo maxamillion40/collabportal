@@ -46,4 +46,7 @@
 				}
 			}
 	}
+	
+	// Global mySQL Object
+	$_MYSQL = new mysqlConn;
 ?>
