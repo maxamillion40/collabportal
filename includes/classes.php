@@ -11,8 +11,8 @@
 		var $settings;
 		public function __construct($id)	{
 			// Load all collab data from DB
-			$mysql = new mysqlConn;
-			$data = $mysql->get("SELECT * FROM collabs WHERE id=?",array($id));
+			global $_MYSQL;
+			$data = $_MYSQL -> get("SELECT * FROM collabs WHERE id=?",array($id));
 			$this->id = $data[0]["id"];
 			$this->name = $data[0]["name"];
 			$this->starttime = $data[0]["start"];
@@ -38,9 +38,6 @@
 		public function close()	{
 			// MySQL query for closing
 		}
-		public function fromArray($data)	{
-			// Convert an array of collabs to objects
-		}
 	}
 	class user	{
 		var $id;
@@ -52,8 +49,8 @@
 		var $last_login;
 		var $last_ip;
 		public function __construct($name)	{
-			$mysql = new mysqlConn;
-			$data = $mysql->get("SELECT * FROM users WHERE name=?",array($name));
+			global $_MYSQL;
+			$data = $_MYSQL -> get("SELECT * FROM users WHERE name=?",array($name));
 			if(count($data) == 1)	{
 				$this->id = $data[0]["id"];
 				$this->name = $data[0]["name"];

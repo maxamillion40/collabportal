@@ -1,9 +1,14 @@
 ﻿<?php
 	require_once("includes/loader.php");
-	$featured = $_MYSQL -> get("SELECT * FROM featured_collab ORDER BY id DESC LIMIT 0,1");
-	$news = $_MYSQL -> get("SELECT * FROM news ORDER BY date DESC LIMIT 0,3");
-	$collabs = $_MYSQL -> get("SELECT id FROM collabs WHERE `status`='open'");
 	
+	$featured = $_MYSQL -> get("SELECT * FROM featured_collab ORDER BY id DESC LIMIT 0,1");
+	if(count($featured) == 1)	{
+		$featured = new collab($featured[0]["name"]);
+	}
+	
+	$news = $_MYSQL -> get("SELECT * FROM news ORDER BY date DESC LIMIT 0,3");
+	
+	$collabs = $_MYSQL -> get("SELECT id FROM collabs WHERE `status`='open'");
 	foreach($collabs as &$collab)	{
 		$collab = new collab($collab["id"]);
 	}
