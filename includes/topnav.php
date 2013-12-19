@@ -12,10 +12,10 @@
 		<a href="./" class="logo" id="trans"><span class="scratch"></span></a>
 		<!-- Nav -->
 		<ul class="site-nav">
-			<li><a href="http://scratch.mit.edu/projects/editor/">Entwickeln</a></li>
-			<li><a href="http://scratch.mit.edu/explore/?date=this_month">Entdecken</a></li>
-			<li><a href="http://scratch.mit.edu/discuss/13/">Diskutieren</a></li>
-			<li class="addborder"><a href="help.php">Hilfe</a></li>
+			<li><a href="http://scratch.mit.edu/projects/editor/"><?php echo __("Create"); ?></a></li>
+			<li><a href="http://scratch.mit.edu/explore/?date=this_month"><?php echo __("Explore"); ?></a></li>
+			<li><a href="http://scratch.mit.edu/discuss/13/"><?php echo __("Discuss"); ?></a></li>
+			<li class="addborder"><a href="help.php"><?php echo __("Help"); ?></a></li>
 			<?php
 		        $res = "";
 				if(isset($_GET["result"]))	{
@@ -42,28 +42,28 @@
 						echo "<span id='notificationsCount'>".$unread."</span>";
 					}
 					echo "</li>";
-					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
+					echo "<li id='welcome'><a>" . __("Welcome") . ", ".$_SESSION["user"]."</a></li>";
 					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a></li>
                             <ul id='menulink'>
-                                <li><a href='mystuff.php'>Meine Collabs</a></li><br/>
-                                <li><a href='about.php'>Über ScratchCollabs</a></li><br/>
-								<li><a href='help.php'>Hilfe</a></li><br/>
-								<li><a href='settings.php'>Einstellungen</a></li><br/>
-								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'>Logout</span></a></li>
+                                <li><a href='mystuff.php'>" . __("My Collabs") . "</a></li><br/>
+                                <li><a href='about.php'>" . __("About Scratchcollabs") . "</a></li><br/>
+								<li><a href='help.php'>" . __("Help") . "</a></li><br/>
+								<li><a href='settings.php'>" . __("Settings") . "</a></li><br/>
+								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'>" . __("Logout") . "</span></a></li>
                             </ul></div>";
 				}
 				else	{
-					echo "<li id=\"asc\"><a href=\"about.php\">Was ist ScratchCollabs?</a></li>
+					echo "<li id=\"asc\"><a href=\"about.php\">" . __("What is Scratchcollabs?") . "</a></li>
 					<li id=\"join\">
-							<a onclick='loginbox();'>Mitmachen!</a>
+							<a onclick='loginbox();'>" . __("Join us") . "!</a>
 							<div id=\"login\" style=\"display: none;\">
 								<div id=\"arrow\"></div>
 								<div id=\"form\">
 									<form action=\"action.php?login&return=$return_to\" method=\"post\">
-										<input type=\"text\" name=\"name\" placeholder=\"Nutzername\" required value=\"".$uname."\" />
-										<input type=\"password\" name=\"pass\" placeholder=\"Passwort\" required />
-										<input type=\"submit\" value=\"Login\" class=\"button grey\" />
-										<a href=\"join.php\">Neu hier?</a>
+										<input type=\"text\" name=\"name\" placeholder=\"" . __("Username") . "\" required value=\"".$uname."\" />
+										<input type=\"password\" name=\"pass\" placeholder=\"" . __("Password") . "\" required />
+										<input type=\"submit\" value=\"" . __("Login") . "\" class=\"button grey\" />
+										<a href=\"join.php\">" . __("New here?") . "</a>
 									</form>
 								</div>
 							</div>

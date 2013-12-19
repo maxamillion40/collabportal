@@ -12,7 +12,7 @@
 	function __($msg, $lang = null)	{
 		global $_LOCALE;
 		if(!is_string($lang))	{
-			$lang = "de_DE";
+			$lang = "en_US";
 		}
 		if(isset($_LOCALE[$lang][$msg]))	{
 			return $_LOCALE[$lang][$msg];
