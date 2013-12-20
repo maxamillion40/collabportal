@@ -49,7 +49,7 @@
 		<script src="scripts/sbpopup.js"></script>
 	</head>
 	<body>
-		<div id="dialogbox">Lorem Ipsum</div>
+		<div id="dialogbox">&nbsp;</div>
 		<div id="pagewrapper">
 			<!-- This is the blue box on the top of the site -->
 				<?php
