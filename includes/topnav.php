@@ -1,4 +1,5 @@
 ﻿<?php
+	require_once("loader.php");
 	require_once("func.php");
 	$return_to = get_uri();
 	if($_USER -> is_online())	{

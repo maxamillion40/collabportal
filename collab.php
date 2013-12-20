@@ -1,13 +1,10 @@
 ﻿<?php
-	session_start();
-	require_once("includes/func.php");
-	mysql_auto_connect();
-	$collab	= mysql_get("SELECT * FROM collabs WHERE `id`='".mysql_real_escape_string($_GET["id"])."'");
-	if(is_loggedin())	{
-		$messages	= mysql_get("SELECT * FROM collabmessages WHERE `collab`='".mysql_real_escape_string($_GET["id"])."' ORDER BY `timestamp` DESC");
+	require_once("includes/loader.php");
+	$collab	= new collab($_GET["id"]);
+	if($_USER -> is_online())	{
+		$messages	= $_MYSQL -> get("SELECT * FROM collabmessages WHERE `collab`='".$_GET["id"]."' ORDER BY `timestamp` DESC");
 	}
-	mysql_close();
-	if(count($collab) != 1)	{
+	if(empty($collab -> name))	{
 		header("HTTP/1.0 404");
 		header("Location: error404.php?error=nocollab");
 	}
@@ -24,7 +21,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo $collab[0]["name"]; ?> &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo $collab -> name; ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -64,15 +61,15 @@
 					<div class="col-11">
 						<article class="box collab">
 							<div class="box-header">
-								<h1><?php echo $collab[0]["name"]; ?></h1>
+								<h1><?php echo $collab -> name; ?></h1>
 							</div>
 							<div class="box-content" style="min-height: 150px;">
 								<div class="inner">
 									<?php
-										if($collab[0]["logo"] != "none.png")	{
-											echo "<img src='logos/".$collab[0]["logo"]."' alt='".$collab[0]["name"]." - Logo' width='144' height='108' style='float: left; margin: 5px; border: 1px solid #DDDDDD' />";
+										if($collab -> logo != "none.png")	{
+											echo "<img src='logos/".$collab -> logo."' alt='".$collab -> name." - Logo' width='144' height='108' style='float: left; margin: 5px; border: 1px solid #DDDDDD' />";
 										}
-										echo "<p>".$collab[0]["desc"]."</p>";
+										echo "<p>".$collab -> desc."</p>";
 									?>
 								</div>
 							</div>
@@ -110,20 +107,20 @@
 										<table id="info">	
 											<tr>
 												<td class="collab-td">Start:</td>
-												<td><?php echo $tage[date("l",$collab[0]["start"])]; echo date(", d.m.Y h:i",$collab[0]["start"]); ?></td>
+												<td><?php echo $tage[date("l",$collab -> starttime)]; echo date(", d.m.Y h:i",$collab -> starttime); ?></td>
 											</tr>
 											<tr>
 												<td>Laufzeit:</td>
-												<td><?php echo round((time()-$collab[0]["start"])/60/60/24); ?> Tag(e)</td>
+												<td><?php echo round((time() - $collab -> starttime)/60/60/24); ?> Tag(e)</td>
 											</tr>
 											<tr>
 												<td>Gründer:</td>
-												<td><?php echo $collab[0]["mitglieder"]["founder"]; ?></td>
+												<td><?php echo $collab -> owner -> name; ?></td>
 											</tr>
 											<tr>
 												<td>Status:</td>
 												<td><?php 
-													if($collab[0]["status"] == "open")	{
+													if($collab -> status == "open")	{
 														echo "offen";
 													}
 													else	{
@@ -134,14 +131,14 @@
 											<tr>
 												<td>Rang:</td>
 												<td><?php
-														if(isset($_SESSION["user"]))	{
-															if($collab[0]["mitglieder"]["founder"] == $_SESSION["user"])	{
+														if($_USER -> is_online())	{
+															if($collab -> owner -> name == $_USER -> name)	{
 																echo "Gründer";
 															}
-															elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
+															elseif(array_key_exists($_USER -> name, $collab -> members["people"]))	{
 																echo "Mitglied";
 															}
-															elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
+															elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
 																echo "Anwärter";
 															}
 															else	{
@@ -160,15 +157,15 @@
 						<!-- Members -->
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Mitglieder Icon" height="19" width="19" /> Mitglieder (<?php echo count($collab[0]["mitglieder"]["people"])+1; ?>)</h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Mitglieder Icon" height="19" width="19" /> Mitglieder (<?php echo count($collab -> members["people"])+1; ?>)</h4>
 							</div>
 							<div class="box-content">
 								<div class="inner box-no-padding">
 										<ul id="members">
 											<?php
-												echo "<li class='founder member'> ".$collab[0]["mitglieder"]["founder"]."</li>";
-												foreach($collab[0]["mitglieder"]["people"] as $mitglied)	{
-													echo "<li class='member'>".$mitglied."</li>";
+												echo "<li class='founder member'> ".$collab -> owner -> name."</li>";
+												foreach($collab -> members["people"] as $mitglied)	{
+													echo "<li class='member'>" . $mitglied -> name . "</li>";
 												}
 											?>
 										</ul>
@@ -183,23 +180,23 @@
 							<div class="box-content">
 								<div class="inner">
 									<?php
-										if(isset($_SESSION["user"]))	{
-											if(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
+										if($_USER -> is_online())	{
+											if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
 												//Buttons für normale Mitglieder
 												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','Willst du wirklich aus diesem Collab austreten?')\">Austreten</button>";
 											}
-											elseif($_SESSION["user"] == $collab[0]["mitglieder"]["founder"])	{
+											elseif($_USER -> name == $collab -> owner -> name)	{
 												//Buttons für Gründer
 												echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">Verwaltung</button>";
 											}
-											elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
+											elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
 												echo "Dein Mitgliedsantrag ist in Bearbeitung.";
 											}
 											else	{
 												//Buttons für Gäste
-												if(count($collab[0]["mitglieder"]["people"]) + 1 < $collab[0]["settings"]["members_max"] or $collab[0]["settings"]["members_max"] == false and !in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
+												if(count($collab -> members["people"]) + 1 < $collab -> settings["members_max"] or $collab -> settings["members_max"] == false and !array_key_exists($_USER -> name,$collab-> members["candidates"]))	{
 													echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst!');\">";
-													if($collab[0]["settings"]["confirm_join"] == true)	{
+													if($collab -> settings["confirm_join"] == true)	{
 														echo "Bewerben";
 													}
 													else	{
