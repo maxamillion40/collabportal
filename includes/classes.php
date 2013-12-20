@@ -31,12 +31,28 @@
 			// Create user objects for candidates
 			$max = count($this->members["candidates"]);
 			for($i=0; $i < $max; $i++)	{
-				$this->members["candidates"][$this->members["candidates"][$i]] = new user($this->members["candidates"][$i]);
+				$this->members["candidates"][$this -> members["candidates"][$i]] = new user($this->members["candidates"][$i]);
 				unset($this->members["candidates"][$i]);
 			}
 		}
 		public function close()	{
 			// MySQL query for closing
+		}
+		public function member_rank($name)	{
+			// Return the rank of a user in this collab
+			$name = new user($name);
+			if(array_key_exists($name -> name, $this -> members["people"]))	{
+				return "member";
+			}
+			elseif(array_key_exists($name -> name, $this -> members["candidates"]))	{
+				return "candidate";
+			}
+			elseif($this -> owner -> name == $name -> name)	{
+				return "founder";
+			}
+			else	{
+				return "guest";
+			}
 		}
 	}
 	class user	{
