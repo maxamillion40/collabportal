@@ -1,6 +1,5 @@
 <?php
-	session_start();
-	require_once("includes/func.php");
+	require_once("includes/loader.php");
 ?>
 <!DOCTYPE html>
 <html>

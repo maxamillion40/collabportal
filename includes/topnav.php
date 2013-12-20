@@ -1,9 +1,8 @@
 ﻿<?php
 	require_once("func.php");
-	mysql_auto_connect();
 	$return_to = get_uri();
-	if(is_loggedin())	{
-		$unread = count(mysql_get("SELECT `id` FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
+	if($_USER -> is_online())	{
+		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`='".$_USER -> name ."' AND `read`='0'"));
 	}
 ?>
 <header>
@@ -36,7 +35,7 @@
 				
                     require_once("includes/notices.php");
 					
-				if(is_loggedin())	{
+				if($_USER -> is_online())	{
 			?>
 			<li id='msg-icon'><a href='messages.php'><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
 			<?php
@@ -66,8 +65,8 @@
 							<div id="login" style="display: none;">
 								<div id="arrow"></div>
 								<div id="form">
-									<form action="action.php?login&return=$return_to" method="post">
-										<input type="text" name="name" placeholder="<?php echo __("Username"); ?>" required value=".$uname." />
+									<form action="action.php?login&return=<?php echo $return_to; ?>" method="post">
+										<input type="text" name="name" placeholder="<?php echo __("Username"); ?>" required value="<?php echo $uname; ?>" />
 										<input type="password" name="pass" placeholder="<?php echo __("Password"); ?>" required />
 										<input type="submit" value="<?php echo __("Login"); ?>" class="button grey" />
 										<a href="join.php"><?php echo __("New here?"); ?></a>

@@ -107,7 +107,7 @@
 			<article class="box" >
 				<div class="box-head">
 					<h3><?php echo __("Active Collabs"); ?> (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><?php
-						if(is_loggedin())	{
+						if($_USER -> is_online())	{
 							echo '<a href="new.php"><button class="button blue">+ ' . __("New Collab") . '</button></a></span>';
 						}
 					?>

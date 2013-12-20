@@ -48,6 +48,7 @@
 		var $class;
 		var $last_login;
 		var $last_ip;
+		var $online;
 		public function __construct($name)	{
 			global $_MYSQL;
 			$data = $_MYSQL -> get("SELECT * FROM users WHERE name=?",array($name));
@@ -60,6 +61,18 @@
 				$this->class = $data[0]["class"];
 				$this->last_login = $data[0]["last_login"];
 				$this->last_ip = $data[0]["last_ip"];
+				$this->online = true;
+			}
+			else	{
+				$this->online = false;
+			}
+		}
+		public function is_online()	{
+			if($this->online == true)	{
+				return true;
+			}
+			else	{
+				return false;
 			}
 		}
 	}

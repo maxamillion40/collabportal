@@ -48,5 +48,6 @@
 	}
 	
 	// Global mySQL Object
-	$_MYSQL = new mysqlConn;
+	$GLOBALS["CP_MYSQL_CONN"] = new mysqlConn;
+	$_MYSQL = &$GLOBALS["CP_MYSQL_CONN"];
 ?>

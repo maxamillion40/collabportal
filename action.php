@@ -1,7 +1,6 @@
 ﻿<?php
-	session_start();
 	require_once("includes/func.php");
-	mysql_auto_connect();
+	require_once("includes/loader.php");
 	//Is there a param in the URI?
 	if($_SERVER["QUERY_STRING"] == "")	{
 		header("HTTP/1.0 403");
