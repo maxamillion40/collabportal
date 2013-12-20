@@ -83,7 +83,7 @@
 								<div class="inner">
 									<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
 										<textarea name="msg"></textarea><br />
-										<button type="submit">Senden</button>
+										<button type="submit"><?php echo __("Send"); ?></button>
 										<!-- <span id="countdown-wrapper"><span id="chat-countdown"></span></span> -->
 									</form>
 								<div id="livechat">
@@ -162,34 +162,34 @@
 										if($_USER -> is_online())	{
 											if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
 												//Buttons für normale Mitglieder
-												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','Willst du wirklich aus diesem Collab austreten?')\">Austreten</button>";
+												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','" . __("Do you really want to leave this Collab?") . "')\">Austreten</button>";
 											}
 											elseif($_USER -> name == $collab -> owner -> name)	{
 												//Buttons für Gründer
-												echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">Verwaltung</button>";
+												echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">" . __("Administration") . "</button>";
 											}
 											elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
-												echo "Dein Mitgliedsantrag ist in Bearbeitung.";
+												echo __("Your application is being processed");
 											}
 											else	{
 												//Buttons für Gäste
 												if(count($collab -> members["people"]) + 1 < $collab -> settings["members_max"] or $collab -> settings["members_max"] == false and !array_key_exists($_USER -> name,$collab-> members["candidates"]))	{
-													echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst!');\">";
+													echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','" . __("Do you really want to join? Only do this if you are sure that you want to participate") . "');\">";
 													if($collab -> settings["confirm_join"] == true)	{
-														echo "Bewerben";
+														echo __("Apply");
 													}
 													else	{
-														echo "Beitreten";
+														echo __("Join");
 													}
 													echo "</button>";
 												}
 												else	{
-													echo "Maximale Mitgliederzahl erreicht.";
+													echo __("Maximum number of members reached");
 												}
 											}
 										}
 										else	{
-											echo "<p>Diese Funktionen stehen nur Mitgliedern zur Verfügung.</p>";
+											echo "<p>" . __("These actions are only available for members") . "</p>";
 										}
 									?>
 								</div>
