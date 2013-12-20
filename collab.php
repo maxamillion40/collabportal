@@ -69,7 +69,7 @@
 										if($collab -> logo != "none.png")	{
 											echo "<img src='logos/".$collab -> logo."' alt='".$collab -> name." - Logo' width='144' height='108' style='float: left; margin: 5px; border: 1px solid #DDDDDD' />";
 										}
-										echo "<p>".$collab -> desc."</p>";
+										echo "<p>" . $collab -> desc . "</p>";
 									?>
 								</div>
 							</div>
@@ -77,7 +77,7 @@
 						<!-- Chat -->
 						<article class="box">
 							<div class="box-header">
-								<h2><img src="img/chat.png" height="19" width="19" alt="Chat Icon" /> Live Chat</h2>
+								<h2><img src="img/chat.png" height="19" width="19" alt="Chat Icon" /> <?php echo __("Live Chat"); ?></h2>
 							</div>
 							<div class="box-content">
 								<div class="inner">
@@ -89,7 +89,7 @@
 								<div id="livechat">
 									<div id="loading">
 										<img src="img/loader.gif" alt="Loading chat..." />
-										<p>Loading chat messages...</p>
+										<p><?php echo __("Loading chat messages"); ?>...</p>
 									</div>
 								</div>
 								</div>
@@ -100,31 +100,31 @@
 						<!-- Basic Information -->
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> Info</h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Info"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
 										<table id="info">	
 											<tr>
-												<td class="collab-td">Start:</td>
-												<td><?php echo $tage[date("l",$collab -> starttime)]; echo date(", d.m.Y h:i",$collab -> starttime); ?></td>
+												<td class="collab-td"><?php echo __("Start"); ?>:</td>
+												<td><?php echo __(date("l",$collab -> starttime)); echo date(", d.m.Y h:i",$collab -> starttime); ?></td>
 											</tr>
 											<tr>
-												<td>Laufzeit:</td>
+												<td><?php echo __("Runtime"); ?>:</td>
 												<td><?php echo round((time() - $collab -> starttime)/60/60/24); ?> Tag(e)</td>
 											</tr>
 											<tr>
-												<td>Gründer:</td>
+												<td><?php echo __("Founder"); ?>:</td>
 												<td><?php echo $collab -> owner -> name; ?></td>
 											</tr>
 											<tr>
-												<td>Status:</td>
+												<td><?php echo __("Status"); ?>:</td>
 												<td><?php 
 													echo $collab -> status;
 												?></td>
 											</tr>
 											<tr>
-												<td>Rang:</td>
+												<td><?php echo __("Rank"); ?>:</td>
 												<td><?php
 														echo $collab -> member_rank($_USER -> name);
 												?></td>
@@ -136,7 +136,7 @@
 						<!-- Members -->
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Mitglieder Icon" height="19" width="19" /> Mitglieder (<?php echo count($collab -> members["people"])+1; ?>)</h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Members Icon" height="19" width="19" /> <?php echo __("Members"); ?> (<?php echo count($collab -> members["people"])+1; ?>)</h4>
 							</div>
 							<div class="box-content">
 								<div class="inner box-no-padding">
@@ -154,7 +154,7 @@
 						<!-- Buttons -->
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/actions.png" alt="Action Icon" height="19" width="19" /> Funktionen</h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/actions.png" alt="Action Icon" height="19" width="19" /> <?php echo __("Actions"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
