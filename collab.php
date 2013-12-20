@@ -120,34 +120,13 @@
 											<tr>
 												<td>Status:</td>
 												<td><?php 
-													if($collab -> status == "open")	{
-														echo "offen";
-													}
-													else	{
-														echo "beendet";
-													}
+													echo $collab -> status;
 												?></td>
 											</tr>
 											<tr>
 												<td>Rang:</td>
 												<td><?php
-														if($_USER -> is_online())	{
-															if($collab -> owner -> name == $_USER -> name)	{
-																echo "Gründer";
-															}
-															elseif(array_key_exists($_USER -> name, $collab -> members["people"]))	{
-																echo "Mitglied";
-															}
-															elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
-																echo "Anwärter";
-															}
-															else	{
-																echo "Gast";
-															}
-														}
-														else	{
-															echo "Anonymer Gast";
-														}
+														echo $collab -> member_rank($_USER -> name);
 												?></td>
 											</tr>
 										</table>
