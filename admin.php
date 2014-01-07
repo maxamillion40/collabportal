@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
 	if(!$_USER -> is_online())	{
@@ -7,7 +8,6 @@
 	$id = $_GET["id"];
 	$collab = new collab($id);
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Verwaltung &raquo; ScratchCollabs in DACH</title>
