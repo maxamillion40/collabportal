@@ -1,21 +1,11 @@
 <?php
-	session_start();
-	require_once("includes/func.php");
-	if(!is_loggedin())	{
+	require_once("includes/loader.php");
+	if(!$_USER -> is_online())	{
 		die(header("Location: index.php?error=nologin"));
 	}
-		if(!isset($_GET["id"])) {
-		die(header("Location: mystuff.php?error=nocollab"));
-	}
-	mysql_auto_connect();
-	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=" . $_GET["id"]);
+
 	$id = $_GET["id"];
-	if(count($collab) !=1 or $collab[0]["mitglieder"]["founder"] != $_SESSION["user"])	{
-		die(header("Location: mystuff.php?error=notmine"));
-	}
-	if($collab[0]["status"] != "open")	{
-		die(header("Location: collab.php?id=".$_GET["id"]."&error=closed"));
-	}
+	$collab = new collab($id);
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,21 +45,21 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<form action="action.php?settings&id=<?php echo $collab[0]["id"]; ?>" method="post">
+									<form action="action.php?settings&id=<?php echo $collab -> id; ?>" method="post">
 										<table border="1">
 											<tr id="row-max-members">
 												<td><input type="checkbox" id="check-max-members" name="check-max-members" <?php
-													if(gettype($collab[0]["settings"]["members_max"]) != "boolean")	{
+													if(gettype($collab -> settings["members_max"]) != "boolean")	{
 														echo "checked='checked' ";
 													}
 												?> /></td>
 												<td>Maximale Mitgliederzahl</td>
-												<td><input type="number" min="1" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab[0]["settings"]["members_max"]; ?>" /></td>
+												<td><input type="number" min="1" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab -> settings["members_max"]; ?>" /></td>
 												<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
 											</tr>
 											<tr id="row-confirm-join">
 												<td><input type="checkbox" id="check-confirm-join" name="check-confirm-join" <?php
-													if($collab[0]["settings"]["confirm_join"] == true)	{
+													if($collab -> settings["confirm_join"] == true)	{
 														echo "checked='checked' ";
 													}
 												?>/></td>
@@ -88,12 +78,12 @@
 								<h4>Mitglieder</h4>
 							</div>
 							<div class="box-content">
-								<div class="inner <?php if(count($collab[0]["mitglieder"]["people"]) > 0)	{ echo "box-no-padding"; } ?>">
+								<div class="inner <?php if(count($collab -> members["people"]) > 0)	{ echo "box-no-padding"; } ?>">
 									<ul class="members">
 										<?php
-											if(count($collab[0]["mitglieder"]["people"]) > 0)	{
-												foreach($collab[0]["mitglieder"]["people"] as $member)	{
-													echo "<li>".$member."<span class='li-right'><a href='messages.php?to=$member#new'>Nachricht</a> <a class='red' href='action.php?kick=$member&id=$id'>Kicken</a></span></li>";
+											if(count($collab -> members["people"]) > 0)	{
+												foreach($collab -> members["people"] as $member)	{
+													echo "<li>".$member -> name ."<span class='li-right'><a href='messages.php?to=" . $member -> name ."#new'>Nachricht</a> <a class='red' href='action.php?kick=" . $member -> name . "&id=$id'>Kicken</a></span></li>";
 												}
 											}
 											else	{
@@ -104,17 +94,17 @@
 								</div>
 							</div>
 						</article>
-						<article class="box<?php if($collab[0]["settings"]["confirm_join"] == false) { echo " hidden"; } ?>">
+						<article class="box<?php if($collab -> settings["confirm_join"] == false) { echo " hidden"; } ?>">
 							<div class="box-head">
 								<h4>Anwärter</h4>
 							</div>
 							<div class="box-content">
-								<div class="inner <?php if(count($collab[0]["mitglieder"]["candidates"]) > 0)	{ echo "box-no-padding"; } ?>">
+								<div class="inner <?php if(count($collab -> members["candidates"]) > 0)	{ echo "box-no-padding"; } ?>">
 									<ul class="members">
 										<?php
-											if(count($collab[0]["mitglieder"]["candidates"]) > 0)	{
-												foreach($collab[0]["mitglieder"]["candidates"] as $candidate)	{
-													echo "<li>".$candidate."<span class='li-right'><a class='green' href='action.php?accept&who=$candidate&id=".$_GET["id"]."'>Aufnehmen</a> <a href='messages.php?to=$candidate#new'>Nachricht</a> <a class='red' href='action.php?kick=$candidate&id=$id'>Zurückweisen</a></span></li>";
+											if(count($collab -> members["candidates"]) > 0)	{
+												foreach($collab -> members["candidates"] as $candidate)	{
+													echo "<li>".$candidate -> name ."<span class='li-right'><a class='green' href='action.php?accept&who=" . $candidate -> name ."&id=".$_GET["id"]."'>Aufnehmen</a> <a href='messages.php?to=". $candidate -> name ."#new'>Nachricht</a> <a class='red' href='action.php?kick=" . $candidate . "&id=$id'>Zurückweisen</a></span></li>";
 												}
 											}
 											else	{
@@ -130,17 +120,17 @@
 								<h4>Collab bearbeiten</h4>
 							</div>
 							<div class="box-content">
-								<div class="inner <?php if(count($collab[0]["mitglieder"]["candidates"]) > 0)	{ echo "box-no-padding"; } ?>">
-									<form action="action.php?editcollab&id=<?php echo $collab[0]["id"] ?>" method="post" enctype="multipart/form-data">
+								<div class="inner">
+									<form action="action.php?editcollab&id=<?php echo $collab -> id; ?>" method="post" enctype="multipart/form-data">
 										<?php
-											if($collab[0]["logo"] != "none.png")	{
-												echo "<img style='float: right;' src='logos/".$collab[0]["logo"]."' alt='Logo' width='144' height='108' />";
+											if($collab -> logo != "none.png")	{
+												echo "<img style='float: right;' src='logos/". $collab -> logo ."' alt='Logo' width='144' height='108' />";
 											}
 										?>
 										<p style="margin-bottom: 30px;">Logo: <input type="hidden" name="MAX_FILE_SIZE" value="100000" /><input type="file" name="logo" /></p>
-										<input type="text" name="name" maxlength="50" value="<?php echo $collab[0]["name"]; ?>" placeholder="Name des Collabs" />
+										<input type="text" name="name" maxlength="50" value="<?php echo $collab -> name; ?>" placeholder="Name des Collabs" />
 										<textarea name="desc"><?php
-											echo $collab[0]["desc"];
+											echo $collab -> desc;
 										?></textarea>
 										<button class="button blue">Speichern</button>
 									</form>
@@ -155,8 +145,8 @@
 								<div class="inner">
 									<?php
 										$time = time();
-										if($time - $collab[0]["start"] > 86400)	{
-											echo "<form action='action.php?closecollab&id=".$collab[0]["id"]."' method='post'>";
+										if($time - $collab -> starttime > 86400)	{
+											echo "<form action='action.php?closecollab&id=". $collab -> id ."' method='post'>";
 											echo "<p>Hier kannst du dein Collab beenden. Bitte beachte dabei ein paar grundlegende Dinge:</p>";
 											echo "<ul>";
 											echo "<li>Beendete Collabs können <u>nicht</u> wieder geöffnet werden</li>";
@@ -183,6 +173,5 @@
 		<?php
 			include_once("includes/footer.php");
 		?>
-		</div>
 	</body>
 </html>
