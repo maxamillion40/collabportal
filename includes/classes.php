@@ -67,20 +67,33 @@
 		var $online;
 		public function __construct($name)	{
 			global $_MYSQL;
-			$data = $_MYSQL -> get("SELECT * FROM users WHERE name=?",array($name));
-			if(count($data) == 1)	{
-				$this->id = $data[0]["id"];
-				$this->name = $data[0]["name"];
-				$this->pass = $data[0]["pass"];
-				$this->mail = $data[0]["mail"];
-				$this->scratch = $data[0]["scratch"];
-				$this->class = $data[0]["class"];
-				$this->last_login = $data[0]["last_login"];
-				$this->last_ip = $data[0]["last_ip"];
-				$this->online = true;
+			if($name != "Systemnachricht")	{
+				$data = $_MYSQL -> get("SELECT * FROM users WHERE name=?",array($name));
+				if(count($data) == 1)	{
+					$this->id = $data[0]["id"];
+					$this->name = $data[0]["name"];
+					$this->pass = $data[0]["pass"];
+					$this->mail = $data[0]["mail"];
+					$this->scratch = $data[0]["scratch"];
+					$this->class = $data[0]["class"];
+					$this->last_login = $data[0]["last_login"];
+					$this->last_ip = $data[0]["last_ip"];
+					$this->online = true;
+				}
+				else	{
+					$this->online = false;
+				}
 			}
 			else	{
-				$this->online = false;
+				$this->id = 0;
+				$this->name = "Systemnachricht";
+				$this->pass = "X";
+				$this->mail = "X";
+				$this->scratch = "X";
+				$this->class = "user";
+				$this->last_login = 0;
+				$this->last_ip = "127.0.0.1";
+				$this->online = true;
 			}
 		}
 		public function is_online()	{
@@ -89,6 +102,31 @@
 			}
 			else	{
 				return false;
+			}
+		}
+	}
+	class message	{
+		var $id;
+		var $sender;
+		var $to;
+		var $date;
+		var $regard;
+		var $msg;
+		var $read;
+		public function __construct($id)	{
+			global $_MYSQL;
+			$data = $_MYSQL -> get("SELECT * FROM messages WHERE `id`='$id'");
+			$this -> id = $data[0]["id"];
+			$this -> sender = new user($data[0]["sender"]);
+			$this -> to = new user($data[0]["to"]);
+			$this -> date = $data[0]["date"];
+			$this -> regard = $data[0]["regard"];
+			$this -> msg = $data[0]["msg"];
+			if($data[0]["read"] == 1)	{
+				$this -> read = true;
+			}
+			else	{
+				$this -> read = false;
 			}
 		}
 	}
