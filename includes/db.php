@@ -39,6 +39,13 @@
 			function set($query, $args = array())	{
 				try	{
 					$query = $this->rs->prepare($query);
+					
+					$x = 1;
+					foreach($args as $arg)	{
+						$query -> bindValue($x, $arg);
+						$x++;
+					}
+					
 					$query->execute($args);
 				}
 				catch(PDOException $e)	{

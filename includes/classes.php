@@ -104,6 +104,22 @@
 				return false;
 			}
 		}
+		public function send_pm($msg)	{
+			global $_MYSQL;
+			if(is_object($msg))	{
+				$msg -> date = time();
+				$msg -> to = $this -> name;
+				if($msg -> can_send())	{
+					$_MYSQL -> set("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES(?,?,?,?,?)", array(
+						$msg -> regard,
+						$msg -> date,
+						$msg -> sender -> name,
+						$msg -> to,
+						$msg -> msg
+					));
+				}
+			}
+		}
 	}
 	class message	{
 		var $id;
@@ -113,20 +129,30 @@
 		var $regard;
 		var $msg;
 		var $read;
-		public function __construct($id)	{
-			global $_MYSQL;
-			$data = $_MYSQL -> get("SELECT * FROM messages WHERE `id`='$id'");
-			$this -> id = $data[0]["id"];
-			$this -> sender = new user($data[0]["sender"]);
-			$this -> to = new user($data[0]["to"]);
-			$this -> date = $data[0]["date"];
-			$this -> regard = $data[0]["regard"];
-			$this -> msg = $data[0]["msg"];
-			if($data[0]["read"] == 1)	{
-				$this -> read = true;
+		public function __construct($id = null)	{
+			if(isset($id))	{
+				global $_MYSQL;
+				$data = $_MYSQL -> get("SELECT * FROM messages WHERE `id`='$id'");
+				$this -> id = $data[0]["id"];
+				$this -> sender = new user($data[0]["sender"]);
+				$this -> to = new user($data[0]["to"]);
+				$this -> date = $data[0]["date"];
+				$this -> regard = $data[0]["regard"];
+				$this -> msg = $data[0]["msg"];
+				if($data[0]["read"] == 1)	{
+					$this -> read = true;
+				}
+				else	{
+					$this -> read = false;
+				}
+			}
+		}
+		public function can_send()	{
+			if(isset($this -> sender) && isset($this -> to) && isset($this -> regard) && isset($this -> msg))	{
+				return true;
 			}
 			else	{
-				$this -> read = false;
+				return false;
 			}
 		}
 	}
