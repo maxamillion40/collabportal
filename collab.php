@@ -97,6 +97,16 @@
 						</article>
 					</div>
 					<div class="col-5">
+						<article class="box">
+							<div class="box-header">
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
+							</div>
+							<div class="box-content">
+								<div class="inner">
+									
+								</div>
+							</div>
+						</article>
 						<!-- Basic Information -->
 						<article class="box">
 							<div class="box-header">
@@ -130,6 +140,19 @@
 												?></td>
 											</tr>
 										</table>
+								</div>
+							</div>
+						</article>
+						<!-- Announcement -->
+						<article class="box">
+							<div class="box-header">
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Announcements"); ?></h4>
+							</div>
+							<div class="box-content">
+								<div class="inner">
+									<ul>
+										<li>Happy new year!</li>
+									</ul>
 								</div>
 							</div>
 						</article>
