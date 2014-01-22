@@ -1,4 +1,19 @@
 ﻿<?php
+	class time	{
+		var $stamp;
+		public function __construct($int = null)	{
+			if(!isset($int))	{
+				$int = time();
+			}
+			$this -> stamp = $int;
+		}
+		public function format($pattern)	{
+			return date($pattern, $this -> stamp);
+		}
+		public function printas($pattern)	{
+			echo date($pattern, $this -> stamp);
+		}
+	}
 	class collab	{
 		var $id;
 		var $name;
@@ -15,7 +30,7 @@
 			$data = $_MYSQL -> get("SELECT * FROM collabs WHERE id=?",array($id));
 			$this->id = $data[0]["id"];
 			$this->name = $data[0]["name"];
-			$this->starttime = $data[0]["start"];
+			$this->starttime = new time($data[0]["start"]);
 			$this->members = unserialize($data[0]["mitglieder"]);
 			$this->status = $data[0]["status"];
 			$this->owner = new user($this->members["founder"]);
@@ -184,7 +199,7 @@
 				$this -> id = $data[0]["id"];
 				$this -> sender = new user($data[0]["sender"]);
 				$this -> to = new user($data[0]["to"]);
-				$this -> date = $data[0]["date"];
+				$this -> date = new time($data[0]["date"]);
 				$this -> regard = $data[0]["regard"];
 				$this -> msg = $data[0]["msg"];
 				if($data[0]["read"] == 1)	{

@@ -117,11 +117,11 @@
 										<table id="info">	
 											<tr>
 												<td class="collab-td"><?php echo __("Start"); ?>:</td>
-												<td><?php echo __(date("l",$collab -> starttime)); echo date(", d.m.Y h:i",$collab -> starttime); ?></td>
+												<td><?php echo __($collab -> starttime -> format("l")); $collab -> starttime -> printas(", d.m.Y h:i"); ?></td>
 											</tr>
 											<tr>
 												<td><?php echo __("Runtime"); ?>:</td>
-												<td><?php echo round((time() - $collab -> starttime)/60/60/24); ?> Tag(e)</td>
+												<td><?php echo round((time() - $collab -> starttime -> stamp)/60/60/24); ?> Tag(e)</td>
 											</tr>
 											<tr>
 												<td><?php echo __("Founder"); ?>:</td>
