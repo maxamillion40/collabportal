@@ -24,6 +24,8 @@
 		var $desc;
 		var $logo;
 		var $settings;
+		var $announcement;
+		var $pid;
 		public function __construct($id)	{
 			// Load all collab data from DB
 			global $_MYSQL;
@@ -37,6 +39,8 @@
 			$this->desc = $data[0]["desc"];
 			$this->logo = $data[0]["logo"];
 			$this->settings = unserialize($data[0]["settings"]);
+			$this->announcement = $data[0]["announcement"];
+			$this->pid = $data[0]["pid"];
 			// Create user objects for members
 			$max = count($this->members["people"]);
 			for($i=0; $i < $max; $i++)	{

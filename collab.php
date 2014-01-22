@@ -103,7 +103,16 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									
+									<?php
+										if($collab -> pid != "")	{
+									?>
+									<iframe allowtransparency="true" width="250" height="207" src="http://scratch.mit.edu/projects/embed/<?php echo $collab -> pid; ?>/?autostart=false" allowfullscreen></iframe>
+									<?php
+										}
+										else	{
+											echo __("Nothing here");
+										}
+									?>
 								</div>
 							</div>
 						</article>
@@ -150,9 +159,11 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<ul>
-										<li>Happy new year!</li>
-									</ul>
+									<p>
+										<?php
+											echo $collab -> announcement;
+										?>
+									</p>
 								</div>
 							</div>
 						</article>
