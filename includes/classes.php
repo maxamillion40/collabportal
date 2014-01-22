@@ -54,6 +54,53 @@
 				return "guest";
 			}
 		}
+		public function add_member($name, $rank)	{
+			global $_MYSQL;
+			$name = new user($name);
+			if($rank == "member")	{
+				$this -> members["people"][] = $name;
+
+				$arr = array(
+					"founder" => $this -> members["founder"],
+					"people" => array(),
+					"candidates" => array(),
+				);
+				
+				foreach($this -> members["people"] as $member)	{
+					$arr["people"][] = $member -> name;
+				}
+				foreach($this -> members["candidates"] as $member)	{
+					$arr["candidates"][] = $member -> name;
+				}
+
+				$_MYSQL -> set("UPDATE collabs SET mitglieder=? WHERE id=?", array(
+					serialize($arr),
+					$this -> id
+				));
+			}
+			
+			if($rank == "candidate")	{
+				$this -> members["candidates"][] = $name;
+
+				$arr = array(
+					"founder" => $this -> members["founder"],
+					"people" => array(),
+					"candidates" => array(),
+				);
+				
+				foreach($this -> members["people"] as $member)	{
+					$arr["people"][] = $member -> name;
+				}
+				foreach($this -> members["candidates"] as $member)	{
+					$arr["candidates"][] = $member -> name;
+				}
+
+				$_MYSQL -> set("UPDATE collabs SET mitglieder=? WHERE id=?", array(
+					serialize($arr),
+					$this -> id
+				));
+			}
+		}
 	}
 	class user	{
 		var $id;
