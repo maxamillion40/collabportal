@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Nov 2013 um 13:30
+-- Erstellungszeit: 22. Jan 2014 um 09:30
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `collabmessages` (
   `message` text NOT NULL,
   `censored` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 -- --------------------------------------------------------
 
@@ -54,8 +54,10 @@ CREATE TABLE IF NOT EXISTS `collabs` (
   `logo` char(100) NOT NULL DEFAULT 'none.png',
   `start` char(50) NOT NULL,
   `settings` char(255) NOT NULL DEFAULT 'a:2:{s:11:"members_max";b:0;s:12:"confirm_join";b:0;}',
+  `announcement` char(200) NOT NULL,
+  `pid` char(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -85,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `featured_collab` (
   `mitglieder` char(255) NOT NULL,
   `url` char(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -102,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `to` char(50) NOT NULL,
   `msg` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
 -- --------------------------------------------------------
 
@@ -117,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `headline` char(100) NOT NULL,
   `msg` char(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 -- --------------------------------------------------------
 
@@ -135,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_login` int(11) NOT NULL,
   `last_ip` char(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
