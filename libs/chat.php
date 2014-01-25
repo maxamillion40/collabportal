@@ -1,8 +1,8 @@
 ﻿<?php
 	//Get data
-	$collab	= mysql_real_escape_string($_GET["id"]);
-	$msg	= mysql_real_escape_string($_POST["msg"]);
-	$von	= $_SESSION["user"];
+	$collab	= $_GET["id"];
+	$msg	= $_POST["msg"];
+	$von	= $_USER -> name,
 	$time	= time();
 	//Prepare message
 	$msg = trim($msg);
@@ -20,7 +20,12 @@
 		die(header("Location: index.php?error=noid"));
 	}
 	//Insert message into db
-	mysql_query("INSERT INTO `collabmessages`(`timestamp`,`absender`,`collab`,`message`) VALUES('$time','$von','$collab','$msg')") or die(mysql_error());
+	$_MYSQL -> set("INSERT INTO `collabmessages`(`timestamp`,`absender`,`collab`,`message`) VALUES(?,?,?,?)", array(
+		$time,
+		$von,
+		$collab,
+		$msg
+	));
 	//Back to collab page
 	header("Location: collab.php?id=$collab&result=msgok#livechat");
 ?>

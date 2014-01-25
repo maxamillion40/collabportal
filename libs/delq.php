@@ -1,5 +1,5 @@
 ﻿<?php
-	$id = mysql_real_escape_string($_GET["id"]);
-	mysql_query("DELETE FROM `faq` WHERE `id`=$id");
+	$id = $_GET["id"];
+	$_MYSQL -> set("DELETE FROM `faq` WHERE `id`=?", array($id));
 	header("Location: maintenance/faq.php?result=delqok");
 ?>

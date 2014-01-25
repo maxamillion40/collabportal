@@ -1,6 +1,5 @@
 <?php
-	session_start();
-	require_once("includes/func.php");
+	require_once("includes/loader.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,7 +91,7 @@
 												<td colspan="5">Zögere nicht, Vorschläge für neue Funktionen <a href="./" >hier</a> einzureichen.</td>
 											</tr>
 											<tr>
-												<td colspan="5">Release spätestens am: 01.01.2014 14:00 Uhr</td>
+												<td colspan="5">Release spätestens am: xx.xx.2014</td>
 											</tr>
 										</table>
 								</div>

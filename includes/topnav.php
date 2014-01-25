@@ -1,9 +1,9 @@
 ﻿<?php
+	require_once("loader.php");
 	require_once("func.php");
-	mysql_auto_connect();
 	$return_to = get_uri();
-	if(is_loggedin())	{
-		$unread = count(mysql_get("SELECT `id` FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
+	if($_USER -> is_online())	{
+		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`='".$_USER -> name ."' AND `read`='0'"));
 	}
 ?>
 <header>
@@ -12,10 +12,10 @@
 		<a href="./" class="logo" id="trans"><span class="scratch"></span></a>
 		<!-- Nav -->
 		<ul class="site-nav">
-			<li><a href="http://scratch.mit.edu/projects/editor/">Entwickeln</a></li>
-			<li><a href="http://scratch.mit.edu/explore/?date=this_month">Entdecken</a></li>
-			<li><a href="http://scratch.mit.edu/discuss/13/">Diskutieren</a></li>
-			<li class="addborder"><a href="help.php">Hilfe</a></li>
+			<li><a href="http://scratch.mit.edu/projects/editor/"><?php echo __("Create"); ?></a></li>
+			<li><a href="http://scratch.mit.edu/explore/?date=this_month"><?php echo __("Explore"); ?></a></li>
+			<li><a href="http://scratch.mit.edu/discuss/13/"><?php echo __("Discuss"); ?></a></li>
+			<li class="addborder"><a href="help.php"><?php echo __("Help"); ?></a></li>
 			<?php
 		        $res = "";
 				if(isset($_GET["result"]))	{
@@ -36,38 +36,46 @@
 				
                     require_once("includes/notices.php");
 					
-				if(is_loggedin())	{
-					echo "<li id='msg-icon'><a href='messages.php'><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>";
+				if($_USER -> is_online())	{
+			?>
+			<li id='msg-icon'><a href='messages.php'><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
+			<?php
 					if($unread > 0)	{
-						echo "<span id='notificationsCount'>".$unread."</span>";
+			?>
+						<span id='notificationsCount'><?php echo $unread; ?></span>
+			<?php
 					}
-					echo "</li>";
-					echo "<li id='welcome'><a>Willkommen, ".$_SESSION["user"]."</a></li>";
-					echo "<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a></li>
+			?>
+					</li>
+					<li id='welcome'><a><?php echo __("Welcome") . ", " . $_SESSION["user"] ?></a></li>
+					<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a></li>
                             <ul id='menulink'>
-                                <li><a href='mystuff.php'>Meine Collabs</a></li><br/>
-                                <li><a href='about.php'>Über ScratchCollabs</a></li><br/>
-								<li><a href='help.php'>Hilfe</a></li><br/>
-								<li><a href='settings.php'>Einstellungen</a></li><br/>
-								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'>Logout</span></a></li>
-                            </ul></div>";
+                                <li><a href='mystuff.php'><?php echo __("My Collabs"); ?></a></li><br/>
+                                <li><a href='about.php'><?php echo __("About Scratchcollabs"); ?></a></li><br/>
+								<li><a href='help.php'><?php echo __("Help"); ?></a></li><br/>
+								<li><a href='settings.php'><?php echo __("Settings"); ?></a></li><br/>
+								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'><?php echo __("Logout"); ?></span></a></li>
+                            </ul></div>
+			<?php
 				}
 				else	{
-					echo "<li id=\"asc\"><a href=\"about.php\">Was ist ScratchCollabs?</a></li>
-					<li id=\"join\">
-							<a onclick='loginbox();'>Mitmachen!</a>
-							<div id=\"login\" style=\"display: none;\">
-								<div id=\"arrow\"></div>
-								<div id=\"form\">
-									<form action=\"action.php?login&return=$return_to\" method=\"post\">
-										<input type=\"text\" name=\"name\" placeholder=\"Nutzername\" required value=\"".$uname."\" />
-										<input type=\"password\" name=\"pass\" placeholder=\"Passwort\" required />
-										<input type=\"submit\" value=\"Login\" class=\"button grey\" />
-										<a href=\"join.php\">Neu hier?</a>
+			?>
+					<li id="asc"><a href="about.php"><?php echo __("What is Scratchcollabs?"); ?></a></li>
+					<li id="join">
+							<a onclick='loginbox();'><?php echo __("Join us"); ?>!</a>
+							<div id="login" style="display: none;">
+								<div id="arrow"></div>
+								<div id="form">
+									<form action="action.php?login&return=<?php echo $return_to; ?>" method="post">
+										<input type="text" name="name" placeholder="<?php echo __("Username"); ?>" required value="<?php echo $uname; ?>" />
+										<input type="password" name="pass" placeholder="<?php echo __("Password"); ?>" required />
+										<input type="submit" value="<?php echo __("Login"); ?>" class="button grey" />
+										<a href="join.php"><?php echo __("New here?"); ?></a>
 									</form>
 								</div>
 							</div>
-					</li>";
+					</li>
+			<?php
 				}
 			?>
 		</ul>

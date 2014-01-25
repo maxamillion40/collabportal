@@ -5,12 +5,7 @@
 		mysql_set_charset("utf8",$db);
 	}
 	function is_loggedin()	{
-		if(isset($_SESSION) && !empty($_SESSION["user"]) && $_SESSION["login"] == true)	{
-			return true;
-		}
-		else	{
-			return false;
-		}
+		
 	}
 	function mysql_get($query)	{
 		$starttime = microtime();

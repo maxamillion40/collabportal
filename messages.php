@@ -1,13 +1,16 @@
 ﻿<?php
-	session_start();
-	require_once("includes/func.php");
-	if(!is_loggedin())	{
+	require_once("includes/loader.php");
+	if(!$_USER -> is_online())	{
 		header("Location: index.php");
 	}
-	mysql_auto_connect();
-	$unread = count(mysql_get("SELECT `id` FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
-	$msg = mysql_get("SELECT * FROM `messages` WHERE `to`='".$_SESSION["user"]."' ORDER BY `read` ASC, `date` DESC");
-	mysql_close();
+	//$unread = count(mysql_get("SELECT `id` FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
+	//$msg = mysql_get("SELECT * FROM `messages` WHERE `to`='".$_SESSION["user"]."' ORDER BY `read` ASC, `date` DESC");
+	//mysql_close();
+	$messages = array();
+	$ids = $_MYSQL -> get("SELECT id FROM messages WHERE `to`='" . $_USER -> name . "'");
+	foreach($ids as $id)	{
+		$messages[] = new message($id[0]);
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,18 +48,8 @@
 					</div>
 					<div class="box-content">
 						<div class="inner">
-							<p>
-								<?php
-									if($unread == 1)	{
-										echo "Du hast 1 ungelesene Nachricht.";
-									}
-									else	{
-										echo "Du hast ".$unread." ungelesene Nachrichten.";
-									}
-								?>
-							</p>
 							<?php
-								if(count($msg) > 0)	{
+								if(count($messages) > 0)	{
 									echo "<p><label><input type='checkbox' id='select-all' /> Alle auswählen</label></p>";
 									echo "<hr />";
 									echo "<form action='action.php?msgdo' method='post'>";
@@ -68,14 +61,14 @@
 									echo "<col class='regard' />";
 									echo "<col class='read' />";
 									echo "</colgroup>";
-									foreach($msg as $m)	{
-										if($m["read"] == 1)	{
-											echo "<tr id='msg-".$m["id"]."'>";
-												echo "<td><input type='checkbox' name='sel[]' value='".$m["id"]."' /></td>";
-												echo "<td class=''>".date("d.m.Y H:i",$m["date"])."</td>";
-												echo "<td>".$m["sender"]."</td>";
-												echo "<td>".$m["regard"]."</td>";
-												if($m["read"] == "0")	{
+									foreach($messages as $m)	{
+										if($m -> read)	{
+											echo "<tr id='msg-" . $m -> id . "'>";
+												echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
+												echo "<td class=''>" . $m -> date -> format("d.m.Y H:i") . "</td>";
+												echo "<td>" . $m -> sender -> name . "</td>";
+												echo "<td>" . $m -> regard . "</td>";
+												if(!$m -> read)	{
 													echo "<td>Ungelesen</td>";
 												}
 												else	{
@@ -84,12 +77,12 @@
 											echo "</tr>";
 										}
 										else	{
-											echo "<tr id='msg-".$m["id"]."' class='unread'>";
-											echo "<td><input type='checkbox' name='sel[]' value='".$m["id"]."' /></td>";
-											echo "<td class=''>".date("d.m.Y H:i",$m["date"])."</td>";
-											echo "<td>".$m["sender"]."</td>";
-											echo "<td>".$m["regard"]."</td>";
-											if($m["read"] == "0")	{
+											echo "<tr id='msg-" . $m -> id . "' class='unread'>";
+											echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
+											echo "<td class=''>" . $m -> date -> format("d.m.Y H:i") . "</td>";
+											echo "<td>" . $m -> sender -> name . "</td>";
+											echo "<td>" . $m -> regard . "</td>";
+											if(!$m -> read)	{
 												echo "<td>Ungelesen</td>";
 											}
 											else	{

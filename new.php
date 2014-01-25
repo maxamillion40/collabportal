@@ -1,9 +1,6 @@
 ﻿<?php
 	session_start();
 	require_once("includes/func.php");
-	if(!is_loggedin())	{
-		header("Location: join.php");
-	}
 ?>
 <!DOCTYPE html>
 <html>

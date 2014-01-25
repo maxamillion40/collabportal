@@ -1,8 +1,8 @@
 ﻿<?php
-	$id = mysql_real_escape_string($_GET["id"]);
-	$msg = mysql_get("SELECT `id`,`to` FROM `messages` WHERE `id`='$id'");
-	if($msg[0]["to"] == $_SESSION["user"])	{
-		mysql_query("DELETE FROM `messages` WHERE `id`=$id");
+	$id = $_GET["id"];
+	$msg = $_MYSQL -> get("SELECT `id`,`to` FROM `messages` WHERE `id`=?", array($id));
+	if($msg[0]["to"] == $_USER -> name)	{
+		$_MYSQL -> set("DELETE FROM `messages` WHERE `id`=?", array($id));
 		header("Location: messages.php?result=delok");
 	}
 	else	{

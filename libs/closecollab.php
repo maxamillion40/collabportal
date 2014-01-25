@@ -1,4 +1,5 @@
 ﻿<?php
+	// Needs to be reworked into collab::close()
 	print_array($_POST);
 	$id = mysql_real_escape_string($_GET["id"]);
 	//

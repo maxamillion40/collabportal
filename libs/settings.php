@@ -1,6 +1,5 @@
 ﻿<?php
-	print_array($_POST);
-	$id = mysql_real_escape_string($_GET["id"]);
+	$id = $_GET["id"];
 	//
 	$members_max = false;
 	$confirm_join = false;
@@ -19,6 +18,6 @@
 	$settings["members_max"] = $members_max;
 	$settings["confirm_join"] = $confirm_join;
 	$settings = serialize($settings);
-	mysql_query("UPDATE `collabs` SET `settings` = '$settings' WHERE `id` = '$id'") or die(mysql_error());
+	$_MYSQL -> set("UPDATE `collabs` SET `settings` = ? WHERE `id` = ", array($settings, $id));
 	header("Location: admin.php?id=$id&result=settingsok");
 ?>

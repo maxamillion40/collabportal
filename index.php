@@ -1,17 +1,22 @@
 ﻿<?php
-	session_start();
-	require_once("includes/func.php");
-	require_once("includes/db.php");
-	mysql_auto_connect();
-	$featured	= mysql_get("SELECT * FROM featured_collab ORDER BY `id` DESC LIMIT 0,1");
-	$collabs	= mysql_get("SELECT * FROM collabs WHERE `status`='open'");
-	$news		= mysql_get("SELECT * FROM `news` ORDER BY `date` DESC LIMIT 0,3");
-	mysql_close();
+	require_once("includes/loader.php");
+	
+	$featured = $_MYSQL -> get("SELECT * FROM featured_collab ORDER BY id DESC LIMIT 0,1");
+	if(count($featured) == 1)	{
+		$featured = new collab($featured[0]["name"]);
+	}
+	
+	$news = $_MYSQL -> get("SELECT * FROM news ORDER BY date DESC LIMIT 0,3");
+	
+	$collabs = $_MYSQL -> get("SELECT id FROM collabs WHERE `status`='open'");
+	foreach($collabs as &$collab)	{
+		$collab = new collab($collab["id"]);
+	}
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Start &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Home"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -42,7 +47,7 @@
 					<div class="col-9">	
 						<article style="max-height: 315px;" class="box">
 							<div class="box-head">
-								<h4>Vorgestelltes Collab</h4>
+								<h4><?php echo __("Featured Collab"); ?></h4>
 								<a class="right" id="help"><span>?</span></a>
 							</div>
 							<div class="box-content" style="height: 279px;">
@@ -75,7 +80,7 @@
 					<div class="col-7">	
 						<article style="max-height: 315px;" class="box">
 							<div class="box-head">
-								<h4>Ankündigungen</h4>
+								<h4><?php echo __("News"); ?></h4>
 							</div>
 							<div class="box-content" style="height: 279px;">
 								<div class="inner box-no-padding">
@@ -101,9 +106,9 @@
 				</div>
 			<article class="box" >
 				<div class="box-head">
-					<h3>Aktive Collabs (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><?php
-						if(is_loggedin())	{
-							echo '<a href="new.php"><button class="button blue">+ Neues Collab</button></a></span>';
+					<h3><?php echo __("Active Collabs"); ?> (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><?php
+						if($_USER -> is_online())	{
+							echo '<a href="new.php"><button class="button blue">+ ' . __("New Collab") . '</button></a></span>';
 						}
 					?>
 				</div>
@@ -115,9 +120,9 @@
 									//Create a list of all collabs
 									foreach($collabs as $collab)	{
 										echo "<li class='project thumb item'>";
-										echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
-										echo "<span class='title'>".$collab["name"]."</span>";
-										echo "<span class='owner'>".$collab["mitglieder"]["founder"]."</span>";
+										echo "<a href='collab.php?id=".$collab->id."'><img src='logos/".$collab->logo."' width='144' height='108' class='image' alt='".$collab->name."' /></a>";
+										echo "<span class='title'>".$collab->name."</span>";
+										echo "<span class='owner'>".$collab->owner->name."</span>";
 										echo "</li>";
 									}
 								}

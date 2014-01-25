@@ -1,6 +1,6 @@
 ﻿<?php
 	$msgid	= $_GET["msg"];
 	$collab	= $_GET["collab"];
-	mysql_query("UPDATE collabmessages SET `censored`='1' WHERE `id`='$msgid'") or die(mysql_error());
+	$_MYSQL -> set("UPDATE collabmessages SET `censored`='1' WHERE `id`=?", array($msgid));
 	header("Location: collab.php?id=$collab&result=censored");
 ?>

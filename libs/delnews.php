@@ -1,6 +1,6 @@
 ﻿<?php
 	//Get data
-	$id = mysql_real_escape_string($_GET["id"]);
-	mysql_query("DELETE FROM `news` WHERE `id`='$id'");
+	$id = $_GET["id"];
+	$_MYSQL -> set("DELETE FROM `news` WHERE `id`=?", array($id));
 	header("Location: maintenance/news.php?result=delnewsok");
 ?>

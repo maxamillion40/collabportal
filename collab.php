@@ -1,13 +1,10 @@
 ﻿<?php
-	session_start();
-	require_once("includes/func.php");
-	mysql_auto_connect();
-	$collab	= mysql_get("SELECT * FROM collabs WHERE `id`='".mysql_real_escape_string($_GET["id"])."'");
-	if(is_loggedin())	{
-		$messages	= mysql_get("SELECT * FROM collabmessages WHERE `collab`='".mysql_real_escape_string($_GET["id"])."' ORDER BY `timestamp` DESC");
+	require_once("includes/loader.php");
+	$collab	= new collab($_GET["id"]);
+	if($_USER -> is_online())	{
+		$messages	= $_MYSQL -> get("SELECT * FROM collabmessages WHERE `collab`='".$_GET["id"]."' ORDER BY `timestamp` DESC");
 	}
-	mysql_close();
-	if(count($collab) != 1)	{
+	if(empty($collab -> name))	{
 		header("HTTP/1.0 404");
 		header("Location: error404.php?error=nocollab");
 	}
@@ -24,7 +21,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo $collab[0]["name"]; ?> &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo $collab -> name; ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -52,7 +49,7 @@
 		<script src="scripts/sbpopup.js"></script>
 	</head>
 	<body>
-		<div id="dialogbox">Lorem Ipsum</div>
+		<div id="dialogbox">&nbsp;</div>
 		<div id="pagewrapper">
 			<!-- This is the blue box on the top of the site -->
 				<?php
@@ -64,15 +61,15 @@
 					<div class="col-11">
 						<article class="box collab">
 							<div class="box-header">
-								<h1><?php echo $collab[0]["name"]; ?></h1>
+								<h1><?php echo $collab -> name; ?></h1>
 							</div>
 							<div class="box-content" style="min-height: 150px;">
 								<div class="inner">
 									<?php
-										if($collab[0]["logo"] != "none.png")	{
-											echo "<img src='logos/".$collab[0]["logo"]."' alt='".$collab[0]["name"]." - Logo' width='144' height='108' style='float: left; margin: 5px; border: 1px solid #DDDDDD' />";
+										if($collab -> logo != "none.png")	{
+											echo "<img src='logos/".$collab -> logo."' alt='".$collab -> name." - Logo' width='144' height='108' style='float: left; margin: 5px; border: 1px solid #DDDDDD' />";
 										}
-										echo "<p>".$collab[0]["desc"]."</p>";
+										echo "<p>" . $collab -> desc . "</p>";
 									?>
 								</div>
 							</div>
@@ -80,19 +77,19 @@
 						<!-- Chat -->
 						<article class="box">
 							<div class="box-header">
-								<h2><img src="img/chat.png" height="19" width="19" alt="Chat Icon" /> Live Chat</h2>
+								<h2><img src="img/chat.png" height="19" width="19" alt="Chat Icon" /> <?php echo __("Live Chat"); ?></h2>
 							</div>
 							<div class="box-content">
 								<div class="inner">
 									<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
 										<textarea name="msg"></textarea><br />
-										<button type="submit">Senden</button>
+										<button type="submit"><?php echo __("Send"); ?></button>
 										<!-- <span id="countdown-wrapper"><span id="chat-countdown"></span></span> -->
 									</form>
 								<div id="livechat">
 									<div id="loading">
 										<img src="img/loader.gif" alt="Loading chat..." />
-										<p>Loading chat messages...</p>
+										<p><?php echo __("Loading chat messages"); ?>...</p>
 									</div>
 								</div>
 								</div>
@@ -100,75 +97,88 @@
 						</article>
 					</div>
 					<div class="col-5">
+						<article class="box">
+							<div class="box-header">
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
+							</div>
+							<div class="box-content">
+								<div class="inner">
+									<?php
+										if($collab -> pid != "")	{
+									?>
+									<iframe allowtransparency="true" width="250" height="207" src="http://scratch.mit.edu/projects/embed/<?php echo $collab -> pid; ?>/?autostart=false" allowfullscreen></iframe>
+									<?php
+										}
+										else	{
+											echo __("Nothing here");
+										}
+									?>
+								</div>
+							</div>
+						</article>
 						<!-- Basic Information -->
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> Info</h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Info"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
 										<table id="info">	
 											<tr>
-												<td class="collab-td">Start:</td>
-												<td><?php echo $tage[date("l",$collab[0]["start"])]; echo date(", d.m.Y h:i",$collab[0]["start"]); ?></td>
+												<td class="collab-td"><?php echo __("Start"); ?>:</td>
+												<td><?php echo __($collab -> starttime -> format("l")); $collab -> starttime -> printas(", d.m.Y h:i"); ?></td>
 											</tr>
 											<tr>
-												<td>Laufzeit:</td>
-												<td><?php echo round((time()-$collab[0]["start"])/60/60/24); ?> Tag(e)</td>
+												<td><?php echo __("Runtime"); ?>:</td>
+												<td><?php echo round((time() - $collab -> starttime -> stamp)/60/60/24); ?> Tag(e)</td>
 											</tr>
 											<tr>
-												<td>Gründer:</td>
-												<td><?php echo $collab[0]["mitglieder"]["founder"]; ?></td>
+												<td><?php echo __("Founder"); ?>:</td>
+												<td><?php echo $collab -> owner -> name; ?></td>
 											</tr>
 											<tr>
-												<td>Status:</td>
+												<td><?php echo __("Status"); ?>:</td>
 												<td><?php 
-													if($collab[0]["status"] == "open")	{
-														echo "offen";
-													}
-													else	{
-														echo "beendet";
-													}
+													echo $collab -> status;
 												?></td>
 											</tr>
 											<tr>
-												<td>Rang:</td>
+												<td><?php echo __("Rank"); ?>:</td>
 												<td><?php
-														if(isset($_SESSION["user"]))	{
-															if($collab[0]["mitglieder"]["founder"] == $_SESSION["user"])	{
-																echo "Gründer";
-															}
-															elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
-																echo "Mitglied";
-															}
-															elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
-																echo "Anwärter";
-															}
-															else	{
-																echo "Gast";
-															}
-														}
-														else	{
-															echo "Anonymer Gast";
-														}
+														echo $collab -> member_rank($_USER -> name);
 												?></td>
 											</tr>
 										</table>
 								</div>
 							</div>
 						</article>
+						<!-- Announcement -->
+						<article class="box">
+							<div class="box-header">
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Announcements"); ?></h4>
+							</div>
+							<div class="box-content">
+								<div class="inner">
+									<p>
+										<?php
+											echo $collab -> announcement;
+										?>
+									</p>
+								</div>
+							</div>
+						</article>
 						<!-- Members -->
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Mitglieder Icon" height="19" width="19" /> Mitglieder (<?php echo count($collab[0]["mitglieder"]["people"])+1; ?>)</h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Members Icon" height="19" width="19" /> <?php echo __("Members"); ?> (<?php echo count($collab -> members["people"])+1; ?>)</h4>
 							</div>
 							<div class="box-content">
 								<div class="inner box-no-padding">
 										<ul id="members">
 											<?php
-												echo "<li class='founder member'> ".$collab[0]["mitglieder"]["founder"]."</li>";
-												foreach($collab[0]["mitglieder"]["people"] as $mitglied)	{
-													echo "<li class='member'>".$mitglied."</li>";
+												echo "<li class='founder member'> ".$collab -> owner -> name."</li>";
+												foreach($collab -> members["people"] as $mitglied)	{
+													echo "<li class='member'>" . $mitglied -> name . "</li>";
 												}
 											?>
 										</ul>
@@ -178,42 +188,42 @@
 						<!-- Buttons -->
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/actions.png" alt="Action Icon" height="19" width="19" /> Funktionen</h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/actions.png" alt="Action Icon" height="19" width="19" /> <?php echo __("Actions"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
 									<?php
-										if(isset($_SESSION["user"]))	{
-											if(in_array($_SESSION["user"],$collab[0]["mitglieder"]["people"]))	{
+										if($_USER -> is_online())	{
+											if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
 												//Buttons für normale Mitglieder
-												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','Willst du wirklich aus diesem Collab austreten?')\">Austreten</button>";
+												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','" . __("Do you really want to leave this Collab?") . "')\">Austreten</button>";
 											}
-											elseif($_SESSION["user"] == $collab[0]["mitglieder"]["founder"])	{
+											elseif($_USER -> name == $collab -> owner -> name)	{
 												//Buttons für Gründer
-												echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">Verwaltung</button>";
+												echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">" . __("Administration") . "</button>";
 											}
-											elseif(in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
-												echo "Dein Mitgliedsantrag ist in Bearbeitung.";
+											elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
+												echo __("Your application is being processed");
 											}
 											else	{
 												//Buttons für Gäste
-												if(count($collab[0]["mitglieder"]["people"]) + 1 < $collab[0]["settings"]["members_max"] or $collab[0]["settings"]["members_max"] == false and !in_array($_SESSION["user"],$collab[0]["mitglieder"]["candidates"]))	{
-													echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst!');\">";
-													if($collab[0]["settings"]["confirm_join"] == true)	{
-														echo "Bewerben";
+												if(count($collab -> members["people"]) + 1 < $collab -> settings["members_max"] or $collab -> settings["members_max"] == false and !array_key_exists($_USER -> name,$collab-> members["candidates"]))	{
+													echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','" . __("Do you really want to join? Only do this if you are sure that you want to participate") . "');\">";
+													if($collab -> settings["confirm_join"] == true)	{
+														echo __("Apply");
 													}
 													else	{
-														echo "Beitreten";
+														echo __("Join");
 													}
 													echo "</button>";
 												}
 												else	{
-													echo "Maximale Mitgliederzahl erreicht.";
+													echo __("Maximum number of members reached");
 												}
 											}
 										}
 										else	{
-											echo "<p>Diese Funktionen stehen nur Mitgliedern zur Verfügung.</p>";
+											echo "<p>" . __("These actions are only available for members") . "</p>";
 										}
 									?>
 								</div>

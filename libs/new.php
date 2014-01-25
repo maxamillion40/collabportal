@@ -1,10 +1,10 @@
 ﻿<?php
-	$collabname = mysql_real_escape_string($_POST["collabname"]);
-	$desc = mysql_real_escape_string($_POST["desc"]);
-	$time = time();
-	$owner = $_SESSION["user"];
+	$collabname = $_POST["collabname"];
+	$desc = $_POST["desc"];
+	$time = new time();
+	$owner = $_USER -> name;
 	$members = serialize(array(
-		"founder" => $_SESSION["user"],
+		"founder" => $owner,
 		"people" => array(),
 		"candidates" => array()
 	));
@@ -13,6 +13,12 @@
 		die(header("Location: new.php?error=emptyfields"));
 	}
 	//
-	mysql_query("INSERT INTO `collabs`(`name`,`owner`,`desc`,`mitglieder`,`start`) VALUES('$collabname','$owner','$desc','$members','$time')");
+	$_MYSQL -> set("INSERT INTO `collabs`(`name`,`owner`,`desc`,`mitglieder`,`start`) VALUES(?,?,?,?,?)", array(
+		$collabname,
+		$owner,
+		$desc,
+		$members,
+		$time -> stamp
+	));
 	header("Location: mystuff.php?result=collabok");
 ?>

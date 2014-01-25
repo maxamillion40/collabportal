@@ -1,13 +1,17 @@
 ﻿<?php
-	function mysql_do($query, $arg=array())	{
-		$conn = new PDO("mysql:host=localhost;dbname=scratchcollabs","root","",array(
-			PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
-		));
-		if(count($arg > 0))	{
-			$stmt = $conn->prepare($query);
-			$stmt->execute($arg);
-			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			return $result;
+	class time	{
+		var $stamp;
+		public function __construct($int = null)	{
+			if(!isset($int))	{
+				$int = time();
+			}
+			$this -> stamp = $int;
+		}
+		public function format($pattern)	{
+			return date($pattern, $this -> stamp);
+		}
+		public function printas($pattern)	{
+			echo date($pattern, $this -> stamp);
 		}
 	}
 	class collab	{
@@ -20,18 +24,23 @@
 		var $desc;
 		var $logo;
 		var $settings;
+		var $announcement;
+		var $pid;
 		public function __construct($id)	{
 			// Load all collab data from DB
-			$data = mysql_do("SELECT * FROM collabs WHERE id=?",array($id));
+			global $_MYSQL;
+			$data = $_MYSQL -> get("SELECT * FROM collabs WHERE id=?",array($id));
 			$this->id = $data[0]["id"];
 			$this->name = $data[0]["name"];
-			$this->starttime = $data[0]["start"];
+			$this->starttime = new time($data[0]["start"]);
 			$this->members = unserialize($data[0]["mitglieder"]);
 			$this->status = $data[0]["status"];
-			$this->owner = $this->members["founder"];
+			$this->owner = new user($this->members["founder"]);
 			$this->desc = $data[0]["desc"];
 			$this->logo = $data[0]["logo"];
 			$this->settings = unserialize($data[0]["settings"]);
+			$this->announcement = $data[0]["announcement"];
+			$this->pid = $data[0]["pid"];
 			// Create user objects for members
 			$max = count($this->members["people"]);
 			for($i=0; $i < $max; $i++)	{
@@ -41,12 +50,103 @@
 			// Create user objects for candidates
 			$max = count($this->members["candidates"]);
 			for($i=0; $i < $max; $i++)	{
-				$this->members["candidates"][$this->members["candidates"][$i]] = new user($this->members["candidates"][$i]);
+				$this->members["candidates"][$this -> members["candidates"][$i]] = new user($this->members["candidates"][$i]);
 				unset($this->members["candidates"][$i]);
 			}
 		}
 		public function close()	{
 			// MySQL query for closing
+		}
+		public function member_rank($name)	{
+			// Return the rank of a user in this collab
+			$name = new user($name);
+			if(array_key_exists($name -> name, $this -> members["people"]))	{
+				return "member";
+			}
+			elseif(array_key_exists($name -> name, $this -> members["candidates"]))	{
+				return "candidate";
+			}
+			elseif($this -> owner -> name == $name -> name)	{
+				return "founder";
+			}
+			else	{
+				return "guest";
+			}
+		}
+		public function add_member($name, $rank)	{
+			global $_MYSQL;
+			$name = new user($name);
+			if($rank == "member")	{
+				$this -> members["people"][] = $name;
+				unset($this -> members["candidates"][$name]);
+
+				$arr = array(
+					"founder" => $this -> members["founder"],
+					"people" => array(),
+					"candidates" => array(),
+				);
+				
+				foreach($this -> members["people"] as $member)	{
+					$arr["people"][] = $member -> name;
+				}
+				foreach($this -> members["candidates"] as $member)	{
+					$arr["candidates"][] = $member -> name;
+				}
+
+				$_MYSQL -> set("UPDATE collabs SET mitglieder=? WHERE id=?", array(
+					serialize($arr),
+					$this -> id
+				));
+			}
+			
+			if($rank == "candidate")	{
+				$this -> members["candidates"][] = $name;
+
+				$arr = array(
+					"founder" => $this -> members["founder"],
+					"people" => array(),
+					"candidates" => array(),
+				);
+				
+				foreach($this -> members["people"] as $member)	{
+					$arr["people"][] = $member -> name;
+				}
+				foreach($this -> members["candidates"] as $member)	{
+					$arr["candidates"][] = $member -> name;
+				}
+
+				$_MYSQL -> set("UPDATE collabs SET mitglieder=? WHERE id=?", array(
+					serialize($arr),
+					$this -> id
+				));
+			}
+		}
+		public function remove_member($name, $rank)	{
+			global $_MYSQL;
+			if($rank == "member")	{
+				unset($this -> members["people"][$name]);
+			}
+			if($rank == "candidate")	{
+				unset($this -> members["candidates"][$name]);
+			}
+			
+			$arr = array(
+				"founder" => $this -> members["founder"],
+				"people" => array(),
+				"candidates" => array(),
+			);
+			
+			foreach($this -> members["people"] as $member)	{
+				$arr["people"][] = $member -> name;
+			}
+			foreach($this -> members["candidates"] as $member)	{
+				$arr["candidates"][] = $member -> name;
+			}
+
+			$_MYSQL -> set("UPDATE collabs SET mitglieder=? WHERE id=?", array(
+				serialize($arr),
+				$this -> id
+			));
 		}
 	}
 	class user	{
@@ -58,17 +158,108 @@
 		var $class;
 		var $last_login;
 		var $last_ip;
+		var $online;
 		public function __construct($name)	{
-			$data = mysql_do("SELECT * FROM users WHERE name=?",array($name));
-			if(count($data) == 1)	{
-				$this->id = $data[0]["id"];
-				$this->name = $data[0]["name"];
-				$this->pass = $data[0]["pass"];
-				$this->mail = $data[0]["mail"];
-				$this->scratch = $data[0]["scratch"];
-				$this->class = $data[0]["class"];
-				$this->last_login = $data[0]["last_login"];
-				$this->last_ip = $data[0]["last_ip"];
+			global $_MYSQL;
+			if($name != "Systemnachricht")	{
+				$data = $_MYSQL -> get("SELECT * FROM users WHERE name=?",array($name));
+				if(count($data) == 1)	{
+					$this->id = $data[0]["id"];
+					$this->name = $data[0]["name"];
+					$this->pass = $data[0]["pass"];
+					$this->mail = $data[0]["mail"];
+					$this->scratch = $data[0]["scratch"];
+					$this->class = $data[0]["class"];
+					$this->last_login = $data[0]["last_login"];
+					$this->last_ip = $data[0]["last_ip"];
+					$this->online = true;
+				}
+				else	{
+					$this->online = false;
+				}
+			}
+			else	{
+				$this->id = 0;
+				$this->name = "Systemnachricht";
+				$this->pass = "X";
+				$this->mail = "X";
+				$this->scratch = "X";
+				$this->class = "user";
+				$this->last_login = 0;
+				$this->last_ip = "127.0.0.1";
+				$this->online = true;
+			}
+		}
+		public function is_online()	{
+			if($this->online == true)	{
+				return true;
+			}
+			else	{
+				return false;
+			}
+		}
+		public function send_pm($msg)	{
+			global $_MYSQL;
+			if(is_object($msg))	{
+				$msg -> date = time();
+				$msg -> to = $this -> name;
+				if($msg -> can_send())	{
+					$_MYSQL -> set("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES(?,?,?,?,?)", array(
+						$msg -> regard,
+						$msg -> date,
+						$msg -> sender -> name,
+						$msg -> to,
+						$msg -> msg
+					));
+				}
+			}
+		}
+	}
+	class message	{
+		var $id;
+		var $sender;
+		var $to;
+		var $date;
+		var $regard;
+		var $msg;
+		var $read;
+		public function __construct($id = null)	{
+			if(isset($id))	{
+				global $_MYSQL;
+				$data = $_MYSQL -> get("SELECT * FROM messages WHERE `id`='$id'");
+				$this -> id = $data[0]["id"];
+				$this -> sender = new user($data[0]["sender"]);
+				$this -> to = new user($data[0]["to"]);
+				$this -> date = new time($data[0]["date"]);
+				$this -> regard = $data[0]["regard"];
+				$this -> msg = $data[0]["msg"];
+				if($data[0]["read"] == 1)	{
+					$this -> read = true;
+				}
+				else	{
+					$this -> read = false;
+				}
+			}
+		}
+		public function can_send()	{
+			if(isset($this -> sender) && isset($this -> to) && isset($this -> regard) && isset($this -> msg))	{
+				return true;
+			}
+			else	{
+				return false;
+			}
+		}
+		public function send()	{
+			global $_MYSQL;
+			if($this -> id == null)	{
+				echo $this -> to -> name;
+				$_MYSQL -> set("INSERT INTO messages(`date`,`regard`,`sender`,`to`,`msg`) VALUES(?,?,?,?,?)", array(
+					$this -> date -> stamp,
+					$this -> regard,
+					$this -> sender -> name,
+					$this -> to -> name,
+					$this -> msg
+				));
 			}
 		}
 	}
