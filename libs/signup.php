@@ -39,7 +39,12 @@
 			}
 			echo "Mail wieder ok.<br />";
 		//Daten in Datenbank eintragen und abschließen.
-		$_MYSQL -> set("INSERT INTO users(`name`,`pass`,`mail`,`scratch`) VALUES('$username','".md5($pass)."','$mail','$scratch')");
+		$_MYSQL -> set("INSERT INTO users(`name`,`pass`,`mail`,`scratch`) VALUES(?,?,?,?)", array(
+			$username,
+			md5($pass),
+			$mail,
+			$scratch
+		));
 		header("Location: index.php?result=signup&name=$username");
 	}
 ?>
