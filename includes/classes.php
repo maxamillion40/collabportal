@@ -78,7 +78,7 @@
 			$name = new user($name);
 			if($rank == "member")	{
 				$this -> members["people"][] = $name;
-				unset($this -> members["candidates"][array_search($name -> name, $this -> members["candidates"])]);
+				unset($this -> members["candidates"][$name]);
 
 				$arr = array(
 					"founder" => $this -> members["founder"],
@@ -120,6 +120,33 @@
 					$this -> id
 				));
 			}
+		}
+		public function remove_member($name, $rank)	{
+			global $_MYSQL;
+			if($rank == "member")	{
+				unset($this -> members["people"][$name]);
+			}
+			if($rank == "candidate")	{
+				unset($this -> members["candidates"][$name]);
+			}
+			
+			$arr = array(
+				"founder" => $this -> members["founder"],
+				"people" => array(),
+				"candidates" => array(),
+			);
+			
+			foreach($this -> members["people"] as $member)	{
+				$arr["people"][] = $member -> name;
+			}
+			foreach($this -> members["candidates"] as $member)	{
+				$arr["candidates"][] = $member -> name;
+			}
+
+			$_MYSQL -> set("UPDATE collabs SET mitglieder=? WHERE id=?", array(
+				serialize($arr),
+				$this -> id
+			));
 		}
 	}
 	class user	{
