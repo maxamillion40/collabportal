@@ -1,2 +1,12 @@
 ﻿ScratchCollabs API reference
 ============================
+Introduction
+------------
+The API for Scratchcollabs offers an object-oriented way to extend the functionality of the CollabPortal.
+The PHP API is available on all pages, provided that loader.php has already been called.
+Please seperate content-pages and dedicated scripts strictly! Put content-pages (those with HTML in it) in the home directory (./), dedicated scripts without HTML output into ./libs.
+If you need to call a script in /libs, link to action.php?youraction and add the following snippet before the header() calls at the bottom:
+	if(isset($_GET["youraction"]))	{	
+		include_once("libs/youraction.php");
+		exit;
+	}
