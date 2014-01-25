@@ -249,5 +249,18 @@
 				return false;
 			}
 		}
+		public function send()	{
+			global $_MYSQL;
+			if($this -> id == null)	{
+				echo $this -> to -> name;
+				$_MYSQL -> set("INSERT INTO messages(`date`,`regard`,`sender`,`to`,`msg`) VALUES(?,?,?,?,?)", array(
+					$this -> date -> stamp,
+					$this -> regard,
+					$this -> sender -> name,
+					$this -> to -> name,
+					$this -> msg
+				));
+			}
+		}
 	}
 ?>

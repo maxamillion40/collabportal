@@ -79,7 +79,7 @@
 										else	{
 											echo "<tr id='msg-" . $m -> id . "' class='unread'>";
 											echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
-											echo "<td class=''>" . date("d.m.Y H:i", $m -> date) . "</td>";
+											echo "<td class=''>" . $m -> date -> format("d.m.Y H:i") . "</td>";
 											echo "<td>" . $m -> sender -> name . "</td>";
 											echo "<td>" . $m -> regard . "</td>";
 											if(!$m -> read)	{

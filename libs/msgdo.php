@@ -3,16 +3,15 @@
 	//
 	if($do == "Löschen")	{
 		foreach($_POST["sel"] as $id)	{
-			$id = mysql_real_escape_string($id);
-			mysql_query("DELETE FROM `messages` WHERE `id`='$id'");
+			$id = $id;
+			$_MYSQL -> set("DELETE FROM `messages` WHERE `id`=?", array($id));
 		}
 		header("Location: messages.php?result=delallok");
 		exit;
 	}
 	elseif($do == "Als gelesen markieren")	{
 		foreach($_POST["sel"] as $id)	{
-			$id = mysql_real_escape_string($id);
-			mysql_query("UPDATE `messages` SET `read`='1' WHERE `id`='$id'");
+			$_MYSQL -> set("UPDATE `messages` SET `read`='1' WHERE `id`=?", array($id));
 		}
 		header("Location: messages.php?result=readallok");
 		exit;
