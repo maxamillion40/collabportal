@@ -1,14 +1,13 @@
 ﻿<?php
+	require_once("includes/loader.php");
 	if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["scratch"]) && isset($_POST["pass"]) && isset($_POST["pass_check"]))	{
 		//Alle Daten vorhanden. Einlesen:
-		include_once("includes/func.php");
-		mysql_auto_connect();
-		$users = mysql_get("SELECT * FROM users");
-		$username	= ucfirst(mysql_real_escape_string($_POST["name"]));
-		$mail		= mysql_real_escape_string($_POST["email"]);
-		$scratch	= mysql_real_escape_string($_POST["scratch"]);
-		$pass		= mysql_real_escape_string($_POST["pass"]);
-		$pass_check	= mysql_real_escape_string($_POST["pass_check"]);
+		$users = $_MYSQL -> get("SELECT * FROM users");
+		$username	= ucfirst($_POST["name"]);
+		$mail		= $_POST["email"];
+		$scratch	= $_POST["scratch"];
+		$pass		= $_POST["pass"];
+		$pass_check	= $_POST["pass_check"];
 		//Prüfung der Daten
 			// 1. Existiert der Username bereits?
 			foreach($users as $user)	{
@@ -40,15 +39,7 @@
 			}
 			echo "Mail wieder ok.<br />";
 		//Daten in Datenbank eintragen und abschließen.
-		mysql_query("INSERT INTO users(`name`,`pass`,`mail`,`scratch`) VALUES('$username','".md5($pass)."','$mail','$scratch')");
+		$_MYSQL -> set("INSERT INTO users(`name`,`pass`,`mail`,`scratch`) VALUES('$username','".md5($pass)."','$mail','$scratch')");
 		header("Location: index.php?result=signup&name=$username");
-		//Begrüßungsnachricht
-		$message = array(
-			"sender" => "CollabPortal Team",
-			"to" => $username,
-			"msg" => get_include_contents("includes/welcome.html"),
-			"regard" => "Willkommen im CollabPortal!"
-		);
-		send_pm($message);
 	}
 ?>
