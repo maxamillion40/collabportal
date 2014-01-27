@@ -102,18 +102,16 @@
 								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
 							</div>
 							<div class="box-content">
-								<div class="inner">
-									<?php
-										if($collab -> pid != "")	{
-									?>
-									<iframe allowtransparency="true" width="250" height="207" src="http://scratch.mit.edu/projects/embed/<?php echo $collab -> pid; ?>/?autostart=false" allowfullscreen></iframe>
-									<?php
-										}
-										else	{
-											echo __("Nothing here");
-										}
-									?>
-								</div>
+								<?php
+									if($collab -> pid != "")	{
+								?>
+								<iframe allowtransparency="true" width="278" height="230" src="http://scratch.mit.edu/projects/embed/<?php echo $collab -> pid; ?>/?autostart=false" allowfullscreen></iframe>
+								<?php
+									}
+									else	{
+										echo __("Nothing here");
+									}
+								?>
 							</div>
 						</article>
 						<!-- Basic Information -->
