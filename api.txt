@@ -5,8 +5,29 @@ Introduction
 The API for Scratchcollabs offers an object-oriented way to extend the functionality of the CollabPortal.
 The PHP API is available on all pages, provided that loader.php has already been called.
 Please seperate content-pages and dedicated scripts strictly! Put content-pages (those with HTML in it) in the home directory (./), dedicated scripts without HTML output into ./libs.
+
+Using action.php and /libs
+--------------------------
 If you need to call a script in /libs, link to action.php?youraction and add the following snippet before the header() calls at the bottom:
 	if(isset($_GET["youraction"]))	{	
 		include_once("libs/youraction.php");
 		exit;
 	}
+
+Custom global objects
+---------------------
+Scratchcollabs initializes some global objects to help access the Database and the current user. However, those objects should be global, but they are NOT superglobal!
+When using them inside a function/method, don't forget to inform PHP about their use!
+	public function whatever()	{
+		global $_USER;
+		global $_MYSQL;
+		//Your code goes here
+	}
+	
+$_MYSQL provides an object to access the database (class mysqlConn; includes/db.php). It has to methods to read/write data: get and set.
+Use $_MYSQL -> get("SELECT * FROM collabs WHERE id=?", array(2)) and add a SELECT query as param to receive data from the database.
+Use $_MYSQL -> SET("INSERT INTO users(name) VALUES(?)", array("PeterPan"))
+Never insert variables directly into the query
+to prevent MySQL injections, but mark the occurence in the query with question marks (?), then pass an array as second param to the function with all variables in it.
+
+$_USER is a user object about the users who started your script.
