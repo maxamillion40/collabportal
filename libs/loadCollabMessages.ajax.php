@@ -9,7 +9,13 @@
 	// Read variables
 	$lastID = $_GET["lastID"];
 	$cid	= $_GET["cid"];
-	$ids 	= $_MYSQL -> get("SELECT id FROM collabmessages WHERE collab = ? AND internalID >= ? ORDER BY internalID DESC LIMIT 10", array($cid, $lastID));
+	$method = $_GET["method"];
+	if($method == "initial")	{
+		$ids 	= $_MYSQL -> get("SELECT id FROM collabmessages WHERE collab = ? AND internalID >= ? ORDER BY internalID DESC LIMIT 10", array($cid, $lastID));
+	}
+	elseif($method == "repeated")	{
+		$ids 	= $_MYSQL -> get("SELECT id FROM collabmessages WHERE collab = ? AND internalID <= ? ORDER BY internalID DESC LIMIT 10", array($cid, $lastID));
+	}
 	$messages = array();
 	foreach($ids as $id)	{
 		$messages[] = new collabmessage($id[0]);

@@ -8,26 +8,27 @@ $.ajax({
 	type: "GET",
 	success: function(data)	{
 		lastID = data;
+		alert(lastID);
 	},
 });
 
 $(document).ready(function()	{
 	//Load first 10 posts
-	loadposts(lastID);
+	loadposts(lastID, "initial");
 });
 
 $(window).scroll(function()	{
 	if($(window).scrollTop() + $(window).height() > $(document).height() - 100)	{
 		if(loading == false)	{
-			loadposts(lastID);
+			loadposts(lastID, "repeated");
 		}
 	}
 });
 
-function loadposts(startID)	{
+function loadposts(startID, method)	{
 	loading = true;
 	$.ajax({
-		url: "libs/loadCollabMessages.ajax.php?lastID=" + startID + "&cid=" + $(document).getUrlParam("id"),
+		url: "libs/loadCollabMessages.ajax.php?lastID=" + startID + "&cid=" + $(document).getUrlParam("id") + "&method=" + method,
 		dataType: "text",
 		type: "GET",
 		success: function(data)	{
