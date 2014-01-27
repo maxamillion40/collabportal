@@ -75,7 +75,7 @@
 							</div>
 						</article>
 						<!-- Chat -->
-						<article class="box">
+						<article class="box" id="chatbox">
 							<div class="box-header">
 								<h2><img src="img/chat.png" height="19" width="19" alt="Chat Icon" /> <?php echo __("Live Chat"); ?></h2>
 							</div>
@@ -87,10 +87,7 @@
 										<!-- <span id="countdown-wrapper"><span id="chat-countdown"></span></span> -->
 									</form>
 								<div id="livechat">
-									<!--<div id="loading">
-										<img src="img/loader.gif" alt="Loading chat..." />
-										<p><?php echo __("Loading chat messages"); ?>...</p>
-									</div>-->
+									
 								</div>
 								</div>
 							</div>

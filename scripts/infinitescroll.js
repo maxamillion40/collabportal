@@ -8,7 +8,6 @@ $.ajax({
 	type: "GET",
 	success: function(data)	{
 		lastID = data;
-		alert(lastID);
 	},
 });
 

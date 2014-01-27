@@ -32,5 +32,5 @@
 		$lii
 	));
 	//Back to collab page
-	header("Location: collab.php?id=". $collab -> id . "&result=msgok#livechat");
+	header("Location: collab.php?id=". $collab -> id . "&result=msgok#chatbox");
 ?>
