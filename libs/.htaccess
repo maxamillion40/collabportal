@@ -1,7 +1,7 @@
 <Files "*">
 	Deny from all
 </Files> 
-<Files "livechat_ajax.php"> 
+<Files "*.ajax.php"> 
 	Order Deny,Allow 
 	Allow from All 
 </Files>

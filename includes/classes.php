@@ -16,6 +16,7 @@
 	}
 	class collab	{
 		var $id;
+		var $lastInternalID;
 		var $name;
 		var $starttime;
 		var $members;
@@ -41,6 +42,7 @@
 			$this->settings = unserialize($data[0]["settings"]);
 			$this->announcement = $data[0]["announcement"];
 			$this->pid = $data[0]["pid"];
+			$this->lastInternalID = $data[0]["lastInternalID"];
 			// Create user objects for members
 			$max = count($this->members["people"]);
 			for($i=0; $i < $max; $i++)	{
@@ -226,7 +228,7 @@
 		public function __construct($id = null)	{
 			if(isset($id))	{
 				global $_MYSQL;
-				$data = $_MYSQL -> get("SELECT * FROM messages WHERE `id`='$id'");
+				$data = $_MYSQL -> get("SELECT * FROM messages WHERE `id`=?", array($id));
 				$this -> id = $data[0]["id"];
 				$this -> sender = new user($data[0]["sender"]);
 				$this -> to = new user($data[0]["to"]);
@@ -260,6 +262,33 @@
 					$this -> to -> name,
 					$this -> msg
 				));
+			}
+		}
+	}
+	class collabmessage	{
+		var $id;
+		var $time;
+		var $sender;
+		var $collab;
+		var $msg;
+		var $censored;
+		var $internalID;
+		function __construct($id = null)	{
+			if(isset($id))	{
+				global $_MYSQL;
+				$data = $_MYSQL -> get("SELECT * FROM collabmessages WHERE `id`=?", array($id));
+				$this -> id = $data[0]["id"];
+				$this -> time = new time($data[0]["timestamp"]);
+				$this -> sender = new user($data[0]["absender"]);
+				$this -> collab = new collab($data[0]["collab"]);
+				$this -> msg = $data[0]["message"];
+				$this -> internalID = $data[0]["internalID"];
+				if($data[0]["censored"] == 1)	{
+					$this -> censored = true;
+				}
+				else	{
+					$this -> censored = false;
+				}
 			}
 		}
 	}

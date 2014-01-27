@@ -45,7 +45,7 @@
 		<script src="scripts/tinymce/tinymce.min.js"></script>
 		<script src="scripts/scratchblocks2.js"></script>
 		<script src="scripts/init.js"></script>
-		<script src="scripts/livechat.php?id=<?php echo $_GET["id"]; ?>"></script>
+		<script src="scripts/infinitescroll.js"></script>
 		<script src="scripts/sbpopup.js"></script>
 	</head>
 	<body>
@@ -87,10 +87,10 @@
 										<!-- <span id="countdown-wrapper"><span id="chat-countdown"></span></span> -->
 									</form>
 								<div id="livechat">
-									<div id="loading">
+									<!--<div id="loading">
 										<img src="img/loader.gif" alt="Loading chat..." />
 										<p><?php echo __("Loading chat messages"); ?>...</p>
-									</div>
+									</div>-->
 								</div>
 								</div>
 							</div>

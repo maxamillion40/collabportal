@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Jan 2014 um 09:30
+-- Erstellungszeit: 27. Jan 2014 um 17:27
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -30,13 +30,14 @@ USE `scratchcollabs`;
 
 CREATE TABLE IF NOT EXISTS `collabmessages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `internalID` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL,
   `absender` char(50) NOT NULL,
   `collab` int(11) NOT NULL,
   `message` text NOT NULL,
   `censored` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 
@@ -56,8 +57,9 @@ CREATE TABLE IF NOT EXISTS `collabs` (
   `settings` char(255) NOT NULL DEFAULT 'a:2:{s:11:"members_max";b:0;s:12:"confirm_join";b:0;}',
   `announcement` char(200) NOT NULL,
   `pid` char(20) NOT NULL,
+  `lastInternalID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -104,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `to` char(50) NOT NULL,
   `msg` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -137,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_login` int(11) NOT NULL,
   `last_ip` char(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
