@@ -10,7 +10,7 @@
 ?>
 <html>
 	<head>
-		<title>Verwaltung &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Administration"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -41,7 +41,7 @@
 					<!-- Über -->	
 						<article class="box">
 							<div class="box-head">
-								<h3>Einstellungen</h3><span class="box-header-button"><a href="collab.php?id=<?php echo $_GET["id"]; ?>"><button>Zum Collab</button></a></span>
+								<h3><?php echo __("Settings"); ?></h3><span class="box-header-button"><a href="collab.php?id=<?php echo $_GET["id"]; ?>"><button><?php echo __("Back to Collab"); ?></button></a></span>
 							</div>
 							<div class="box-content">
 								<div class="inner">
@@ -68,14 +68,14 @@
 												<td>Neue Mitglieder müssen zunächst von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
 											</tr>
 										</table>
-										<button type="submit">Änderungen speichern</button>
+										<button type="submit"><?php echo __("Save changes"); ?></button>
 									</form>
 								</div>
 							</div>
 						</article>
 						<article class="box">
 							<div class="box-head">
-								<h4>Mitglieder</h4>
+								<h4><?php echo __("Members"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner <?php if(count($collab -> members["people"]) > 0)	{ echo "box-no-padding"; } ?>">
@@ -83,11 +83,11 @@
 										<?php
 											if(count($collab -> members["people"]) > 0)	{
 												foreach($collab -> members["people"] as $member)	{
-													echo "<li>".$member -> name ."<span class='li-right'><a href='messages.php?to=" . $member -> name ."#new'>Nachricht</a> <a class='red' href='action.php?kick=" . $member -> name . "&id=$id'>Kicken</a></span></li>";
+													echo "<li>".$member -> name ."<span class='li-right'><a href='messages.php?to=" . $member -> name ."#new'>" . __("Message") . "</a> <a class='red' href='action.php?kick=" . $member -> name . "&id=$id'>" . __("Kick") . "</a></span></li>";
 												}
 											}
 											else	{
-												echo "Noch bist du allein...";
+												echo __("It's a bit lonely in here...");
 											}
 										?>
 									</ul>
@@ -96,7 +96,7 @@
 						</article>
 						<article class="box<?php if($collab -> settings["confirm_join"] == false) { echo " hidden"; } ?>">
 							<div class="box-head">
-								<h4>Anwärter</h4>
+								<h4><?php echo __("Candidates"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner <?php if(count($collab -> members["candidates"]) > 0)	{ echo "box-no-padding"; } ?>">
@@ -104,11 +104,11 @@
 										<?php
 											if(count($collab -> members["candidates"]) > 0)	{
 												foreach($collab -> members["candidates"] as $candidate)	{
-													echo "<li>".$candidate -> name ."<span class='li-right'><a class='green' href='action.php?accept&who=" . $candidate -> name ."&id=".$_GET["id"]."'>Aufnehmen</a> <a href='messages.php?to=". $candidate -> name ."#new'>Nachricht</a> <a class='red' href='action.php?kick=" . $candidate . "&id=$id'>Zurückweisen</a></span></li>";
+													echo "<li>".$candidate -> name ."<span class='li-right'><a class='green' href='action.php?accept&who=" . $candidate -> name ."&id=".$_GET["id"]."'>" . __("Accept") . "</a> <a href='messages.php?to=". $candidate -> name ."#new'>" . __("Message") . "</a> <a class='red' href='action.php?kick=" . $candidate . "&id=$id'>" . __("Refuse") . "</a></span></li>";
 												}
 											}
 											else	{
-												echo "Es hat sich noch niemand beworben...";
+												echo __("Nobody has applied yet...");
 											}
 										?>
 									</ul>
@@ -117,7 +117,7 @@
 						</article>
 						<article class="box">
 							<div class="box-head">
-								<h4>Collab bearbeiten</h4>
+								<h4><?php echo __("Edit Collab"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
@@ -127,19 +127,19 @@
 												echo "<img style='float: right;' src='logos/". $collab -> logo ."' alt='Logo' width='144' height='108' />";
 											}
 										?>
-										<p style="margin-bottom: 30px;">Logo: <input type="hidden" name="MAX_FILE_SIZE" value="100000" /><input type="file" name="logo" /></p>
-										<input type="text" name="name" maxlength="50" value="<?php echo $collab -> name; ?>" placeholder="Name des Collabs" />
+										<p style="margin-bottom: 30px;"><?php echo __("Logo"); ?>: <input type="hidden" name="MAX_FILE_SIZE" value="100000" /><input type="file" name="logo" /></p>
+										<input type="text" name="name" maxlength="50" value="<?php echo $collab -> name; ?>" placeholder="<?php echo __("Name of your Collab"); ?>" />
 										<textarea name="desc"><?php
 											echo $collab -> desc;
 										?></textarea>
-										<button class="button blue">Speichern</button>
+										<button class="button blue"><?php echo __("Save changes"); ?></button>
 									</form>
 								</div>
 							</div>
 						</article>
 						<article class="box">
 							<div class="box-head">
-								<h4>Collab beenden</h4>
+								<h4><?php echo __("Close collab"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
@@ -160,7 +160,7 @@
 											echo "</form>";
 										}
 										else	{
-											echo "Du kannst dein Collab erst 24 Stunden nach dessen Start beenden.";
+											echo __("Collabs cannot be closed until they exist for 24 hours.");
 										}
 									?>
 								</div>

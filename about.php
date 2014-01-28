@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Über &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("About"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -33,7 +33,7 @@
 					<!-- Über -->	
 						<article class="box ">
 							<div class="box-head">
-								<h4>Über ScratchCollabs</h4>
+								<h4><?php echo __("About Scratchcollabs"); ?></h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
@@ -74,10 +74,10 @@
 												<td>Demnächst</td>
 											</tr>
 											<tr>
-												<td>?</td>
+												<td>!</td>
 												<td>Englische Version</td>
-												<td>-</td>
-												<td>Realisierung fragwürdig</td>
+												<td>webdesigner97</td>
+												<td>in Arbeit</td>
 												<td>Unbekannt</td>
 											</tr>
 											<tr>
