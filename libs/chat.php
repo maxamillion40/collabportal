@@ -14,7 +14,7 @@
 	$msg = str_replace(":D","<img src=\"http://cbeta.scratchcollabs.pf-control.de/scripts/tinymce/plugins/emoticons/img/smiley-laughing.gif\" alt=\":D\" />",$msg);
 	//Check data
 	if($msg == "")	{
-		die(header("Location: collab.php?id=$collab&error=notext"));
+		die(header("Location: collab.php?id=" . $collab -> id . "&error=notext"));
 	}
 	if($collab == "")	{
 		die(header("Location: index.php?error=noid"));
