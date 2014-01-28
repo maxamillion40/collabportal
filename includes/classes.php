@@ -56,9 +56,6 @@
 				unset($this->members["candidates"][$i]);
 			}
 		}
-		public function close()	{
-			// MySQL query for closing
-		}
 		public function member_rank($name)	{
 			// Return the rank of a user in this collab
 			$name = new user($name);
