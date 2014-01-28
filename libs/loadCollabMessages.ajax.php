@@ -26,7 +26,7 @@
 		echo "<div class='msg-head'>";
 		echo $msg -> sender -> name . " am " . $msg -> time -> format("d.m.Y H:i:s");
 		echo "</div>";
-		echo "<div class='msg-head'>";
+		echo "<div class='msg-body'>";
 		echo $msg -> msg;
 		echo "</div>";
 		echo "</div>";
