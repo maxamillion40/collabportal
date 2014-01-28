@@ -145,7 +145,7 @@
 								<div class="inner">
 									<?php
 										$time = time();
-										if($time - $collab -> starttime > 86400)	{
+										if($time - $collab -> starttime -> stamp > 86400)	{
 											echo "<form action='action.php?closecollab&id=". $collab -> id ."' method='post'>";
 											echo "<p>Hier kannst du dein Collab beenden. Bitte beachte dabei ein paar grundlegende Dinge:</p>";
 											echo "<ul>";

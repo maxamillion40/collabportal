@@ -1,12 +1,9 @@
 ﻿<?php
-	// Needs to be reworked into collab::close()
-	print_array($_POST);
-	$id = mysql_real_escape_string($_GET["id"]);
+	$id = $_GET["id"];
 	//
-	$collab = mysql_get("SELECT * FROM `collabs` WHERE `id`=$id");
-	if($collab[0]["owner"] != $_SESSION["user"])	{
+	$collab = new collab($id);
+	if($collab -> owner -> name != $_USER -> name)	{
 		die(header("Location: mystuff.php?error=notmine"));
-		echo "böse";
 	}
 	//
 	$success = false;
@@ -14,14 +11,19 @@
 		$success = true;
 		$url = $_POST["url"];
 		$desc = $_POST["desc"];
-		$members = $collab[0]["mitglieder"]["founder"] . "," . implode(",", $collab[0]["mitglieder"]["people"]);
+		$members = $collab -> founder . "," . implode(",", $collab -> members["people"]);
 		print_array($collab);
 	}
 	//
-	mysql_query("UPDATE `collabs` SET `status`='closed' WHERE `id`='$id'");
+	$collab -> close();
 	if($success == true)	{
-		mysql_query("INSERT INTO `featured_collab`(`name`,`desc`,`img`,`mitglieder`,`url`) VALUES('".$collab[0]["name"]."','$desc','http://cdn.scratch.mit.edu/get_image/project/".$url."_144x108.png','$members','http://scratch.mit.edu/projects/$url')");
-		print_array($_POST);
+		$_MYSQL -> set("INSERT INTO `featured_collab`(`name`,`desc`,`img`,`mitglieder`,`url`) VALUES(?,?,?,?,?)", array(
+			$collab -> name,
+			$desc,
+			"http://cdn.scratch.mit.edu/get_image/project/" . $url . "_144x108.png",
+			$members,
+			"http://scratch.mit.edu/projects/" . $url
+		));
 		header("Location: index.php?result=closedandshow");
 	}
 	else	{

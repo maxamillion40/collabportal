@@ -150,6 +150,12 @@
 				$this -> id
 			));
 		}
+		public function close()	{
+			global $_MYSQL;
+			$_MYSQL -> set("UPDATE `collabs` SET `status`='closed' WHERE `id`=?", array(
+				$this -> id
+			));
+		}
 	}
 	class user	{
 		var $id;
