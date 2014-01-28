@@ -10,9 +10,10 @@
 	}
 	
 	function __($msg, $lang = null)	{
+		global $_USER;
 		global $_LOCALE;
 		if(!is_string($lang))	{
-			$lang = "de_DE";
+			$lang = $_USER -> language;
 		}
 		if(isset($_LOCALE[$lang][$msg]))	{
 			return $_LOCALE[$lang][$msg];

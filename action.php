@@ -104,6 +104,10 @@
 			include_once("libs/setpass.php");
 			exit;
 		}
+		if(isset($_GET["setlang"]))	{	
+			include_once("libs/setlang.php");
+			exit;
+		}
 		//
 		header("HTTP/1.0 404");
 		header("Location: error404.php?error=notfound");

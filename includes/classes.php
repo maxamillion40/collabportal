@@ -164,6 +164,7 @@
 		var $last_login;
 		var $last_ip;
 		var $online;
+		var $language;
 		public function __construct($name)	{
 			global $_MYSQL;
 			if($name != "Systemnachricht")	{
@@ -178,6 +179,7 @@
 					$this->last_login = $data[0]["last_login"];
 					$this->last_ip = $data[0]["last_ip"];
 					$this->online = true;
+					$this->language = $data[0]["language"];
 				}
 				else	{
 					$this->online = false;

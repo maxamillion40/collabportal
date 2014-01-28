@@ -1,13 +1,10 @@
+<!DOCTYPE html>
 <?php
-	session_start();
-	require_once("includes/func.php");
-	if(!is_loggedin())	{
+	require_once("includes/loader.php");
+	if(!$_USER -> is_online())	{
 		die(header("Location: index.php?error=nologin"));
 	}
-	mysql_auto_connect();
-	$user = mysql_get("SELECT `mail` FROM `users` WHERE `name`='".$_SESSION["user"]."'");
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Profileinstellungen &raquo; ScratchCollabs in DACH</title>
@@ -44,10 +41,32 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
+									<h3>Sprache</h3>
+									<form action="action.php?setlang" method="post">
+										<p>Sprache.</p>
+										<p>
+											Selected language:
+											<select name="language">
+												<?php
+													foreach($_LOCALE as $langcode => $langdata)	{
+														if($_USER -> language == $langcode)	{
+															$class = " selected";
+														}
+														else	{
+															$class = "";
+														}
+														echo "<option" . $class . ">" . $langcode . "</option>";
+													}
+												?>
+											</select>
+										</p>
+										<button class="button blue">Speichern</button>
+									</form>
+									<!-- # -->
 									<h3>E-Mailadresse</h3>
 									<form action="action.php?setmail" method="post">
 										<p>Hier kannst du deine E-Mailadresse ändern, falls sie sich geändert haben sollte.</p>
-										<p>E-Mailadresse: <input style="display: inline;" type="email" name="mail" value="<?php echo $user[0]["mail"]; ?>" /></p>
+										<p>E-Mailadresse: <input style="display: inline;" type="email" name="mail" value="<?php echo $_USER -> mail; ?>" /></p>
 										<button class="button blue">Speichern</button>
 									</form>
 									<!-- # -->

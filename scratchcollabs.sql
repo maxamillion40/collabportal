@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 27. Jan 2014 um 17:27
+-- Erstellungszeit: 28. Jan 2014 um 14:34
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `collabmessages` (
   `message` text NOT NULL,
   `censored` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `collabs` (
   `pid` char(20) NOT NULL,
   `lastInternalID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -132,6 +132,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(20) NOT NULL,
+  `language` char(10) NOT NULL DEFAULT 'en_US',
   `pass` char(100) NOT NULL,
   `mail` char(100) NOT NULL,
   `scratch` char(100) NOT NULL,
