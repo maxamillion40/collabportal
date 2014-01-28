@@ -1,5 +1,5 @@
-﻿<?php
-	session_start();
+﻿<!DOCTYPE html>
+<?php
 	require_once("includes/func.php");
 	mysql_auto_connect();
 	$featured = mysql_get("SELECT * FROM featured_collab");
@@ -8,7 +8,6 @@
 		header("Location: index.php");
 	}
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Registrieren &raquo; ScratchCollabs in DACH</title>
