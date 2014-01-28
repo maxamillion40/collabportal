@@ -10,3 +10,7 @@
 	width: 100px;
 	height: 20px;
 }
+.msg-name {
+	font-weight: bold;
+	color: #F9A539;
+}

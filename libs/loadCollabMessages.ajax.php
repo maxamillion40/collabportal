@@ -24,7 +24,7 @@
 	foreach($messages as $msg)	{
 		echo "<div class='msg msg-" . $msg -> id . "'>";
 		echo "<div class='msg-head'>";
-		echo $msg -> sender -> name . " am " . $msg -> time -> format("d.m.Y H:i:s");
+		echo "<span class='msg-name'>" . $msg -> sender -> name . "</span> am " . $msg -> time -> format("d.m.Y H:i:s");
 		echo "</div>";
 		echo "<div class='msg-body'>";
 		echo $msg -> msg;
