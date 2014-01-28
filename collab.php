@@ -1,4 +1,5 @@
-﻿<?php
+﻿<!DOCTYPE html>
+<?php
 	require_once("includes/loader.php");
 	$collab	= new collab($_GET["id"]);
 	if($_USER -> is_online())	{
@@ -18,7 +19,6 @@
 		$tage["Sunday"] = "Sonntag";
 		
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title><?php echo $collab -> name; ?> &raquo; ScratchCollabs in DACH</title>
