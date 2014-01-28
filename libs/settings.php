@@ -18,6 +18,6 @@
 	$settings["members_max"] = $members_max;
 	$settings["confirm_join"] = $confirm_join;
 	$settings = serialize($settings);
-	$_MYSQL -> set("UPDATE `collabs` SET `settings` = ? WHERE `id` = ", array($settings, $id));
+	$_MYSQL -> set("UPDATE `collabs` SET `settings` = ? WHERE `id` = ?", array($settings, $id));
 	header("Location: admin.php?id=$id&result=settingsok");
 ?>
