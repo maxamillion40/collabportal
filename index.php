@@ -1,4 +1,5 @@
-﻿<?php
+﻿<!DOCTYPE html>
+<?php
 	require_once("includes/loader.php");
 	
 	$featured = $_MYSQL -> get("SELECT * FROM featured_collab ORDER BY id DESC LIMIT 0,1");
@@ -13,7 +14,6 @@
 		$collabs[$key] = new collab($collab["id"]);
 	}
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title><?php echo __("Home"); ?> &raquo; ScratchCollabs in DACH</title>
