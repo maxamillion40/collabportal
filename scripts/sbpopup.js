@@ -14,7 +14,7 @@
 			$(".ui-dialog-titlebar-close").removeAttr("title");
 			$(".ui-dialog-content").html("<iframe allowtransparency='true' width='485' height='402' src='http://scratch.mit.edu/projects/embed/"+id+"/' allowfullscreen></iframe>");
 			$.ajax({
-				url: "libs/getprojectname.php?id=" + id,
+				url: "libs/getProjectName.ajax.php?id=" + id,
 				data: "",
 				type: "GET",
 				success: function(data) {
