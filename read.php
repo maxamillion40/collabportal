@@ -1,22 +1,17 @@
 <?php
-	session_start();
-	require_once("includes/func.php");
-	if(!is_loggedin())	{
+	require_once("includes/loader.php");
+	if(!$_USER -> is_online())	{
 		header("Location: index.php");
 	}
-	mysql_auto_connect();
-	$msg = mysql_real_escape_string($_GET["id"]);
+	$msg = $_GET["id"];
 	$msg = explode("-",$msg);
 	$msg = $msg[1];
-	$msg = mysql_get("SELECT * FROM `messages` WHERE `id`='$msg'");
-	$msg = $msg[0];
-	$msg["msg"] = stripslashes($msg["msg"]);
-	if(strtolower($msg["to"]) != strtolower($_SESSION["user"]))	{
+	$msg = new message($msg);
+	if($msg -> to -> name != $_USER -> name)	{
 		header("Location: messages.php?error=nopriv");
-		print_array($msg);
 	}
-	if($msg["read"] == 0)	{
-		mysql_query("UPDATE `messages` SET `read`='1' WHERE `id`='".$msg["id"]."'");
+	if(!$msg -> read)	{
+		$_MYSQL -> set("UPDATE `messages` SET `read`='1' WHERE `id`=?", array($msg -> id));
 	}
 ?>
 <!DOCTYPE html>
@@ -53,24 +48,24 @@
 					<!-- Über -->	
 						<article class="box">
 							<div class="box-head">
-								<h3><?php echo $msg["regard"]; ?></h3>
+								<h3><?php echo $msg -> regard; ?></h3>
 								<span class="box-header-button">
 									<?php
-										if($msg["sender"] != "Systemnachricht")	{
+										if(false)	{
 											echo "<a href='messages.php?to=".$msg["sender"]."&regard=Re: ".$msg["regard"]."#new'><button class='button blue'>Antworten</button></a>";
 										}
 									?>
-									<a href="action.php?delete&id=<?php echo $msg["id"]; ?>"><button class="button grey">Löschen</button></a>
+									<a href="action.php?delete&id=<?php echo $msg -> id; ?>"><button class="button grey">Löschen</button></a>
 								</span>
 							</div>
 							<div class="box-content">
 								<div class="inner box-no-padding">
 									<div id="msg-head">
-										<p><?php echo $msg["sender"]; ?> am <?php echo date("d.m.Y \u\m H:i",$msg["date"]); ?></p>
+										<p><?php echo $msg -> sender -> name; ?> am <?php $msg -> date -> printas("d.m.Y \u\m H:i"); ?></p>
 									</div>
 									<div id="msg-body">
 										<?php
-											echo $msg["msg"];
+											echo $msg -> msg;
 										?>
 									</div>
 								</div>
