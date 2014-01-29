@@ -36,7 +36,8 @@ function loadposts(startID, method)	{
 				$("#livechat").append(data);
 				lastID = lastID - 10;
 				loading = false;
-				scratchblocks2.parse("pre");
+				scratchblocks2.parse("#livechat pre:not(.parsed)");
+				$("#livechat pre").addClass("parsed");
 			}
 			else	{
 				$("#loading").html("<p>Discussion started here.</p>");
