@@ -9,8 +9,8 @@
 	$news = $_MYSQL -> get("SELECT * FROM news ORDER BY date DESC LIMIT 0,3");
 	
 	$collabs = $_MYSQL -> get("SELECT id FROM collabs WHERE `status`='open'");
-	foreach($collabs as &$collab)	{
-		$collab = new collab($collab["id"]);
+	foreach($collabs as $key => $collab)	{
+		$collabs[$key] = new collab($collab["id"]);
 	}
 ?>
 <!DOCTYPE html>
