@@ -1,5 +1,6 @@
 ﻿var lastID = 0;
 var loading = true;
+var reachedEnd = false;
 
 // Get latest message ID
 $.ajax({
@@ -7,7 +8,7 @@ $.ajax({
 	dataType: "text",
 	type: "GET",
 	success: function(data)	{
-		lastID = data;
+		lastID = Number(data.match(/\d/g).join(""));
 	},
 });
 
@@ -18,7 +19,7 @@ $(document).ready(function()	{
 
 $(window).scroll(function()	{
 	if($(window).scrollTop() + $(window).height() > $(document).height() - 100)	{
-		if(loading == false)	{
+		if(loading == false && reachedEnd == false)	{
 			loadposts(lastID, "repeated");
 		}
 	}
@@ -31,10 +32,14 @@ function loadposts(startID, method)	{
 		dataType: "text",
 		type: "GET",
 		success: function(data)	{
-			if(data != "")	{
+			if(data.length > 5)	{
 				$("#livechat").append(data);
 				lastID = lastID - 10;
 				loading = false;
+			}
+			else	{
+				$("#loading").html("<p>Discussion started here.</p>");
+				reachedEnd = true;
 			}
 		},
 		error: function(jqXHR, textStatus, errorThrown)	{

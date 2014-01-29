@@ -89,6 +89,10 @@
 								<div id="livechat">
 									
 								</div>
+								<div id="loading">
+									<img src="img/loader.gif" alt="Loading" />
+									<p><?php echo __("Loading older messages..."); ?></p>
+								</div>
 								</div>
 							</div>
 						</article>
