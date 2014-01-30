@@ -46,6 +46,7 @@
 		<script src="scripts/scratchblocks2.js"></script>
 		<script src="scripts/init.js"></script>
 		<script src="scripts/infinitescroll.js"></script>
+		<script src="scripts/autoupdate.js"></script>
 		<script src="scripts/sbpopup.js"></script>
 	</head>
 	<body>
