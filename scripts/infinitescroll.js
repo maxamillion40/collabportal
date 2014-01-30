@@ -15,6 +15,11 @@ $.ajax({
 $(document).ready(function()	{
 	//Load first 10 posts
 	loadposts(lastID, "initial");
+	//Load more on click
+	$("button#loadMore").click(function()	{
+		loadposts(lastID, "repeated");
+	});
+
 });
 
 $(window).scroll(function()	{
