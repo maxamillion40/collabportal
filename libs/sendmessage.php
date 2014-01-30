@@ -12,17 +12,19 @@
 	$sendto = explode(";",$sendto);
 	unset($sendto[count($sendto) - 1]);
 	//Prepare message
+	$sentTo = array();
 	foreach($sendto as $send)	{
-		$message = new message;
-		$message -> regard = $regard;
-		$message -> to = new user($send);
-		$message -> sender = $_USER;
-		$message -> msg = $msg;
-		$message -> date = new time();
-		
-		$message -> send();
-		echo "<pre>";
-		print_r($message);
+		if(!in_array($send, $sentTo))	{
+			$message = new message;
+			$message -> regard = $regard;
+			$message -> to = new user($send);
+			$message -> sender = $_USER;
+			$message -> msg = $msg;
+			$message -> date = new time();
+			
+			$message -> send();
+			$sentTo[] = $message -> to -> name;
+		}
 	}
 	header("Location: messages.php?result=sent");
 ?>
