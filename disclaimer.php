@@ -1,8 +1,4 @@
-<?php
-	session_start();
-	require_once("includes/func.php");
-?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<title>Haftungsausschluss &raquo; ScratchCollabs in DACH</title>

@@ -1,8 +1,7 @@
+﻿<!DOCTYPE html>
 <?php
-	session_start();
-	require_once("includes/func.php");
+	require_once("includes/loader.php");
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Kontakt &raquo; ScratchCollabs in DACH</title>
@@ -42,7 +41,7 @@
 									<p><h4>Über dieses Formular kannst  du uns kontaktieren</h4></p>
 									<form id="contact" action="./">
 										<?php
-											if(!is_loggedin()) {
+											if(!$_USER -> is_online()) {
 												echo "<p>Gib eine E-Mailadresse an, unter der wir dich erreichen können, oder melde dich an.</p>";
 												echo "<input type='email' name='email' placeholder='Gib deine E-Mail Adresse hier ein' required />";
 											}

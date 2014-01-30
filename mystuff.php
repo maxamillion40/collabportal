@@ -1,8 +1,7 @@
+﻿<!DOCTYPE html>
 <?php
-	session_start();
-	require_once("includes/func.php");
-	mysql_auto_connect();
-	if(is_loggedin()) {
+	require_once("includes/loader.php");
+	if(!$_USER -> is_online()) {
 		$user = $_SESSION['user'];
 		$mycollabs = mysql_get("SELECT * FROM collabs WHERE `owner`='$user' ORDER BY `start` DESC");
 		$collabmember = mysql_get("SELECT * FROM collabs ORDER BY `start` DESC");
@@ -12,7 +11,6 @@
 	}
 	mysql_close();
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Meine Collabs &raquo; ScratchCollabs in DACH</title>

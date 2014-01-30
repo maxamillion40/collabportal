@@ -1,7 +1,10 @@
-﻿<?php
-	require_once("includes/func.php");
+﻿<!DOCTYPE html>
+<?php
+	require_once("includes/loader.php");
+	if(!$_USER -> is_online())	{
+		header("Location: index.php?error=nologin");
+	}
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Neues Collab &raquo; ScratchCollabs in DACH</title>

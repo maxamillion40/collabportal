@@ -1,7 +1,7 @@
+﻿<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title><?php echo __("About"); ?> &raquo; ScratchCollabs in DACH</title>

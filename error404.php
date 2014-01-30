@@ -1,4 +1,5 @@
-﻿<?php
+﻿<!DOCTYPE html>
+<?php
 	header("HTTP/1.1 404 Not Found");
 	session_start();
 	require_once("includes/func.php");
@@ -8,7 +9,6 @@
 	
 	$url = "http://" . $_SERVER["SERVER_NAME"] . "/collabs2";
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Verlaufen?  &raquo; ScratchCollabs in DACH</title>

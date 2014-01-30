@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <?php
 	session_start();
 	require_once("includes/func.php");
@@ -6,7 +7,6 @@
 	$questions	= mysql_get("SELECT * FROM faq WHERE `answer`!='unbeantwortet' ORDER BY `id` ASC");
 	mysql_close();
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Hilfe &raquo; ScratchCollabs in DACH</title>

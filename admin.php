@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
 	if(!$_USER -> is_online())	{

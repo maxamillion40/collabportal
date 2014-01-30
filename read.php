@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
 	if(!$_USER -> is_online())	{
@@ -14,7 +15,6 @@
 		$_MYSQL -> set("UPDATE `messages` SET `read`='1' WHERE `id`=?", array($msg -> id));
 	}
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Persönliche Nachricht &raquo; ScratchCollabs in DACH</title>

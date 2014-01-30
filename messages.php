@@ -1,4 +1,5 @@
-﻿<?php
+﻿<!DOCTYPE html>
+<?php
 	require_once("includes/loader.php");
 	if(!$_USER -> is_online())	{
 		header("Location: index.php");
@@ -12,7 +13,6 @@
 		$messages[] = new message($id[0]);
 	}
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Posteingang  &raquo; ScratchCollabs in DACH</title>
