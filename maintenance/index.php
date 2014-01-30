@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <?php
 	session_start();
 	set_include_path($_SERVER["DOCUMENT_ROOT"]);
@@ -14,7 +15,6 @@
 	$questions = mysql_get("SELECT `id` FROM `faq` WHERE `answer`='unbeantwortet'");
 	$users = mysql_get("SELECT `id` FROM `users`");
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Adminbereich &raquo; ScratchCollabs in DACH</title>

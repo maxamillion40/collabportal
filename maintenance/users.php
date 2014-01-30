@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <?php
 	session_start();
 	set_include_path($_SERVER["DOCUMENT_ROOT"]);
@@ -13,7 +14,6 @@
 	$users = mysql_get("SELECT * FROM `users` ORDER BY `name` ASC");
 	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'");
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>User Verwaltung &raquo; ScratchCollabs in DACH</title>

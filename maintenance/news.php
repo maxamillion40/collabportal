@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <?php
 	session_start();
 	set_include_path($_SERVER["DOCUMENT_ROOT"]);
@@ -12,7 +13,6 @@
 	$news = mysql_get("SELECT * FROM `news` ORDER BY `date` DESC");
 	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'");
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Ankündigungsverwaltung &raquo; ScratchCollabs in DACH</title>

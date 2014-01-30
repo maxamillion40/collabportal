@@ -1,3 +1,4 @@
+﻿<!DOCTYPE html>
 <?php
 	session_start();
 	set_include_path($_SERVER["DOCUMENT_ROOT"]);
@@ -13,7 +14,6 @@
 	$questions = mysql_get("SELECT * FROM `faq` ORDER BY `id` DESC");
 	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'");
 ?>
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>FAQ Verwaltung &raquo; ScratchCollabs in DACH</title>
