@@ -15,6 +15,10 @@ function getMessagesOnServer()	{
 		success: function(data)	{
 			r = Number(data.match(/\d/g).join(""));
 		},
+		error: function(jqXHR, textStatus, errorThrown)	{
+			$("#livechat").html("Fehler beim Laden der Nachrichten: " + errorThrown + "<br /> Bitte lade die Seite neu (F5)");
+			loading = false;
+		}
 	});
 	return r;
 }
@@ -46,6 +50,8 @@ function loadNewMessages(startAt)	{
 }
 
 window.setInterval(function()	{
+	//alert("Has new messages: " + hasNewMessages());
+	//alert("Latest message here: " + countMessages() + ", latest message on server: " + getMessagesOnServer());
 	if(hasNewMessages())	{
 		loadNewMessages(countMessages());
 	}
