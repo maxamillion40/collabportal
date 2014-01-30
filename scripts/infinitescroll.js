@@ -39,7 +39,7 @@ function loadposts(startID, method)	{
 		success: function(data)	{
 			if(data.length > 5)	{
 				$("#livechat").append(data);
-				lastID = lastID - 10;
+				lastID = lastID - 25;
 				loading = false;
 				scratchblocks2.parse("#livechat pre:not(.parsed)");
 				$("#livechat pre").addClass("parsed");
