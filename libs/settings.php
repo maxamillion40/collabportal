@@ -1,5 +1,6 @@
 ﻿<?php
 	$id = $_GET["id"];
+	$collab = new collab($id);
 	//
 	$members_max = false;
 	$confirm_join = false;
@@ -8,6 +9,9 @@
 		$members_max = intval($_POST["input-max-members"]);
 		if($members_max <= 0)	{
 			die(header("Location: admin.php?id=$id&error=noint"));
+		}
+		if($members_max < count($collab -> members["people"]) + 1)	{
+			die(header("Location: admin.php?id=$id&error=toosmall"));
 		}
 	}
 	if(isset($_POST["check-confirm-join"]) and $_POST["check-confirm-join"] == "on")	{

@@ -57,4 +57,5 @@
 	errnotice("nomatch",			"Die neuen Passwörter stimmen nicht überein!");
 	errnotice("oldwrong",			"Altes Passwort falsch!");
 	errnotice("closed",				"Keine Änderung an geschlossenem Collab möglich!");
+	errnotice("toosmall", 			"Diese Zahl ist zu klein!");
 ?>
