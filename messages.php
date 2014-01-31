@@ -4,11 +4,8 @@
 	if(!$_USER -> is_online())	{
 		header("Location: index.php");
 	}
-	//$unread = count(mysql_get("SELECT `id` FROM `messages` WHERE `to`='".$_SESSION["user"]."' AND `read`='0'"));
-	//$msg = mysql_get("SELECT * FROM `messages` WHERE `to`='".$_SESSION["user"]."' ORDER BY `read` ASC, `date` DESC");
-	//mysql_close();
 	$messages = array();
-	$ids = $_MYSQL -> get("SELECT id FROM messages WHERE `to`='" . $_USER -> name . "'");
+	$ids = $_MYSQL -> get("SELECT id FROM messages WHERE `to`='" . $_USER -> name . "' ORDER BY `read` ASC, `date` DESC");
 	foreach($ids as $id)	{
 		$messages[] = new message($id[0]);
 	}

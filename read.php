@@ -51,8 +51,8 @@
 								<h3><?php echo $msg -> regard; ?></h3>
 								<span class="box-header-button">
 									<?php
-										if(false)	{
-											echo "<a href='messages.php?to=".$msg["sender"]."&regard=Re: ".$msg["regard"]."#new'><button class='button blue'>Antworten</button></a>";
+										if($msg -> sender -> name != "System")	{
+											echo "<a href='messages.php?to=" . $msg -> sender -> name."&regard=Re: " . $msg -> regard . "#new'><button class='button blue'>Antworten</button></a>";
 										}
 									?>
 									<a href="action.php?delete&id=<?php echo $msg -> id; ?>"><button class="button grey">Löschen</button></a>
