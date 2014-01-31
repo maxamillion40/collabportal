@@ -53,9 +53,9 @@
 														echo "checked='checked' ";
 													}
 												?> /></td>
-												<td>Maximale Mitgliederzahl</td>
+												<td><?php echo __("Maximum number of members"); ?></td>
 												<td><input type="number" min="1" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab -> settings["members_max"]; ?>" /></td>
-												<td>Wenn dieses Limit erreicht ist, wird der Button zum Beitritt nicht mehr angezeigt, sodass kein weiterer Scratcher beitreten kann.</td>
+												<td><?php echo __("When this number is reached (including the founder), the Join-Button won't appear anymore so no other Scratcher can join."); ?></td>
 											</tr>
 											<tr id="row-confirm-join">
 												<td><input type="checkbox" id="check-confirm-join" name="check-confirm-join" <?php
@@ -63,9 +63,9 @@
 														echo "checked='checked' ";
 													}
 												?>/></td>
-												<td>Beitritt bestätigen</td>
+												<td><?php echo __("Confirm join"); ?></td>
 												<td>&nbsp;</td>
-												<td>Neue Mitglieder müssen zunächst von dir freigeschaltet werden, bevor sie aktiv teilnehmen können.</td>
+												<td><?php echo __("New members need to be confirmed by you, before they can actively contribute."); ?></td>
 											</tr>
 										</table>
 										<button type="submit"><?php echo __("Save changes"); ?></button>
@@ -147,16 +147,16 @@
 										$time = time();
 										if($time - $collab -> starttime -> stamp > 86400)	{
 											echo "<form action='action.php?closecollab&id=". $collab -> id ."' method='post'>";
-											echo "<p>Hier kannst du dein Collab beenden. Bitte beachte dabei ein paar grundlegende Dinge:</p>";
+											echo "<p>" . __("Here you can close your collab, but please note the following") . ":</p>";
 											echo "<ul>";
-											echo "<li>Beendete Collabs können <u>nicht</u> wieder geöffnet werden</li>";
-											echo "<li>Im Chat können keine weiteren Nachrichten mehr ausgetauscht werden</li>";
-											echo "<li>Alle Mitglieder erhalten eine Nachricht, die sie über die Beendung benachrichtigt</li>";
-											echo "<li>Dein Collab wird nicht mehr als aktiv auf der Startseite angezeigt</li>";
+											echo "<li>" . __("Closed collabs cannot be opened again") . "</li>";
+											echo "<li>" . __("The chat will become read-only") . "</li>";
+											echo "<li>" . __("All members will receive a notification about the collab being closed") . "</li>";
+											echo "<li>" . __("Your Collab won't appear on the homepage anymore") . "</li>";
 											echo "</ul>";
-											echo "<label><input type='checkbox' id='success' name='success' value='true' /> Wir konnten unser Projekt erfolgreich beenden</label>";
-											echo "<div id='enter-url'><input type='type' name='url' placeholder='Projektnummer' /><textarea maxlength='100' name='desc' placeholder='Kurzbeschreibung'></textarea></div>";
-											echo "<button type='submit' class='button blue'>Collab beenden</button>";
+											echo "<label><input type='checkbox' id='success' name='success' value='true' /> " . __("Yes, we could finish and publish our project") . "</label>";
+											echo "<div id='enter-url'><input type='type' name='url' placeholder='" . __("Projectnumber") . "' /><textarea maxlength='100' name='desc' placeholder='" . __("Short description") . "'></textarea></div>";
+											echo "<button type='submit' class='button blue'>" . __("Close this collab") . "</button>";
 											echo "</form>";
 										}
 										else	{

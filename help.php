@@ -5,7 +5,7 @@
 ?>
 <html>
 	<head>
-		<title>Hilfe &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Help"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -44,17 +44,17 @@
 					<!-- Hilfe -->
 						<article class="box">
 							<div class="box-head">
-								<h4>Hilfe</h4>
+								<h4><?php echo __("Help"); ?></h4>
 							</div>
 							<div class="box-content" style="height: auto;">
 								<div class="inner">
-									<h3>Kurzhilfe</h3>
+									<h3><?php echo __("Quick help"); ?></h3>
 										<p>Hier wird bald eine Kurzanleitung zur Benutzung des CollabPortals folgen.</p>
-									<h3>Wiki-Artikel</h3>
+									<h3><?php echo __("Scratchwiki article"); ?></h3>
 										<p>Das CollabPortal hat auch einen Artikel im deutschsprachigen Scratch-Wiki: <a href="http://scratch-dach.info/wiki/CollabPortal" >http://scratch-dach.info/wiki/CollabPortal</a>.</p>
 									<hr/>
-									<h3>FAQ</h3>
-										<p>Du hast eine Frage? Stelle sie <a href="#nq" onclick="lscrollup()">unten</a> oder <a href="contact.php">kontaktiere uns</a>!<br/>Klicke auf die Überschriften, um einen Permalink zu erhalten.</p>
+									<h3><?php echo __("FAQ"); ?></h3>
+										<p><?php echo __("Got a question?"); ?> Stelle sie <a href="#nq" onclick="lscrollup()">unten</a> oder <a href="contact.php">kontaktiere uns</a>!<br/><?php echo __("Click the headlines to get a permalink."); ?>.</p>
 										<!-- Hier kommt später mal PHP-Code hin, damit Fragen und Antworten vom Admin über die Datenbank hinzugefügt werden können. -->
 									<div id="questions">
 									<?php
@@ -62,15 +62,15 @@
 										echo "<div id='".$question["id"]."'><a href='help.php#".$question["id"]."' onclick=\"lscrollup()\"><h4>".$question["question"]."</h4></a>";
 										echo "<p>".$question["answer"]."</p></div>";
 									}
-									echo "<h4>Frage stellen</h4>";
+									echo "<h4>" . __("Ask a question"); . "</h4>";
 									if($_USER -> is_online()) {
 										echo "<form id='nq' action='action.php?newquestion' method='post'>";
-										echo "<input type='text' name='question' placeholder='Frage (Maximal 255 Zeichen)' title='Frage stellen' required maxlength='255' tabindex='1' />";
-										echo "<input type='submit' class='button blue' value='Absenden' tabindex='3' />";
+										echo "<input type='text' name='question' placeholder='" . __("Question (max 255 chars)") . "' title='" . __("Ask a question"); . "' required maxlength='255' tabindex='1' />";
+										echo "<input type='submit' class='button blue' value='" . __("Send"); . "' tabindex='3' />";
 										echo "</form>";
 									}
 									else {
-										echo "Diese Funktion steht nur angemeldeten Benutzern zur Verfügung.";
+										echo __("Sorry, only registered users can use this function...");
 									}
 									?>
 									</div>

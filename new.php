@@ -7,7 +7,7 @@
 ?>
 <html>
 	<head>
-		<title>Neues Collab &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("new collab"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -34,29 +34,29 @@
 			<div class="container" id="content">
 				<article class="box">
 					<div class="box-header">
-						<h2>Neues Collab erstellen</h4>
+						<h2><?php echo __("Create a new collab"); ?></h4>
 					</div>
 					<div class="box-content">
 						<div class="inner">
 							<form action="action.php?new" method="post">
 								<!-- First step -->
-								<h3>Schritt 1: Collabname</h3>
+								<h3><?php echo __("Step 1: Collabname"); ?></h3>
 								<div>
-									<p>Überlege dir einen aussagekräftigen Namen für dein Collab, der auch einen ersten Hinweis auf das Projekt gibt (z.B. "Stadtsimulation")</p>
-									<input type="text" name="collabname" placeholder="Collabname" required maxlength="40" />
+									<p><?php echo __("Imagine a unique name for your collab"); ?><p>
+									<input type="text" name="collabname" placeholder="<?php echo __("Collabname"); ?>" required maxlength="40" />
 								</div>
 								<!-- Second step -->
-								<h3>Schritt 2: Beschreibung</h3>
+								<h3><?php echo __("Step 2: Description"); ?></h3>
 								<div>
-									<p>Beschreibe dein Collab möglichst genau, erwähne auch das Ziel und die die Inhalte der gemeinsamen Arbeit</p>
+									<p><?php echo __("Describe your collab as detailed as possible. Also name the goals!"); ?></p>
 										<textarea name="desc"></textarea>
 								</div>
 								<!-- Third step -->
-								<h3>Schritt 3: Einstellungen</h3>
+								<h3><?php echo __("Step  3: Settings"); ?></h3>
 								<div>
-									<p>Sobald du dein Collab veröffentlicht hast, kannst du weitere Einstellungen in der <i>Verwaltung</i> machen.</p>
+									<p><?php echo __("Having pubished your collab, you can do more settings in the <em>Administration</em>"); ?></p>
 								</div>
-								<button type="submit" class="button blue">Collab starten</button>
+								<button type="submit" class="button blue"><?php echo __("Start this collab"); ?></button>
 							</form>
 						</div>
 					</div>

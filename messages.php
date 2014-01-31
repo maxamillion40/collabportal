@@ -12,7 +12,7 @@
 ?>
 <html>
 	<head>
-		<title>Posteingang  &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Inbox"); ?>  &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -41,13 +41,13 @@
 			<div class="container" id="content">
 				<article class="box">
 					<div class="box-head">
-						<h3>Posteingang</h3><span class='box-header-button'><a href='#new'><button class="button blue">+ Neue Nachricht</button></a></span>
+						<h3><?php echo __("Inbox"); ?></h3><span class='box-header-button'><a href='#new'><button class="button blue">+ <?php echo __("New message"); ?></button></a></span>
 					</div>
 					<div class="box-content">
 						<div class="inner">
 							<?php
 								if(count($messages) > 0)	{
-									echo "<p><label><input type='checkbox' id='select-all' /> Alle auswählen</label></p>";
+									echo "<p><label><input type='checkbox' id='select-all' /> " . __("Select all") . "</label></p>";
 									echo "<hr />";
 									echo "<form action='action.php?msgdo' method='post'>";
 									echo "<table id='msg-table'>";
@@ -66,10 +66,10 @@
 												echo "<td>" . $m -> sender -> name . "</td>";
 												echo "<td>" . $m -> regard . "</td>";
 												if(!$m -> read)	{
-													echo "<td>Ungelesen</td>";
+													echo "<td>" . __("Unread") . "</td>";
 												}
 												else	{
-													echo "<td>Gelesen</td>";
+													echo "<td>" . __("Read") . "</td>";
 												}
 											echo "</tr>";
 										}
@@ -80,16 +80,16 @@
 											echo "<td>" . $m -> sender -> name . "</td>";
 											echo "<td>" . $m -> regard . "</td>";
 											if(!$m -> read)	{
-												echo "<td>Ungelesen</td>";
+												echo "<td>" . __("Unread") . "</td>";
 											}
 											else	{
-												echo "<td>Gelesen</td>";
+												echo "<td>" . __("Read") . "</td>";
 											}
 										echo "</tr>";
 										}
 									}
 									echo "</table>";
-									echo "<hr /><p>Ausgewählte Nachrichten <select name='do-what'><option>Löschen</option><option>Als gelesen markieren</option></select><button type='submit'>Los!</button></p>";
+									echo "<hr /><p>" . __("Selected messages") . ": <select name='do-what'><option>" . __("Delete") . "</option><option>" . __("Mark as read") . "</option></select><button type='submit'>" . __("Go") . "!</button></p>";
 									echo "</form>";
 								}
 							?>
@@ -98,15 +98,15 @@
 				</article>
 				<article class="box" id="new">
 					<div class="box-head">
-						<h4>Neue Nachricht</h4>
+						<h4><?php echo __("New message"); ?></h4>
 					</div>
 					<div class="box-content">
 						<div class="inner">
 							<form action="action.php?sendmessage" method="post">
-								<input type="text" name="sendto" placeholder="Empfänger" required onBlur="javascript: divide_sendto();" value="<?php if(isset($_GET["to"])) { echo $_GET["to"] . ";"; } ?>" />
-								<input type="text" name="regard" placeholder="Betreff" value="<?php if(isset($_GET["regard"])) { echo $_GET["regard"]; } ?>" />
+								<input type="text" name="sendto" placeholder="<?php echo __("Recipient"); ?>" required onBlur="javascript: divide_sendto();" value="<?php if(isset($_GET["to"])) { echo $_GET["to"] . ";"; } ?>" />
+								<input type="text" name="regard" placeholder="<?php echo __("Regard"); ?>" value="<?php if(isset($_GET["regard"])) { echo $_GET["regard"]; } ?>" />
 								<textarea name="msg"></textarea>
-								<input type="submit" value="Senden" class="button grey" />
+								<input type="submit" value="<?php echo __("Send"); ?>" class="button grey" />
 							</form>
 						</div>
 					</div>

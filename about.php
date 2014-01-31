@@ -37,20 +37,20 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<h4>Geschichte</h4>
+									<h4><?php echo __("History"); ?></h4>
 										<p>ScratchCollabs wurde am 03.02.2013 von webdesigner97 ins Leben gerufen, um das deutsche Scratchforum zu entlasten und die Verwaltung von Collabs zu vereinfachen. 
 										Es ist seit dem 08.08.2013 im Zuge der Umrüstung auf das aktuelle Design von Scratch eine Zusammenarbeit von <b>webdesigner97</b> und <b>Lirex</b> (<a href="team.php"><b>das Team</b></a>). 
 										Bei Fragen kannst du in der <a href='help.php'>Hilfe</a> nachschauen oder dich gerne <a href="contact.php" >hier</a> an das Team wenden.</p>
-									<h4>Ziele</h4>
+									<h4><?php echo __("Goals"); ?></h4>
 										<p>ScratchCollabs soll das Verwalten von Collabs vereinfachen. Durch Funktionen wie das Zulassen und Kicken von Mitgliedern sowie der Geheimhaltung ist es einfach, Projekte in Ruhe zu Entwickeln.</p>
-									<h4>Zukünftige Pläne</h4>
+									<h4><?php echo __("Future plans"); ?></h4>
 										<table id="planned">
 											<tr>
-												<th>Priorität</th>
-												<th>Funktion</th>
-												<th>Zuständiger</th>
-												<th>Status</th>
-												<th>Geplante Fertigstellung</th>
+												<th><?php echo __("Priority"); ?></th>
+												<th><?php echo __("Functions");; ?></th>
+												<th><?php echo __("Assignee"); ?></th>
+												<th><?php echo __("Status"); ?></th>
+												<th><?php echo __("Completion"); ?></th>
 											</tr>
 											<tr>
 												<td>-</td>
@@ -88,7 +88,7 @@
 												<td>Unbekannt</td>
 											</tr>
 											<tr>
-												<td colspan="5">Zögere nicht, Vorschläge für neue Funktionen <a href="./" >hier</a> einzureichen.</td>
+												<td colspan="5"><?php echo __("Feel free to suggest new features:"); ?> <a href="./" ><?php echo __("Official forum topic"); ?></a></td>
 											</tr>
 											<tr>
 												<td colspan="5">Release spätestens am: xx.xx.2014</td>

@@ -1,16 +1,13 @@
 ﻿<!DOCTYPE html>
 <?php
-	require_once("includes/func.php");
-	mysql_auto_connect();
-	$featured = mysql_get("SELECT * FROM featured_collab");
-	mysql_close();
-	if(is_loggedin())	{
+	require_once("includes/loader.php");
+	if($_USER -> is_online())	{
 		header("Location: index.php");
 	}
 ?>
 <html>
 	<head>
-		<title>Registrieren &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Sign up"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -36,22 +33,24 @@
 			<div class="container" id="content">
 				<article class="box">
 					<div class="box-head">
-						<h4>Registrieren</h4>
+						<h4><?php echo __("Sign up"); ?></h4>
 					</div>
 					<div class="box-content">
 						<div class="inner">
 							<p>
-								Die Registrierung im CollabPortal ist zu 100% kostenlos und wir geben deine Daten nicht weiter. Bitte beachte, dass dies kein offizielles Projekt des Scratch Teams ist.
-								Merke dir dein Passwort gut, wenn es einmal gesetzt wurde, können wir es dir nicht mehr mitteilen, denn es wird verschlüsselt gespeichert!
+								<?php 
+									echo __("Registration on Scratchcolabs is free and we won't tell anyone your private data. Please note that this is not an official project of the ScratchTeam.");
+									echo __("Make sure not to forget your password! Once you set it, we won't be able to tell it to you!");
+								?>
 							</p>
 							<form action="action.php?signup" method="post">
-								<input value="<?php if(isset($_GET["name"])) {echo $_GET["name"];} ?>" type="text" name="name" placeholder="Gewünschter Nutzername" required autocomplete="off" title="Mit welchem Namen möchtest du dich hier anmelden und mit anderen Scratchern schreiben?" autofocus tabindex="1" />
-								<input value="<?php if(isset($_GET["email"])) {echo $_GET["email"];} ?>" type="email" name="email" placeholder="Deine Email Adresse" required autocomplete="off" title="Deine Email Adresse brauchen wir nur, um Mehrfachanmeldungen zu verhindern." tabindex="2" />
-								<input value="<?php if(isset($_GET["scratch"])) {echo $_GET["scratch"];} ?>" type="text" name="scratch" placeholder="Dein Scratch Account" required autocomplete="off" title="Wie lautet dein Nutzername auf Scratch?" tabindex="3" />
-								<input type="password" name="pass" placeholder="Passwort"  required autocomplete="off" title="Dein Passwort sollte nicht das gleiche sein wie bei Scratch." tabindex="4" />
-								<input type="password" name="pass_check" placeholder="Passwort wiederholen" required autocomplete="off" title="Bitte das Passwort wiederholen." tabindex="5" />
-								<label><input type="checkbox" name="rules" value="accept" required title="Wirklich?" tabindex="6" /> Nutzungsbedingungen gelesen und akzeptiert</label>
-								<input type="submit" class="button grey" value="Registrieren" tabindex="7" />
+								<input value="<?php if(isset($_GET["name"])) {echo $_GET["name"];} ?>" type="text" name="name" placeholder="<?php echo __("Desired username"); ?>" required autocomplete="off" title="Mit welchem Namen möchtest du dich hier anmelden und mit anderen Scratchern schreiben?" autofocus tabindex="1" />
+								<input value="<?php if(isset($_GET["email"])) {echo $_GET["email"];} ?>" type="email" name="email" placeholder="<?php echo __("Your Email address"); ?>" required autocomplete="off" title="Deine Email Adresse brauchen wir nur, um Mehrfachanmeldungen zu verhindern." tabindex="2" />
+								<input value="<?php if(isset($_GET["scratch"])) {echo $_GET["scratch"];} ?>" type="text" name="scratch" placeholder="<?php echo __("Your Scratch account"); ?>" required autocomplete="off" title="Wie lautet dein Nutzername auf Scratch?" tabindex="3" />
+								<input type="password" name="pass" placeholder="<?php echo __("Password"); ?>"  required autocomplete="off" title="<?php echo __("Don't use the same password as on Scratch"); ?>" tabindex="4" />
+								<input type="password" name="pass_check" placeholder="<?php echo __("Confirm password"); ?>" required autocomplete="off" title="<?php echo __("Please confirm your password"); ?>" tabindex="5" />
+								<label><input type="checkbox" name="rules" value="accept" required title="Wirklich?" tabindex="6" /> <?php echo __("Yes, I read the terms of use and accept them"); ?></label>
+								<input type="submit" class="button grey" value="<?php echo __("Sign up"); ?>" tabindex="7" />
 							</form>
 						</div>
 					</div>

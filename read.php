@@ -17,7 +17,7 @@
 ?>
 <html>
 	<head>
-		<title>Persönliche Nachricht &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Private message"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -52,10 +52,10 @@
 								<span class="box-header-button">
 									<?php
 										if($msg -> sender -> name != "System")	{
-											echo "<a href='messages.php?to=" . $msg -> sender -> name."&regard=Re: " . $msg -> regard . "#new'><button class='button blue'>Antworten</button></a>";
+											echo "<a href='messages.php?to=" . $msg -> sender -> name."&regard=Re: " . $msg -> regard . "#new'><button class='button blue'>" . __("Reply") . "</button></a>";
 										}
 									?>
-									<a href="action.php?delete&id=<?php echo $msg -> id; ?>"><button class="button grey">Löschen</button></a>
+									<a href="action.php?delete&id=<?php echo $msg -> id; ?>"><button class="button grey"><?php echo __("Delete"); ?></button></a>
 								</span>
 							</div>
 							<div class="box-content">

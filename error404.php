@@ -1,17 +1,13 @@
 ﻿<!DOCTYPE html>
 <?php
 	header("HTTP/1.1 404 Not Found");
-	session_start();
-	require_once("includes/func.php");
-	mysql_auto_connect();
-	$featured = mysql_get("SELECT * FROM featured_collab");
-	mysql_close();
+	require_once("includes/loader.php");
 	
 	$url = "http://" . $_SERVER["SERVER_NAME"] . "/collabs2";
 ?>
 <html>
 	<head>
-		<title>Verlaufen?  &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Got lost?"); ?>  &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -39,21 +35,21 @@
 			<div class="container" id="content">
 				<article class="box">
 					<div class="box-head">
-						<h4>Route 404 - Falsch abgebogen?</h4>
+						<h4><?php echo __("Route 404 - Took a wrong turn?"); ?></h4>
 					</div>
 					<div class="box-content" id="box-404">
 						<div class="inner">
-							<p class="centered">Wir haben unser Bestes gegeben, aber diese Seite konnten wir einfach nicht finden...</p>
-							<p class="centered">Hast du dich vielleicht vertippt oder hast du einen sehr alten Link benutzt?</p>
+							<p class="centered"><?php echo __("We did our best, but this oage doesn't seem to exist"); ?></p>
+							<p class="centered"><?php echo __("Maybe you used a veeeeery old link?"); ?></p>
 							<div id="box404">
 								<div class="blocks scratchblocks2-container">
 									<div class="script">
 										<div class="cwrap control cap">
-											<div class="stack control cstart">Falls <div class="boolean operators"><div class="boolean obsolete">Seite nicht gefunden</div> und <div class="boolean operators">nicht <div class="boolean sensing">vertippt</div></div></div></div>
+											<div class="stack control cstart"><?php echo __("If"); ?> <div class="boolean operators"><div class="boolean obsolete"><?php echo __("Page not found"); ?></div> <?php echo __("and"); ?> <div class="boolean operators"><?php echo __("not"); ?> <div class="boolean sensing"><?php echo __("mistyped"); ?></div></div></div></div>
 											<div class="cmouth">
-												<div class="stack motion" style="cursor:pointer;" onClick="history.back();">Gehe zur vorherigen Seite</div></a><div class="comment attached"><div>Klick mich</div></div>
-												<div class="stack motion" style="cursor:pointer;" onClick="navigate('<?php echo $url; ?>/index.php');">Gehe zur Startseite</div>
-												<div class="stack motion" style="cursor:pointer;" onClick="navigate('http://scratch.mit.edu');">Scratch on!</div>
+												<div class="stack motion" style="cursor:pointer;" onClick="history.back();"><?php echo __("Back to last page"); ?></div></a><div class="comment attached"><div><?php echo __("Click me"); ?></div></div>
+												<div class="stack motion" style="cursor:pointer;" onClick="navigate('<?php echo $url; ?>/index.php');"><?php echo __("Back to homepage"); ?></div>
+												<div class="stack motion" style="cursor:pointer;" onClick="navigate('http://scratch.mit.edu');"><?php echo __("Scratch on!"); ?></div>
 											</div>
 											<div class="stack cend control"></div>
 										</div>

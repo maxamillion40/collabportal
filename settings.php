@@ -7,7 +7,7 @@
 ?>
 <html>
 	<head>
-		<title>Profileinstellungen &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("Account settings"); ?> &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -37,15 +37,15 @@
 					<!-- Liste -->	
 						<article class="box ">
 							<div class="box-head">
-								<h3>Profileinstellungen</h3>
+								<h3><?php echo __("Account settings"); ?></h3>
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<h3>Sprache</h3>
+									<h3><?php echo __("Language"); ?></h3>
 									<form action="action.php?setlang" method="post">
-										<p>Sprache.</p>
+										<p><?php echo __("Change the language of all static texts"); ?></p>
 										<p>
-											Selected language:
+											<?php echo __("Selected language:"); ?>
 											<select name="language">
 												<?php
 													foreach($_LOCALE as $langcode => $langdata)	{
@@ -60,23 +60,23 @@
 												?>
 											</select>
 										</p>
-										<button class="button blue">Speichern</button>
+										<button class="button blue"><?php echo __("Save changes"); ?></button>
 									</form>
 									<!-- # -->
-									<h3>E-Mailadresse</h3>
+									<h3><?php echo __("E-Mail address"); ?></h3>
 									<form action="action.php?setmail" method="post">
-										<p>Hier kannst du deine E-Mailadresse ändern, falls sie sich geändert haben sollte.</p>
-										<p>E-Mailadresse: <input style="display: inline;" type="email" name="mail" value="<?php echo $_USER -> mail; ?>" /></p>
-										<button class="button blue">Speichern</button>
+										<p><?php echo __("Here you can change your E-Mail address"); ?></p>
+										<p><?php echo __("E-Mail address"); ?>: <input style="display: inline;" type="email" name="mail" value="<?php echo $_USER -> mail; ?>" /></p>
+										<button class="button blue"><?php echo __("Save changes"); ?></button>
 									</form>
 									<!-- # -->
-									<h3>Passwort</h3>
+									<h3><?php echo __("Password"); ?></h3>
 									<form action="action.php?setpass" method="post">
-										<p>Zu deiner eigenen Sicherheit solltest du dein Passwort regelmäßig ändern. Bitte denke daran, dass du nicht das gleiche Passwort wie auf scratch.mit.edu verwenden solltest.</p>
-										<input type="password" name="old" placeholder="Altes Passwort" required />
-										<input type="password" name="new" placeholder="Neues Passwort" required />
-										<input type="password" name="new-2" placeholder="Passwort bestätigen" required />
-										<button class="button blue">Speichern</button>
+										<p><?php echo __("For your own safety, you should change your password frequently. Please don't use the same password as on Scratch"); ?></p>
+										<input type="password" name="old" placeholder="<?php echo __("Old password"); ?>" required />
+										<input type="password" name="new" placeholder="<?php echo __("New password"); ?>" required />
+										<input type="password" name="new-2" placeholder="<?php echo __("Confirm new password"); ?>" required />
+										<button class="button blue"><?php echo __("Save changes"); ?></button>
 									</form>
 								</div>
 							</div>
