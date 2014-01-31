@@ -15,3 +15,5 @@ Disallow: /messages.php
 Disallow: /mystuff.php
 Disallow: /new.php
 Disallow: /read.php
+Disallow: /admin.php
+Disallow: /settings.php
