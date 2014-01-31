@@ -1,19 +1,15 @@
 ﻿<!DOCTYPE html>
 <?php
-	session_start();
-	set_include_path($_SERVER["DOCUMENT_ROOT"]);
-	require_once("includes/func.php");
-	mysql_auto_connect();
-	$class = mysql_get("SELECT `class` FROM `users` WHERE `name`='".$_SESSION["user"]."'");
-	if($class[0]["class"] != "Moderator" and $class[0]["class"] != "Administrator")	{
+	require_once("../includes/loader.php");
+	if($_USER -> class == "user" or $_USER -> class == "banned")	{
 		header("HTTP/1.1 403");
 		header("Location: ../error403.php?error=noaccess");
 		exit;
 	}
 	//
-	$news = mysql_get("SELECT `id` FROM `news` ORDER BY `date` DESC");
-	$questions = mysql_get("SELECT `id` FROM `faq` WHERE `answer`='unbeantwortet'");
-	$users = mysql_get("SELECT `id` FROM `users`");
+	$news = $_MYSQL -> get("SELECT `id` FROM `news` ORDER BY `date` DESC");
+	$questions = $_MYSQL -> get("SELECT `id` FROM `faq` WHERE `answer`='unbeantwortet'");
+	$users = $_MYSQL -> get("SELECT `id` FROM `users`");
 ?>
 <html>
 	<head>
@@ -50,7 +46,7 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<p>Dein Rang: <?php echo $class[0]["class"]; ?></p>
+									<p>Dein Rang: <?php echo $_USER -> class; ?></p>
 									<p><a href="news.php">Ankündigungen</a>: <?php echo count($news); ?>/3</p>
 									<p><a href="faq.php">Fragen</a>: <?php echo count($questions); ?></p>
 									<p><a href="users.php">Benutzer</a>: <?php echo count($users); ?></p>

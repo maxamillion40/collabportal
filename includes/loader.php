@@ -1,7 +1,19 @@
 ﻿<?php
 	header("Content-type: text/html;charset=UTF-8");
 	session_start();
-	set_include_path("./includes");
+		
+	if(is_dir($_SERVER["DOCUMENT_ROOT"] . "/collabs2"))	{
+		set_include_path($_SERVER["DOCUMENT_ROOT"] . "/collabs2");
+		$_HOME = $_SERVER["DOCUMENT_ROOT"] . "/collabs2";
+	}
+	elseif(is_dir($_SERVER["DOCUMENT_ROOT"] . "/collabportal"))	{
+		set_include_path($_SERVER["DOCUMENT_ROOT"] . "/collabportal");
+		$_HOME = $_SERVER["DOCUMENT_ROOT"] . "/collabportal";
+	}
+	else	{
+		set_include_path($_SERVER["DOCUMENT_ROOT"]);
+		$_HOME = $_SERVER["DOCUMENT_ROOT"];
+	}
 
 	require_once("locale.php");
 	require_once("db.php");

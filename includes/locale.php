@@ -1,11 +1,11 @@
 ﻿<?php
 	$_LOCALE = array();
-	$files = scandir("locale");
+	$files = scandir($_HOME . "/locale");
 	unset($files[0]);
 	unset($files[1]);
 	
 	foreach($files as $l)	{
-		$filedata = parse_ini_file("locale/" . $l, true);
+		$filedata = parse_ini_file($_HOME . "/locale/" . $l, true);
 		$_LOCALE[$filedata["meta"]["langcode"]] = $filedata["translations"];
 	}
 	
