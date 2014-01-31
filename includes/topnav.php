@@ -6,6 +6,7 @@
 		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`='".$_USER -> name ."' AND `read`='0'"));
 	}
 ?>
+<div id="navfix"></div>
 <header>
 	<div class="container">
 		<!-- Logo -->
@@ -35,6 +36,8 @@
 				}
 				
                     require_once("includes/notices.php");
+				
+				echo "<ul id='rightnav'>";
 					
 				if($_USER -> is_online())	{
 			?>
@@ -47,11 +50,11 @@
 					}
 			?>
 					</li>
-					<li id='welcome'><a><?php echo __("Welcome") . ", " . $_SESSION["user"] ?></a></li>
+					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"] ?></a></li>
 					<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a></li>
                             <ul id='menulink'>
                                 <li><a href='mystuff.php'><?php echo __("My Collabs"); ?></a></li><br/>
-                                <li><a href='about.php'><?php echo __("About Scratchcollabs"); ?></a></li><br/>
+                                <li><a href='about.php'><?php echo __("About ScratchCollabs"); ?></a></li><br/>
 								<li><a href='help.php'><?php echo __("Help"); ?></a></li><br/>
 								<li><a href='settings.php'><?php echo __("Settings"); ?></a></li><br/>
 								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'><?php echo __("Logout"); ?></span></a></li>
@@ -60,9 +63,9 @@
 				}
 				else	{
 			?>
-					<li id="asc"><a href="about.php"><?php echo __("What is Scratchcollabs?"); ?></a></li>
+					<li id="asc"><a href="about.php"><?php echo __("What is ScratchCollabs?"); ?></a></li>
 					<li id="join">
-							<a onclick='loginbox();'><?php echo __("Join us"); ?>!</a>
+							<a onclick='loginbox();'><?php echo __("Join"); ?>!</a>
 							<div id="login" style="display: none;">
 								<div id="arrow"></div>
 								<div id="form">
@@ -78,6 +81,6 @@
 			<?php
 				}
 			?>
-		</ul>
+		</ul></ul>
 	</div>
 </header>
