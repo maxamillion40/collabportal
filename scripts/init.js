@@ -2,8 +2,8 @@
 	if(typeof(scratchblocks2) !== "undefined")	{
 		scratchblocks2.parse("pre.blocks");
 	}
-	$("input[type=submit], button").click(function()	{
-		$(this).attr("disabled","disabled");
+	$("form").submit(function()	{
+		$(this).find("input[type=submit], button[type=submit]").attr("disabled", "disabled");
 	});
 });
 
