@@ -4,7 +4,7 @@
 	$msg = $_POST["msg"];
 	$pic = $_POST["pic"];
 	$time = new time();
-	$_MYSQL -> set("INSERT INTO `news`(?,?,?,?) VALUES('icon_$pic.png','$time','$headline','$msg')", array(
+	$_MYSQL -> set("INSERT INTO `news`(pic,date,headline,msg) VALUES(?,?,?,?)", array(
 		"icon_$pic.png",
 		$time -> stamp,
 		$headline,
