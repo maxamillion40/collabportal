@@ -45,6 +45,15 @@
 			$mail,
 			$scratch
 		));
+		//Welcome!
+		$msg = new message;
+		$msg -> sender = new user("System");
+		$msg -> to = new user($username);
+		$msg -> date = new time;
+		$msg -> regard = "Welcome at ScratchCollabs";
+		$msg -> msg = file_get_contents("includes/welcome.html");
+		$msg -> send();
+		//
 		header("Location: index.php?result=signup&name=$username");
 	}
 ?>

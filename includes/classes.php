@@ -77,7 +77,9 @@
 			$name = new user($name);
 			if($rank == "member")	{
 				$this -> members["people"][] = $name;
-				unset($this -> members["candidates"][$name]);
+				if(isset($this -> members["candidates"][$name]))	{
+					unset($this -> members["candidates"][$name]);
+				}
 
 				$arr = array(
 					"founder" => $this -> members["founder"],

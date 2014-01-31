@@ -104,7 +104,7 @@
 										<?php
 											if(count($collab -> members["candidates"]) > 0)	{
 												foreach($collab -> members["candidates"] as $candidate)	{
-													echo "<li>".$candidate -> name ."<span class='li-right'><a class='green' href='action.php?accept&who=" . $candidate -> name ."&id=".$_GET["id"]."'>" . __("Accept") . "</a> <a href='messages.php?to=". $candidate -> name ."#new'>" . __("Message") . "</a> <a class='red' href='action.php?kick=" . $candidate . "&id=$id'>" . __("Refuse") . "</a></span></li>";
+													echo "<li>" . $candidate -> name . "<span class='li-right'><a class='green' href='action.php?accept&who=" . $candidate -> name . "&id=" . $_GET["id"] . "'>" . __("Accept") . "</a> <a href='messages.php?to=". $candidate -> name ."#new'>" . __("Message") . "</a> <a class='red' href='action.php?kick=" . $candidate -> name . "&id=$id'>" . __("Refuse") . "</a></span></li>";
 												}
 											}
 											else	{
