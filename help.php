@@ -1,11 +1,7 @@
 ﻿<!DOCTYPE html>
 <?php
-	session_start();
-	require_once("includes/func.php");
-	
-	mysql_auto_connect();
-	$questions	= mysql_get("SELECT * FROM faq WHERE `answer`!='unbeantwortet' ORDER BY `id` ASC");
-	mysql_close();
+	require_once("includes/loader.php");
+	$questions	= $_MYSQL -> get("SELECT * FROM faq WHERE `answer`!='unbeantwortet' ORDER BY `id` ASC");
 ?>
 <html>
 	<head>
@@ -67,7 +63,7 @@
 										echo "<p>".$question["answer"]."</p></div>";
 									}
 									echo "<h4>Frage stellen</h4>";
-									if(is_loggedin()) {
+									if($_USER -> is_online()) {
 										echo "<form id='nq' action='action.php?newquestion' method='post'>";
 										echo "<input type='text' name='question' placeholder='Frage (Maximal 255 Zeichen)' title='Frage stellen' required maxlength='255' tabindex='1' />";
 										echo "<input type='submit' class='button blue' value='Absenden' tabindex='3' />";
