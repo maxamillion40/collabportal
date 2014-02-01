@@ -450,7 +450,7 @@ iframe	{
 	right: 12px;
 	border-radius: 7px;
 	font-family: "Segoe UI Bold",sans-serif;
-	font-weight: 900;
+	font-weight: normal;
 	overflow: hidden;
 	animation: msgc 5s infinite linear;
 }
