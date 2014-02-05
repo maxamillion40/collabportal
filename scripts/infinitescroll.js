@@ -50,8 +50,15 @@ function loadposts(startID, method)	{
 			}
 		},
 		error: function(jqXHR, textStatus, errorThrown)	{
-			$("#livechat").html("Fehler beim Laden der Nachrichten: " + errorThrown + "<br /> Bitte lade die Seite neu (F5)");
-			loading = false;
+			if(errorThrown == "Forbidden")	{
+				$("#loading").html("Only members can see the chat");
+				loading = false;
+				reachedEnd = true;
+			}
+			else	{
+				$("#loading").html("Fehler beim Laden der Nachrichten: " + errorThrown + "<br /> Bitte lade die Seite neu (F5)");
+				loading = false;
+			}
 		}
 	});
 }

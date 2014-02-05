@@ -80,11 +80,22 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
+									<?php
+										if($collab -> status != "closed")	{
+									?>
 									<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
 										<textarea name="msg"></textarea><br />
 										<button type="submit"><?php echo __("Send"); ?></button>
 										<!-- <span id="countdown-wrapper"><span id="chat-countdown"></span></span> -->
 									</form>
+									<?php
+										}
+										else	{
+									?>
+									<p><?php echo __("Chat is in read-only mode"); ?></p>
+									<?php
+										}
+									?>
 								<div id="livechat">
 									
 								</div>
