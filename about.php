@@ -1,6 +1,13 @@
 ﻿<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
+	//Load Github Issues
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, "https://api.github.com/repos/webdesigner97/collabportal/issues");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]);
+	$githubISSUES = json_decode(curl_exec($ch));
 ?>
 <html>
 	<head>
@@ -44,56 +51,45 @@
 									<h4><?php echo __("Goals"); ?></h4>
 										<p>ScratchCollabs soll das Verwalten von Collabs vereinfachen. Durch Funktionen wie das Zulassen und Kicken von Mitgliedern sowie der Geheimhaltung ist es einfach, Projekte in Ruhe zu Entwickeln.</p>
 									<h4><?php echo __("Future plans"); ?></h4>
+										<?php
+											if(count($githubISSUES) > 0)	{
+										?>
 										<table id="planned">
 											<tr>
-												<th><?php echo __("Priority"); ?></th>
+												<th><?php echo __("ID"); ?></th>
 												<th><?php echo __("Functions");; ?></th>
 												<th><?php echo __("Assignee"); ?></th>
 												<th><?php echo __("Status"); ?></th>
-												<th><?php echo __("Completion"); ?></th>
+											</tr>
+											<?php
+												foreach($githubISSUES as $issue)	{
+											?>
+												<tr>
+													<td>#<?php echo $issue -> number; ?></td>
+													<td><a href="<?php echo $issue -> html_url ?>" target="_blank"><?php echo $issue -> title; ?></a></td>
+													<td><?php
+														if(isset($issue -> assignee -> login))	{
+														 echo $issue -> assignee -> login;
+														}
+														else	{
+															echo "---";
+														}
+													?></td>
+													<td><?php echo $issue -> state; ?></td>
+												</tr>
+											<?php
+												}
+											?>
+											<tr>
+												<td colspan="4"><?php echo __("Feel free to suggest new features:"); ?> <a href="./" ><?php echo __("Official forum topic"); ?></a></td>
 											</tr>
 											<tr>
-												<td>-</td>
-												<td>"Über" und Hilfeseiten ausbauen</td>
-												<td>Lirex</td>
-												<td>In Arbeit</td>
-												<td>Demnächst</td>
-											</tr>
-											<tr>
-												<td>-</td>
-												<td>Passwortoptionen (E-Mail) und Profileinstellungen</td>
-												<td>webdesigner97</td>
-												<td>abgeschlossen</td>
-												<td>FERTIG!</td>
-											</tr>
-											<tr>
-												<td>-</td>
-												<td>Showroom</td>
-												<td>-</td>
-												<td>ausstehend</td>
-												<td>Demnächst</td>
-											</tr>
-											<tr>
-												<td>!</td>
-												<td>Englische Version</td>
-												<td>webdesigner97</td>
-												<td>in Arbeit</td>
-												<td>Unbekannt</td>
-											</tr>
-											<tr>
-												<td>?</td>
-												<td>Mobile Version</td>
-												<td>-</td>
-												<td>Realisierung fragwürdig</td>
-												<td>Unbekannt</td>
-											</tr>
-											<tr>
-												<td colspan="5"><?php echo __("Feel free to suggest new features:"); ?> <a href="./" ><?php echo __("Official forum topic"); ?></a></td>
-											</tr>
-											<tr>
-												<td colspan="5">Release spätestens am: xx.xx.2014</td>
+												<td colspan="4">Release spätestens am: xx.xx.2014</td>
 											</tr>
 										</table>
+										<?php
+											}
+										?>
 								</div>
 							</div>
 						</article>
