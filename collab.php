@@ -32,7 +32,6 @@
 		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/cp.css" />
 		<link rel="stylesheet" href="styles/collab.css" />
-		<link rel="stylesheet" href="styles/jquery-ui-1.10.3.custom.min.css" />
 		<link rel="stylesheet" href="styles/scratchblocks2.css" />
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" />
@@ -47,7 +46,6 @@
 		<script src="scripts/init.js"></script>
 		<script src="scripts/infinitescroll.js"></script>
 		<script src="scripts/autoupdate.js"></script>
-		<script src="scripts/sbpopup.js"></script>
 	</head>
 	<body>
 		<div id="dialogbox">&nbsp;</div>
