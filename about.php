@@ -52,7 +52,7 @@
 										<p>ScratchCollabs soll das Verwalten von Collabs vereinfachen. Durch Funktionen wie das Zulassen und Kicken von Mitgliedern sowie der Geheimhaltung ist es einfach, Projekte in Ruhe zu Entwickeln.</p>
 									<h4><?php echo __("Future plans"); ?></h4>
 										<?php
-											if(count($githubISSUES) > 0)	{
+											if(count($githubISSUES) > 0 && !isset($githubISSUES -> message))	{
 										?>
 										<table id="planned">
 											<tr>
@@ -87,6 +87,11 @@
 												<td colspan="4">Release spätestens am: xx.xx.2014</td>
 											</tr>
 										</table>
+										<?php
+											}
+											else	{
+										?>
+										<p><?php echo __("Currently not available. Please try again later."); ?></p>
 										<?php
 											}
 										?>
