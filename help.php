@@ -62,11 +62,11 @@
 										echo "<div id='".$question["id"]."'><a href='help.php#".$question["id"]."' onclick=\"lscrollup()\"><h4>".$question["question"]."</h4></a>";
 										echo "<p>".$question["answer"]."</p></div>";
 									}
-									echo "<h4>" . __("Ask a question"); . "</h4>";
+									echo "<h4>" . __("Ask a question") . "</h4>";
 									if($_USER -> is_online()) {
 										echo "<form id='nq' action='action.php?newquestion' method='post'>";
-										echo "<input type='text' name='question' placeholder='" . __("Question (max 255 chars)") . "' title='" . __("Ask a question"); . "' required maxlength='255' tabindex='1' />";
-										echo "<input type='submit' class='button blue' value='" . __("Send"); . "' tabindex='3' />";
+										echo "<input type='text' name='question' placeholder='" . __("Question (max 255 chars)") . "' title='" . __("Ask a question") . "' required maxlength='255' tabindex='1' />";
+										echo "<input type='submit' class='button blue' value='" . __("Send") . "' tabindex='3' />";
 										echo "</form>";
 									}
 									else {
