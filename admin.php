@@ -69,7 +69,7 @@
 											</tr>
 											<tr id="row-new-members">
 												<td><input type="checkbox" id="check-new-members" name="check-new-members" <?php
-													if(gettype($collab -> settings["new_members"]) == true)	{
+													if($collab -> settings["new_members"] == true)	{
 														echo "checked='checked' ";
 													}
 												?> /></td>
