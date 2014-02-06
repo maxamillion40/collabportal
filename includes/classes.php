@@ -1,4 +1,4 @@
-﻿<?php
+﻿<?php 
 	class time	{
 		var $stamp;
 		public function __construct($int = null)	{
