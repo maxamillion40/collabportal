@@ -5,6 +5,7 @@
 	$members_max = false;
 	$confirm_join = false;
 	$new_members = false;
+	$lang = "en_US";
 	//
 	if(isset($_POST["check-max-members"]) and $_POST["check-max-members"] == "on")	{
 		$members_max = intval($_POST["input-max-members"]);
@@ -21,11 +22,13 @@
 	if(isset($_POST["check-new-members"]) and $_POST["check-new-members"] == "on")	{
 		$new_members = true;
 	}
+	$lang = $_POST["select-language"];
 	//
 	$settings = array();
 	$settings["members_max"] = $members_max;
 	$settings["confirm_join"] = $confirm_join;
 	$settings["new_members"] = $new_members;
+	$settings["language"] = $lang;
 	$settings = serialize($settings);
 	$_MYSQL -> set("UPDATE `collabs` SET `settings` = ? WHERE `id` = ?", array($settings, $id));
 	header("Location: admin.php?id=$id&result=settingsok");

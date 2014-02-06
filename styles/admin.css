@@ -49,10 +49,6 @@ table tr:hover	{
 #enter-url	{
 	display: none;
 }
-/*
-input[type=file]	{
-	height: 30px;
-	width: 110px;
-	box-shadow: none;
-	display: inline;
-}*/
+table tr td select, table tr td input[type=text]	{
+	margin-top: 10px;
+}

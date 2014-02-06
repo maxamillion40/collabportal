@@ -77,6 +77,26 @@
 												<td>&nbsp;</td>
 												<td><?php echo __("When this is activated, your collab will be marked as \"searching for new members\""); ?></td>
 											</tr>
+											<tr id="row-language">
+												<td>&nbsp;</td>
+												<td><?php echo __("Language"); ?></td>
+												<td>
+													<select name="select-language">
+														<?php
+															foreach($_LOCALE as $langcode => $langdata)	{
+																if($collab -> settings["language"] == $langcode)	{
+																	$class = " selected";
+																}
+																else	{
+																	$class = "";
+																}
+																echo "<option" . $class . ">" . $langcode . "</option>";
+															}
+														?>
+													</select>
+												</td>
+												<td><?php echo __("Select a preferred language for the communication in your collab"); ?></td>
+											</tr>
 										</table>
 										<button type="submit"><?php echo __("Save changes"); ?></button>
 									</form>
