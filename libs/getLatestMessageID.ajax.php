@@ -7,6 +7,6 @@
 	$_MYSQL = new mysqlConn;
 	
 	//Get latests ID
-	$id = $_MYSQL -> get("SELECT MAX(id) FROM collabmessages");
+	$id = $_MYSQL -> get("SELECT internalID FROM collabmessages WHERE collab=? ORDER BY internalID DESC LIMIT 1", array($_GET["cid"]));
 	echo $id[0][0];
 ?>

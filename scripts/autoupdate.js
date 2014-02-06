@@ -1,8 +1,13 @@
 ﻿function countMessages()	{
 	var elem = $("#livechat div.msg").attr("class");
-	elem = elem.split(" ")[1];
-	elem = Number(elem.match(/\d/g).join(""));
-	return elem;
+	if(elem)	{
+		elem = elem.split(" ")[1];
+		elem = Number(elem.match(/\d/g).join(""));
+		return elem;
+	}
+	else	{
+		return 0;
+	}
 }
 
 function getMessagesOnServer()	{

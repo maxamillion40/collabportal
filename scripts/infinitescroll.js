@@ -4,7 +4,7 @@ var reachedEnd = false;
 
 // Get latest message ID
 $.ajax({
-	url: "libs/getLatestMessageID.ajax.php",
+	url: "libs/getLatestMessageID.ajax.php?cid=" + $(document).getUrlParam("id"),
 	dataType: "text",
 	type: "GET",
 	success: function(data)	{
@@ -13,7 +13,7 @@ $.ajax({
 });
 
 $(document).ready(function()	{
-	//Load first 10 posts
+	//Load first 25 posts
 	loadposts(lastID, "initial");
 	//Load more on click
 	$("button#loadMore").click(function()	{
