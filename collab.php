@@ -110,6 +110,22 @@
 						</article>
 					</div>
 					<div class="col-5">
+						<?php
+							if($collab -> settings["new_members"] == true)	{
+						?>
+						<article class="box box-emphasis">
+							<div class="box-header">
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Members wanted"); ?></h4>	
+							</div>
+							<div class="box-content">
+								<div class="inner">
+									<p><?php echo __("Good news! This collab is looking for new participants!"); ?></p>
+								</div>
+							</div>
+						</article>
+						<?php
+							}
+						?>
 						<article class="box">
 							<div class="box-header">
 								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
@@ -146,6 +162,10 @@
 											<tr>
 												<td><?php echo __("Founder"); ?>:</td>
 												<td><?php echo $collab -> owner -> name; ?></td>
+											</tr>
+											<tr>
+												<td><?php echo __("Language"); ?>:</td>
+												<td><?php echo $collab -> settings["language"]; ?></td>
 											</tr>
 											<tr>
 												<td><?php echo __("Status"); ?>:</td>

@@ -489,3 +489,7 @@ pre .scratchblocks2-container	{
 input[type=file]	{
 	display: inline;
 }
+article.box.box-emphasis	{
+	background-color: #FCC062;
+	border-color: #FCC062;
+}
