@@ -16,7 +16,7 @@
 		}
 		move_uploaded_file($logo["tmp_name"], "logos/".$id.".png");
 		$_MYSQL -> set("UPDATE `collabs` SET `logo`=? WHERE id=?", array(
-			$id . "png",
+			$id . ".png",
 			$id
 		));
 	}
