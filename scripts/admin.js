@@ -23,6 +23,15 @@
 		$("#row-confirm-join").css("color","#9F9F9F");
 		$("#row-confirm-join").addClass("static-bg");
 	}
+	//
+	if($("#check-new-members").is(":checked"))	{
+		$("#row-new-members").css("color","#322F31");
+		$("#row-new-members").removeClass("static-bg");
+	}
+	else	{
+		$("#row-new-members").css("color","#9F9F9F");
+		$("#row-new-members").addClass("static-bg");
+	}
 	
 	//
 	// Handler for click on a setting
@@ -53,6 +62,19 @@
 			$("#row-confirm-join").addClass("static-bg");
 		}
 	});
+	//
+	$("#check-new-members").click(function()	{
+		if($("#check-new-members").is(":checked"))	{
+			$("#row-new-members").css("color","#322F31");
+			$("#row-new-members").removeClass("static-bg");
+		}
+		else	{
+			$("#row-new-members").css("color","#9F9F9F");
+			$("#row-new-members").addClass("static-bg");
+		}
+	});
+	
+	
 	// Collab beenden
 	$("#success").click(function()	{
 		var state = $("#success").prop("checked");

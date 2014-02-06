@@ -67,6 +67,16 @@
 												<td>&nbsp;</td>
 												<td><?php echo __("New members need to be confirmed by you, before they can actively contribute."); ?></td>
 											</tr>
+											<tr id="row-new-members">
+												<td><input type="checkbox" id="check-new-members" name="check-new-members" <?php
+													if(gettype($collab -> settings["new_members"]) == true)	{
+														echo "checked='checked' ";
+													}
+												?> /></td>
+												<td><?php echo __("New members wanted"); ?></td>
+												<td>&nbsp;</td>
+												<td><?php echo __("When this is activated, your collab will be marked as \"searching for new members\""); ?></td>
+											</tr>
 										</table>
 										<button type="submit"><?php echo __("Save changes"); ?></button>
 									</form>
