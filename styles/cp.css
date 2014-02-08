@@ -116,7 +116,8 @@ header ul li	{
 	box-shadow: 0 0 3px #a62f00;
 }
 .message-inner {
-	padding: 5px 10px;
+	margin: 1px 0;
+	padding: 4px 10px;
 }
 .orange .message-inner {
 	border-top: 1px #f9bb6b solid;
