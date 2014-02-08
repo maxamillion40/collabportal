@@ -81,7 +81,7 @@
 												}
 											?>
 											<tr>
-												<td colspan="4"><?php echo __("Feel free to suggest new features:"); ?> <a href="./" ><?php echo __("Official forum topic"); ?></a></td>
+												<td colspan="4"><?php echo __("Feel free to suggest new features"); ?> <a href="./" ><?php echo __("Official forum topic"); ?></a></td>
 											</tr>
 											<tr>
 												<td colspan="4">Release spätestens am: xx.xx.2014</td>
