@@ -2,8 +2,15 @@
 <?php
 	require_once("includes/loader.php");
 	if($_USER -> is_online()) {
-		$mycollabs = $_MYSQL -> get("SELECT * FROM collabs WHERE `owner`=? ORDER BY `start` DESC", array($_USER -> name));
-		$collabmember = $_MYSQL -> get("SELECT * FROM collabs ORDER BY `start` DESC");
+		$mycollabs = $_MYSQL -> get("SELECT id FROM collabs WHERE `owner`=? ORDER BY `start` DESC", array($_USER -> name));
+		$collabmember = $_MYSQL -> get("SELECT id FROM collabs ORDER BY `start` DESC");
+		
+		foreach($mycollabs as $key => $mycollab)	{
+			$mycollabs[$key] = new collab($mycollab["id"]);
+		}
+		foreach($collabmember as $key => $collab)	{
+			$collabmember[$key] = new collab($collab["id"]);
+		}
 	}
 	else {
 		die(header("Location: index.php?error=nologin"));
@@ -52,11 +59,11 @@
 											//Collabliste
 											echo "<div id='own'>";
 											foreach($mycollabs as $collab)	{
-												echo "<button class='button grey' onClick=\"navigate('admin.php?id=".$collab["id"]."');\">" . __("Administration") . "</button><li>";
-												echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
+												echo "<button class='button grey' onClick=\"navigate('admin.php?id=".$collab -> id ."');\">" . __("Administration") . "</button><li>";
+												echo "<a href='collab.php?id=" . $collab -> id ."'><img src='logos/" . $collab -> logo . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
 												echo "<table class='stats'>";
-													echo "<tr><th>" . __("Name") . ":</th><td>".$collab["name"]."</td></tr>";
-													echo "<tr><th>" . __("Status") . ":</th><td>".$collab["status"]."</td></tr>";
+													echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
+													echo "<tr><th>" . __("Status") . ":</th><td>" . $collab -> status . "</td></tr>";
 													echo "<tr><th>" . __("Rank") . ":</th><th>" . __("founder") . "</th></tr>";
 												echo "</td></tr></table></li>";
 											}
@@ -70,14 +77,14 @@
 										echo "<div id='member'>";
 											$count = 0;
 											foreach($collabmember as $collab)	{
-												if(in_array($_USER -> name, $collab["mitglieder"]["people"]))	{
-													echo "<button class='button grey' onClick=\"navigate('action.php?leave&red&id=".$collab["id"]."','Willst du wirklich aus dem Collab &bdquo;".$collab["name"]."&ldquo; austreten?')\">Austreten</button><li>";
-													echo "<a href='collab.php?id=".$collab["id"]."'><img src='logos/".$collab["logo"]."' width='144' height='108' class='image' alt='".$collab["name"]."' /></a>";
+												if(in_array($_USER -> name, $collab -> members["people"]))	{
+													echo "<button class='button grey' onClick=\"navigate('action.php?leave&red&id=" . $collab -> id . "','Willst du wirklich aus dem Collab &bdquo;" . $collab -> name . "&ldquo; austreten?')\">Austreten</button><li>";
+													echo "<a href='collab.php?id=" . $collab -> id . "'><img src='logos/" . $collab -> logo . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
 													echo "<table class='stats'>";
-														echo "<tr><th>" . __("Name") . ":</th><td>".$collab["name"]."</td></tr>";
-														echo "<tr><th>" . __("Status") . ":</th><td>".$collab["status"]."</td></tr>";
-														echo "<tr><th>" . __("Rank") . ":</th><td>Mitglied</td></tr>";
-														echo "<tr><th>" . __("Founder") . ":</th><td>".$collab["owner"]."</td></tr>";
+														echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
+														echo "<tr><th>" . __("Status") . ":</th><td>" . $collab -> status . "</td></tr>";
+														echo "<tr><th>" . __("Rank") . ":</th><td>" . __("Member") . "</td></tr>";
+														echo "<tr><th>" . __("Founder") . ":</th><td>" . $collab -> owner -> name . "</td></tr>";
 													echo "</td></tr></table></li>";
 													$count++;
 												}
