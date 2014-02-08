@@ -13,6 +13,21 @@
 	foreach($collabs as $key => $collab)	{
 		$collabs[$key] = new collab($collab["id"]);
 	}
+	
+	//Filter
+	
+	$ncollabs = 0;
+	$acollabs = 0;
+	foreach($collabs as $collab) {
+		if($collab -> settings["new_members"] == true) {
+			$ncollabs++;
+		}
+	}
+	foreach($collabs as $collab) {
+		if($collab -> settings["new_members"] == false) {
+			$acollabs++;
+		}
+	}
 ?>
 <html>
 	<head>
@@ -106,24 +121,49 @@
 				</div>
 			<article class="box" >
 				<div class="box-head">
-					<h3><?php echo __("Active Collabs"); ?> (<?php echo count($collabs); ?>)</h3><span class="box-header-button"><?php
-						if($_USER -> is_online())	{
-							echo '<a href="new.php"><button class="button blue">+ ' . __("New Collab") . '</button></a></span>';
-						}
-					?>
+					<h3><?php echo __("New Collabs"); ?> (<?php echo $ncollabs; ?>)</h3>
 				</div>
 				<div class="box-content slider-carousel">
 					<div class="viewport">
 						<ul style="width: 100%; overflow: hidden; left: 0px;">
 							<?php
-								if(count($collabs) > 0)	{
-									//Create a list of all collabs
+								if($ncollabs > 0)	{
 									foreach($collabs as $collab)	{
+									if($collab -> settings["new_members"] == true) {
 										echo "<li class='project thumb item'>";
 										echo "<a href='collab.php?id=".$collab->id."'><img src='logos/".$collab->logo."' width='144' height='108' class='image' alt='".$collab->name."' /></a>";
 										echo "<span class='title'>".$collab->name."</span>";
 										echo "<span class='owner'>".$collab->owner->name."</span>";
 										echo "</li>";
+									}
+									}
+								}
+								else	{
+									//Sorry, no active collabs
+									echo "<div style='border: 10px #B6B7BA solid; height: 200px; width: 200px; border-radius: 125px;'><img style='margin: 6px 15px;' src='img/cat.png' alt='Cat' width='170' height='179' /></div>";
+								}
+							?>
+						</ul>
+					</div>
+				</div>
+			</article>
+			<article class="box" >
+				<div class="box-head">
+					<h3><?php echo __("Active Collabs"); ?> (<?php echo $acollabs; ?>)</h3>
+				</div>
+				<div class="box-content slider-carousel">
+					<div class="viewport">
+						<ul style="width: 100%; overflow: hidden; left: 0px;">
+							<?php
+								if($acollabs > 0)	{
+									foreach($collabs as $collab)	{
+									if($collab -> settings["new_members"] == false) {
+										echo "<li class='project thumb item'>";
+										echo "<a href='collab.php?id=".$collab->id."'><img src='logos/".$collab->logo."' width='144' height='108' class='image' alt='".$collab->name."' /></a>";
+										echo "<span class='title'>".$collab->name."</span>";
+										echo "<span class='owner'>".$collab->owner->name."</span>";
+										echo "</li>";
+									}
 									}
 								}
 								else	{
