@@ -64,7 +64,7 @@
 												echo "<table class='stats'>";
 													echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
 													echo "<tr><th>" . __("Status") . ":</th><td>" . $collab -> status . "</td></tr>";
-													echo "<tr><th>" . __("Rank") . ":</th><th>" . __("founder") . "</th></tr>";
+													echo "<tr><th>" . __("Rank") . ":</th><th>" . __("Founder") . "</th></tr>";
 												echo "</td></tr></table></li>";
 											}
 											echo "</div>";
