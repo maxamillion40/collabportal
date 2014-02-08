@@ -121,7 +121,7 @@
 				</div>
 			<article class="box" >
 				<div class="box-head">
-					<h3><?php echo __("New Collabs"); ?> (<?php echo $ncollabs; ?>)</h3>
+					<h3><?php echo __("New members wanted"); ?> (<?php echo $ncollabs; ?>)</h3>
 				</div>
 				<div class="box-content slider-carousel">
 					<div class="viewport">
