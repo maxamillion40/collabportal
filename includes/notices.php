@@ -10,7 +10,7 @@
 	resnotice("kickok",				"Mitglied gekickt!");
 	resnotice("sent",				"Nachricht gesendet!");
 	resnotice("settingsok",			"Die Einstellungen wurden aktualisiert!");
-	resnotice("applicationok",		"Dein Beitrittantrag wurde versendet!");
+	resnotice("applicationok",		"Dein Beitrittsantrag wurde versendet!");
 	resnotice("acceptok",			"Mitglied aufgenommen!");
 	resnotice("delok",				"Nachricht gelöscht!");
 	resnotice("qok",				"Frage eingefügt!");
