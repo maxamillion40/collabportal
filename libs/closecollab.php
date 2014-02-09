@@ -11,8 +11,10 @@
 		$success = true;
 		$url = $_POST["url"];
 		$desc = $_POST["desc"];
-		$members = $collab -> founder . "," . implode(",", $collab -> members["people"]);
-		print_array($collab);
+		$members = $collab -> founder;
+		foreach($collab -> members["people"] as $member)	{
+			$members .= ", " . $member -> name;
+		}
 	}
 	//
 	$collab -> close();

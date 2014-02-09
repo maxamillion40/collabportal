@@ -2,10 +2,7 @@
 <?php
 	require_once("includes/loader.php");
 	
-	$featured = $_MYSQL -> get("SELECT * FROM featured_collab ORDER BY id DESC LIMIT 0,1");
-	if(count($featured) == 1)	{
-		$featured = new collab($featured[0]["name"]);
-	}
+	$featured = $_MYSQL -> get("SELECT * FROM featured_collab ORDER BY id DESC LIMIT 1");
 	
 	$news = $_MYSQL -> get("SELECT * FROM news ORDER BY date DESC LIMIT 0,3");
 	
