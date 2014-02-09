@@ -157,7 +157,7 @@
 												echo "<img style='float: right;' src='logos/". $collab -> logo ."' alt='Logo' width='144' height='108' />";
 											}
 										?>
-										<p style="margin-bottom: 30px;"><?php echo __("Logo"); ?>: <input type="hidden" name="MAX_FILE_SIZE" value="100000" /><input type="file" name="logo" /></p>
+										<p style="margin-bottom: 30px;"><?php echo __("Logo"); ?>: <input type="hidden" name="MAX_FILE_SIZE" value="2097152" /><input type="file" name="logo" /></p>
 										<input type="text" name="name" maxlength="50" value="<?php echo $collab -> name; ?>" placeholder="<?php echo __("Name of your Collab"); ?>" />
 										<textarea name="desc"><?php
 											echo $collab -> desc;
