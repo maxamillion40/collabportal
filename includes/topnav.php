@@ -5,6 +5,8 @@
 	if($_USER -> is_online())	{
 		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`='".$_USER -> name ."' AND `read`='0'"));
 	}
+	
+	
 ?>
 <div id="navfix"></div>
 <header>
@@ -18,7 +20,8 @@
 			<li><a href="http://scratch.mit.edu/discuss/13/"><?php echo __("Discuss"); ?></a></li>
 			<li class="addborder"><a href="help.php"><?php echo __("Help"); ?></a></li>
 			<?php
-		        $res = "";
+				//Required for notice/error boxes
+				$res = "";
 				if(isset($_GET["result"]))	{
 					$res = $_GET["result"];
 				}
@@ -34,12 +37,12 @@
 				if(isset($_GET["name"]))	{
 					$name = $_GET["name"];
 				}
-				
-                    require_once("includes/notices.php");
-				
-				echo "<ul id='rightnav'>";
-					
+				require_once("includes/notices.php");
+			?>
+			<ul id='rightnav'>
+			<?php	
 				if($_USER -> is_online())	{
+				//Content loggedin START
 			?>
 			<li id='msg-icon'><a href='messages.php'><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
 			<?php
@@ -50,7 +53,7 @@
 					}
 			?>
 					</li>
-					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"] ?></a></li>
+					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"]; ?></a></li>
 					<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a></li>
                             <ul id='menulink'>
                                 <li><a href='mystuff.php'><?php echo __("My Collabs"); ?></a></li><br/>
@@ -60,8 +63,10 @@
 								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'><?php echo __("Logout"); ?></span></a></li>
                             </ul></div>
 			<?php
+				//Content loggedin END
 				}
 				else	{
+				//Content offline START
 			?>
 					<li id="asc"><a href="about.php"><?php echo __("What is ScratchCollabs?"); ?></a></li>
 					<li id="join">
@@ -79,8 +84,10 @@
 							</div>
 					</li>
 			<?php
+				//Content offline END
 				}
 			?>
-		</ul></ul>
+			</ul>
+		</ul>
 	</div>
 </header>
