@@ -44,7 +44,16 @@
 				if($_USER -> is_online())	{
 				//Content loggedin START
 			?>
-			<li id='msg-icon'><a href='messages.php'><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
+			<div id="msg-menu-a"><li>
+				<li id="msg-icon">
+					<a href='messages.php'><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
+				</li>
+				<ul id="msg-menu-content">
+					<li><a><?php echo __("Inbox"); ?></a></li>
+					<li><a><?php echo __("Outbox"); ?></a></li>
+					<li><a><?php echo __("New"); ?></a></li>
+				</ul>
+			</div>
 			<?php
 					if($unread > 0)	{
 			?>
@@ -54,14 +63,18 @@
 			?>
 					</li>
 					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"]; ?></a></li>
-					<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a></li>
-                            <ul id='menulink'>
-                                <li><a href='mystuff.php'><?php echo __("My Collabs"); ?></a></li><br/>
-                                <li><a href='about.php'><?php echo __("About ScratchCollabs"); ?></a></li><br/>
-								<li><a href='help.php'><?php echo __("Help"); ?></a></li><br/>
-								<li><a href='settings.php'><?php echo __("Settings"); ?></a></li><br/>
-								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'><?php echo __("Logout"); ?></span></a></li>
-                            </ul></div>
+					<div id='amenu'>
+						<li id='bmenu'>
+							<a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a>
+						</li>
+						<ul id='menulink'>
+							<li><a href='mystuff.php'><?php echo __("My Collabs"); ?></a></li><br/>
+							<li><a href='about.php'><?php echo __("About ScratchCollabs"); ?></a></li><br/>
+							<li><a href='help.php'><?php echo __("Help"); ?></a></li><br/>
+							<li><a href='settings.php'><?php echo __("Settings"); ?></a></li><br/>
+							<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'><?php echo __("Logout"); ?></span></a></li>
+						</ul>
+					</div>
 			<?php
 				//Content loggedin END
 				}
