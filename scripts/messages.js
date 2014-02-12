@@ -23,7 +23,7 @@ function divide_sendto()	{
 		if(content.charAt(content.length - 1) != ";")	{
 			content = content + ";";
 		}
-		content = content.toLowerCase();
+		content = content.charAt(0).toUpperCase() + content.slice(1);
 		$("input[name=sendto]").val(content);
 	}
 }
