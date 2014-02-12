@@ -39,63 +39,6 @@
 				?>
 			<!-- Main Content -->	
 			<div class="container" id="content">
-				<article class="box">
-					<div class="box-head">
-						<h3><?php echo __("Inbox"); ?></h3><span class='box-header-button'><a href='#new'><button class="button blue">+ <?php echo __("New message"); ?></button></a></span>
-					</div>
-					<div class="box-content">
-						<div class="inner">
-							<?php
-								if(count($messages) > 0)	{
-									echo "<p><label><input type='checkbox' id='select-all' /> " . __("Select all") . "</label></p>";
-									echo "<hr />";
-									echo "<form action='action.php?msgdo' method='post'>";
-									echo "<table id='msg-table'>";
-									echo "<colgroup>";
-									echo "<col class='check'>";
-									echo "<col class='sendtime' />";
-									echo "<col class='sender' />";
-									echo "<col class='regard' />";
-									echo "<col class='read' />";
-									echo "</colgroup>";
-									foreach($messages as $m)	{
-										if($m -> read)	{
-											echo "<tr id='msg-" . $m -> id . "'>";
-												echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
-												echo "<td class=''>" . $m -> date -> format("d.m.Y H:i") . "</td>";
-												echo "<td>" . $m -> sender -> name . "</td>";
-												echo "<td>" . $m -> regard . "</td>";
-												if(!$m -> read)	{
-													echo "<td>" . __("Unread") . "</td>";
-												}
-												else	{
-													echo "<td>" . __("Read") . "</td>";
-												}
-											echo "</tr>";
-										}
-										else	{
-											echo "<tr id='msg-" . $m -> id . "' class='unread'>";
-											echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
-											echo "<td class=''>" . $m -> date -> format("d.m.Y H:i") . "</td>";
-											echo "<td>" . $m -> sender -> name . "</td>";
-											echo "<td>" . $m -> regard . "</td>";
-											if(!$m -> read)	{
-												echo "<td>" . __("Unread") . "</td>";
-											}
-											else	{
-												echo "<td>" . __("Read") . "</td>";
-											}
-										echo "</tr>";
-										}
-									}
-									echo "</table>";
-									echo "<hr /><p>" . __("Selected messages") . ": <select name='do-what'><option>" . __("Delete") . "</option><option>" . __("Mark as read") . "</option></select><button type='submit'>" . __("Go") . "!</button></p>";
-									echo "</form>";
-								}
-							?>
-						</div>
-					</div>
-				</article>
 				<article class="box" id="new">
 					<div class="box-head">
 						<h4><?php echo __("New message"); ?></h4>

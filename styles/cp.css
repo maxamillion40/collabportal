@@ -196,7 +196,7 @@ header ul li	{
 #menulink li a, #msg-menu-content li a {
 	width: 173px;
 }
-#menulink li:last-child, #menulink li:last-child {
+#menulink li:last-child, #msg-menu-content li:last-child {
 	top: 140px;
 	border-top: 1px #149acb solid;
 }

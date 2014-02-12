@@ -38,6 +38,11 @@
 #msg-body	{
 	padding: 5px;
 }
+#msg-table tr:first-child	{
+	cursor: default;
+	background-color: #e0e0e0;
+	text-align: left;
+}
 article	{
 	min-height: 300px;
 }
