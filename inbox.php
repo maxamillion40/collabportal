@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
 	if(!$_USER -> is_online())	{
@@ -71,7 +71,7 @@
 												echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
 												echo "<td class=''>" . $m -> date -> format("d.m.Y H:i") . "</td>";
 												echo "<td>" . $m -> sender -> name . "</td>";
-												echo "<td>" . $m -> regard . "</td>";
+												echo "<td id='msg-" . $m -> id . "'>" . $m -> regard . "</td>";
 												if(!$m -> read)	{
 													echo "<td>" . __("Unread") . "</td>";
 												}

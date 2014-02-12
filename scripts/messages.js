@@ -1,5 +1,5 @@
-﻿$(document).ready(function()	{
-	$("tr[id^=msg-]").click(function()	{
+$(document).ready(function()	{
+	$("td[id^=msg-]").click(function()	{
 		navigate("read.php?id=" + this.id);
 	});
 	$("input[type=checkbox]").click(function(e)	{

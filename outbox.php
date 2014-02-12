@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
 	if(!$_USER -> is_online())	{
 		header("Location: index.php");
 	}
 	$messages = array();
-	$ids = $_MYSQL -> get("SELECT id FROM messages WHERE `sender`='" . $_USER -> name . "' ORDER BY `read` ASC, `date` DESC");
+	$ids = $_MYSQL -> get("SELECT id FROM messages WHERE `sender`='" . $_USER -> name . "' ORDER BY `date` DESC");
 	foreach($ids as $id)	{
 		$messages[] = new message($id[0]);
 	}
@@ -47,8 +47,6 @@
 						<div class="inner">
 							<?php
 								if(count($messages) > 0)	{
-									echo "<p><label><input type='checkbox' id='select-all' /> " . __("Select all") . "</label></p>";
-									echo "<hr />";
 									echo "<form action='action.php?msgdo' method='post'>";
 									echo "<table id='msg-table'>";
 									echo "<colgroup>";
@@ -66,26 +64,11 @@
 									echo "<th> </th>";
 									echo "</tr>";
 									foreach($messages as $m)	{
-										if($m -> read)	{
-											echo "<tr id='msg-" . $m -> id . "'>";
-												echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
-												echo "<td class=''>" . $m -> date -> format("d.m.Y H:i") . "</td>";
-												echo "<td>" . $m -> sender -> name . "</td>";
-												echo "<td>" . $m -> regard . "</td>";
-												if(!$m -> read)	{
-													echo "<td>" . __("Unread") . "</td>";
-												}
-												else	{
-													echo "<td>" . __("Read") . "</td>";
-												}
-											echo "</tr>";
-										}
-										else	{
-											echo "<tr id='msg-" . $m -> id . "' class='unread'>";
+										echo "<tr id='msg-" . $m -> id . "'>";
 											echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
 											echo "<td class=''>" . $m -> date -> format("d.m.Y H:i") . "</td>";
 											echo "<td>" . $m -> sender -> name . "</td>";
-											echo "<td>" . $m -> regard . "</td>";
+											echo "<td id='msg-" . $m -> id . "'>" . $m -> regard . "</td>";
 											if(!$m -> read)	{
 												echo "<td>" . __("Unread") . "</td>";
 											}
@@ -93,10 +76,8 @@
 												echo "<td>" . __("Read") . "</td>";
 											}
 										echo "</tr>";
-										}
 									}
 									echo "</table>";
-									echo "<hr /><p>" . __("Selected messages") . ": <select name='do-what'><option>" . __("Delete") . "</option><option>" . __("Mark as read") . "</option></select><button type='submit'>" . __("Go") . "!</button></p>";
 									echo "</form>";
 								}
 							?>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	/*
 		Diese Datei stellt die Klasse mysqlConn bereit, die objektorientierten Zugriff auf die Datenbank des CPs ermöglicht.
 		Zum Auslesen der Daten wird mysqlConn::get() benutzt, in allen anderen Fällen mysqlConn::set()
