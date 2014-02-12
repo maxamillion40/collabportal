@@ -185,7 +185,7 @@ header ul li	{
 	-webkit-transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }
 #msg-menu-content	{
-	width: 120px !important;
+	width: 140px !important;
 }
 #menulink li, #msg-menu-content li {
     text-align: left;
@@ -201,7 +201,7 @@ header ul li	{
 	border-top: 1px #149acb solid;
 }
 #msg-menu-a:hover #msg-menu-content	{
-	height: 105px;
+	height: 140px;
 	width: 75px;
 	top: 35px;
 	right: 67px;

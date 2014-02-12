@@ -5,14 +5,14 @@
 		header("Location: index.php");
 	}
 	$messages = array();
-	$ids = $_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` <> 'System' AND `read`='0'", array($_USER -> name));
+	$ids = $_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` = 'System' AND `read`='0'", array($_USER -> name));
 	foreach($ids as $id)	{
 		$messages[] = new message($id[0]);
 	}
 ?>
 <html>
 	<head>
-		<title><?php echo __("Inbox"); ?>  &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("System Messages"); ?>  &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
@@ -41,7 +41,7 @@
 			<div class="container" id="content">
 				<article class="box">
 					<div class="box-head">
-						<h3><?php echo __("Inbox"); ?></h3><span class='box-header-button'><a href='compose.php'><button class="button blue">+ <?php echo __("New message"); ?></button></a></span>
+						<h3><?php echo __("System messages"); ?></h3><span class='box-header-button'><a href='compose.php'><button class="button blue">+ <?php echo __("New message"); ?></button></a></span>
 					</div>
 					<div class="box-content">
 						<div class="inner">

@@ -3,10 +3,9 @@
 	require_once("func.php");
 	$return_to = get_uri();
 	if($_USER -> is_online())	{
-		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`='".$_USER -> name ."' AND `read`='0'"));
+		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` <> 'System' AND `read`='0'", array($_USER -> name)));
+		$sys	= count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` = 'System' AND `read`='0'", array($_USER -> name)));
 	}
-	
-	
 ?>
 <div id="navfix"></div>
 <header>
@@ -55,13 +54,18 @@
 						}
 					?></a></li>
 					<li><a href="outbox.php"><?php echo __("Outbox"); ?></a></li>
+					<li><a href="sysinbox.php"><?php echo __("System"); ?><?php
+						if($sys > 0)	{
+							 echo " (" . $sys . ")";
+						}
+					?></a></li>
 					<li><a href="compose.php"><?php echo __("New"); ?></a></li>
 				</ul>
 			</div>
 			<?php
 					if($unread > 0)	{
 			?>
-						<span id='notificationsCount'><?php echo $unread; ?></span>
+						<span id='notificationsCount'><?php echo $unread + $sys; ?></span>
 			<?php
 					}
 			?>
