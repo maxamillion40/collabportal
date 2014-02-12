@@ -39,7 +39,7 @@
 						<div class="inner">
 							<p>
 								<?php 
-									echo __("Registration on Scratchcolabs is free and we won't tell anyone your private data. Please note that this is not an official project of the ScratchTeam.");
+									echo __("Registration on Scratchcolabs is free and we won't tell anyone your private data. Please note that this is not an official project of the Scratch Team.");
 									echo __("Make sure not to forget your password! Once you set it, we won't be able to tell it to you!");
 								?>
 							</p>
