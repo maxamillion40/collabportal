@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$sendto = $_POST["sendto"];
 	$regard = $_POST["regard"];
 	$msg	= $_POST["msg"];

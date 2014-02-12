@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$do = $_POST["do-what"];
 	//
 	if($do == "Löschen")	{
