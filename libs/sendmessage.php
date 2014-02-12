@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$sendto = $_POST["sendto"];
 	$regard = $_POST["regard"];
 	$msg	= $_POST["msg"];
@@ -26,5 +26,5 @@
 			$sentTo[] = $message -> to -> name;
 		}
 	}
-	header("Location: messages.php?result=sent");
+	header("Location: outbox.php?result=sent");
 ?>

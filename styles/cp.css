@@ -170,7 +170,7 @@ header ul li	{
 	border-right: #149acb 1px solid;
 	//box-shadow: 0 0 2px grey;
 }
-#menulink {
+#menulink, #msg-menu-content {
 	position: absolute;
 	overflow: hidden;
 	top: 35px;
@@ -184,18 +184,30 @@ header ul li	{
 	transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 	-webkit-transition: opacity 0.25s, width 0.25s, height 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }
-#menulink li {
+#msg-menu-content	{
+	width: 140px !important;
+}
+#menulink li, #msg-menu-content li {
     text-align: left;
     width: 173px;
     height: 35px;
     border-left: none;
 }
-#menulink li a {
+#menulink li a, #msg-menu-content li a {
 	width: 173px;
 }
-#menulink li:last-child {
+#menulink li:last-child, #msg-menu-content li:last-child {
 	top: 140px;
 	border-top: 1px #149acb solid;
+}
+#msg-menu-a:hover #msg-menu-content	{
+	height: 140px;
+	width: 75px;
+	top: 35px;
+	right: 67px;
+	box-shadow: 0 2px 2px grey;
+    border-radius: 0 0 10px 10px;
+	opacity: 1;
 }
 #amenu:hover #menulink {
 	height: 175px;
@@ -448,7 +460,7 @@ iframe	{
 	display: block;
 	position: absolute;
 	top: 4px;
-	right: 12px;
+	right: 80px;
 	border-radius: 7px;
 	font-family: "Segoe UI Bold",sans-serif;
 	font-weight: normal;

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$_LOCALE = array();
 	$files = scandir($_HOME . "/locale");
 	unset($files[0]);

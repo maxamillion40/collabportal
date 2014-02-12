@@ -1,9 +1,10 @@
-﻿<?php
+<?php
 	require_once("loader.php");
 	require_once("func.php");
 	$return_to = get_uri();
 	if($_USER -> is_online())	{
-		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`='".$_USER -> name ."' AND `read`='0'"));
+		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` <> 'System' AND `read`='0'", array($_USER -> name)));
+		$sys	= count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` = 'System' AND `read`='0'", array($_USER -> name)));
 	}
 ?>
 <div id="navfix"></div>
@@ -18,7 +19,8 @@
 			<li><a href="http://scratch.mit.edu/discuss/13/"><?php echo __("Discuss"); ?></a></li>
 			<li class="addborder"><a href="help.php"><?php echo __("Help"); ?></a></li>
 			<?php
-		        $res = "";
+				//Required for notice/error boxes
+				$res = "";
 				if(isset($_GET["result"]))	{
 					$res = $_GET["result"];
 				}
@@ -34,34 +36,58 @@
 				if(isset($_GET["name"]))	{
 					$name = $_GET["name"];
 				}
-				
-                    require_once("includes/notices.php");
-				
-				echo "<ul id='rightnav'>";
-					
-				if($_USER -> is_online())	{
+				require_once("includes/notices.php");
 			?>
-			<li id='msg-icon'><a href='messages.php'><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
+			<ul id='rightnav'>
+			<?php	
+				if($_USER -> is_online())	{
+				//Content loggedin START
+			?>
+			<div id="msg-menu-a"><li>
+				<li id="msg-icon">
+					<a><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
+				</li>
+				<ul id="msg-menu-content">
+					<li><a href="inbox.php"><?php echo __("Inbox"); ?><?php
+						if($unread > 0)	{
+							 echo " (" . $unread . ")";
+						}
+					?></a></li>
+					<li><a href="outbox.php"><?php echo __("Outbox"); ?></a></li>
+					<li><a href="sysinbox.php"><?php echo __("System"); ?><?php
+						if($sys > 0)	{
+							 echo " (" . $sys . ")";
+						}
+					?></a></li>
+					<li><a href="compose.php"><?php echo __("New"); ?></a></li>
+				</ul>
+			</div>
 			<?php
 					if($unread > 0)	{
 			?>
-						<span id='notificationsCount'><?php echo $unread; ?></span>
+						<span id='notificationsCount'><?php echo $unread + $sys; ?></span>
 			<?php
 					}
 			?>
 					</li>
-					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"] ?></a></li>
-					<div id='amenu'><li id='bmenu'><a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a></li>
-                            <ul id='menulink'>
-                                <li><a href='mystuff.php'><?php echo __("My Collabs"); ?></a></li><br/>
-                                <li><a href='about.php'><?php echo __("About ScratchCollabs"); ?></a></li><br/>
-								<li><a href='help.php'><?php echo __("Help"); ?></a></li><br/>
-								<li><a href='settings.php'><?php echo __("Settings"); ?></a></li><br/>
-								<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'><?php echo __("Logout"); ?></span></a></li>
-                            </ul></div>
+					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"]; ?></a></li>
+					<div id='amenu'>
+						<li id='bmenu'>
+							<a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a>
+						</li>
+						<ul id='menulink'>
+							<li><a href='mystuff.php'><?php echo __("My Collabs"); ?></a></li><br/>
+							<li><a href='about.php'><?php echo __("About ScratchCollabs"); ?></a></li><br/>
+							<li><a href='help.php'><?php echo __("Help"); ?></a></li><br/>
+							<li><a href='settings.php'><?php echo __("Settings"); ?></a></li><br/>
+							<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'><?php echo __("Logout"); ?></span></a></li>
+						</ul>
+					</div>
 			<?php
+				//Content loggedin END
 				}
 				else	{
+				//Content offline START
 			?>
 					<li id="asc"><a href="about.php"><?php echo __("What is ScratchCollabs?"); ?></a></li>
 					<li id="join">
@@ -79,8 +105,10 @@
 							</div>
 					</li>
 			<?php
+				//Content offline END
 				}
 			?>
-		</ul></ul>
+			</ul>
+		</ul>
 	</div>
 </header>
