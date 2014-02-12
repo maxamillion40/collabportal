@@ -26,5 +26,5 @@
 			$sentTo[] = $message -> to -> name;
 		}
 	}
-	header("Location: messages.php?result=sent");
+	header("Location: outbox.php?result=sent");
 ?>
