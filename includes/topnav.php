@@ -49,7 +49,7 @@
 					<a><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
 				</li>
 				<ul id="msg-menu-content">
-					<li><a href="inbox.php"><?php echo __("Inbox"); ?></a></li>
+					<li><a href="inbox.php"><?php echo __("Inbox"); ?> (<?php echo $unread; ?>)</a></li>
 					<li><a href="outbox.php"><?php echo __("Outbox"); ?></a></li>
 					<li><a href="compose.php"><?php echo __("New"); ?></a></li>
 				</ul>
