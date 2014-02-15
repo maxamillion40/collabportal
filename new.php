@@ -40,7 +40,7 @@
 						<div class="inner">
 							<form action="action.php?new" method="post">
 								<!-- First step -->
-								<h3><?php echo __("Step 1: Collabname"); ?></h3>
+								<h3><?php echo __("Step 1: Name"); ?></h3>
 								<div>
 									<p><?php echo __("Imagine a unique name for your collab"); ?><p>
 									<input type="text" name="collabname" placeholder="<?php echo __("Collabname"); ?>" required maxlength="40" />
@@ -48,13 +48,13 @@
 								<!-- Second step -->
 								<h3><?php echo __("Step 2: Description"); ?></h3>
 								<div>
-									<p><?php echo __("Describe your collab as detailed as possible. Also name the goals!"); ?></p>
+									<p><?php echo __("Describe your collab as detailed as possible. Also name the goals."); ?></p>
 										<textarea name="desc"></textarea>
 								</div>
 								<!-- Third step -->
 								<h3><?php echo __("Step  3: Settings"); ?></h3>
 								<div>
-									<p><?php echo __("Having pubished your collab, you can do more settings in the <em>Administration</em>"); ?></p>
+									<p><?php echo __("Having published your collab, you can do more settings in the <em>Administration</em>"); ?></p>
 								</div>
 								<button type="submit" class="button blue"><?php echo __("Start this collab"); ?></button>
 							</form>
