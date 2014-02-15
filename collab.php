@@ -115,7 +115,7 @@
 						?>
 						<article class="box box-emphasis">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Members wanted"); ?></h4>	
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Members wanted"); ?></h4>	
 							</div>
 							<div class="box-content">
 								<div class="inner">
@@ -128,7 +128,7 @@
 						?>
 						<article class="box">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/player_flag2.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
 							</div>
 							<div class="box-content">
 								<?php
