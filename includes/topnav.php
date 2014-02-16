@@ -44,6 +44,13 @@
 				//Content loggedin START
 			?>
 			<div id="msg-menu-a"><li>
+			<?php
+					if($unread > 0)	{
+			?>
+						<span id='notificationsCount'><?php echo $unread + $sys; ?></span>
+			<?php
+					}
+			?>
 				<li id="msg-icon">
 					<a><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
 				</li>
@@ -62,13 +69,6 @@
 					<li><a href="compose.php"><?php echo __("New"); ?></a></li>
 				</ul>
 			</div>
-			<?php
-					if($unread > 0)	{
-			?>
-						<span id='notificationsCount'><?php echo $unread + $sys; ?></span>
-			<?php
-					}
-			?>
 					</li>
 					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"]; ?></a></li>
 					<div id='amenu'>

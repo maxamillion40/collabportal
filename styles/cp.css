@@ -466,6 +466,7 @@ iframe	{
 	font-weight: normal;
 	overflow: hidden;
 	animation: msgc 5s infinite linear;
+	z-index: 2;
 }
 .box-header-button {
 	position: absolute;
