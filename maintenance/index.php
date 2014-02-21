@@ -11,7 +11,7 @@
 	$questions = $_MYSQL -> get("SELECT `id` FROM `faq` WHERE `answer`='unbeantwortet'");
 	$users = $_MYSQL -> get("SELECT `id` FROM `users`");
 	//
-	$gitLastCommit = trim(file_get_contents("../.git/ORIG_HEAD"));
+	$gitLastCommit = trim(file_get_contents("../.git/refs/heads/master"));
 	$gitLastEditmsg = trim(file_get_contents("../.git/COMMIT_EDITMSG"));
 ?>
 <html>
