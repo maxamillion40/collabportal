@@ -10,6 +10,9 @@
 	$news = $_MYSQL -> get("SELECT `id` FROM `news` ORDER BY `date` DESC");
 	$questions = $_MYSQL -> get("SELECT `id` FROM `faq` WHERE `answer`='unbeantwortet'");
 	$users = $_MYSQL -> get("SELECT `id` FROM `users`");
+	//
+	$gitLastCommit = trim(file_get_contents("../.git/ORIG_HEAD"));
+	$gitLastEditmsg = trim(file_get_contents("../.git/COMMIT_EDITMSG"));
 ?>
 <html>
 	<head>
@@ -50,6 +53,16 @@
 									<p><a href="news.php">Ankündigungen</a>: <?php echo count($news); ?>/3</p>
 									<p><a href="faq.php">Fragen</a>: <?php echo count($questions); ?></p>
 									<p><a href="users.php">Benutzer</a>: <?php echo count($users); ?></p>
+								</div>
+							</div>
+						</article>
+						<article class="box">
+							<div class="box-head">
+								<h3>Git File status</h3>
+							</div>
+							<div class="box-content">
+								<div class="inner">
+									<p>Latest Commit: <a href="https://github.com/webdesigner97/collabportal/commit/<?php echo $gitLastCommit; ?>" target="_blank"><?php echo $gitLastEditmsg . "@" . $gitLastCommit; ?></a></p>
 								</div>
 							</div>
 						</article>
