@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Feb 2014 um 14:29
+-- Erstellungszeit: 26. Feb 2014 um 09:39
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `collabmessages` (
   `message` text NOT NULL,
   `censored` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
 -- --------------------------------------------------------
 
@@ -54,10 +54,13 @@ CREATE TABLE IF NOT EXISTS `collabs` (
   `status` char(20) NOT NULL DEFAULT 'open',
   `logo` char(100) NOT NULL DEFAULT 'none.png',
   `start` char(50) NOT NULL,
-  `settings` char(255) NOT NULL DEFAULT ' a:4:{s:11:"members_max";b:0;s:12:"confirm_join";b:0;s:11:"new_members";b:1;s:8:"language";s:5:"en_US";}',
   `announcement` char(200) NOT NULL,
   `pid` char(20) NOT NULL,
   `lastInternalID` int(11) NOT NULL DEFAULT '0',
+  `setting_members-max` int(11) NOT NULL DEFAULT '0',
+  `setting_confirm-join` tinyint(1) NOT NULL DEFAULT '0',
+  `setting_new-members` tinyint(1) NOT NULL DEFAULT '1',
+  `setting_language` char(10) NOT NULL DEFAULT 'en_US',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -106,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `to` char(50) NOT NULL,
   `msg` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 -- --------------------------------------------------------
 

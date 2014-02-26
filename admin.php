@@ -49,7 +49,7 @@
 										<table border="1">
 											<tr id="row-max-members">
 												<td><input type="checkbox" id="check-max-members" name="check-max-members" <?php
-													if(gettype($collab -> settings["members_max"]) != "boolean")	{
+													if($collab -> settings["members_max"] != 0)	{
 														echo "checked='checked' ";
 													}
 												?> /></td>

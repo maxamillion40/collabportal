@@ -24,12 +24,12 @@
 	}
 	$lang = $_POST["select-language"];
 	//
-	$settings = array();
-	$settings["members_max"] = $members_max;
-	$settings["confirm_join"] = $confirm_join;
-	$settings["new_members"] = $new_members;
-	$settings["language"] = $lang;
-	$settings = serialize($settings);
-	$_MYSQL -> set("UPDATE `collabs` SET `settings` = ? WHERE `id` = ?", array($settings, $id));
+	$_MYSQL -> set("UPDATE `collabs` SET `setting_members-max` = ?, `setting_confirm-join` = ?, `setting_new-members` = ?, `setting_language` = ? WHERE `id` = ?", array(
+		$members_max,
+		$confirm_join,
+		$new_members,
+		$lang,
+		$id
+	));
 	header("Location: admin.php?id=$id&result=settingsok");
 ?>

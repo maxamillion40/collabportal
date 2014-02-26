@@ -39,7 +39,12 @@
 			$this->owner = new user($this->members["founder"]);
 			$this->desc = $data[0]["desc"];
 			$this->logo = $data[0]["logo"];
-			$this->settings = unserialize($data[0]["settings"]);
+			$this->settings = array(
+				"members_max" => $data[0]["setting_members-max"],
+				"confirm_join" => $data[0]["setting_confirm-join"],
+				"new_members" => $data[0]["setting_new-members"],
+				"language" => $data[0]["setting_language"]
+			);
 			$this->announcement = $data[0]["announcement"];
 			$this->pid = $data[0]["pid"];
 			$this->lastInternalID = $data[0]["lastInternalID"];
