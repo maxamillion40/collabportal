@@ -5,7 +5,7 @@
 		header("Location: index.php");
 	}
 	$messages = array();
-	$ids = $_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` = 'System' AND `read`='0'", array($_USER -> name));
+	$ids = $_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` = 'System'", array($_USER -> name));
 	foreach($ids as $id)	{
 		$messages[] = new message($id[0]);
 	}
@@ -30,6 +30,7 @@
 		<script src="scripts/tinymce/tinymce.min.js"></script>
 		<script src="scripts/init.js"></script>
 		<script src="scripts/messages.js"></script>
+		<script src="scripts/jquery.tablesorter.min.js"></script>
 	</head>
 	<body>
 		<div id="pagewrapper">
@@ -58,6 +59,7 @@
 									echo "<col class='regard' />";
 									echo "<col class='read' />";
 									echo "</colgroup>";
+									echo "<thead>";
 									echo "<tr>";
 									echo "<th> </th>";
 									echo "<th>" . __("Date") . "</th>";
@@ -65,6 +67,8 @@
 									echo "<th>" . __("Regard") . "</th>";
 									echo "<th> </th>";
 									echo "</tr>";
+									echo "</thead>";
+									echo "<tbody>";
 									foreach($messages as $m)	{
 										if($m -> read)	{
 											echo "<tr id='msg-" . $m -> id . "'>";
@@ -95,6 +99,7 @@
 										echo "</tr>";
 										}
 									}
+									echo "</tbody>";
 									echo "</table>";
 									echo "<hr /><p>" . __("Selected messages") . ": <select name='do-what'><option>" . __("Delete") . "</option><option>" . __("Mark as read") . "</option></select><button type='submit'>" . __("Go") . "!</button></p>";
 									echo "</form>";

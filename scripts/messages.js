@@ -14,6 +14,18 @@ $(document).ready(function()	{
 			$("input[type=checkbox]").prop("checked",false);
 		}
 	});
+	//Tablesorter
+	$("#msg-table").tablesorter({
+		sortList: [[1,0]],
+		headers: {
+			0: {
+				sorter: false
+			},
+			4:	{
+				sorter: false
+			}
+		}
+	});
 });
 
 function divide_sendto()	{

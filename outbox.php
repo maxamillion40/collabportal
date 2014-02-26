@@ -30,6 +30,7 @@
 		<script src="scripts/tinymce/tinymce.min.js"></script>
 		<script src="scripts/init.js"></script>
 		<script src="scripts/messages.js"></script>
+		<script src="scripts/jquery.tablesorter.min.js"></script>
 	</head>
 	<body>
 		<div id="pagewrapper">
@@ -56,6 +57,7 @@
 									echo "<col class='regard' />";
 									echo "<col class='read' />";
 									echo "</colgroup>";
+									echo "<thead>";
 									echo "<tr>";
 									echo "<th> </th>";
 									echo "<th>" . __("Date") . "</th>";
@@ -63,6 +65,8 @@
 									echo "<th>" . __("Regard") . "</th>";
 									echo "<th> </th>";
 									echo "</tr>";
+									echo "</thead>";
+									echo "<tbody>";
 									foreach($messages as $m)	{
 										echo "<tr id='msg-" . $m -> id . "'>";
 											echo "<td><input type='checkbox' name='sel[]' value='" . $m -> id . "' /></td>";
@@ -77,6 +81,7 @@
 											}
 										echo "</tr>";
 									}
+									echo "</tbody>";
 									echo "</table>";
 									echo "</form>";
 								}

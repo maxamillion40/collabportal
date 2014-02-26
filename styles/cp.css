@@ -507,3 +507,23 @@ article.box.box-emphasis	{
 	background-color: #FCC062;
 	border-color: #FCC062;
 }
+/* Tablesorter */
+th.header	{
+	background-image: url(../img/bg.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	padding-left: 5px;
+}
+th.headerSortUp { 
+    background-image: url(../img/asc.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+    background-color: #BABABA !important;
+}
+th.headerSortDown { 
+    background-image: url(../img/desc.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+    background-color: #BABABA !important;
+}

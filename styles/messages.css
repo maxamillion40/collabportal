@@ -38,7 +38,7 @@
 #msg-body	{
 	padding: 5px;
 }
-#msg-table tr:first-child	{
+#msg-table thead tr	{
 	cursor: default;
 	background-color: #e0e0e0;
 	text-align: left;

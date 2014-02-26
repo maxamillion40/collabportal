@@ -108,20 +108,3 @@ select[name=pic] option	{
 	font-weight: bold;
 	border-bottom: none;
 }
-th.header	{
-	background-image: url(../img/bg.gif);
-	background-position: center right;
-	background-repeat: no-repeat;
-}
-th.headerSortUp { 
-    background-image: url(../img/asc.gif);
-	background-position: center right;
-	background-repeat: no-repeat;
-    background-color: #BABABA !important;
-}
-th.headerSortDown { 
-    background-image: url(../img/desc.gif);
-	background-position: center right;
-	background-repeat: no-repeat;
-    background-color: #BABABA !important;
-}
