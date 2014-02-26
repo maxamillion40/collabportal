@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	function mysql_auto_connect()	{
 		$db = mysql_connect("localhost","root","");
 		mysql_select_db("scratchcollabs");

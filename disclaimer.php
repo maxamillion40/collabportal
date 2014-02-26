@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Haftungsausschluss &raquo; ScratchCollabs in DACH</title>

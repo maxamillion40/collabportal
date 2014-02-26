@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
 	$collab	= new collab($_GET["id"]);

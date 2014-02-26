@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
 	$questions	= $_MYSQL -> get("SELECT * FROM faq WHERE `answer`!='unbeantwortet' ORDER BY `id` ASC");

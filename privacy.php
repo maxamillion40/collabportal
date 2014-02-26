@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Datenschutzerklärung &raquo; ScratchCollabs in DACH</title>

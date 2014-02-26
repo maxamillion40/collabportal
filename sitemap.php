@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	header("Content-type: application/xml");
 	include("includes/sitemap-data.php");
 ?>
