@@ -39,7 +39,7 @@
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/jquery/jquery.getUrlParam.js"></script>
 		<script src="scripts/tinymce/tinymce.min.js"></script>
-		<script src="scripts/jquery/jquery.tinymce.min.js"></script>
+		<script src="scripts/tinymce/jquery.tinymce.min.js"></script>
 		<script src="scripts/scratchblocks2.js"></script>
 		<script src="scripts/init.js"></script>
 		<script src="scripts/infinitescroll.js"></script>
