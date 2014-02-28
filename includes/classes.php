@@ -172,6 +172,8 @@
 		var $last_ip;
 		var $online;
 		var $language;
+		var $signupDate;
+		var $lastCollab;
 		public function __construct($name)	{
 			global $_MYSQL;
 			if($name != "Systemnachricht")	{
@@ -187,6 +189,8 @@
 					$this->last_ip = $data[0]["last_ip"];
 					$this->online = true;
 					$this->language = $data[0]["language"];
+					$this->signupDate = new time($data[0]["signup"]);
+					$this->lastCollab = new time($data[0]["lastcollab"]);
 				}
 				else	{
 					$this->online = false;

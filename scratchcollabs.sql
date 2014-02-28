@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Feb 2014 um 09:39
+-- Erstellungszeit: 28. Feb 2014 um 12:02
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -142,6 +142,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `class` char(30) NOT NULL DEFAULT 'user',
   `last_login` int(11) NOT NULL,
   `last_ip` char(50) NOT NULL,
+  `signup` int(11) NOT NULL DEFAULT '0',
+  `lastcollab` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 

@@ -59,4 +59,5 @@
 	errnotice("closed",				"Keine Änderung an geschlossenem Collab möglich!");
 	errnotice("toosmall", 			"Diese Zahl ist zu klein!");
 	errnotice("fileupload",			"Fehler beim Upload!");
+	errnotice("nocollabtoday",		"Du kannst nur alle 24 Std. ein Collab starten!");
 ?>

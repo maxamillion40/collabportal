@@ -39,11 +39,12 @@
 			}
 			echo "Mail wieder ok.<br />";
 		//Daten in Datenbank eintragen und abschließen.
-		$_MYSQL -> set("INSERT INTO users(`name`,`pass`,`mail`,`scratch`) VALUES(?,?,?,?)", array(
+		$_MYSQL -> set("INSERT INTO users(`name`,`pass`,`mail`,`scratch`,`signup`) VALUES(?,?,?,?,?)", array(
 			$username,
 			md5($pass),
 			$mail,
-			$scratch
+			$scratch,
+			time()
 		));
 		//Welcome!
 		$msg = new message;
