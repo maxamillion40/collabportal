@@ -2,9 +2,6 @@
 <?php
 	require_once("includes/loader.php");
 	$collab	= new collab($_GET["id"]);
-	if($_USER -> is_online())	{
-		$messages	= $_MYSQL -> get("SELECT * FROM collabmessages WHERE `collab`='".$_GET["id"]."' ORDER BY `timestamp` DESC");
-	}
 	if(empty($collab -> name))	{
 		header("HTTP/1.0 404");
 		header("Location: error404.php?error=nocollab");
@@ -38,8 +35,8 @@
 		<!-- Scripts -->
 		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 		<script src="scripts/jquery/jquery.getUrlParam.js"></script>
-		<script src="scripts/tinymce/jquery.tinymce.min.js"></script>
 		<script src="scripts/tinymce/tinymce.min.js"></script>
+		<script src="scripts/tinymce/jquery.tinymce.min.js"></script>
 		<script src="scripts/scratchblocks2.js"></script>
 		<script src="scripts/init.js"></script>
 		<script src="scripts/infinitescroll.js"></script>

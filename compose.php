@@ -4,15 +4,10 @@
 	if(!$_USER -> is_online())	{
 		header("Location: index.php");
 	}
-	$messages = array();
-	$ids = $_MYSQL -> get("SELECT id FROM messages WHERE `to`='" . $_USER -> name . "' ORDER BY `read` ASC, `date` DESC");
-	foreach($ids as $id)	{
-		$messages[] = new message($id[0]);
-	}
 ?>
 <html>
 	<head>
-		<title><?php echo __("Inbox"); ?>  &raquo; ScratchCollabs in DACH</title>
+		<title><?php echo __("New private message"); ?>  &raquo; ScratchCollabs in DACH</title>
 		<!-- Meta -->
 		<meta charset="utf-8" />
 		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
