@@ -75,6 +75,7 @@
 							</div>
 							<div class="box-content">
 								<div class="inner">
+									<div class="chatbox-form">
 									<?php
 										if($collab -> status != "closed")	{
 									?>
@@ -83,6 +84,7 @@
 										<button type="submit"><?php echo __("Send"); ?></button>
 										<!-- <span id="countdown-wrapper"><span id="chat-countdown"></span></span> -->
 									</form>
+									</div>
 									<?php
 										}
 										else	{

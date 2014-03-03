@@ -21,7 +21,6 @@ function getMessagesOnServer()	{
 			r = Number(data.match(/\d/g).join(""));
 		},
 		error: function(jqXHR, textStatus, errorThrown)	{
-			$("#livechat").html("Fehler beim Laden der Nachrichten: " + errorThrown + "<br /> Bitte lade die Seite neu (F5)");
 			loading = false;
 		}
 	});
@@ -48,7 +47,6 @@ function loadNewMessages(startAt)	{
 			}
 		},
 		error: function(jqXHR, textStatus, errorThrown)	{
-			$("#livechat").html("Fehler beim Laden der Nachrichten: " + errorThrown + "<br /> Bitte lade die Seite neu (F5)");
 			loading = false;
 		}
 	});

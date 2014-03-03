@@ -51,13 +51,10 @@ function loadposts(startID, method)	{
 		},
 		error: function(jqXHR, textStatus, errorThrown)	{
 			if(errorThrown == "Forbidden")	{
-				$("#loading").html("Only members can see the chat");
+				$(".chatbox-form").html("");
+				$("#loading").html("<p>Only members can see the chat.</p>");
 				loading = false;
 				reachedEnd = true;
-			}
-			else	{
-				$("#loading").html("Fehler beim Laden der Nachrichten: " + errorThrown + "<br /> Bitte lade die Seite neu (F5)");
-				loading = false;
 			}
 		}
 	});

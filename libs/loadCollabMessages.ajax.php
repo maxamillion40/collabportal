@@ -1,7 +1,9 @@
 ﻿<?php
 	header("Content-type: text/html;charset='UTF-8'");
 	require_once("../includes/loader.php");
-	if($_USER -> is_online())	{
+	$collab = new collab($_GET["cid"]);
+	
+	if($_USER -> is_online() and ($collab -> member_rank($_USER -> name) == "member" or $collab -> member_rank($_USER -> name) == "founder"))	{
 		// Fake $_MYSQL because including loader.php fails here
 		$_MYSQL = new mysqlConn;
 		
