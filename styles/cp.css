@@ -527,3 +527,40 @@ th.headerSortDown {
 	background-repeat: no-repeat;
     background-color: #BABABA !important;
 }
+
+/* Labels */
+
+span .labels {
+	height: 18px;
+	margin-top: 2px;
+	margin-bottom: 4px;
+}
+.label {
+	z-index: 2;
+	height: 18px;
+	border-radius: 2px;
+	margin-right: 2px;
+	color: #fff;
+	text-shadow: none;
+	padding: 0 2px;
+}
+.n {
+	background: #f9a739;
+	box-shadow: 0 2px 0 #b37829;
+}
+.a  {
+	background: #1a9ed7;
+	box-shadow: 0 2px 0 #1478a3;
+}
+.f  {
+	background: #99cc02;
+	box-shadow: 0 2px 0 #739901;
+}
+.c  {
+	background: #939598;
+	box-shadow: 0 2px 0 #636466;
+}
+.title {
+	white-space: nowrap;
+	overflow: hidden;
+}
