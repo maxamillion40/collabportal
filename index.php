@@ -129,7 +129,7 @@
 									if($collab -> settings["new_members"] == true) {
 										echo "<li class='project thumb item'>";
 										echo "<a href='collab.php?id=".$collab->id."'><img src='logos/".$collab->logo."' width='144' height='108' class='image' alt='".$collab->name."' /></a>";
-										echo "<span class='title'>".$collab->name."</span>";
+										echo "<span class='title'><span class='label n'>N</span><span class='label a'>A</span>".$collab->name."</span>";
 										echo "<span class='owner'>".$collab->owner->name."</span>";
 										echo "</li>";
 									}
@@ -154,13 +154,16 @@
 							<?php
 								if($acollabs > 0)	{
 									foreach($collabs as $collab)	{
-									if($collab -> settings["new_members"] == false) {
 										echo "<li class='project thumb item'>";
 										echo "<a href='collab.php?id=".$collab->id."'><img src='logos/".$collab->logo."' width='144' height='108' class='image' alt='".$collab->name."' /></a>";
+										echo "<span class='labels' style='height: 18px;'>";
+										if($collab -> settings["new_members"] == true) {
+											echo "<span class='label n'>N</span>";
+										}
+										echo "<span class='label a'>A</span><span class='label c'>C</span><span class='label f'>F</span></span>";
 										echo "<span class='title'>".$collab->name."</span>";
 										echo "<span class='owner'>".$collab->owner->name."</span>";
 										echo "</li>";
-									}
 									}
 								}
 								else	{
