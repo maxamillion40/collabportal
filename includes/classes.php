@@ -308,4 +308,14 @@
 			}
 		}
 	}
+	class page	{
+		public function requires_rank($which, $redirectOnInsufficient)	{
+			global $_USER;
+			if(is_int($which) && is_string($redirectOnInsufficient))	{
+				if($_USER -> class < $which)	{
+					header("Location: $redirectOnInsufficient?error=insufficientrank");
+				}
+			}
+		}
+	}
 ?>

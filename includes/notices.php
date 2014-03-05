@@ -60,4 +60,5 @@
 	errnotice("toosmall", 			"Diese Zahl ist zu klein!");
 	errnotice("fileupload",			"Fehler beim Upload!");
 	errnotice("nocollabtoday",		"Du kannst nur alle 24 Std. ein Collab starten!");
+	errnotice("insufficientrank",	"Fehlende Berechtigung zum Aufrufen dieser Seite!")
 ?>

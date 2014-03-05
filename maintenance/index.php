@@ -1,11 +1,7 @@
 ﻿<!DOCTYPE html>
 <?php
 	require_once("../includes/loader.php");
-	if($_USER -> class == "user" or $_USER -> class == "banned")	{
-		header("HTTP/1.1 403");
-		header("Location: ../error403.php?error=noaccess");
-		exit;
-	}
+	$_PAGE -> requires_rank(CP_USER_MODERATOR, "../index.php");
 	//
 	$news = $_MYSQL -> get("SELECT `id` FROM `news` ORDER BY `date` DESC");
 	$questions = $_MYSQL -> get("SELECT `id` FROM `faq` WHERE `answer`='unbeantwortet'");

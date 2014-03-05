@@ -73,7 +73,7 @@
 													echo "<td>".date("d.m.Y H:i",$u["last_login"])."</td>";
 													echo "<td>".$u["class"]."</td>";
 													if($u["class"] != "Administrator")	{
-														echo "<td><select><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=User\")'>User</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=Moderator\")'>Moderator</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=Banned\")'>Banned</option></select></td>";
+														echo "<td><select><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=1\")'>User</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=2\")'>Moderator</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=-1\")'>Banned</option></select></td>";
 													}
 													else	{
 														echo "<td>---</td>";

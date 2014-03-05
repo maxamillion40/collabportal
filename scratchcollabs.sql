@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 28. Feb 2014 um 12:02
+-- Erstellungszeit: 05. Mrz 2014 um 19:09
 -- Server Version: 5.5.32
 -- PHP-Version: 5.4.19
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `collabmessages` (
   `message` text NOT NULL,
   `censored` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `collabs` (
   `setting_new-members` tinyint(1) NOT NULL DEFAULT '1',
   `setting_language` char(10) NOT NULL DEFAULT 'en_US',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `to` char(50) NOT NULL,
   `msg` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 -- --------------------------------------------------------
 
@@ -139,13 +139,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pass` char(100) NOT NULL,
   `mail` char(100) NOT NULL,
   `scratch` char(100) NOT NULL,
-  `class` char(30) NOT NULL DEFAULT 'user',
+  `class` tinyint(30) NOT NULL DEFAULT '1',
   `last_login` int(11) NOT NULL,
   `last_ip` char(50) NOT NULL,
   `signup` int(11) NOT NULL DEFAULT '0',
   `lastcollab` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

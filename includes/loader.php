@@ -18,6 +18,7 @@
 	require_once("locale.php");
 	require_once("db.php");
 	require_once("classes.php");
+	require_once("ranks.php");
 	
 	if(isset($_SESSION["user"]))	{
 		$GLOBALS["CP_USER"] = new user($_SESSION["user"]);
@@ -29,6 +30,9 @@
 	
 	$GLOBALS["CP_MYSQL_CONN"] = new mysqlConn;
 	$_MYSQL = &$GLOBALS["CP_MYSQL_CONN"];
+	
+	$GLOBALS["CP_CURRENT_PAGE"] = new page;
+	$_PAGE = &$GLOBALS["CP_CURRENT_PAGE"];
 
 	//mixed set_error_handler(callback $error_handler [, int $error_types = E_ALL | E_STRICT ]);
 ?>
