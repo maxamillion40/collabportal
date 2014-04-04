@@ -17,6 +17,7 @@
 
 	require_once("locale.php");
 	require_once("db.php");
+	require_once("constants.php");
 	require_once("classes.php");
 	require_once("ranks.php");
 	

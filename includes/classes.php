@@ -309,12 +309,59 @@
 		}
 	}
 	class page	{
+		var $title;
+		var $description;
+		var $keywords;
+		var $robots;
+	
 		public function requires_rank($which, $redirectOnInsufficient)	{
 			global $_USER;
 			if(is_int($which) && is_string($redirectOnInsufficient))	{
 				if($_USER -> class < $which)	{
 					header("Location: $redirectOnInsufficient?error=insufficientrank");
 				}
+			}
+		}
+		public function setTitle($prefix, $split = NULL)	{
+			if($split == NULL)	{
+				$split = "&raquo;";
+			}
+			$this -> title = $prefix . " " . $split . " " . CP_NAME;
+		}
+		public function setDescription($desc)	{
+			$this -> description = $desc;
+		}
+		public function setKeywords($keys)	{
+			$this -> keywords = $keys;
+		}
+		public function setRobots($commands)	{
+			$this -> robots = $commands;
+		}
+		
+		private function tag($tag)	{
+			return $tag . BR;
+		}
+		public function putHeader()	{
+			global $_HOME;
+			try	{
+				echo $this -> tag("<title>" . $this -> title . "</title>");
+				echo $this -> tag("<!-- Meta -->");
+				echo $this -> tag("<meta charset=\"UTF-8\" />");
+				echo $this -> tag("<meta name=\"description\" content=\"" . $this -> description . "\" />");
+				echo $this -> tag("<meta name=\"keywords\" content=\"" . implode(", ", $this -> keywords) . "\" />");
+				echo $this -> tag("<meta name=\"robots\" content=\"" . implode(", ", $this -> robots) . "\" />");
+				echo $this -> tag("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\" />");
+				echo $this -> tag("<!-- Styles -->");
+				echo $this -> tag("<link rel=\"stylesheet\" href=\"styles/main.css\" />");
+				echo $this -> tag("<link rel=\"stylesheet\" href=\"styles/cp.css\" />");
+				if(file_exists($_HOME . "/styles/" . basename($_SERVER["PHP_SELF"], ".php") . ".css"))	{
+					echo $this -> tag("<link rel=\"stylesheet\" href=\"styles/" . basename($_SERVER["PHP_SELF"], ".php") . ".css\" />");
+				}
+				echo $this -> tag("<!-- Favicon -->");
+				echo $this -> tag("<link rel=\"shortcut icon\" href=\"favicon.ico\" />");
+			}
+			catch(Exception $e)	{
+			
 			}
 		}
 	}
