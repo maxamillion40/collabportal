@@ -31,3 +31,19 @@ Never insert variables directly into the query
 to prevent MySQL injections, but mark the occurence in the query with question marks (?), then pass an array as second param to the function with all variables in it.
 
 $_USER is a user object about the users who started your script.
+
+<head> generation
+-----------------
+Don't create static <head>s on your pages, instead use the $_PAGE object to insert scripts, styles, meta, etc. How it works:
+	- Setting metadata and title
+	$_PAGE -> setTitle("title");
+	$_PAGE -> setDescription("Description");
+	$_PAGE -> setKeywords(array("keyword", "keyword"));
+	$_PAGE -> setRobots(array("command1", "command2"));
+	
+	- Including javascripts
+	$_PAGE -> useScript("scriptname");
+		=> Possible values: jquery, jqueryui, tinymce, getUrlParam, tablesorter, scratchblocks OR custom path (e.g. scripts/myawesomescript.js)
+		
+	- Stylesheets
+	Stylesheets are included automatically: main.css, cp.css and - if available - pagename.css! Custom stylesheets are not allowed!
