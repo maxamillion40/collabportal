@@ -30,15 +30,13 @@
 	$_PAGE -> setDescription("Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten.");
 	$_PAGE -> setKeywords(array("scratch", "collabs"));
 	$_PAGE -> setRobots(array("index", "follow"));
+	$_PAGE -> useScript("jquery");
 ?>
 <html>
 	<head>
 		<?php
 			$_PAGE -> putHeader();
 		?>
-		<!-- Scripts -->
-		<script src="scripts/init.js"></script>
-		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
 	</head>
 	<body>
 		<div id="pagewrapper">

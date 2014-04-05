@@ -313,7 +313,12 @@
 		var $description;
 		var $keywords;
 		var $robots;
-	
+		var $scripts;
+		
+		public function __construct()	{
+			$this -> scripts = array();
+		}
+		
 		public function requires_rank($which, $redirectOnInsufficient)	{
 			global $_USER;
 			if(is_int($which) && is_string($redirectOnInsufficient))	{
@@ -337,12 +342,16 @@
 		public function setRobots($commands)	{
 			$this -> robots = $commands;
 		}
+		public function useScript($name)	{
+			$this -> scripts[] = $name;
+		}
 		
 		private function tag($tag)	{
 			return $tag . BR;
 		}
 		public function putHeader()	{
 			global $_HOME;
+			global $_SCRIPTS;
 			try	{
 				echo $this -> tag("<title>" . $this -> title . "</title>");
 				echo $this -> tag("<!-- Meta -->");
@@ -359,6 +368,21 @@
 				}
 				echo $this -> tag("<!-- Favicon -->");
 				echo $this -> tag("<link rel=\"shortcut icon\" href=\"favicon.ico\" />");
+				echo $this -> tag("<!-- Scripts -->");
+				echo $this -> tag("<script src=\"scripts/init.js\"></script>");
+				foreach($this -> scripts as $script)	{
+					if(isset($_SCRIPTS[$script]))	{
+						foreach($_SCRIPTS[$script]["css"] as $stylesheet)	{
+							echo $this -> tag("<link rel=\"stylesheet\" href=\"" . $stylesheet . "\" />");
+						}
+						foreach($_SCRIPTS[$script]["js"] as $javascript)	{
+							echo $this -> tag("<script src=\"" . $javascript . "\"></script>");
+						}
+					}
+					else	{
+							echo $this -> tag("<script src=\"" . $script . "\"></script>");
+					}
+				}
 			}
 			catch(Exception $e)	{
 			
