@@ -47,3 +47,10 @@ Don't create static <head>s on your pages, instead use the $_PAGE object to inse
 		
 	- Stylesheets
 	Stylesheets are included automatically: main.css, cp.css and - if available - pagename.css! Custom stylesheets are not allowed!
+	
+Having finished preparing the head, insert it to the page:
+	<head>
+		<?php
+			$_PAGE -> putHeader();
+		?>
+	</head>
