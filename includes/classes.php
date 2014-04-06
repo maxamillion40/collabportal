@@ -377,7 +377,6 @@
 				echo $this -> tag("<!-- Favicon -->");
 				echo $this -> tag("<link rel=\"shortcut icon\" href=\"favicon.ico\" />");
 				echo $this -> tag("<!-- Scripts -->");
-				echo $this -> tag("<script src=\"scripts/init.js\"></script>");
 				foreach($this -> scripts as $script)	{
 					if(isset($_SCRIPTS[$script]))	{
 						foreach($_SCRIPTS[$script]["css"] as $stylesheet)	{
@@ -391,6 +390,10 @@
 							echo $this -> tag("<script src=\"" . $script . "\"></script>");
 					}
 				}
+				if(file_exists($_HOME . "/scripts/" . basename($_SERVER["PHP_SELF"], ".php") . ".js"))	{
+					echo $this -> tag("<script src=\"scripts/" . basename($_SERVER["PHP_SELF"], ".php") . ".js\"></script>");
+				}
+				echo $this -> tag("<script src=\"scripts/init.js\"></script>");
 			}
 			catch(Exception $e)	{
 			
