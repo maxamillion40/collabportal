@@ -317,6 +317,12 @@
 		
 		public function __construct()	{
 			$this -> scripts = array();
+			
+			foreach(explode(", ", CP_KEYWORDS) as $k)	{
+				$this -> keywords[] = $k;
+			}
+			
+			$this -> description = CP_DESCRIPTION;
 		}
 		
 		public function requires_rank($which, $redirectOnInsufficient)	{
@@ -329,15 +335,17 @@
 		}
 		public function setTitle($prefix, $split = NULL)	{
 			if($split == NULL)	{
-				$split = "&raquo;";
+				$split = CP_TITLE_SPLITTER;
 			}
 			$this -> title = $prefix . " " . $split . " " . CP_NAME;
 		}
 		public function setDescription($desc)	{
 			$this -> description = $desc;
 		}
-		public function setKeywords($keys)	{
-			$this -> keywords = $keys;
+		public function addKeywords($keys)	{
+			foreach($keys as $key)	{
+				$this -> keywords[] = $key;
+			}
 		}
 		public function setRobots($commands)	{
 			$this -> robots = $commands;

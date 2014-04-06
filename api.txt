@@ -36,10 +36,10 @@ $_USER is a user object about the users who started your script.
 -----------------
 Don't create static <head>s on your pages, instead use the $_PAGE object to insert scripts, styles, meta, etc. How it works:
 	- Setting metadata and title
-	$_PAGE -> setTitle("title");
-	$_PAGE -> setDescription("Description");
-	$_PAGE -> setKeywords(array("keyword", "keyword"));
-	$_PAGE -> setRobots(array("command1", "command2"));
+	$_PAGE -> setTitle("title", ["splitter"]);				//sets title tag. Pattern: <title>$pagename $splitter CP_NAME</title>. If splitter is not provided, CP_TITLE_SPLITTER shows up.
+	$_PAGE -> setDescription("Description");				//OPTIONAL! Set custom page description. If not used, CP_DESCRIPTION will show up.
+	$_PAGE -> addKeywords(array("keyword", "keyword"));		//OPTIONAL! Add custom keywords to page. "scratch, collabs" are inserted automatically
+	$_PAGE -> setRobots(array("command1", "command2"));		//Set robot commands, e.g. index/noindex, follow/nofollow
 	
 	- Including javascripts
 	$_PAGE -> useScript("scriptname");

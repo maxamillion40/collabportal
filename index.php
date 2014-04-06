@@ -27,8 +27,6 @@
 	}
 	
 	$_PAGE -> setTitle(__("Home"));
-	$_PAGE -> setDescription("Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten.");
-	$_PAGE -> setKeywords(array("scratch", "collabs"));
 	$_PAGE -> setRobots(array("index", "follow"));
 	$_PAGE -> useScript("jquery");
 ?>
