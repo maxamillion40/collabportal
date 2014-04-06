@@ -9,28 +9,19 @@
 	foreach($ids as $id)	{
 		$messages[] = new message($id[0]);
 	}
+	$_PAGE -> setTitle(__("System messages"));
+	$_PAGE -> setRobots(array("noindex", "nofollow"));
+	$_PAGE -> useScript("jquery");
+	$_PAGE -> useScript("tinymce");
+	$_PAGE -> useScript("tablesorter");
+	$_PAGE -> useScript("scripts/messages.js");
+	$_PAGE -> useStyle("styles/messages.css");
 ?>
 <html>
 	<head>
-		<title><?php echo __("System Messages"); ?>  &raquo; ScratchCollabs in DACH</title>
-		<!-- Meta -->
-		<meta charset="utf-8" />
-		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
-		<meta name="keywords" content="scratch,collabs,dach,deutsch" />
-		<meta name="robots" content="noindex,nofollow" />
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<!-- Stylesheets -->
-		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/cp.css" />
-		<link rel="stylesheet" href="styles/messages.css" />
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="favicon.ico" />
-		<!-- Scripts -->
-		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
-		<script src="scripts/tinymce/tinymce.min.js"></script>
-		<script src="scripts/init.js"></script>
-		<script src="scripts/messages.js"></script>
-		<script src="scripts/jquery.tablesorter.min.js"></script>
+		<?php
+			$_PAGE -> putHeader();
+		?>
 	</head>
 	<body>
 		<div id="pagewrapper">

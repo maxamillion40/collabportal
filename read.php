@@ -14,27 +14,17 @@
 	if(!$msg -> read)	{
 		$_MYSQL -> set("UPDATE `messages` SET `read`='1' WHERE `id`=?", array($msg -> id));
 	}
+	
+	$_PAGE -> setTitle(__("Private message"));
+	$_PAGE -> setRobots(array("noindex", "nofollow"));
+	$_PAGE -> useScript("jquery");
+	$_PAGE -> useScript("scratchblocks");
 ?>
 <html>
 	<head>
-		<title><?php echo __("Private message"); ?> &raquo; ScratchCollabs in DACH</title>
-		<!-- Meta -->
-		<meta charset="utf-8" />
-		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
-		<meta name="keywords" content="scratch,collabs,dach,deutsch" />
-		<meta name="robots" content="noindex,nofollow" />
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<!-- Stylesheets -->
-		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/cp.css" />
-		<link rel="stylesheet" href="styles/messages.css" />
-		<link rel="stylesheet" href="styles/scratchblocks2.css" />
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="favicon.ico" />
-		<!-- Scripts -->
-		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
-		<script src="scripts/scratchblocks2.js"></script>
-		<script src="scripts/init.js"></script>
+		<?php
+			$_PAGE -> putHeader();
+		?>
 	</head>
 	<body>
 		<div id="pagewrapper">

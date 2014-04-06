@@ -6,41 +6,21 @@
 		header("HTTP/1.0 404");
 		header("Location: error404.php?error=nocollab");
 	}
-	$tage	= array();
-		$tage["Monday"] = "Montag";
-		$tage["Tuesday"] = "Dienstag";
-		$tage["Wednesday"] = "Mittwoch";
-		$tage["Thursday"] = "Donnerstag";
-		$tage["Friday"] = "Freitag";
-		$tage["Saturday"] = "Samstag";
-		$tage["Sunday"] = "Sonntag";
-		
+	
+	$_PAGE -> setTitle($collab -> name);
+	$_PAGE -> setRobots(array("noindex", "nofollow"));
+	$_PAGE -> useScript("jquery");
+	$_PAGE -> useScript("tinymce");
+	$_PAGE -> useScript("getUrlParam");
+	$_PAGE -> useScript("scratchblocks");
+	$_PAGE -> useScript("chat");
+	
 ?>
 <html>
 	<head>
-		<title><?php echo $collab -> name; ?> &raquo; ScratchCollabs in DACH</title>
-		<!-- Meta -->
-		<meta charset="utf-8" />
-		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
-		<meta name="keywords" content="scratch,collabs,dach,deutsch" />
-		<meta name="robots" content="noindex,nofollow" />
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<!-- Stylesheets -->
-		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/cp.css" />
-		<link rel="stylesheet" href="styles/collab.css" />
-		<link rel="stylesheet" href="styles/scratchblocks2.css" />
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="favicon.ico" />
-		<!-- Scripts -->
-		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
-		<script src="scripts/jquery/jquery.getUrlParam.js"></script>
-		<script src="scripts/tinymce/tinymce.min.js"></script>
-		<script src="scripts/tinymce/jquery.tinymce.min.js"></script>
-		<script src="scripts/scratchblocks2.js"></script>
-		<script src="scripts/init.js"></script>
-		<script src="scripts/infinitescroll.js"></script>
-		<script src="scripts/autoupdate.js"></script>
+		<?php
+			$_PAGE -> putHeader();
+		?>
 	</head>
 	<body>
 		<div id="dialogbox">&nbsp;</div>

@@ -15,25 +15,16 @@
 	else {
 		die(header("Location: index.php?error=nologin"));
 	}
+	
+	$_PAGE -> setTitle(__("My stuff"));
+	$_PAGE -> setRobots(array("noindex", "nofollow"));
+	$_PAGE -> useScript("jquery");
 ?>
 <html>
 	<head>
-		<title><?php echo __("My stuff"); ?> &raquo; ScratchCollabs in DACH</title>
-		<!-- Meta -->
-		<meta charset="utf-8" />
-		<meta name="description" content="Das CollabPortal ermöglicht es dir, auf einfache Weise Scratch Collabs zu erstellen, zu verwalten und zu veranstalten." />
-		<meta name="keywords" content="scratch,collabs,dach,deutsch" />
-		<meta name="robots" content="noindex,nofollow" />
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<!-- Stylesheets -->
-		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/cp.css" />
-		<link rel="stylesheet" href="styles/mystuff.css" />
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="favicon.ico" />
-		<!-- Scripts -->
-		<script src="scripts/jquery/jquery-1.10.2.min.js"></script>
-		<script src="scripts/init.js"></script>
+		<?php
+			$_PAGE -> putHeader();
+		?>
 	</head>
 	<body>
 		<div id="pagewrapper">

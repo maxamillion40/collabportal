@@ -4,6 +4,10 @@
 	if(!$_USER -> is_online())	{
 		die(header("Location: index.php?error=nologin"));
 	}
+	
+	$_PAGE -> setTitle(__("Account Settings"));
+	$_PAGE -> setRobots(array("noindex", "nofollow"));
+	$_PAGE -> useScript("jquery");
 ?>
 <html>
 	<head>

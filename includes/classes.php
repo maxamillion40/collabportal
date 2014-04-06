@@ -314,6 +314,7 @@
 		var $keywords;
 		var $robots;
 		var $scripts;
+		var $styles;
 		
 		public function __construct()	{
 			$this -> scripts = array();
@@ -353,6 +354,9 @@
 		public function useScript($name)	{
 			$this -> scripts[] = $name;
 		}
+		public function useStyle($name)	{
+			$this -> styles[] = $name;
+		}
 		
 		private function tag($tag)	{
 			return $tag . BR;
@@ -373,6 +377,9 @@
 				echo $this -> tag("<link rel=\"stylesheet\" href=\"styles/cp.css\" />");
 				if(file_exists($_HOME . "/styles/" . basename($_SERVER["PHP_SELF"], ".php") . ".css"))	{
 					echo $this -> tag("<link rel=\"stylesheet\" href=\"styles/" . basename($_SERVER["PHP_SELF"], ".php") . ".css\" />");
+				}
+				foreach($this -> styles as $style)	{
+					echo $this -> tag("<link rel=\"stylesheet\" href=\"" . $style . "\" />");
 				}
 				echo $this -> tag("<!-- Favicon -->");
 				echo $this -> tag("<link rel=\"shortcut icon\" href=\"favicon.ico\" />");

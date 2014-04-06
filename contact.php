@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
+	
+	$_PAGE -> setTitle(__("Contact"));
+	$_PAGE -> setRobots(array("noindex", "nofollow"));
+	$_PAGE -> useScript("jquery");
 ?>
 <html>
 	<head>

@@ -45,8 +45,11 @@ Don't create static <head>s on your pages, instead use the $_PAGE object to inse
 	$_PAGE -> useScript("scriptname");
 		=> Possible values: jquery, jqueryui, tinymce, getUrlParam, tablesorter, scratchblocks OR custom path (e.g. scripts/myawesomescript.js)
 	If pagename.js exists, it's loaded automatically!
+	
 	- Stylesheets
-	Stylesheets are included automatically: main.css, cp.css and - if available - pagename.css! Custom stylesheets are not allowed!
+	Stylesheets are included automatically: main.css, cp.css and - if available - pagename.css!
+	Include custom styles with:
+	$_PAGE -> useStyle("path/file.css");
 	
 Having finished preparing the head, insert it to the page:
 	<head>
