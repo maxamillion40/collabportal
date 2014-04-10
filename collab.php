@@ -10,7 +10,7 @@
 	$_PAGE -> setTitle($collab -> name);
 	$_PAGE -> setRobots(array("noindex", "nofollow"));
 	$_PAGE -> useScript("jquery");
-	$_PAGE -> useScript("tinymce");
+	//$_PAGE -> useScript("tinymce");
 	$_PAGE -> useScript("getUrlParam");
 	$_PAGE -> useScript("scratchblocks");
 	$_PAGE -> useScript("chat");
