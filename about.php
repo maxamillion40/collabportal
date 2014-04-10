@@ -42,7 +42,7 @@
 										Bei Fragen kannst du in der <a href='help.php'>Hilfe</a> nachschauen oder dich gerne <a href="contact.php" >hier</a> an das Team wenden.</p>
 									<h4><?php echo __("Goals"); ?></h4>
 										<p>ScratchCollabs soll das Verwalten von Collabs vereinfachen. Durch Funktionen wie das Zulassen und Kicken von Mitgliedern sowie der Geheimhaltung ist es einfach, Projekte in Ruhe zu Entwickeln.</p>
-									<h4><?php echo __("Future plans"); ?></h4>
+									<h4><?php echo __("Issues and Future plans"); ?></h4>
 										<?php
 											if(count($githubISSUES) > 0 && !isset($githubISSUES -> message))	{
 										?>
