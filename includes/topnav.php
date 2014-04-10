@@ -14,9 +14,9 @@
 		<a href="./" class="logo" id="trans"><span class="scratch"></span></a>
 		<!-- Nav -->
 		<ul class="site-nav">
-			<li><a href="http://scratch.mit.edu/projects/editor/"><?php echo __("Create"); ?></a></li>
-			<li><a href="http://scratch.mit.edu/explore/?date=this_month"><?php echo __("Explore"); ?></a></li>
-			<li><a href="http://scratch.mit.edu/discuss/13/"><?php echo __("Discuss"); ?></a></li>
+			<li><a href="http://scratch.mit.edu"><?php echo "Scratch@MIT"; ?></a></li>
+			<li><a href="./"><?php echo __("Explore Collabs"); ?></a></li>
+			<li><a href="about.php"><?php echo __("About"); ?></a></li>
 			<li class="addborder"><a href="help.php"><?php echo __("Help"); ?></a></li>
 			<?php
 				//Required for notice/error boxes
@@ -77,7 +77,7 @@
 						</li>
 						<ul id='menulink'>
 							<li><a href='mystuff.php'><?php echo __("My Collabs"); ?></a></li><br/>
-							<li><a href='about.php'><?php echo __("About ScratchCollabs"); ?></a></li><br/>
+							<li><a href='new.php'><?php echo __("New Collab"); ?></a></li><br/>
 							<li><a href='help.php'><?php echo __("Help"); ?></a></li><br/>
 							<li><a href='settings.php'><?php echo __("Settings"); ?></a></li><br/>
 							<li id='bye'><a href='action.php?logout'><img id='lbn' src='img/topnav.png' height='35' width='35' /><span id='logout-sign'><?php echo __("Logout"); ?></span></a></li>
@@ -89,7 +89,7 @@
 				else	{
 				//Content offline START
 			?>
-					<li id="asc"><a href="about.php"><?php echo __("What is ScratchCollabs?"); ?></a></li>
+					<!-- <li id="asc"><a href="about.php">//<?php echo __("What is ScratchCollabs?"); ?></a></li> -->
 					<li id="join">
 							<a onclick='loginbox();'><?php echo __("Join"); ?>!</a>
 							<div id="login" style="display: none;">
