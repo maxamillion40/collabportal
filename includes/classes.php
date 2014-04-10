@@ -318,6 +318,7 @@
 		
 		public function __construct()	{
 			$this -> scripts = array();
+			$this -> styles = array();
 			
 			foreach(explode(", ", CP_KEYWORDS) as $k)	{
 				$this -> keywords[] = $k;
