@@ -19,11 +19,7 @@
 		if($collab -> settings["new_members"] == true) {
 			$ncollabs++;
 		}
-	}
-	foreach($collabs as $collab) {
-		if($collab -> settings["new_members"] == false) {
-			$acollabs++;
-		}
+		$acollabs++;
 	}
 	
 	$_PAGE -> setTitle(__("Home"));
