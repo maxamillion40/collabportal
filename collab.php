@@ -40,8 +40,9 @@
 							<div class="box-content" style="min-height: 150px;">
 								<div class="inner">
 									<?php
-										if($collab -> logo != "none.png")	{
-											echo "<img src='logos/".$collab -> logo."' alt='".$collab -> name." - Logo' width='144' height='108' style='float: left; margin: 5px; border: 1px solid #DDDDDD' />";
+										if($collab -> logo != "")	{
+											$imgUrl = "data:image/png;base64," . base64_encode($collab -> logo);
+											echo "<img src='" . $imgUrl . "' alt='".$collab -> name." - Logo' width='144' height='108' style='float: left; margin: 5px; border: 1px solid #DDDDDD' />";
 										}
 										echo "<p>" . $collab -> desc . "</p>";
 									?>

@@ -50,8 +50,14 @@
 											//Collabliste
 											echo "<div id='own'>";
 											foreach($mycollabs as $collab)	{
-												echo "<button class='button grey' onClick=\"navigate('admin.php?id=".$collab -> id ."');\">" . __("Administration") . "</button><li>";
-												echo "<a href='collab.php?id=" . $collab -> id ."'><img src='logos/" . $collab -> logo . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
+												if($collab -> logo != "")	{
+													$imgUrl = "data:image/png;base64," . base64_encode($collab -> logo);
+												}
+												else	{
+													$imgUrl = "img/none.png";
+												}
+												echo "<button class='button grey' onClick=\"navigate('admin.php?id=" . $collab -> id . "');\">" . __("Administration") . "</button><li>";
+												echo "<a href='collab.php?id=" . $collab -> id ."'><img src='" . $imgUrl . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
 												echo "<table class='stats'>";
 													echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
 													echo "<tr><th>" . __("Status") . ":</th><td>" . $collab -> status . "</td></tr>";

@@ -118,8 +118,14 @@
 								if($ncollabs > 0)	{
 									foreach($collabs as $collab)	{
 									if($collab -> settings["new_members"] == true) {
+										if($collab -> logo != "")	{
+											$imgUrl = "data:image/png;base64," . base64_encode($collab -> logo);
+										}
+										else	{
+											$imgUrl = "img/none.png";
+										}
 										echo "<li class='project thumb item'>";
-										echo "<a href='collab.php?id=".$collab->id."'><img src='logos/".$collab->logo."' width='144' height='108' class='image' alt='".$collab->name."' /></a>";
+										echo "<a href='collab.php?id=".$collab->id."'><img src='" . $imgUrl . "' width='144' height='108' class='image' alt='".$collab->name."' /></a>";
 										echo "<span class='title'><span class='label n'>N</span><span class='label a'>A</span>".$collab->name."</span>";
 										echo "<span class='owner'>".$collab->owner->name."</span>";
 										echo "</li>";

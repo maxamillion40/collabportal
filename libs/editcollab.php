@@ -22,9 +22,12 @@
 				die(header("Location: admin.php?id=$id&error=badmime"));
 			}
 			//Move file
-			move_uploaded_file($logo["tmp_name"], "logos/".$id.".png");
+			//move_uploaded_file($logo["tmp_name"], "logos/".$id.".png");
+			$f = fopen($logo["tmp_name"], "rb");
+			$d = fread($f, filesize($logo["tmp_name"]));
+			fclose($f);
 			$_MYSQL -> set("UPDATE `collabs` SET `logo`=? WHERE id=?", array(
-				$id . ".png",
+				$d,
 				$id
 			));
 		}
