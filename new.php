@@ -4,6 +4,9 @@
 	if(!$_USER -> is_online())	{
 		header("Location: index.php?error=nologin");
 	}
+	if(time() - $_USER -> lastCollab -> stamp < 86400)	{
+		die(header("Location: mystuff.php?error=nocollabtoday"));
+	}
 	
 	$_PAGE -> setTitle(__("New Collab"));
 	$_PAGE -> setRobots(array("noindex", "nofollow"));

@@ -60,15 +60,15 @@
 												echo "<a href='collab.php?id=" . $collab -> id ."'><img src='" . $imgUrl . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
 												echo "<table class='stats'>";
 													echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
-													echo "<tr><th>" . __("Status") . ":</th><td>" . $collab -> status . "</td></tr>";
-													echo "<tr><th>" . __("Rank") . ":</th><th>" . __("Founder") . "</th></tr>";
+													echo "<tr><th>" . __("Labels") . ":</th><td>" . $collab -> status . "</td></tr>";
+													echo "<tr><th>" . __("Your Rank") . ":</th><th>" . __("Founder") . "</th></tr>";
 												echo "</td></tr></table></li>";
 											}
 											echo "</div>";
 										}
 										else	{
 											//Keine Collabs
-											echo __("You don't have any own collabs.") . " <a href='new.php'>" . __("Start one") . "</a>!<hr/>";
+											echo __("You haven't opened any collabs yet.") . " <a href='new.php'>" . __("Start one") . "</a>!<hr/>";
 										}
 										echo "<h4>" . __("Member") . "</h4>";
 										echo "<div id='member'>";
@@ -79,15 +79,15 @@
 													echo "<a href='collab.php?id=" . $collab -> id . "'><img src='logos/" . $collab -> logo . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
 													echo "<table class='stats'>";
 														echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
-														echo "<tr><th>" . __("Status") . ":</th><td>" . $collab -> status . "</td></tr>";
-														echo "<tr><th>" . __("Rank") . ":</th><td>" . __("Member") . "</td></tr>";
+														echo "<tr><th>" . __("Labels") . ":</th><td>" . $collab -> status . "</td></tr>";
+														echo "<tr><th>" . __("Your Rank") . ":</th><td>" . __("Member") . "</td></tr>";
 														echo "<tr><th>" . __("Founder") . ":</th><td>" . $collab -> owner -> name . "</td></tr>";
 													echo "</td></tr></table></li>";
 													$count++;
 												}
 											}
 										if($count == 0) {
-											echo __("You didn't join any other collab.") . " <a href='./'>" . __("Join now") . "</a>!<hr/>";
+											echo __("You haven't joined any collab yet.") . " <a href='./'>" . __("Join now") . "</a>!<hr/>";
 										}
 										echo "</div></ul>";
 									?>
