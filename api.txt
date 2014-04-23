@@ -61,3 +61,85 @@ Having finished preparing the head, insert it to the page:
 			$_PAGE -> putHeader();
 		?>
 	</head>
+
+class user definition
+---------------------
+Properties:
+	id (User ID in database)
+	name (Nickname chosen by user during signup)
+	pass (md5, password)
+	mail (E-Mail given during signup)
+	scratch (Scratch user account name)
+	class (user class, see [user classes])
+	last_login (time object of last login, see [class time definition])
+	last_ip (IP of last login)
+	language (language of user, format lang_COUNTRY)
+	signup_date (time object of signup date, see [class time definition])
+	lastcollab (time object of last collab, see [class time definition])
+	
+Methods:
+	boolean is_online()
+	^ Returns true if user is logged in, false if not. DEPRECATED, use [user classes] instead
+	null send_pm(message object)
+	^ Send a message created with a message object, see [class message definition]
+
+class message definition
+------------------------
+Properties:
+	id (Message ID in database)
+	sender (user object of sender)
+	to (user object of recipient)
+	date (time object of sending time)
+	regard (message regard)
+	message (message body)
+	read (true/false if message is opened)
+
+Methods:
+	boolean can_send()
+	^ Returns true if message contains required fields (sender, to, regard, msg), otherwise false
+	null send()
+	^ Saves message to database
+	
+class collabmessage definition
+------------------------------
+Properties:
+	id (Message ID in database)
+	time (time object of send time)
+	sender (user object of who sended the message)
+	collab (Collab ID to which the message belongs)
+	msg (message body)
+	censored (true/false if message censored by collab admin)
+	internalID (Message ID in collab)
+
+Methods:
+	none
+
+class page definition
+---------------------
+Properties:
+	title (Page title prefix)
+	description (Page description)
+	keywords (array of additional keywords)
+	robots (array of robots commands)
+	scripts (array of javascript paths)
+	styles (array of stylesheet paths)
+
+Methods:
+	null requires_rank(int $which, string $redirectOnInsufficient)
+	^ $which: See [user classes]
+	^ $redirectOn...: Where the user should be redirected if his rank is insufficient.
+	null setTitle($prefix, [$split])
+	^ $prefix: <title> prefix
+	^ $split: optional, used to split prefix an CP_NAME, Default: CP_TITLE_SPLITTER
+	null setDescription($desc)
+	^ Set page description to $desc
+	null addKeywords(array $keys)
+	^ Add additional keywords to standard keyword set
+	null setRobots(array $commands)
+	^ Set robot commands for current page.
+	null useScript(string $script)
+	^ Include a JavaScript library (see [Script definitions]) or a custom script path
+	null useStyle(string $style)
+	^ Include a custom stylesheet path
+	null putHeader()
+	^ Put <head> of page into sourcecode, doesn't include <head> tags.
