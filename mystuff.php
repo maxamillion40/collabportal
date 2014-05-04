@@ -81,7 +81,7 @@
 													else	{
 														$imgUrl = "img/none.png";
 													}
-													echo "<button class='button grey' onClick=\"navigate('action.php?leave&red&id=" . $collab -> id . "','Willst du wirklich aus dem Collab &bdquo;" . $collab -> name . "&ldquo; austreten?')\">Austreten</button><li>";
+													echo "<button class='button grey' onClick=\"navigate('action.php?leave&red&id=" . $collab -> id . "','Willst du wirklich aus dem Collab &bdquo;" . $collab -> name . "&ldquo; austreten?')\">" . __("Leave") . "</button><li>";
 													echo "<a href='collab.php?id=" . $collab -> id . "'><img src='" . $imgUrl . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
 													echo "<table class='stats'>";
 														echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
