@@ -143,8 +143,8 @@
 								<div class="inner">
 									<form action="action.php?editcollab&id=<?php echo $collab -> id; ?>" method="post" enctype="multipart/form-data">
 										<?php
-											if($collab -> logo != "none.png")	{
-												echo "<img style='float: right;' src='logos/". $collab -> logo ."' alt='Logo' width='144' height='108' />";
+											if($collab -> logo != "")	{
+												echo "<img style='float: right;' src='" . "data:image/png;base64," . base64_encode($collab -> logo) . "' alt='Logo' width='144' height='108' />";
 											}
 										?>
 										<p style="margin-bottom: 30px;"><?php echo __("Logo"); ?>: <input type="hidden" name="MAX_FILE_SIZE" value="2097152" /><input type="file" name="logo" /></p>
