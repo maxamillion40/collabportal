@@ -1,4 +1,5 @@
 #ScratchHub translation file for language en_US (english)
+#NEVER EVER CHANGE THE LINE ABOVE! IT IS REQUIRED!
 
 msgid "Send"
 msgstr "Send"	
