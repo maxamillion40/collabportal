@@ -44,7 +44,7 @@
 													}
 												?> /></td>
 												<td><?php echo __("Maximum number of members"); ?></td>
-												<td><input type="number" min="1" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab -> settings["members_max"]; ?>" /></td>
+												<td><input type="number" min="<?php echo count($collab -> members["people"]) + 1; ?>" id="input-max-members" placeholder="Zahl" name="input-max-members" value="<?php echo $collab -> settings["members_max"]; ?>" /></td>
 												<td><?php echo __("When this number is reached (including the founder), the Join-Button won't appear anymore so no other Scratcher can join."); ?></td>
 											</tr>
 											<tr id="row-confirm-join">
