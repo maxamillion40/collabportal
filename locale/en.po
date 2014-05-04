@@ -1,0 +1,259 @@
+#ScratchHub translation file for language en_US (english)
+
+msgid "Send"
+msgstr "Send"	
+
+msgid "Apply"
+msgstr "Apply"	
+
+msgid "Join"
+msgstr "Join"	
+
+msgid "Monday"
+msgstr "Monday"	
+
+msgid "Tuesday"
+msgstr "Tuesday"	
+
+msgid "Wednesday"
+msgstr "Wednesday"	
+
+msgid "Thursday"
+msgstr "Thursday"	
+
+msgid "Friday"
+msgstr "Friday"	
+
+msgid "Saturday"
+msgstr "Saturday"	
+
+msgid "Sunday"
+msgstr "Sunday"	
+
+msgid "Create"
+msgstr "Create"	
+
+msgid "Explore"
+msgstr "Explore"	
+
+msgid "Discuss"
+msgstr "Discuss"	
+
+msgid "Help"
+msgstr "Help"	
+
+msgid "About Scratchcollabs"
+msgstr "About Scratchcollabs"	
+
+msgid "Join us"
+msgstr "Join us"	
+
+msgid "Username"
+msgstr "Username"	
+
+msgid "Password"
+msgstr "Password"	
+
+msgid "Login"
+msgstr "Login"	
+
+msgid "New here?"
+msgstr "New here?"	
+
+msgid "My Collabs"
+msgstr "My Collabs"	
+
+msgid "About Scratchcollabs"
+msgstr "About Scratchcollabs"	
+
+msgid "Settings"
+msgstr "Settings"	
+
+msgid "Logout"
+msgstr "Logout"	
+
+msgid "Welcome"
+msgstr "Welcome"	
+
+msgid "About Scratch"
+msgstr "About Scratch"	
+
+msgid "Contact"
+msgstr "Contact"	
+
+msgid "Terms of use"
+msgstr "Terms of use"	
+
+msgid "Imprint"
+msgstr "Imprint"	
+
+msgid "Privacy conditions"
+msgstr "Privacy conditions"	
+
+msgid "Disclaimer"
+msgstr "Disclaimer"	
+
+msgid "Scratch is a Project of the Lifelong Kindergarten Group at the MIT Media Lab"
+msgstr "Scratch is a Project of the Lifelong Kindergarten Group at the MIT Media Lab"	
+
+msgid "Scratchcollabs is a project by"
+msgstr "Scratchcollabs is a project by"	
+
+msgid "and"
+msgstr "and"	
+
+msgid "The team"
+msgstr "The team"	
+
+msgid "DB-Time"
+msgstr "DB-Time"	
+
+msgid "Home"
+msgstr "Home"	
+
+msgid "Featured Collab"
+msgstr "Featured Collab"	
+
+msgid "News"
+msgstr "News"	
+
+msgid "Active Collabs"
+msgstr "Active Collabs"	
+
+msgid "New Collab"
+msgstr "New Collab"	
+
+msgid "Info"
+msgstr "Info"	
+
+msgid "Members"
+msgstr "Members"	
+
+msgid "Actions"
+msgstr "Actions"	
+
+msgid "Live Chat"
+msgstr "Live Chat"	
+
+msgid "Start"
+msgstr "Start"	
+
+msgid "Runtime"
+msgstr "Runtime"	
+
+msgid "Founder"
+msgstr "Founder"	
+
+msgid "Status"
+msgstr "Status"	
+
+msgid "Rank"
+msgstr "Rank"	
+
+msgid "Messages can only be seen by members"
+msgstr "Messages can only be seen by members"	
+
+msgid "Loading chat messages"
+msgstr "Loading chat messages"	
+
+msgid "Do you really want to leave this collab?"
+msgstr "Do you really want to leave this collab?"	
+
+msgid "Administration"
+msgstr "Administration"	
+
+msgid "Your application is being processed"
+msgstr "Your application is being processed"	
+
+msgid "Do you really want to join? Only do this if you are sure that you want to participate"
+msgstr "Do you really want to join? Only do this if you are sure that you want to participate"	
+
+msgid "Maximum number of members reached"
+msgstr "Maximum number of members reached"	
+
+msgid "These actions are only available for members"
+msgstr "These actions are only available for members"	
+
+msgid "Members wanted"
+msgstr "Members wanted"	
+
+msgid "Project preview"
+msgstr "Project Preview"	
+
+msgid "Announcements"
+msgstr "Announcements"	
+
+msgid "Language"
+msgstr "Language"	
+
+msgid "Inbox"
+msgstr "Inbox"	
+
+msgid "Select all"
+msgstr "Select all"	
+
+msgid "Selected messages"
+msgstr "Selected messages"	
+
+msgid "Delete"
+msgstr "Delete"	
+
+msgid "Mark as read"
+msgstr "Mark as read"	
+
+msgid "New message"
+msgstr "New Message"	
+
+msgid "Recipient"
+msgstr "Recipient"	
+
+msgid "Regard"
+msgstr "Regard"	
+
+msgid "Goals"
+msgstr "Goals"	
+
+msgid "History"
+msgstr "History"	
+
+msgid "Future plans"
+msgstr "Future Plans"	
+
+msgid "Feel free to suggest new features"
+msgstr "Feel free to suggest new features"	
+
+msgid "Official forum topic"
+msgstr "Official forum topic"	
+
+msgid "Functions"
+msgstr "Functions"	
+
+msgid "Assignee"
+msgstr "Assignee"	
+
+msgid "ID"
+msgstr "ID"	
+
+msgid "My Stuff"
+msgstr "My Stuff"	
+
+msgid "open"
+msgstr "open"	
+
+msgid "closed"
+msgstr "closed"	
+
+msgid "Quick help"
+msgstr "Quick help"	
+
+msgid "Scratchwiki article"
+msgstr "Scratchwiki article"	
+
+msgid "FAQ"
+msgstr "FAQ"	
+
+msgid "Got a question?"
+msgstr "Got a question?"	
+
+msgid "Ask a question"
+msgstr "Ask a question"	

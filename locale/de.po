@@ -1,0 +1,259 @@
+#ScratchHub translation file for language de_DE (deutsch)
+
+msgid "Send"
+msgstr "Senden"	
+
+msgid "Apply"
+msgstr "Bewerben"	
+
+msgid "Join"
+msgstr "Beitreten"	
+
+msgid "Monday"
+msgstr "Montag"	
+
+msgid "Tuesday"
+msgstr "Dienstag"	
+
+msgid "Wednesday"
+msgstr "Mittwoch"	
+
+msgid "Thursday"
+msgstr "Donnerstag"	
+
+msgid "Friday"
+msgstr "Freitag"	
+
+msgid "Saturday"
+msgstr "Samstag"	
+
+msgid "Sunday"
+msgstr "Sonntag"	
+
+msgid "Create"
+msgstr "Entwickeln"	
+
+msgid "Explore"
+msgstr "Entdecken"	
+
+msgid "Discuss"
+msgstr "Diskutieren"	
+
+msgid "Help"
+msgstr "Hilfe"	
+
+msgid "What is Scratchcollabs?"
+msgstr "Was ist Scratchcollabs?"	
+
+msgid "Join us"
+msgstr "Mitmachen"	
+
+msgid "Username"
+msgstr "Nutzername"	
+
+msgid "Password"
+msgstr "Passwort"	
+
+msgid "Login"
+msgstr "Login"	
+
+msgid "New here?"
+msgstr "Neu hier?"	
+
+msgid "My Collabs"
+msgstr "Meine Collabs"	
+
+msgid "About Scratchcollabs"
+msgstr "Über Scratchcollabs"	
+
+msgid "Settings"
+msgstr "Einstellungen"	
+
+msgid "Logout"
+msgstr "Logout"	
+
+msgid "Welcome"
+msgstr "Willkommen"	
+
+msgid "About Scratch"
+msgstr "Über Scratch"	
+
+msgid "Contact"
+msgstr "Kontakt"	
+
+msgid "Terms of use"
+msgstr "Nutzungsbedingungen"	
+
+msgid "Imprint"
+msgstr "Impressum"	
+
+msgid "Privacy conditions"
+msgstr "Datenschutzbestimmungen"	
+
+msgid "Disclaimer"
+msgstr "Haftungsauschluss"	
+
+msgid "Scratch is a Project of the Lifelong Kindergarten Group at the MIT Media Lab"
+msgstr "Scratch ist ein Projekt der Lifelong-Kindergarten-Gruppe am Media-Lab des MIT"	
+
+msgid "Scratchcollabs is a project by"
+msgstr "Scratchcollabs ist ein Projekt von"	
+
+msgid "and"
+msgstr "und"	
+
+msgid "The team"
+msgstr "Das Team"	
+
+msgid "DB-Time"
+msgstr "DB-Zeit"	
+
+msgid "Home"
+msgstr "Start"	
+
+msgid "Featured Collab"
+msgstr "Vorgestelltes Collab"	
+
+msgid "News"
+msgstr "Ankündigungen"	
+
+msgid "Active Collabs"
+msgstr "Aktive Collabs"	
+
+msgid "New Collab"
+msgstr "Neues Collab"	
+
+msgid "Info"
+msgstr "Info"	
+
+msgid "Members"
+msgstr "Mitglieder"	
+
+msgid "Actions"
+msgstr "Funktionen"	
+
+msgid "Live Chat"
+msgstr "Live Chat"	
+
+msgid "Start"
+msgstr "Start"	
+
+msgid "Runtime"
+msgstr "Laufzeit"	
+
+msgid "Founder"
+msgstr "Gründer"	
+
+msgid "Status"
+msgstr "Status"	
+
+msgid "Rank"
+msgstr "Rang"	
+
+msgid "Messages can only be seen by members"
+msgstr "Nachrichten können nur von Mitgliedern betrachtet werden"	
+
+msgid "Loading chat messages"
+msgstr "Lade Nachrichten"	
+
+msgid "Do you really want to leave this collab?"
+msgstr "Willst du dieses Collab wirklich verlassen?"	
+
+msgid "Administration"
+msgstr "Verwaltung"	
+
+msgid "Your application is being processed"
+msgstr "Dein Mitgliedsantrag ist in Bearbeitung"	
+
+msgid "Do you really want to join? Only do this if you are sure that you want to participate"
+msgstr "Willst du diesem Collab beitreten? Tu dies nur, wenn du dir auch sicher bist, dass du mitmachen willst"	
+
+msgid "Maximum number of members reached"
+msgstr "Maxmimale Mitgliederzahl erreicht"	
+
+msgid "These actions are only available for members"
+msgstr "Diese Funktionen sind nur für Mitglieder verfügbar"	
+
+msgid "Members wanted"
+msgstr "Mitglieder gesucht"	
+
+msgid "Project preview"
+msgstr "Projektvorschau"	
+
+msgid "Announcements"
+msgstr "Ankündigungen"	
+
+msgid "Language"
+msgstr "Sprache"	
+
+msgid "Inbox"
+msgstr "Posteingang"	
+
+msgid "Select all"
+msgstr "Alle auswählen"	
+
+msgid "Selected messages"
+msgstr "Ausgewählte Nachrichten"	
+
+msgid "Delete"
+msgstr "Löschen"	
+
+msgid "Mark as read"
+msgstr "Als gelesen markieren"	
+
+msgid "New message"
+msgstr "Neue Nachricht"	
+
+msgid "Recipient"
+msgstr "Empfänger"	
+
+msgid "Regard"
+msgstr "Betreff"	
+
+msgid "Goals"
+msgstr "Ziele"	
+
+msgid "History"
+msgstr "Geschichte"	
+
+msgid "Future plans"
+msgstr "Künfitge Pläne"	
+
+msgid "Feel free to suggest new features"
+msgstr "Zögere nicht, uns deine Ideen mitzuteilen"	
+
+msgid "Official forum topic"
+msgstr "Offizielles Forenthema"	
+
+msgid "Functions"
+msgstr "Funktionen"	
+
+msgid "Assignee"
+msgstr "Zuständiger"	
+
+msgid "ID"
+msgstr "ID"	
+
+msgid "My Stuff"
+msgstr "Meine Sachen"	
+
+msgid "open"
+msgstr "offen"	
+
+msgid "closed"
+msgstr "beendet"	
+
+msgid "Quick help"
+msgstr "Schnellhilfe"	
+
+msgid "Scratchwiki article"
+msgstr "Scratchwiki Artikel"	
+
+msgid "FAQ"
+msgstr "FAQ"	
+
+msgid "Got a question?"
+msgstr "Du hast eine Frage?"	
+
+msgid "Ask a question"
+msgstr "Frage stellen"	
