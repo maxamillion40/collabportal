@@ -11,7 +11,7 @@
 		$collabs[$key] = new collab($collab["id"]);
 	}
 	
-	//Filter
+	//Filters
 	
 	$ncollabs = 0;
 	$acollabs = 0;
@@ -65,7 +65,7 @@
 											echo "</tr>";
 											echo "<tr>";
 											echo "<td colspan='2'>";
-											echo "<p><b>Mitglieder: </b>".$featured[0]["mitglieder"]."</p>";
+											echo "<p><b>" . __("Members") . ": </b>".$featured[0]["mitglieder"]."</p>";
 											echo "</td>";
 											echo "</tr>";
 											echo "</table>";
