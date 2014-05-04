@@ -1,3 +1,7 @@
+<?php
+	//DEAD FILE//
+	exit;
+?>
 <!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");

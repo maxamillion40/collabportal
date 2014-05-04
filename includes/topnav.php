@@ -3,7 +3,6 @@
 	require_once("func.php");
 	$return_to = get_uri();
 	if($_USER -> is_online())	{
-		$unread = count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` <> 'System' AND `read`='0'", array($_USER -> name)));
 		$sys	= count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` = 'System' AND `read`='0'", array($_USER -> name)));
 	}
 ?>
@@ -45,29 +44,15 @@
 			?>
 			<div id="msg-menu-a"><li>
 			<?php
-					if($unread > 0)	{
+					if($sys > 0)	{
 			?>
-						<span id='notificationsCount'><?php echo $unread + $sys; ?></span>
+						<span id='notificationsCount'><?php echo $sys; ?></span>
 			<?php
 					}
 			?>
 				<li id="msg-icon">
-					<a><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
+					<a href="sysinbox.php"><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
 				</li>
-				<ul id="msg-menu-content">
-					<li><a href="inbox.php"><?php echo __("Inbox"); ?><?php
-						if($unread > 0)	{
-							 echo " (" . $unread . ")";
-						}
-					?></a></li>
-					<li><a href="outbox.php"><?php echo __("Outbox"); ?></a></li>
-					<li><a href="sysinbox.php"><?php echo __("System"); ?><?php
-						if($sys > 0)	{
-							 echo " (" . $sys . ")";
-						}
-					?></a></li>
-					<li><a href="compose.php"><?php echo __("New"); ?></a></li>
-				</ul>
 			</div>
 					</li>
 					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"]; ?></a></li>
