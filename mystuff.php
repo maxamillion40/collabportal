@@ -75,8 +75,14 @@
 											$count = 0;
 											foreach($collabmember as $collab)	{
 												if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
+													if($collab -> logo != "")	{
+														$imgUrl = "data:image/png;base64," . base64_encode($collab -> logo);
+													}
+													else	{
+														$imgUrl = "img/none.png";
+													}
 													echo "<button class='button grey' onClick=\"navigate('action.php?leave&red&id=" . $collab -> id . "','Willst du wirklich aus dem Collab &bdquo;" . $collab -> name . "&ldquo; austreten?')\">Austreten</button><li>";
-													echo "<a href='collab.php?id=" . $collab -> id . "'><img src='logos/" . $collab -> logo . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
+													echo "<a href='collab.php?id=" . $collab -> id . "'><img src='" . $imgUrl . "' width='144' height='108' class='image' alt='" . $collab -> name . "' /></a>";
 													echo "<table class='stats'>";
 														echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
 														echo "<tr><th>" . __("Labels") . ":</th><td>" . $collab -> status . "</td></tr>";
