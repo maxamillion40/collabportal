@@ -564,3 +564,9 @@ span .labels {
 	white-space: nowrap;
 	overflow: hidden;
 }
+#gotoGithub	{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	opacity: 0.10;
+}
