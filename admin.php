@@ -80,7 +80,7 @@
 																else	{
 																	$class = "";
 																}
-																echo "<option" . $class . ">" . $langcode . "</option>";
+																echo "<option class=\"langSetting $langcode\"" . $class . ">" . $langcode . "</option>";
 															}
 														?>
 													</select>

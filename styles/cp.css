@@ -570,3 +570,14 @@ span .labels {
 	bottom: 10px;
 	opacity: 0.10;
 }
+option.langSetting	{
+	padding-left: 35px;
+	height: 35px;
+	background-repeat: no-repeat;
+}
+option.de_DE	{
+	background-image: url(../img/country/de.png);
+}
+option.en_US	{
+	background-image: url(../img/country/en.png);
+}
