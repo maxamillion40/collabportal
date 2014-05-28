@@ -55,7 +55,7 @@
 				</li>
 			</div>
 					</li>
-					<li id='welcome'><a><?php echo __("Welcome") . ",&nbsp;" . $_SESSION["user"]; ?></a></li>
+					<li id='welcome'><a><?php echo __("Welcome, %s", array($_USER -> name)); ?></a></li>
 					<div id='amenu'>
 						<li id='bmenu'>
 							<a><img id='mbn' src='img/topnav.png' height='35' width='35' /></a>

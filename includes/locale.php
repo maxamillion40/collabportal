@@ -34,14 +34,17 @@
 		}
 	}
 
-	function __($msg, $lang = null)	{
+	function __($msg, $args = null, $lang = null)	{
 		global $_USER;
 		global $_LOCALE;
 		if(!is_string($lang))	{
 			$lang = $_USER -> language;
 		}
+		if(!$args)	{
+			$args = array();
+		}
 		if(isset($_LOCALE[$lang][$msg]))	{
-			return $_LOCALE[$lang][$msg];
+			return vsprintf($_LOCALE[$lang][$msg], $args);
 		}
 		else	{
 			return $msg;

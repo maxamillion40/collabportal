@@ -73,8 +73,8 @@ msgstr "Settings"
 msgid "Logout"
 msgstr "Logout"	
 
-msgid "Welcome, $name"
-msgstr "Welcome, $name"	
+msgid "Welcome, %s"
+msgstr "Welcome, %s"	
 
 msgid "About Scratch"
 msgstr "About Scratch"	
