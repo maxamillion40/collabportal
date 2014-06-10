@@ -19,11 +19,10 @@ $(document).ready(function()	{
 	$("button#loadMore").click(function()	{
 		loadposts(lastID, "repeated");
 	});
-
 });
 
 $(window).scroll(function()	{
-	if($(window).scrollTop() + $(window).height() > $(document).height() - 100)	{
+	if($(window).scrollTop() + $(window).height() > $(document).height() - 300)	{
 		if(loading == false && reachedEnd == false)	{
 			loadposts(lastID, "repeated");
 		}

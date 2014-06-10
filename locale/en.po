@@ -1,4 +1,5 @@
 #ScratchHub translation file for language en_US (english)
+#NEVER EVER CHANGE THE LINE ABOVE! IT IS REQUIRED!
 
 msgid "Send"
 msgstr "Send"	
@@ -72,8 +73,8 @@ msgstr "Settings"
 msgid "Logout"
 msgstr "Logout"	
 
-msgid "Welcome"
-msgstr "Welcome"	
+msgid "Welcome, %s"
+msgstr "Welcome, %s"	
 
 msgid "About Scratch"
 msgstr "About Scratch"	
@@ -257,3 +258,21 @@ msgstr "Got a question?"
 
 msgid "Ask a question"
 msgstr "Ask a question"	
+
+msgid "webdesigner97 is the founder and main admin of ScratchHub. His jobs during development (like database administration, planning new features, organising stuff and working on the core) are quite basic, but indispensable. Feel free to contact him if you have any problems, questions or criticism."
+msgstr "webdesigner97 is the founder and main admin of ScratchHub. His jobs during development (like database administration, planning new features, organising stuff and working on the core) are quite basic, but indispensable. Feel free to contact him if you have any problems, questions or criticism."
+
+msgid "Having watched the development of ScratchHub (formerly known as Collabportal), Lirex joined the team on August 8, 2012. His main conributions consist of texts, graphics, design and FAQ work. Additionally, he moderates ScratchHub and can be contacted if you have problems."
+msgstr "Having watched the development of ScratchHub (formerly known as Collabportal), Lirex joined the team on August 8, 2012. His main conributions consist of texts, graphics, design and FAQ work. Additionally, he moderates ScratchHub and can be contacted if you have problems."
+
+msgid "Akhof was the first external tester of ScratchHub."
+msgstr "Akhof was the first external tester of ScratchHub."
+
+msgid "LiFaytheGoblin (Old logo, mentor, lots of ideas)"
+msgstr "LiFaytheGoblin (Old logo, mentor, lots of ideas)"
+
+msgid "Scratch Team (Allowing the use the Scratch 2.0 design)"
+msgstr "Scratch Team (Allowing the use the Scratch 2.0 design)"
+
+msgid "for country flags"
+msgstr "for country flags"
