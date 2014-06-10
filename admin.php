@@ -103,7 +103,7 @@
 										<?php
 											if(count($collab -> members["people"]) > 0)	{
 												foreach($collab -> members["people"] as $member)	{
-													echo "<li>".$member -> name ."<span class='li-right'><a href='messages.php?to=" . $member -> name ."#new'>" . __("Message") . "</a> <a class='red' href='action.php?kick=" . $member -> name . "&id=$id'>" . __("Kick") . "</a></span></li>";
+													echo "<li>".$member -> name ."<span class='li-right'><a class='red' href='action.php?kick=" . $member -> name . "&id=$id'>" . __("Kick") . "</a></span></li>";
 												}
 											}
 											else	{
