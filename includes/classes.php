@@ -8,10 +8,20 @@
 			$this -> stamp = $int;
 		}
 		public function format($pattern)	{
-			return date($pattern, $this -> stamp);
+			if(is_string($pattern))	{
+				return date($pattern, $this -> stamp);
+			}
+			else	{
+				trigger_error("Bad argument #1 to time::format(), string expected, got " . gettype($pattern), E_USER_ERROR);
+			}
 		}
 		public function printas($pattern)	{
-			echo date($pattern, $this -> stamp);
+			if(is_string($pattern))	{
+				echo date($pattern, $this -> stamp);
+			}
+			else	{
+				trigger_error("Bad argument #1 to time::format(), string expected, got " . gettype($pattern), E_USER_ERROR);
+			}
 		}
 	}
 	class collab	{
@@ -62,6 +72,9 @@
 			}
 		}
 		public function member_rank($name)	{
+			if(!is_string($name))	{
+				trigger_error("Bad argument #1 to collab::member_rank(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
 			// Return the rank of a user in this collab
 			$name = new user($name);
 			if(array_key_exists($name -> name, $this -> members["people"]))	{
@@ -78,6 +91,13 @@
 			}
 		}
 		public function add_member($name, $rank)	{
+			if(!is_string($name))	{
+				trigger_error("Bad argument #1 to collab::add_member(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			if(!is_string($candidate))	{
+				trigger_error("Bad argument #2 to collab::member_rank(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			global $_MYSQL;
 			$name = new user($name);
 			if($rank == "member")	{
@@ -128,6 +148,13 @@
 			}
 		}
 		public function remove_member($name, $rank)	{
+			if(!is_string($name))	{
+				trigger_error("Bad argument #1 to collab::remove_member(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			if(!is_string($candidate))	{
+				trigger_error("Bad argument #2 to collab::remove_member(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			global $_MYSQL;
 			if($rank == "member")	{
 				unset($this -> members["people"][$name]);
@@ -175,6 +202,10 @@
 		var $signupDate;
 		var $lastCollab;
 		public function __construct($name)	{
+			if(!is_string($name))	{
+				trigger_error("Bad argument #1 to user::__construct(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			global $_MYSQL;
 			if($name != "Systemnachricht")	{
 				$data = $_MYSQL -> get("SELECT * FROM users WHERE name=?",array($name));
@@ -214,22 +245,6 @@
 			}
 			else	{
 				return false;
-			}
-		}
-		public function send_pm($msg)	{
-			global $_MYSQL;
-			if(is_object($msg))	{
-				$msg -> date = time();
-				$msg -> to = $this -> name;
-				if($msg -> can_send())	{
-					$_MYSQL -> set("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES(?,?,?,?,?)", array(
-						$msg -> regard,
-						$msg -> date,
-						$msg -> sender -> name,
-						$msg -> to,
-						$msg -> msg
-					));
-				}
 			}
 		}
 	}
@@ -328,38 +343,71 @@
 		}
 		
 		public function requires_rank($which, $redirectOnInsufficient)	{
+			if(!is_int($which))	{
+				trigger_error("Bad argument #1 to page::requires_rank(), integer expected, got " . gettype($name), E_USER_ERROR);
+			}
+			if(!is_string($redirectOnInsufficient))	{
+				trigger_error("Bad argument #2 to page::requires_rank(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			global $_USER;
-			if(is_int($which) && is_string($redirectOnInsufficient))	{
-				if($_USER -> class < $which)	{
-					header("Location: $redirectOnInsufficient?error=insufficientrank");
-				}
+			if($_USER -> class < $which)	{
+				header("Location: $redirectOnInsufficient?error=insufficientrank");
 			}
 		}
 		public function setTitle($prefix, $split = NULL)	{
+			if(!is_string($prefix))	{
+				trigger_error("Bad argument #1 to page::setTitle(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			if($split == NULL)	{
 				$split = CP_TITLE_SPLITTER;
 			}
 			$this -> title = $prefix . " " . $split . " " . CP_NAME;
 		}
 		public function setDescription($desc)	{
+		if(!is_string($desc))	{
+				trigger_error("Bad argument #1 to page::setDescription(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			$this -> description = $desc;
 		}
 		public function addKeywords($keys)	{
+			if(!is_array($prefix))	{
+				trigger_error("Bad argument #1 to page::add_Keywords(), array expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			foreach($keys as $key)	{
 				$this -> keywords[] = $key;
 			}
 		}
 		public function setRobots($commands)	{
+			if(!is_array($commands))	{
+				trigger_error("Bad argument #1 to page::setRobots(), array expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			$this -> robots = $commands;
 		}
 		public function useScript($name)	{
+			if(!is_string($name))	{
+				trigger_error("Bad argument #1 to page::useScript(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			$this -> scripts[] = $name;
 		}
 		public function useStyle($name)	{
+			if(!is_string($name))	{
+				trigger_error("Bad argument #1 to page::useStyle(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			$this -> styles[] = $name;
 		}
 		
 		private function tag($tag)	{
+			if(!is_string($tag))	{
+				trigger_error("Bad argument #1 to page::tag(), string expected, got " . gettype($name), E_USER_ERROR);
+			}
+			//
 			return $tag . BR;
 		}
 		public function putHeader()	{
