@@ -14,19 +14,15 @@ $.ajax({
 
 $(document).ready(function()	{
 	//Load first 25 posts
+	$("#loadimg").show();
 	loadposts(lastID, "initial");
+	$("#loadimg").hide();
 	//Load more on click
 	$("button#loadMore").click(function()	{
+		$("#loadimg").show();
 		loadposts(lastID, "repeated");
+		$("#loadimg").hide();
 	});
-});
-
-$(window).scroll(function()	{
-	if($(window).scrollTop() + $(window).height() > $(document).height() - 300)	{
-		if(loading == false && reachedEnd == false)	{
-			loadposts(lastID, "repeated");
-		}
-	}
 });
 
 function loadposts(startID, method)	{

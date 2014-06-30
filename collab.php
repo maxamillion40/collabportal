@@ -78,9 +78,7 @@
 									
 								</div>
 								<div id="loading">
-									<img src="img/loader.gif" alt="Loading" />
-									<p><?php echo __("Loading older messages..."); ?></p>
-									<p><?php echo __("Doesn't load? Try this button:"); ?></p>
+									<img id="loadimg" src="img/loader.gif" alt="Loading" />
 									<p><button id="loadMore"><?php echo __("Load more!"); ?></button></p>
 								</div>
 								</div>

@@ -53,8 +53,6 @@ function loadNewMessages(startAt)	{
 }
 
 window.setInterval(function()	{
-	//alert("Has new messages: " + hasNewMessages());
-	//alert("Latest message here: " + countMessages() + ", latest message on server: " + getMessagesOnServer());
 	if(hasNewMessages())	{
 		loadNewMessages(countMessages());
 	}
