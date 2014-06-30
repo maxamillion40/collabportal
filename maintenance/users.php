@@ -66,17 +66,28 @@
 													echo "<tr>";
 													echo "<td>".$u["id"]."</td>";
 													echo "<td>".$u["name"]."</td>";
-													echo "<td>".date("d.m.Y H:i", $u["signup"])."</td>";
+													echo "<td title='" . date("d.m.Y H:i", $u["last_login"]) . "'>".date("d.m.Y", $u["signup"])."</td>";
 													echo "<td>".$u["mail"]."</td>";
 													echo "<td><a href='http://scratch.mit.edu/users/".$u["name"]."' target='_blank'>".$u["name"]."</a></td>";
 													echo "<td>".$u["last_ip"]."</td>";
 													echo "<td>".date("d.m.Y H:i",$u["last_login"])."</td>";
 													echo "<td>".$u["class"]."</td>";
-													if($u["class"] != "Administrator")	{
-														echo "<td><select><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=1\")'>User</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=2\")'>Moderator</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=-1\")'>Banned</option></select></td>";
-													}
-													else	{
-														echo "<td>---</td>";
+													switch($u["class"])	{
+														case -2:
+															echo "<td>---</td>";
+															break;
+														case -1:
+															echo "<td><select><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=1\")'>User</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=2\")'>Moderator</option><option selected onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=-1\")'>Banned</option></select></td>";
+															break;
+														case 1:
+															echo "<td><select><option selected onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=1\")'>User</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=2\")'>Moderator</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=-1\")'>Banned</option></select></td>";
+															break;
+														case 2:
+															echo "<td><select><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=1\")'>User</option><option selected onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=2\")'>Moderator</option><option onClick='navigate(\"../action.php?classchange&id=".$u["id"]."&class=-1\")'>Banned</option></select></td>";
+															break;
+														case 3:
+															echo "<td>---</td>";
+															break;
 													}
 													echo "</tr>";
 												}
