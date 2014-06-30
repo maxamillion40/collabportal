@@ -57,3 +57,10 @@ h3 {
 	padding: 2px 4px;
 	text-align: left;
 }
+.open	{
+	/* Styles for open collabs */
+}
+.closed	{
+	/* Styles for closed collabs */
+	opacity: 0.5;
+}

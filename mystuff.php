@@ -50,6 +50,7 @@
 											//Collabliste
 											echo "<div id='own'>";
 											foreach($mycollabs as $collab)	{
+												echo "<div class='own " . $collab -> status . "'>";
 												if($collab -> logo != "")	{
 													$imgUrl = "data:image/png;base64," . base64_encode($collab -> logo);
 												}
@@ -63,6 +64,7 @@
 													echo "<tr><th>" . __("Labels") . ":</th><td>" . $collab -> status . "</td></tr>";
 													echo "<tr><th>" . __("Your Rank") . ":</th><th>" . __("Founder") . "</th></tr>";
 												echo "</td></tr></table></li>";
+												echo "</div>";
 											}
 											echo "</div>";
 										}
@@ -75,6 +77,7 @@
 											$count = 0;
 											foreach($collabmember as $collab)	{
 												if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
+													echo "<div class='member " . $collab -> status . "'>";
 													if($collab -> logo != "")	{
 														$imgUrl = "data:image/png;base64," . base64_encode($collab -> logo);
 													}
@@ -90,6 +93,7 @@
 														echo "<tr><th>" . __("Founder") . ":</th><td>" . $collab -> owner -> name . "</td></tr>";
 													echo "</td></tr></table></li>";
 													$count++;
+													echo "</div>";
 												}
 											}
 										if($count == 0) {
