@@ -27,6 +27,7 @@
 	resnotice("classok",			__("User class changed!"));
 	resnotice("editok",				__("Changes saved!"));
 	resnotice("langok",				__("Language saved!"));
+	resnotice("errorreported",		__("Error reported!"));
 /* Fehlermeldungen */
     errnotice("notin",				__("You aren't a member here!"));
     errnotice("alreadyin",			__("You are already meber here"));
