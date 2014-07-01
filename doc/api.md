@@ -1,7 +1,7 @@
-# ScratchCollabs API reference
+# ScratchHub API reference
 
 ## Introduction
-The API for Scratchcollabs offers an object-oriented way to extend the functionality of the CollabPortal.
+The API for ScratchHub offers an object-oriented way to extend the functionality of ScratchHub.
 The PHP API is available on all pages, provided that loader.php has already been called.
 Please seperate content-pages and dedicated scripts strictly! Put content-pages (those with HTML in it) in the home directory (./), dedicated scripts without HTML output into ./libs.
 
@@ -15,7 +15,7 @@ If you need to call a script in /libs, link to `action.php?youraction` and add t
 	```
 
 ### Custom global objects
-Scratchcollabs initializes some global objects to help access the Database and the current user. However, those objects should be global, but they are NOT superglobal!
+ScratchHub initializes some global objects to help access the Database and the current user. However, those objects should be global, but they are NOT superglobal!
 When using them inside a function/method, don't forget to inform PHP about their use!
 	```php
 	public function whatever()	{
@@ -37,7 +37,7 @@ When using them inside a function/method, don't forget to inform PHP about their
 
 $_USER is a user object about the users who started your script.
 
-### <head> generation
+### head generation
 Don't create static <head>s on your pages, unless you really need to. Instead use the $_PAGE object to insert scripts, styles, meta, etc. How it works:
 	- Setting metadata and title
 	`$_PAGE -> setTitle("pagename", ["splitter"]);`			//sets title tag. Pattern: <title>$pagename $splitter CP_NAME</title>. If splitter is not provided, CP_TITLE_SPLITTER shows up.
