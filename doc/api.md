@@ -38,7 +38,7 @@ When using them inside a function/method, don't forget to inform PHP about their
 $_USER is a user object about the users who started your script.
 
 ### head generation
-Don't create static <head>s on your pages, unless you really need to. Instead use the $_PAGE object to insert scripts, styles, meta, etc. How it works:
+Don't create static heads on your pages, unless you really need to. Instead use the $_PAGE object to insert scripts, styles, meta, etc. How it works:
 	- Setting metadata and title
 	`$_PAGE -> setTitle("pagename", ["splitter"]);`			//sets title tag. Pattern: <title>$pagename $splitter CP_NAME</title>. If splitter is not provided, CP_TITLE_SPLITTER shows up.
 	`$_PAGE -> setDescription("Description");`				//OPTIONAL! Set custom page description. If not used, CP_DESCRIPTION will show up.
@@ -146,4 +146,4 @@ Methods:
 	null `useStyle(string $style)`
 	^ Include a custom stylesheet path
 	null `putHeader()`
-	^ Put <head> of page into sourcecode, doesn't include <head> tags.
+	^ Put head of page into sourcecode, doesn't include `<head>` tags.
