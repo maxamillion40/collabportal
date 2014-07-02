@@ -29,6 +29,8 @@
 				<?php
 					include_once("includes/topnav.php");
 				?>
+			<!-- "Back to top" -->
+			<button class="button blue" id="backToTop"><?php echo __("Back to top"); ?></button>
 			<!-- Main Content -->	
 			<div class="container" id="content">
 				<div class="cols clearfix">
@@ -63,7 +65,6 @@
 									<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
 										<textarea name="msg"></textarea><br />
 										<button type="submit"><?php echo __("Send"); ?></button>
-										<!-- <span id="countdown-wrapper"><span id="chat-countdown"></span></span> -->
 									</form>
 									</div>
 									<?php

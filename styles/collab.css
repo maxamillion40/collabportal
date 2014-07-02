@@ -18,3 +18,9 @@
 	padding: 10px 0;
 	text-align: center;
 }
+#backToTop	{
+	display: none;
+	position: fixed;
+	bottom: 200px;
+	right: 100px;
+}
