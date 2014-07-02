@@ -96,6 +96,7 @@
 													echo "</div>";
 												}
 											}
+										echo "</div>";
 										if($count == 0) {
 											echo __("You haven't joined any collab yet.") . " <a href='./'>" . __("Join now") . "</a>!<hr/>";
 										}
