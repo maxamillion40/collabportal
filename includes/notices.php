@@ -57,7 +57,7 @@
 	errnotice("badmimetype",		__("This is not a graphic!"));
 	errnotice("nomatch",			__("The new passwords don't match!"));
 	errnotice("oldwrong",			__("Old password incorrect!"));
-	errnotice("closed",				__("Cannot edit closed coolab!"));
+	errnotice("closed",				__("Cannot edit closed collab!"));
 	errnotice("toosmall", 			__("This number is too small!"));
 	errnotice("fileupload",			__("Upload error!"));
 	errnotice("nocollabtoday",		__("Please wait 24h before starting a new collab!"));

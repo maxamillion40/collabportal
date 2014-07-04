@@ -103,25 +103,6 @@
 						<?php
 							}
 						?>
-						<article class="box">
-							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/player_flag2.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
-							</div>
-							<div class="box-content">
-								<div class="inner">
-								<?php
-									if($collab -> pid != "")	{
-								?>
-								<iframe allowtransparency="true" width="278" height="230" src="http://scratch.mit.edu/projects/embed/<?php echo $collab -> pid; ?>/?autostart=false" allowfullscreen></iframe>
-								<?php
-									}
-									else	{
-										echo __("Nothing here");
-									}
-								?>
-								</div>
-							</div>
-						</article>
 						<!-- Basic Information -->
 						<article class="box">
 							<div class="box-header">
@@ -159,6 +140,25 @@
 												?></td>
 											</tr>
 										</table>
+								</div>
+							</div>
+						</article>
+						<article class="box">
+							<div class="box-header">
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/player_flag2.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
+							</div>
+							<div class="box-content">
+								<div class="inner" style="padding: 0; padding-top: 15px;">
+								<?php
+									if($collab -> pid != "")	{
+								?>
+								<iframe allowtransparency="true" width="278" height="230" src="http://scratch.mit.edu/projects/embed/<?php echo $collab -> pid; ?>/?autostart=false" allowfullscreen></iframe>
+								<?php
+									}
+									else	{
+										echo __("Nothing here");
+									}
+								?>
 								</div>
 							</div>
 						</article>
@@ -221,32 +221,37 @@
 								<div class="inner">
 									<?php
 										if($_USER -> is_online())	{
-											if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
-												//Buttons für normale Mitglieder
-												echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','" . __("Do you really want to leave this Collab?") . "')\">Austreten</button>";
-											}
-											elseif($_USER -> name == $collab -> owner -> name)	{
-												//Buttons für Gründer
-												echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">" . __("Administration") . "</button>";
-											}
-											elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
-												echo __("Your application is being processed");
-											}
-											else	{
-												//Buttons für Gäste
-												if(count($collab -> members["people"]) + 1 < $collab -> settings["members_max"] or $collab -> settings["members_max"] == false and !array_key_exists($_USER -> name,$collab-> members["candidates"]))	{
-													echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','" . __("Do you really want to join? Only do this if you are sure that you want to participate") . "');\">";
-													if($collab -> settings["confirm_join"] == true)	{
-														echo __("Apply");
-													}
-													else	{
-														echo __("Join");
-													}
-													echo "</button>";
+											if($collab -> status == "open")	{
+												if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
+													//Buttons für normale Mitglieder
+													echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','" . __("Do you really want to leave this Collab?") . "')\">Austreten</button>";
+												}
+												elseif($_USER -> name == $collab -> owner -> name)	{
+													//Buttons für Gründer
+													echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">" . __("Administration") . "</button>";
+												}
+												elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
+													echo __("Your application is being processed");
 												}
 												else	{
-													echo __("Maximum number of members reached");
+													//Buttons für Gäste
+													if(count($collab -> members["people"]) + 1 < $collab -> settings["members_max"] or $collab -> settings["members_max"] == false and !array_key_exists($_USER -> name,$collab-> members["candidates"]))	{
+														echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','" . __("Do you really want to join? Only do this if you are sure that you want to participate") . "');\">";
+														if($collab -> settings["confirm_join"] == true)	{
+															echo __("Apply");
+														}
+														else	{
+															echo __("Join");
+														}
+														echo "</button>";
+													}
+													else	{
+														echo __("Maximum number of members reached");
+													}
 												}
+											}
+											else	{
+												echo "<p>" . __("This collab is closed.") . "</p>";
 											}
 										}
 										else	{

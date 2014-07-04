@@ -8,6 +8,10 @@
 	$id = $_GET["id"];
 	$collab = new collab($id);
 	
+	if($collab -> status == "closed")	{
+		die(header("Location: collab.php?id=$id&error=closed"));
+	}
+	
 	$_PAGE -> setTitle(__("Administration"));
 	$_PAGE -> setRobots(array("noindex", "nofollow"));
 	$_PAGE -> useScript("jquery");
