@@ -63,7 +63,7 @@
 													echo "<tr><th>" . __("Name") . ":</th><td>" . $collab -> name . "</td></tr>";
 													echo "<tr><th>" . __("Labels") . ":</th><td>" . $collab -> status . "</td></tr>";
 													echo "<tr><th>" . __("Your Rank") . ":</th><th>" . __("Founder") . "</th></tr>";
-												echo "</td></tr></table></li>";
+												echo "</table></li>";
 												echo "</div>";
 											}
 											echo "</div>";
@@ -91,7 +91,7 @@
 														echo "<tr><th>" . __("Labels") . ":</th><td>" . $collab -> status . "</td></tr>";
 														echo "<tr><th>" . __("Your Rank") . ":</th><td>" . __("Member") . "</td></tr>";
 														echo "<tr><th>" . __("Founder") . ":</th><td>" . $collab -> owner -> name . "</td></tr>";
-													echo "</td></tr></table></li>";
+													echo "</table></li>";
 													$count++;
 													echo "</div>";
 												}
@@ -100,7 +100,7 @@
 										if($count == 0) {
 											echo __("You haven't joined any collab yet.") . " <a href='./'>" . __("Join now") . "</a>!<hr/>";
 										}
-										echo "</div></ul>";
+										echo "</ul>";
 									?>
 								</div>
 							</div>
@@ -112,6 +112,5 @@
 		<?php
 			include_once("includes/footer.php");
 		?>
-		</div>
 	</body>
 </html>

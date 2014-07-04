@@ -53,8 +53,7 @@
 				<li id="msg-icon">
 					<a href="sysinbox.php"><img id='msg-image' src='img/topnav.png' alt='Msg' height='35' width='35' /></a>
 				</li>
-			</div>
-					</li>
+			</li></div>
 					<li id='welcome'><a><?php echo __("Welcome, %s", array($_USER -> name)); ?></a></li>
 					<div id='amenu'>
 						<li id='bmenu'>

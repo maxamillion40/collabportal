@@ -94,7 +94,7 @@
 			if(!is_string($name))	{
 				trigger_error("Bad argument #1 to collab::add_member(), string expected, got " . gettype($name), E_USER_ERROR);
 			}
-			if(!is_string($candidate))	{
+			if(!is_string($name))	{
 				trigger_error("Bad argument #2 to collab::member_rank(), string expected, got " . gettype($name), E_USER_ERROR);
 			}
 			//
