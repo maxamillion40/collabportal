@@ -2,10 +2,6 @@
 	Deny from all
 </Files> 
 <Files "*.ajax.php"> 
-	Order Deny,Allow 
-	Allow from All 
-</Files>
-<Files "getprojectname.php"> 
-	Order Deny,Allow 
+	Order Allow,Deny
 	Allow from All 
 </Files>

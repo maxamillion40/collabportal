@@ -24,3 +24,23 @@
 	bottom: 200px;
 	right: 100px;
 }
+#cnews	{
+	width: 238px;
+	min-height: 250px;
+	resize: vertical;
+	padding-left: 15px;
+	padding-right: 15px;
+	outline: 2px silver dashed;
+	border: none;
+	box-shadow: none;
+}
+#box-announcements .canEdit	{
+	padding: 2px;
+	cursor: text;
+}
+.canEdit:hover	{
+	outline: 2px silver dashed;
+}
+.boxLoader	{
+	display: none;
+}

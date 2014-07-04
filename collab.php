@@ -163,17 +163,34 @@
 							</div>
 						</article>
 						<!-- Announcement -->
-						<article class="box">
+						<article class="box" id="box-announcements">
 							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/info.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Announcements"); ?></h4>
+								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;">
+									<img src="img/info.png" alt="Info Icon" height="19" width="19" />
+									<?php echo __("Announcements"); ?>
+									<img src="img/loader.gif" alt="Loader" height="19" width="19" class="boxLoader" />
+								</h4>
 							</div>
 							<div class="box-content">
 								<div class="inner">
-									<p>
-										<?php
-											echo $collab -> announcement;
-										?>
-									</p>
+									<?php
+										if($collab -> announcement != "")	{
+											if($collab -> member_rank($_USER -> name) == "founder")	{
+												echo "<p class=\"canEdit\">" . $collab -> announcement . "</p>";
+											}
+											else	{
+												echo "<p>" . $collab -> announcement . "</p>";
+											}
+										}
+										else	{
+											if($collab -> member_rank($_USER -> name) == "founder")	{
+												echo "<p class=\"canEdit\">" . __("Nothing here") . "</p>";
+											}
+											else	{
+												echo "<p>" . __("Nothing here") . "</p>";
+											}
+										}
+									?>
 								</div>
 							</div>
 						</article>
