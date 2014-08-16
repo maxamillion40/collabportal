@@ -1,12 +1,25 @@
-<?php 
+<?php
+	/**
+		* Create, display and format unix timestmps
+	*/
 	class time	{
 		var $stamp;
+		/**
+			* Constructor.
+			@param null|int $int Optional, provide it if you want to work with an existing timestamp
+			@return void
+		*/
 		public function __construct($int = null)	{
 			if(!isset($int))	{
 				$int = time();
 			}
-			$this -> stamp = $int;
+			$this -> stamp = (int) $int;
 		}
+		/**
+			* Format and return the timestamp as string
+			@param string $format See http://de2.php.net/manual/en/function.date.php
+			@return string
+		*/
 		public function format($pattern)	{
 			if(is_string($pattern))	{
 				return date($pattern, $this -> stamp);
@@ -15,6 +28,11 @@
 				trigger_error("Bad argument #1 to time::format(), string expected, got " . gettype($pattern), E_USER_ERROR);
 			}
 		}
+		/**
+			* Format and print the timestamp
+			@param string $format See http://de2.php.net/manual/en/function.date.php
+			@return void
+		*/
 		public function printas($pattern)	{
 			if(is_string($pattern))	{
 				echo date($pattern, $this -> stamp);
@@ -24,6 +42,9 @@
 			}
 		}
 	}
+	/**
+		* Represents a single collab.
+	*/
 	class collab	{
 		var $id;
 		var $lastInternalID;
@@ -37,40 +58,52 @@
 		var $settings;
 		var $announcement;
 		var $pid;
+		/**
+			* Constructor.
+			@param int $id Collab ID as known in the database
+			@return void
+		*/
 		public function __construct($id)	{
 			// Load all collab data from DB
 			global $_MYSQL;
 			$data = $_MYSQL -> get("SELECT * FROM collabs WHERE id=?",array($id));
-			$this->id = $data[0]["id"];
-			$this->name = $data[0]["name"];
-			$this->starttime = new time($data[0]["start"]);
-			$this->members = unserialize($data[0]["mitglieder"]);
-			$this->status = $data[0]["status"];
-			$this->owner = new user($this->members["founder"]);
-			$this->desc = $data[0]["desc"];
-			$this->logo = $data[0]["logo"];
-			$this->settings = array(
+			$this -> id 			= (int) $data[0]["id"];
+			$this -> name 			= (string) $data[0]["name"];
+			$this -> starttime 		= (object) new time((int) $data[0]["start"]);
+			$this -> members 		= (array) unserialize((string) $data[0]["mitglieder"]);
+			$this -> status			= (string) $data[0]["status"];
+			$this -> owner 			= (object) new user((string) $this->members["founder"]);
+			$this -> desc 			= (string) $data[0]["desc"];
+			$this -> logo 			= (string) $data[0]["logo"];
+			$this -> announcement	= (string) $data[0]["announcement"];
+			$this -> pid 			= (int) $data[0]["pid"];
+			$this -> lastInternalID = (int) $data[0]["lastInternalID"];
+			$this -> settings 		= array(
 				"members_max" => $data[0]["setting_members-max"],
 				"confirm_join" => $data[0]["setting_confirm-join"],
 				"new_members" => $data[0]["setting_new-members"],
 				"language" => $data[0]["setting_language"]
 			);
-			$this->announcement = $data[0]["announcement"];
-			$this->pid = $data[0]["pid"];
-			$this->lastInternalID = $data[0]["lastInternalID"];
 			// Create user objects for members
-			$max = count($this->members["people"]);
+			$max = count($this -> members["people"]);
 			for($i=0; $i < $max; $i++)	{
-				$this->members["people"][$this->members["people"][$i]] = new user($this->members["people"][$i]);
-				unset($this->members["people"][$i]);
+				//Create a new user object by the user's name and insert it as $this -> members["people"][USERNAME]
+				$this -> members["people"][$this -> members["people"][$i]] = new user($this -> members["people"][$i]);
+				unset($this -> members["people"][$i]);
 			}
 			// Create user objects for candidates
-			$max = count($this->members["candidates"]);
+			$max = count($this -> members["candidates"]);
 			for($i=0; $i < $max; $i++)	{
-				$this->members["candidates"][$this -> members["candidates"][$i]] = new user($this->members["candidates"][$i]);
+				//Create a new user object by the candidate's name and insert it as $this -> members["candidates"][USERNAME]
+				$this -> members["candidates"][$this -> members["candidates"][$i]] = new user($this -> members["candidates"][$i]);
 				unset($this->members["candidates"][$i]);
 			}
 		}
+		/**
+			* Get the rank of a user in the collab.
+			@param string $name Username
+			@return string
+		*/
 		public function member_rank($name)	{
 			if(!is_string($name))	{
 				trigger_error("Bad argument #1 to collab::member_rank(), string expected, got " . gettype($name), E_USER_ERROR);
@@ -90,6 +123,12 @@
 				return "guest";
 			}
 		}
+		/**
+			* Add a user to the collab.
+			@param string $name Username
+			@param string $rank "member" or "candidate", defines to which list the user gets added
+			@return void
+		*/
 		public function add_member($name, $rank)	{
 			if(!is_string($name))	{
 				trigger_error("Bad argument #1 to collab::add_member(), string expected, got " . gettype($name), E_USER_ERROR);
@@ -147,6 +186,12 @@
 				));
 			}
 		}
+		/**
+			* Remove a user from the collab.
+			@param string $name Username
+			@param string $rank "member" or "candidate", defines from which list the user is removed
+			@return void
+		*/
 		public function remove_member($name, $rank)	{
 			if(!is_string($name))	{
 				trigger_error("Bad argument #1 to collab::remove_member(), string expected, got " . gettype($name), E_USER_ERROR);
@@ -181,6 +226,10 @@
 				$this -> id
 			));
 		}
+		/**
+			* Close the collab.
+			@return void
+		*/
 		public function close()	{
 			global $_MYSQL;
 			$_MYSQL -> set("UPDATE `collabs` SET `status`='closed' WHERE `id`=?", array(
@@ -188,6 +237,9 @@
 			));
 		}
 	}
+	/**
+		* Represents a single user.
+	*/
 	class user	{
 		var $id;
 		var $name;
@@ -201,6 +253,11 @@
 		var $language;
 		var $signupDate;
 		var $lastCollab;
+		/**
+			* Constructor.
+			@param string $name Username
+			@return void
+		*/
 		public function __construct($name)	{
 			if(!is_string($name))	{
 				trigger_error("Bad argument #1 to user::__construct(), string expected, got " . gettype($name), E_USER_ERROR);
@@ -210,37 +267,41 @@
 			if($name != "Systemnachricht")	{
 				$data = $_MYSQL -> get("SELECT * FROM users WHERE name=?",array($name));
 				if(count($data) == 1)	{
-					$this->id = $data[0]["id"];
-					$this->name = $data[0]["name"];
-					$this->pass = $data[0]["pass"];
-					$this->mail = $data[0]["mail"];
-					$this->scratch = $data[0]["scratch"];
-					$this->class = $data[0]["class"];
-					$this->last_login = $data[0]["last_login"];
-					$this->last_ip = $data[0]["last_ip"];
-					$this->online = true;
-					$this->language = $data[0]["language"];
-					$this->signupDate = new time($data[0]["signup"]);
-					$this->lastCollab = new time($data[0]["lastcollab"]);
+					$this -> id 		= (int) $data[0]["id"];
+					$this -> name 		= (string) $data[0]["name"];
+					$this -> pass 		= (string) $data[0]["pass"];
+					$this -> mail 		= (string) $data[0]["mail"];
+					$this -> scratch 	= (string) $data[0]["scratch"];
+					$this -> class 		= (int) $data[0]["class"];
+					$this -> last_login	= (int) $data[0]["last_login"];
+					$this -> last_ip 	= (string) $data[0]["last_ip"];
+					$this -> online 	= (boolean) true;
+					$this -> language 	= (string) $data[0]["language"];
+					$this -> signupDate	= (object) new time((int) $data[0]["signup"]);
+					$this -> lastCollab	= (object) new time((int) $data[0]["lastcollab"]);
 				}
 				else	{
-					$this->online = false;
+					$this -> online = false;
 				}
 			}
 			else	{
-				$this->id = 0;
-				$this->name = "Systemnachricht";
-				$this->pass = "X";
-				$this->mail = "X";
-				$this->scratch = "X";
-				$this->class = "user";
-				$this->last_login = 0;
-				$this->last_ip = "127.0.0.1";
-				$this->online = true;
+				$this -> id = 0;
+				$this -> name = "Systemnachricht";
+				$this -> pass = "X";
+				$this -> mail = "X";
+				$this -> scratch = "X";
+				$this -> class = "user";
+				$this -> last_login = 0;
+				$this -> last_ip = "127.0.0.1";
+				$this -> online = true;
 			}
 		}
+		/**
+			* Check if the user is online (*deprecated*).
+			@return boolean
+		*/
 		public function is_online()	{
-			if($this->online == true)	{
+			if($this -> online == true)	{
 				return true;
 			}
 			else	{
