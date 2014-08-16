@@ -3,7 +3,7 @@
 	header("HTTP/1.1 404 Not Found");
 	require_once("includes/loader.php");
 	
-	$url = "http://" . $_SERVER["SERVER_NAME"] . "/collabs2";
+	$url = "http://" . $_SERVER["SERVER_NAME"];
 ?>
 <html>
 	<head>
