@@ -63,7 +63,4 @@ h3 {
 .closed	{
 	/* Styles for closed collabs */
 	opacity: 0.5;
-	/* TEST HAHA HAHA HA*/
-	border: none;
-	color:#5E0000;
 }
