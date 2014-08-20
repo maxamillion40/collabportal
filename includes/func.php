@@ -1,29 +1,5 @@
 <?php
-	function mysql_auto_connect()	{
-		$db = mysql_connect("localhost","root","");
-		mysql_select_db("scratchcollabs");
-		mysql_set_charset("utf8",$db);
-	}
-	function is_loggedin()	{
-		
-	}
-	function mysql_get($query)	{
-		$starttime = microtime();
-		if(!isset($_SERVER["DB_TIMES"]))	{
-			$_SERVER["DB_TIMES"] = array();
-		}
-		//
-		$rs	= mysql_query($query) or die(mysql_error());
-		$return = array();
-		while($row = mysql_fetch_assoc($rs))	{
-			$return[] = $row;
-		}
-		$return = auto_unserialize($return);
-		//
-		$endtime = microtime();
-		$_SERVER["DB_TIMES"][] = ($endtime - $starttime);
-		return($return);
-	}
+	/* OBSOLETE! To be deleted soon */
 	function errnotice($code,$message) {
 		if($GLOBALS["err"] == $code) {
 			echo "<span class='red'><span class='result-message'><span class='message-inner'>".$message."</span></span></span>";
@@ -41,27 +17,6 @@
 	}
 	function get_uri()	{
 		return "http://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-	}
-	function send_pm(array $data)	{
-		if(!isset($data["sender"]) || !isset($data["to"]) || !isset($data["msg"]))	{
-			die("Message header incomplete");
-		}
-		if(!isset($data["regard"]))	{
-			$data["regard"] = "[Kein Betreff]";
-		}
-		mysql_query("INSERT INTO `messages`(`regard`,`date`,`sender`,`to`,`msg`) VALUES('".$data["regard"]."','".time()."','".$data["sender"]."','".$data["to"]."','".mysql_real_escape_string($data["msg"])."')") or die(mysql_error());
-		print_array($data);
-	}
-	function auto_unserialize(array $in)	{
-		foreach($in as &$elem)	{
-			if(is_array($elem))	{
-				$elem = auto_unserialize($elem);
-			}
-			if(is_string($elem) and @unserialize($elem))	{
-				$elem = @unserialize($elem);
-			}
-		}
-		return $in;
 	}
 	function get_include_contents($filename) {
 		if (is_file($filename)) {
