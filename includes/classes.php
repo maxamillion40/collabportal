@@ -1,5 +1,29 @@
 <?php
 	/**
+		Static CP class for CP related funtions, cannot be initiated.
+	*/
+	class CP	{
+		private function __construct() {}
+		
+		const NAME = "ScratchHub";
+		const DESCRIPTION = "Lorem Ipsum dolor sit amet";
+		const KEYWORDS = "scratch, collabs";
+		const TITLE_SPLITTER = "&raquo;";
+		const GITHUB_REPO = "https://github.com/webdesigner97/collabportal";
+		const ADMINS_MAIL = "Christian_D_97@gmx.de, alex-zimmer@online.de";
+		const BR = "\r\n";
+		
+		const USER_GUEST = 0;
+		const USER_MEMBER = 1;
+		const USER_MODERATOR = 2;
+		const USER_ADMIN = 3;
+		
+		const DB_USER = "root";
+		const DB_PASS = "";
+		const DB_NAME = "scratchcollabs";
+		const DB_SERVER = "localhost";
+	}
+	/**
 		* Create, display and format unix timestmps
 	*/
 	class time	{
@@ -396,11 +420,11 @@
 			$this -> scripts = array();
 			$this -> styles = array();
 			
-			foreach(explode(", ", CP_KEYWORDS) as $k)	{
+			foreach(explode(", ", CP::KEYWORDS) as $k)	{
 				$this -> keywords[] = $k;
 			}
 			
-			$this -> description = CP_DESCRIPTION;
+			$this -> description = CP::DESCRIPTION;
 		}
 		
 		public function requires_rank($which, $redirectOnInsufficient)	{
@@ -422,9 +446,9 @@
 			}
 			//
 			if($split == NULL)	{
-				$split = CP_TITLE_SPLITTER;
+				$split = CP::TITLE_SPLITTER;
 			}
-			$this -> title = $prefix . " " . $split . " " . CP_NAME;
+			$this -> title = $prefix . " " . $split . " " . CP::NAME;
 		}
 		public function setDescription($desc)	{
 		if(!is_string($desc))	{
@@ -469,7 +493,7 @@
 				trigger_error("Bad argument #1 to page::tag(), string expected, got " . gettype($name), E_USER_ERROR);
 			}
 			//
-			return $tag . BR;
+			return $tag . CP::BR;
 		}
 		public function putHeader()	{
 			global $_HOME;

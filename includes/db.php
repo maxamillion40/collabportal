@@ -3,7 +3,6 @@
 		Diese Datei stellt die Klasse mysqlConn bereit, die objektorientierten Zugriff auf die Datenbank des CPs ermöglicht.
 		Zum Auslesen der Daten wird mysqlConn::get() benutzt, in allen anderen Fällen mysqlConn::set()
 	*/
-	require_once("mysql.php");
 	
 	class mysqlConn	{
 		// Properties
@@ -15,10 +14,10 @@
 		// Methods
 			// Constructor
 			function __construct()	{
-				$this->user = CP_DBUSER;
-				$this->pass = CP_DBPASS;
-				$this->server = CP_DBSERVER;
-				$this->dbname = CP_DBNAME;
+				$this->user = CP::DB_USER;
+				$this->pass = CP::DB_PASS;
+				$this->server = CP::DB_SERVER;
+				$this->dbname = CP::DB_NAME;
 				$this->rs = new PDO("mysql:host=" . $this->server . ";dbname=" . $this->dbname, $this->user, $this->pass, array(
 					PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
 				));

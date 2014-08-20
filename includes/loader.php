@@ -15,8 +15,8 @@
 		$_HOME = $_SERVER["DOCUMENT_ROOT"];
 	}
 
-	require_once("db.php");
 	require_once("classes.php");
+	require_once("db.php");
 	
 	if(isset($_SESSION["user"]))	{
 		$GLOBALS["CP_USER"] = new user($_SESSION["user"]);
@@ -27,8 +27,6 @@
 	}
 	
 	require_once("locale.php");
-	require_once("constants.php");
-	require_once("ranks.php");
 	require_once("scripts.php");
 	require_once("errorhandling.php");
 	
