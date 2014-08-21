@@ -1,12 +1,9 @@
 <?php
 	header("Content-type: text/html;charset=UTF-8");
 	session_start();
-		
-	if(is_dir($_SERVER["DOCUMENT_ROOT"] . "/collabs2"))	{
-		set_include_path($_SERVER["DOCUMENT_ROOT"] . "/collabs2");
-		$_HOME = $_SERVER["DOCUMENT_ROOT"] . "/collabs2";
-	}
-	elseif(is_dir($_SERVER["DOCUMENT_ROOT"] . "/collabportal"))	{
+	
+	//Get the home path of the CollabPortal. It varies on the server <-> local installations
+	if(is_dir($_SERVER["DOCUMENT_ROOT"] . "/collabportal"))	{
 		set_include_path($_SERVER["DOCUMENT_ROOT"] . "/collabportal");
 		$_HOME = $_SERVER["DOCUMENT_ROOT"] . "/collabportal";
 	}
@@ -14,10 +11,12 @@
 		set_include_path($_SERVER["DOCUMENT_ROOT"]);
 		$_HOME = $_SERVER["DOCUMENT_ROOT"];
 	}
-
-	require_once("classes.php");
+	
+	//Load additional modules
+	require_once("core/classes.php");
 	require_once("db.php");
 	
+	//Define $_USER
 	if(isset($_SESSION["user"]))	{
 		$GLOBALS["CP_USER"] = new user($_SESSION["user"]);
 		$_USER = &$GLOBALS["CP_USER"];
@@ -26,13 +25,12 @@
 		$_USER = new user("");
 	}
 	
+	//Load even more modules
 	require_once("locale.php");
 	require_once("scripts.php");
 	require_once("errorhandling.php");
 	
-	$GLOBALS["CP_MYSQL_CONN"] = new mysqlConn;
-	$_MYSQL = &$GLOBALS["CP_MYSQL_CONN"];
-	
-	$GLOBALS["CP_CURRENT_PAGE"] = new page;
-	$_PAGE = &$GLOBALS["CP_CURRENT_PAGE"];
+	//Define $_MYSQL and $_PAGE
+	$_MYSQL = new mysqlConn;
+	$_PAGE = new page;
 ?>
