@@ -9,7 +9,7 @@
 	class mysqlConn	{
 		// Properties
 			/**
-				* Database resource.
+				* @var resource Database resource.
 				* @return void
 			*/
 			private $rs;
@@ -31,8 +31,11 @@
 			
 			/**
 				* Read data from the database.
-				* Used to read data with the `SELECT` command
+				* Used to read data with the `SELECT` command.
+				* Please mark user inputs in the query with `?` and pass an array consisting of all those inputs as second param to avoid SQL-Injection.
 				* @return array
+				* @param string $query MySQL-query
+				* @param null|array $args Pass this array if you used `?` placeholder in the query
 				* @throws PDOException if there is a MySQL error
 			*/
 			public function get($query, $args = array())	{
@@ -50,7 +53,10 @@
 			/**
 				* Save data into the database.
 				* Used to save data with the `UPDATE`, `DELETE` and `INSERT` commands
+				* Please mark user inputs in the query with `?` and pass an array consisting of all those inputs as second param to avoid SQL-Injection.
 				* @return void
+				* @param string $query MySQL-query
+				* @param null|array $args Pass this array if you used `?` placeholder in the query
 				* @throws PDOException if there is a MySQL error
 			*/
 			function set($query, $args = array())	{
