@@ -9,6 +9,18 @@
 		private function __construct() {}
 		
 		/**
+			* Stores error messages
+			* @static
+		*/
+		public static $error_messages = array();
+		
+		/**
+			* Stores result messages
+			* @static
+		*/
+		public static $result_messages = array();
+		
+		/**
 			* The name shown in <title>
 			* @const
 		*/
@@ -100,8 +112,55 @@
 			* Get the current URI.
 			* @return string
 		*/
-		public function get_uri()	{
+		public static function get_uri()	{
 			return "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+		}
+		
+		/**
+			* Registers a new notification.
+			* @param string $event Either 'error' or 'result'
+			* @param string $message Notification message. Keep it as short as possible
+			* @return void
+		*/
+		public static function register_notification($event, $code, $message)	{
+			if($event != "result" and $event != "error")	{
+				throw new InvalidArgumentException("Bad argument #1 to CP::register_notification, string expected, got " . gettype($event));
+			}
+			if(!isset($code))	{
+				throw new InvalidArgumentException("Bad argument #2 to CP::register_notification, string expected, got " . gettype($event));
+			}
+			if(!isset($message))	{
+				throw new InvalidArgumentException("Bad argument #3 to CP::register_notification, string expected, got " . gettype($event));
+			}
+			if($event == "error")	{
+				CP::$error_messages[$code] = $message;
+			}
+			elseif($event == "result")	{
+				CP::$result_messages[$code] = $message;
+			}
+		}
+		
+		/**
+			* Parse and display notifications.
+			* @return void
+		*/
+		public static function parse_notifications()	{
+			//Results
+			if(isset($_GET["result"]))	{
+				foreach(CP::$result_messages as $code => $message)	{
+					if($_GET["result"] == $code)	{
+						echo "<span class='orange'><span class='result-message'><span class='message-inner'>" . $message . "</span></span></span>";
+					}
+				}
+			}
+			//Errors
+			if(isset($_GET["error"]))	{
+				foreach(CP::$error_messages as $code => $message)	{
+					if($_GET["error"] == $code)	{
+						echo "<span class='red'><span class='result-message'><span class='message-inner'>" . $message . "</span></span></span>";
+					}
+				}
+			}
 		}
 	}
 ?>

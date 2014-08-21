@@ -19,14 +19,6 @@
 			<li class="addborder"><a href="help.php"><?php echo __("Help"); ?></a></li>
 			<?php
 				//Required for notice/error boxes
-				$res = "";
-				if(isset($_GET["result"]))	{
-					$res = $_GET["result"];
-				}
-				$err = "";
-				if(isset($_GET["error"]))	{
-					$err = $_GET["error"];
-				}
 				$uname = "";
 				if(isset($_GET["uname"]))	{
 					$uname = $_GET["uname"];
@@ -35,7 +27,8 @@
 				if(isset($_GET["name"]))	{
 					$name = $_GET["name"];
 				}
-				require_once("includes/notices.php");
+				require_once($_HOME . "/includes/notices.php");
+				CP::parse_notifications();
 			?>
 			<ul id='rightnav'>
 			<?php	
