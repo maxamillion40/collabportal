@@ -3,11 +3,17 @@
 Sitemap: http://example.com/sitemap.php
 
 User-agent: *
-Disallow: /action.php
-Disallow: /collab.php
+# Directories
+Disallow: /core/
 Disallow: /libs/
 Disallow: /includes/
 Disallow: /maintenance/
+Disallow: /locale/
+Disallow: /obsolete/
+Disallow: /util/
+# Files
+Disallow: /action.php
+Disallow: /collab.php
 Disallow: /error404.php
 Disallow: /error403.php
 Disallow: /admin.php
@@ -17,3 +23,4 @@ Disallow: /new.php
 Disallow: /read.php
 Disallow: /admin.php
 Disallow: /settings.php
+Disallow: /sysinbox.php
