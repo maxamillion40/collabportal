@@ -12,8 +12,15 @@
 		$_HOME = $_SERVER["DOCUMENT_ROOT"];
 	}
 	
+	//Load *.class.php files in $_HOME/core/
+	$files = scandir($_HOME . "/core");
+	foreach($files as $file)	{
+		if(stristr($file, ".class.php"))	{
+			require_once($_HOME . "/core/" . $file);
+		}
+	}
+	
 	//Load additional modules
-	require_once("core/classes.php");
 	require_once("db.php");
 	
 	//Define $_USER
