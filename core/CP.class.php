@@ -3,6 +3,7 @@
 		* Static CP class for CP related functions.
 		* This class mustn't be initiated. Access the properties and methods with `CP::foobar`
 		* @since 2014-08-20
+		* @package core
 	*/
 	class CP	{
 		private function __construct() {}

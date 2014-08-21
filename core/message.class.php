@@ -1,4 +1,9 @@
 <?php
+	/**
+		* Class for system messages
+		* @package core
+		* @since 2014-08-20
+	*/
 	class message	{
 		var $id;
 		var $to;

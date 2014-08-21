@@ -1,4 +1,9 @@
 <?php
+	/**
+		* Class for collab messages
+		* @package core
+		* @since 2014-08-20
+	*/
 	class collabmessage extends message	{
 		var $sender;
 		var $censored;

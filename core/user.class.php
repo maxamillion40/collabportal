@@ -1,20 +1,84 @@
 <?php
 	/**
-		* Represents a single user.
+		* This class should be used whenever a script wants to interact with a user
+		* @package core
+		* @since 2014-08-20
 	*/
 	class user	{
-		var $id;
-		var $name;
-		var $pass;
-		var $mail;
-		var $scratch;
-		var $class;
-		var $last_login;
-		var $last_ip;
-		var $online;
-		var $language;
-		var $signupDate;
-		var $lastCollab;
+		/**
+			* User ID as known in the database
+			* @var int
+		*/
+		public $id;
+		
+		/**
+			* Username
+			* @var string
+		*/
+		public $name;
+		
+		/**
+			* Password, hashed by md5
+			* @var string
+		*/
+		public $pass;
+		
+		/**
+			* E-mail-address
+			* @var string
+		*/
+		public $mail;
+		
+		/**
+			* Scratch username
+			* @var string
+		*/
+		public $scratch;
+		
+		/**
+			* User rank
+			* @var string
+			* @see CP::USER_GUEST CP::USER_*
+		*/
+		public $class;
+		
+		/**
+			* Time of last login
+			* @var time
+		*/
+		public $last_login;
+		
+		/**
+			* Last IP-address
+			* @var string
+		*/
+		public $last_ip;
+		
+		/**
+			* Is online
+			* @var boolean
+			* @deprecated
+		*/
+		public $online;
+		
+		/**
+			* Preferred language
+			* @var string
+		*/
+		public $language;
+		
+		/**
+			* Time of signup
+			* @var time
+		*/
+		public $signupDate;
+		
+		/**
+			* Time of last collab being started
+			* @var time
+		*/
+		public $lastCollab;
+		
 		/**
 			* Constructor.
 			@param string $name Username
@@ -61,6 +125,7 @@
 		/**
 			* Check if the user is online (*deprecated*).
 			@return boolean
+			@deprecated
 		*/
 		public function is_online()	{
 			if($this -> online == true)	{

@@ -1,6 +1,8 @@
 <?php
 	/**
 		* Create, display and format unix timestamps
+		* @package core
+		* @since 2014-08-20
 	*/
 	class time	{
 		/**
@@ -23,7 +25,7 @@
 		
 		/**
 			* Format and return the timestamp as string
-			* @param string $format See http://de2.php.net/manual/en/function.date.php
+			* @param string $pattern See http://de2.php.net/manual/en/function.date.php
 			* @return string
 		*/
 		public function format($pattern)	{
@@ -45,7 +47,7 @@
 		
 		/**
 			* Format and print the timestamp
-			@param string $format See http://de2.php.net/manual/en/function.date.php
+			@param string $pattern See http://de2.php.net/manual/en/function.date.php
 			@return void
 		*/
 		public function printas($pattern)	{

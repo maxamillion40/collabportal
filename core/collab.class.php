@@ -1,6 +1,8 @@
 <?php
 	/**
-		* Represents a single collab.
+		* Use this class when dealing with a collab
+		* @package core
+		* @since 2014-08-20
 	*/
 	class collab	{
 		var $id;
