@@ -1,43 +1,61 @@
 <?php
-	/*
-		Diese Datei stellt die Klasse mysqlConn bereit, die objektorientierten Zugriff auf die Datenbank des CPs ermöglicht.
-		Zum Auslesen der Daten wird mysqlConn::get() benutzt, in allen anderen Fällen mysqlConn::set()
+	/**
+		* This class is used for database access.
+		* It doesn't need to be initiated when you need it, just use `$_MYSQL`.
+		* @since 2014-08-20
+		* @package core
 	*/
 	
 	class mysqlConn	{
 		// Properties
-			private $user;
-			private $pass;
-			private $dbname;
-			private $server;
+			/**
+				* Database resource.
+				* @return void
+			*/
 			private $rs;
 		// Methods
-			// Constructor
+			/**
+				* Constructor.
+				* @return void
+			*/
 			function __construct()	{
-				$this->user = CP::DB_USER;
-				$this->pass = CP::DB_PASS;
-				$this->server = CP::DB_SERVER;
-				$this->dbname = CP::DB_NAME;
-				$this->rs = new PDO("mysql:host=" . $this->server . ";dbname=" . $this->dbname, $this->user, $this->pass, array(
+				$this -> user = CP::DB_USER;
+				$this -> pass = CP::DB_PASS;
+				$this -> server = CP::DB_SERVER;
+				$this -> dbname = CP::DB_NAME;
+				$this -> rs = new PDO("mysql:host=" . CP::DB_SERVER . ";dbname=" . CP::DB_NAME, CP::DB_USER, CP::DB_PASS, array(
 					PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
 				));
-				$this->rs->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);				
+				$this -> rs -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);				
 			}
-			// Get data as array
-			function get($query, $args = array())	{
+			
+			/**
+				* Read data from the database.
+				* Used to read data with the `SELECT` command
+				* @return array
+				* @throws PDOException if there is a MySQL error
+			*/
+			public function get($query, $args = array())	{
 				try	{
 					$return = array();
-					$query = $this->rs->prepare($query);
-					$query->execute($args);
-					return $query->fetchAll();
+					$query = $this -> rs -> prepare($query);
+					$query -> execute($args);
+					return $query -> fetchAll();
 				}
 				catch(PDOException $e)	{
 					print_r($e);
 				}
 			}
+			
+			/**
+				* Save data into the database.
+				* Used to save data with the `UPDATE`, `DELETE` and `INSERT` commands
+				* @return void
+				* @throws PDOException if there is a MySQL error
+			*/
 			function set($query, $args = array())	{
 				try	{
-					$query = $this->rs->prepare($query);
+					$query = $this -> rs -> prepare($query);
 					
 					$x = 1;
 					foreach($args as $arg)	{
@@ -45,7 +63,7 @@
 						$x++;
 					}
 					
-					$query->execute($args);
+					$query -> execute($args);
 				}
 				catch(PDOException $e)	{
 					print_r($e);
@@ -54,6 +72,5 @@
 	}
 	
 	// Global mySQL Object
-	$GLOBALS["CP_MYSQL_CONN"] = new mysqlConn;
-	$_MYSQL = &$GLOBALS["CP_MYSQL_CONN"];
+	$_MYSQL = new mysqlConn;
 ?>

@@ -5,12 +5,47 @@
 		* @since 2014-08-20
 	*/
 	class message	{
+		/**
+			* Message ID as known in the database
+			* @var int
+		*/
 		var $id;
+		
+		/**
+			* Name of the user the message has been sent/ will be sent to
+			* @var string
+		*/
 		var $to;
+		
+		/**
+			* Date of message creation
+			* @var time
+		*/
 		var $date;
+		
+		/**
+			* Message subject
+			* @var string
+		*/
 		var $regard;
+		
+		/**
+			* Message content
+			* @var string
+		*/
 		var $msg;
+		
+		/**
+			* Indicates whether the message has already been read
+			* @var boolean
+		*/
 		var $read;
+		
+		/**
+			* Constructor.
+			* @param int $id Pass an existing message ID to it
+			* @return void
+		*/
 		public function __construct($id = null)	{
 			if(isset($id))	{
 				global $_MYSQL;
@@ -29,6 +64,12 @@
 				}
 			}
 		}
+		
+		/**
+			* Checks whether all required data for this message has been set.
+			* @return void
+			* @deprecated
+		*/
 		public function can_send()	{
 			if(isset($this -> sender) && isset($this -> to) && isset($this -> regard) && isset($this -> msg))	{
 				return true;
@@ -37,6 +78,11 @@
 				return false;
 			}
 		}
+		
+		/**
+			* Save message to database
+			* @return void
+		*/
 		public function send()	{
 			global $_MYSQL;
 			if($this -> id == null)	{

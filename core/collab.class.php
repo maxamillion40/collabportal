@@ -5,18 +5,81 @@
 		* @since 2014-08-20
 	*/
 	class collab	{
+		/**
+			* Collab ID as known in the database
+			* @var int
+		*/
 		var $id;
+		
+		/**
+			* ID of last collabmessage as known in the database
+			* @var int
+			* @see collabmessage::internalID
+		*/
 		var $lastInternalID;
+		
+		/**
+			* Collab name
+			* @var string
+		*/
 		var $name;
+		
+		/**
+			* Collab start time
+			* @var time
+		*/
 		var $starttime;
+		
+		/**
+			* Collab participants.
+			* two-dimensional array of user objects. Regular members can be found at ["members"] while candidates are stored in ["candidates"]
+			* @var array
+		*/
 		var $members;
+		
+		/**
+			* Collab opening state.
+			* Can be either open or closed
+			* @var string
+		*/
 		var $status;
+		
+		/**
+			* Collab owner
+			* @var user
+		*/
 		var $owner;
+		
+		/**
+			* Description
+			* @var string
+		*/
 		var $desc;
+		
+		/**
+			* Binary data of the collab logo
+			* @var string
+		*/
 		var $logo;
+		
+		/**
+			* Settings
+			* @var array
+		*/
 		var $settings;
+		
+		/**
+			* Announcement
+			* @var string
+		*/
 		var $announcement;
+		
+		/**
+			* Project ID for the project preview
+			* @var int
+		*/
 		var $pid;
+		
 		/**
 			* Constructor.
 			@param int $id Collab ID as known in the database

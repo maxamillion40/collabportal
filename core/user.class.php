@@ -123,7 +123,7 @@
 			}
 		}
 		/**
-			* Check if the user is online (*deprecated*).
+			* Check if the user is online.
 			@return boolean
 			@deprecated
 		*/
