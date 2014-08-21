@@ -95,5 +95,13 @@
 			* @const
 		*/
 		const DB_SERVER = "localhost";
+		
+		/**
+			* Get the current URI.
+			* @return string
+		*/
+		public function get_uri()	{
+			return "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+		}
 	}
 ?>

@@ -1,7 +1,7 @@
 <?php
 	require_once("loader.php");
 	require_once("func.php");
-	$return_to = get_uri();
+	$return_to = CP::get_uri();
 	if($_USER -> is_online())	{
 		$sys	= count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` = 'System' AND `read`='0'", array($_USER -> name)));
 	}
