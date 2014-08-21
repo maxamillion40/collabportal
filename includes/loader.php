@@ -13,7 +13,7 @@
 	}
 	
 	//Load *.class.php files in $_HOME/core/
-	$files = scandir($_HOME . "/core");
+	$files = scandir($_HOME . "/core", 1);
 	foreach($files as $file)	{
 		if(stristr($file, ".class.php"))	{
 			require_once($_HOME . "/core/" . $file);
