@@ -1,7 +1,6 @@
 <?php
 	class message	{
 		var $id;
-		var $sender;
 		var $to;
 		var $date;
 		var $regard;
