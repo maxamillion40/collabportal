@@ -1,5 +1,5 @@
 <?php
-	class collabmessage	{
+	class collabmessage extends message	{
 		var $id;
 		var $time;
 		var $sender;
