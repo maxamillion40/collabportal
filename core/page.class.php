@@ -45,6 +45,7 @@
 		/**
 			* Constructor.
 			* @return void
+			* @api
 		*/
 		public function __construct()	{
 			$this -> scripts = array();
@@ -62,6 +63,8 @@
 			* @param int $which See CP::USER_GUEST
 			* @param string $redirectOninsufficient Redirect the user to this page if his rank is unsufficient
 			* @see CP::USER_GUEST CP::USER_*
+			* @return void
+			* @api
 		*/
 		public function requires_rank($which, $redirectOnInsufficient)	{
 			if(!is_int($which))	{
@@ -82,6 +85,7 @@
 			* @param string $prefix Page name
 			* @param null|string $split Specify a different delimiter for the page's title tag
 			* @return void
+			* @api
 		*/
 		public function setTitle($prefix, $split = NULL)	{
 			if(!is_string($prefix))	{
@@ -98,6 +102,7 @@
 			* Set page description.
 			* @param string $desc
 			* @return void
+			* @api
 		*/
 		public function setDescription($desc)	{
 		if(!is_string($desc))	{
@@ -112,6 +117,7 @@
 			* Does not override CP::KEYWORDS
 			* @param array $keys Array of keywords
 			* @return void
+			* @api
 		*/
 		public function addKeywords($keys)	{
 			if(!is_array($keys))	{
@@ -127,6 +133,7 @@
 			* Set robot commands for the current page.
 			* @param string $commands Comma-seperated list of robot commands
 			* @return void
+			* @api
 		*/
 		public function setRobots($commands)	{
 			if(!is_array($commands))	{
@@ -140,6 +147,7 @@
 			* Include a script onto the page.
 			* @param string $name
 			* @return void
+			* @api
 		*/
 		public function useScript($name)	{
 			if(!is_string($name))	{
@@ -153,6 +161,7 @@
 			* Include an additional stylesheet onto the page.
 			* @param string $name
 			* @return void
+			* @api
 		*/
 		public function useStyle($name)	{
 			if(!is_string($name))	{
@@ -180,6 +189,7 @@
 		/**
 			* Print the <head> onto the page.
 			* @return void
+			* @api
 		*/
 		public function putHeader()	{
 			global $_HOME;

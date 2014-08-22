@@ -1,12 +1,15 @@
 <?php
+	/**
+		* Loads localisation files.
+		* This file loads the localisation files into the `$_LOCALE` and defines `__()` for translating strings
+		* @package includes
+	*/
 	$_LOCALE = array();
 	$files = scandir($_HOME . "/locale");
 	unset($files[0]);
 	unset($files[1]);
 	
 	foreach($files as $l)	{
-		//$filedata = parse_ini_file($_HOME . "/locale/" . $l, true);
-		//$_LOCALE[$filedata["meta"]["langcode"]] = $filedata["translations"];
 		//Load .po file
 		$po = file($_HOME . "/locale/" . $l, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 		//Create new language tree in $_LOCALE
@@ -34,6 +37,17 @@
 		}
 	}
 
+	/**
+		* Translate a string.
+		* Translate a string to the language of `$_USER` or another language by passing the 3rd param.
+		* @param string $msg The string to be translated. If the translation can't be found, the original string is returned
+		* @param array $args If the string contains variables, pass them using this array
+		* @param string $lang optional, translate to a certain language
+		* @see http://de.php.net/manual/en/function.sprintf.php#refsect1-function.sprintf-parameters How to mark variables in $msg
+		* @since 2014-08-20
+		* @api
+		* @return string
+	*/
 	function __($msg, $args = null, $lang = null)	{
 		global $_USER;
 		global $_LOCALE;

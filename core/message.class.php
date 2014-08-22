@@ -69,6 +69,7 @@
 			* Checks whether all required data for this message has been set.
 			* @return void
 			* @deprecated
+			* @api
 		*/
 		public function can_send()	{
 			if(isset($this -> sender) && isset($this -> to) && isset($this -> regard) && isset($this -> msg))	{
@@ -82,6 +83,7 @@
 		/**
 			* Save message to database
 			* @return void
+			* @api
 		*/
 		public function send()	{
 			global $_MYSQL;

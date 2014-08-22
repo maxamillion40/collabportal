@@ -37,6 +37,7 @@
 				* @param string $query MySQL-query
 				* @param null|array $args Pass this array if you used `?` placeholder in the query
 				* @throws PDOException if there is a MySQL error
+				* @api
 			*/
 			public function get($query, $args = array())	{
 				try	{
@@ -58,6 +59,7 @@
 				* @param string $query MySQL-query
 				* @param null|array $args Pass this array if you used `?` placeholder in the query
 				* @throws PDOException if there is a MySQL error
+				* @api
 			*/
 			function set($query, $args = array())	{
 				try	{

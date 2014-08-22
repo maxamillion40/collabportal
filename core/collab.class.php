@@ -82,8 +82,8 @@
 		
 		/**
 			* Constructor.
-			@param int $id Collab ID as known in the database
-			@return void
+			* @param int $id Collab ID as known in the database
+			* @return void
 		*/
 		public function __construct($id)	{
 			// Load all collab data from DB
@@ -123,8 +123,9 @@
 		}
 		/**
 			* Get the rank of a user in the collab.
-			@param string $name Username
-			@return string
+			* @param string $name Username
+			* @return string
+			* @api
 		*/
 		public function member_rank($name)	{
 			if(!is_string($name))	{
@@ -147,9 +148,10 @@
 		}
 		/**
 			* Add a user to the collab.
-			@param string $name Username
-			@param string $rank "member" or "candidate", defines to which list the user gets added
-			@return void
+			* @param string $name Username
+			* @param string $rank "member" or "candidate", defines to which list the user gets added
+			* @return void
+			* @api
 		*/
 		public function add_member($name, $rank)	{
 			if(!is_string($name))	{
@@ -210,9 +212,10 @@
 		}
 		/**
 			* Remove a user from the collab.
-			@param string $name Username
-			@param string $rank "member" or "candidate", defines from which list the user is removed
-			@return void
+			* @param string $name Username
+			* @param string $rank "member" or "candidate", defines from which list the user is removed
+			* @return void
+			* @api
 		*/
 		public function remove_member($name, $rank)	{
 			if(!is_string($name))	{
@@ -250,7 +253,8 @@
 		}
 		/**
 			* Close the collab.
-			@return void
+			* @return void
+			* @api
 		*/
 		public function close()	{
 			global $_MYSQL;

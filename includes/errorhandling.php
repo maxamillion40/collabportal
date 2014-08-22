@@ -1,4 +1,7 @@
 <?php
+	/**
+		* @internal
+	*/
 	function cp_handle_errors($errcode, $errstring, $errfile, $errline)	{
 		$ref = $_SERVER["HTTP_REFERER"];
 		//

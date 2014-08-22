@@ -27,6 +27,7 @@
 			* Format and return the timestamp as string
 			* @param string $pattern See http://de2.php.net/manual/en/function.date.php
 			* @return string
+			* @api
 		*/
 		public function format($pattern)	{
 			if(is_string($pattern))	{
@@ -39,7 +40,8 @@
 		
 		/**
 			* Get the raw timestamp
-			@return int
+			* @return int
+			* @api
 		*/
 		public function get_raw()	{
 			return $this -> stamp;
@@ -47,8 +49,9 @@
 		
 		/**
 			* Format and print the timestamp
-			@param string $pattern See http://de2.php.net/manual/en/function.date.php
-			@return void
+			* @param string $pattern See http://de2.php.net/manual/en/function.date.php
+			* @return void
+			* @api
 		*/
 		public function printas($pattern)	{
 			if(is_string($pattern))	{

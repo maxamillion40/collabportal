@@ -6,17 +6,23 @@
 		* @package core
 	*/
 	class CP	{
+		/**
+			* Disabled constructor.
+			* @ignore
+		*/
 		private function __construct() {}
 		
 		/**
 			* Stores error messages
 			* @static
+			* @var array
 		*/
 		public static $error_messages = array();
 		
 		/**
 			* Stores result messages
 			* @static
+			* @var array
 		*/
 		public static $result_messages = array();
 		
@@ -119,8 +125,11 @@
 		/**
 			* Registers a new notification.
 			* @param string $event Either 'error' or 'result'
+			* @param string $code Event code as passed in `&error=code` and `&result=code`
 			* @param string $message Notification message. Keep it as short as possible
 			* @return void
+			* @throws InvalidArgumentException if one or more param is missing or not of the correct type
+			* @api
 		*/
 		public static function register_notification($event, $code, $message)	{
 			if($event != "result" and $event != "error")	{
@@ -143,6 +152,7 @@
 		/**
 			* Parse and display notifications.
 			* @return void
+			* @api
 		*/
 		public static function parse_notifications()	{
 			//Results

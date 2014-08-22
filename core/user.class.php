@@ -81,8 +81,8 @@
 		
 		/**
 			* Constructor.
-			@param string $name Username
-			@return void
+			* @param string $name Username
+			* @return void
 		*/
 		public function __construct($name)	{
 			if(!is_string($name))	{
@@ -124,8 +124,9 @@
 		}
 		/**
 			* Check if the user is online.
-			@return boolean
-			@deprecated
+			* @return boolean
+			* @deprecated
+			* @api
 		*/
 		public function is_online()	{
 			if($this -> online == true)	{

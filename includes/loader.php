@@ -1,4 +1,8 @@
 <?php
+	/**
+		* Setting up the CollabPortal to allow wprking with its classes
+	*/
+	
 	header("Content-type: text/html;charset=UTF-8");
 	session_start();
 	
