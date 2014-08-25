@@ -1,5 +1,4 @@
 <?php
-	require_once("includes/func.php");
 	require_once("includes/loader.php");
 	//Is there a param in the URI?
 	if($_SERVER["QUERY_STRING"] == "")	{
