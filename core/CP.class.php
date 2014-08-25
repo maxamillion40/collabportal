@@ -17,14 +17,14 @@
 			* @static
 			* @var array
 		*/
-		public static $error_messages = array();
+		private static $error_messages = array();
 		
 		/**
 			* Stores result messages
 			* @static
 			* @var array
 		*/
-		public static $result_messages = array();
+		private static $result_messages = array();
 		
 		/**
 			* The name shown in <title>
