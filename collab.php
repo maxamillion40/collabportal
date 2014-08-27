@@ -117,7 +117,7 @@
 											</tr>
 											<tr>
 												<td><?php echo __("Runtime"); ?>:</td>
-												<td><?php echo round((time() - $collab -> starttime -> stamp)/60/60/24); ?> Tag(e)</td>
+												<td><?php echo round((time() - $collab -> starttime -> get_raw())/60/60/24); ?> Tag(e)</td>
 											</tr>
 											<tr>
 												<td><?php echo __("Founder"); ?>:</td>
