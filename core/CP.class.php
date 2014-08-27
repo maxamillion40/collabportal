@@ -54,7 +54,7 @@
 			* URI to the Github repository
 			* @const
 		*/
-		const GITHUB_REPO = "https://github.com/webdesigner97/collabportal";
+		const GITHUB_REPO = "https://github.com/Collabportalteam/collabportal";
 		
 		/**
 			* Comma-seperated list of mail addresses
