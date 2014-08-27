@@ -3,7 +3,7 @@
 	<p><?php echo __("Scratch is a Project of the Lifelong Kindergarten Group at the MIT Media Lab"); ?></p>
 	<p><ul class="footer-menu"><li><?php echo __("Scratchhub is a project by"); ?> <a href="http://scratch.mit.edu/users/webdesigner97/">webdesigner97</a> <?php echo __("and"); ?> <a href="http://scratch.mit.edu/users/Lirex/">Lirex</a></li><li><a href="team.php"><?php echo __("The team"); ?></a></li></ul></p>
 	<p id="gotoGithub">
-		<a href="<?php echo CP_GITHUB_REPO; ?>" target="_blank">
+		<a href="<?php echo CP::GITHUB_REPO; ?>" target="_blank">
 			<img src="img/gh64d.png" alt="Github Repository" height="64" width="64" />
 		</a>
 	</p>
