@@ -24,8 +24,7 @@
 		"chat" => array(
 			"css" => array(),
 			"js" => array(
-				"scripts/chat/autoupdate.js",
-				"scripts/chat/infinitescroll.js"
+				
 			)
 		),
 		"getUrlParam" => array(
