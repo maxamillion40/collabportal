@@ -7,7 +7,7 @@ function getMessagesFromInterval(lower, upper, callback)	{
 		return false;
 	}
 	// Read the messages
-	return $.ajax({
+	$.ajax({
 		url: "ajax/getMessagesByInterval.ajax.php",
 		dataType: "json",
 		type: "POST",
@@ -17,10 +17,33 @@ function getMessagesFromInterval(lower, upper, callback)	{
 			upper: upper
 		},
 		success: function(data)	{
+			console.log("Messages received. Passing to callback");
 			callback(data);
 		},
 		error:	function()	{
 			callback(false);
 		}
+	});
+}
+
+// Check if a new message is available on the server
+function hasNewMessages(latestOnClient, callbackIfTrue, callbackIfFalse)	{
+	$.ajax({
+		url: "ajax/hasNewMessages.ajax.php",
+		dataType: "json",
+		type: "POST",
+		data: {
+			cid: $(document).getUrlParam("id"),
+			client: latestOnClient
+		},
+		success: function(data)	{
+			if(data > 0)	{
+				console.log("There are new messages");
+				callbackIfTrue();
+			}
+			else	{
+				callbackIfFalse();
+			}
+		},
 	});
 }
