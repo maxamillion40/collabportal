@@ -1,6 +1,7 @@
 <?php
 	/**
 		* Setting up the CollabPortal to allow wprking with its classes
+		* @package core
 	*/
 	
 	header("Content-type: text/html;charset=UTF-8");
@@ -41,7 +42,9 @@
 	require_once("scripts.php");
 	require_once("errorhandling.php");
 	
-	//Define $_MYSQL and $_PAGE
+	//Define $_MYSQL and $_PAGE and $_LOG
 	$_MYSQL = new mysqlConn;
 	$_PAGE = new page;
+	$_LOG = new log;
+	$_LOG -> load();
 ?>
