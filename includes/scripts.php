@@ -24,7 +24,8 @@
 		"chat" => array(
 			"css" => array(),
 			"js" => array(
-				
+				"scripts/chat/getMessages.js",
+				"scripts/chat/chat.js",
 			)
 		),
 		"getUrlParam" => array(
