@@ -18,10 +18,10 @@ function getMessagesFromInterval(lower, upper, callback)	{
 		},
 		success: function(data)	{
 			console.log("Messages received. Passing to callback");
-			callback(data);
+			callback(data, "");
 		},
-		error:	function()	{
-			callback(false);
+		error:	function(_, __, error)	{
+			callback(false, error);
 		}
 	});
 }

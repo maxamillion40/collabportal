@@ -61,29 +61,38 @@
 								</div>
 								<div class="box-content">
 									<div class="inner">
-										<div class="chatbox-form">
 										<?php
-											if($collab -> status != "closed")	{
+											if($collab -> member_rank($_USER -> name)!= "guest")	{
 										?>
-											<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
-												<textarea name="msg"></textarea><br />
-												<button type="submit"><?php echo __("Send"); ?></button>
-											</form>
-											</div>
-										<?php
-											}
-											else	{
-										?>
-											<p><?php echo __("Chat is in read-only mode"); ?></p>
-										<?php
-											}
-										?>
+											<div class="chatbox-form">
+											<?php
+												if($collab -> status != "closed")	{
+											?>
+												<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
+													<textarea name="msg"></textarea><br />
+													<button type="submit"><?php echo __("Send"); ?></button>
+												</form>
+												</div>
+											<?php
+												}
+												else	{
+											?>
+												<p><?php echo __("Chat is in read-only mode"); ?></p>
+											<?php
+												}
+											?>
 									<div id="livechat">
 										<!-- Chat messages will go here. -->
 									</div>
 									<div id="loading">
 										<p><button id="loadMore"><?php echo __("Load more!"); ?></button></p>
 									</div>
+									<?php
+										}
+										else	{
+											echo __("The chat is only available for members of this collab");
+										}
+									?>
 									</div>
 								</div>
 							</article>
