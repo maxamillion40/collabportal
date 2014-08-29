@@ -21,6 +21,7 @@ function getMessagesFromInterval(lower, upper, callback)	{
 			callback(data, "");
 		},
 		error:	function(_, __, error)	{
+			alert(error);
 			callback(false, error);
 		}
 	});

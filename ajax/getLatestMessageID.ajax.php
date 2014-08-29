@@ -3,7 +3,8 @@
 	//
 	$id		= (int) $_POST["cid"];
 	//
-	$high = $_MYSQL -> get("SELECT `internalID` FROM `collabmessages` WHERE `collab`=? ORDER BY `timestamp` DESC LIMIT 1", array($id))[0];
+	$high = $_MYSQL -> get("SELECT `internalID` FROM `collabmessages` WHERE `collab`=? ORDER BY `timestamp` DESC LIMIT 1", array($id));
+	$high = $high[0];
 	//
 	echo json_encode($high);
 ?>
