@@ -1,4 +1,5 @@
 ﻿"use strict";
+var title;
 
 $(document).ready(function()	{
 	// Get the internalID of the latest message
@@ -31,6 +32,12 @@ $(document).ready(function()	{
 		hasNewMessages(latestHere, function()	{
 			// Load up to 10 new messages. The rest comes during the next update
 			getMessagesFromInterval(latestHere, latestHere + 10, function(res)	{
+				// Notification
+				var audio = new Audio("sounds/pop.ogg");
+				audio.play();
+				title = $("title").html();
+				$("title").html("Activity!");
+				// Loop the new messages
 				var i;
 				for(i = 0; i < res.count; i++)	{
 					console.log("Adding message");
@@ -43,5 +50,12 @@ $(document).ready(function()	{
 		function()	{
 			//
 		});
-	}, 2000)
+	}, 2000);
+	
+	// Reset title
+	$("body").mouseover(function()	{
+		if($("title").html() == "Activity!")	{
+			$("title").html(title);
+		}
+	});
 });
