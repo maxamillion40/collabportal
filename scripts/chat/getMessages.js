@@ -28,6 +28,7 @@ function getMessagesFromInterval(lower, upper, callback)	{
 
 // Check if a new message is available on the server
 function hasNewMessages(latestOnClient, callbackIfTrue, callbackIfFalse)	{
+	console.log("Checking for new messages");
 	$.ajax({
 		url: "ajax/hasNewMessages.ajax.php",
 		dataType: "json",
@@ -42,8 +43,17 @@ function hasNewMessages(latestOnClient, callbackIfTrue, callbackIfFalse)	{
 				callbackIfTrue();
 			}
 			else	{
+				console.log("No new messages");
 				callbackIfFalse();
 			}
 		},
+		error: function(jqXHR, _, errorThrown)	{
+			alert(errorThrown);
+		}
 	});
+}
+
+// Render a collabmessages
+function renderMessage(msg)	{
+	$("#livechat").prepend('<div class="msg msg-' + msg.internalID + '"><div class="msg-head"><span class="msg-name">' + msg.absender + '</span>, ' + msg.timestamp + '</div><div class="msg-body">' + msg.message + '</div>');
 }
