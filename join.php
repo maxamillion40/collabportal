@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
-	if($_USER -> is_online())	{
+	if($_USER -> isLoggedIn())	{
 		header("Location: index.php");
 	}
 	

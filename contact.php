@@ -45,7 +45,7 @@
 									<p><h4><?php echo __("Use this form to contact us:"); ?></h4></p>
 									<form id="contact" action="./">
 										<?php
-											if(!$_USER -> is_online()) {
+											if(!$_USER -> isLoggedIn()) {
 												echo "<p>" . __("Please tell us your E-Mail address, so we can reply:") . "</p>";
 												echo "<input type='email' name='email' placeholder='" . __("E-Mail address") . "' required />";
 											}

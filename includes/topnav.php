@@ -1,7 +1,6 @@
 <?php
-	require_once("loader.php");
 	$return_to = CP::get_uri();
-	if($_USER -> is_online())	{
+	if($_USER -> isLoggedIn())	{
 		$sys	= count($_MYSQL -> get("SELECT `id` FROM `messages` WHERE `to`=? AND `sender` = 'System' AND `read`='0'", array($_USER -> name)));
 	}
 ?>
@@ -31,7 +30,7 @@
 			?>
 			<ul id='rightnav'>
 			<?php	
-				if($_USER -> is_online())	{
+				if($_USER -> isLoggedIn())	{
 				//Content loggedin START
 			?>
 			<div id="msg-menu-a"><li>

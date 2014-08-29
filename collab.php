@@ -52,38 +52,44 @@
 							</div>
 						</article>
 						<!-- Chat -->
-						<article class="box" id="chatbox">
-							<div class="box-header">
-								<h2><img src="img/chat.png" height="19" width="19" alt="Chat Icon" /> <?php echo __("Live Chat"); ?></h2>
-							</div>
-							<div class="box-content">
-								<div class="inner">
-									<div class="chatbox-form">
-									<?php
-										if($collab -> status != "closed")	{
-									?>
-										<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
-											<textarea name="msg"></textarea><br />
-											<button type="submit"><?php echo __("Send"); ?></button>
-										</form>
-										</div>
-									<?php
-										}
-										else	{
-									?>
-										<p><?php echo __("Chat is in read-only mode"); ?></p>
-									<?php
-										}
-									?>
-								<div id="livechat">
-									<!-- Chat messages will go here. -->
+						<?php
+							if($_USER -> isLoggedIn())	{
+						?>
+							<article class="box" id="chatbox">
+								<div class="box-header">
+									<h2><img src="img/chat.png" height="19" width="19" alt="Chat Icon" /> <?php echo __("Live Chat"); ?></h2>
 								</div>
-								<div id="loading">
-									<p><button id="loadMore"><?php echo __("Load more!"); ?></button></p>
+								<div class="box-content">
+									<div class="inner">
+										<div class="chatbox-form">
+										<?php
+											if($collab -> status != "closed")	{
+										?>
+											<form action="action.php?chat&id=<?php echo $_GET["id"]; ?>" method="post" id="msgbox">
+												<textarea name="msg"></textarea><br />
+												<button type="submit"><?php echo __("Send"); ?></button>
+											</form>
+											</div>
+										<?php
+											}
+											else	{
+										?>
+											<p><?php echo __("Chat is in read-only mode"); ?></p>
+										<?php
+											}
+										?>
+									<div id="livechat">
+										<!-- Chat messages will go here. -->
+									</div>
+									<div id="loading">
+										<p><button id="loadMore"><?php echo __("Load more!"); ?></button></p>
+									</div>
+									</div>
 								</div>
-								</div>
-							</div>
-						</article>
+							</article>
+						<?php
+							}
+						?>
 					</div>
 					<div class="col-5">
 						<?php
@@ -219,7 +225,7 @@
 							<div class="box-content">
 								<div class="inner">
 									<?php
-										if($_USER -> is_online())	{
+										if($_USER -> isLoggedIn())	{
 											if($collab -> status == "open")	{
 												if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
 													//Buttons für normale Mitglieder

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 	require_once("includes/loader.php");
-	if(!$_USER -> is_online())	{
+	if(!$_USER -> isLoggedIn())	{
 		die(header("Location: index.php?error=nologin"));
 	}
 
@@ -169,7 +169,7 @@
 								<div class="inner">
 									<?php
 										$time = time();
-										if($time - $collab -> starttime -> stamp > 86400)	{
+										if($time - $collab -> starttime -> get_raw() > 86400)	{
 											echo "<form action='action.php?closecollab&id=". $collab -> id ."' method='post'>";
 											echo "<p>" . __("Here you can close your collab, but please note the following") . ":</p>";
 											echo "<ul>";

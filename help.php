@@ -54,7 +54,7 @@
 										echo "<p>".$question["answer"]."</p></div>";
 									}
 									echo "<h4>" . __("Ask a question") . "</h4>";
-									if($_USER -> is_online()) {
+									if($_USER -> isLoggedIn()) {
 										echo "<form id='nq' action='action.php?newquestion' method='post'>";
 										echo "<input type='text' name='question' placeholder='" . __("Question (max 255 chars)") . "' title='" . __("Ask a question") . "' required maxlength='255' tabindex='1' />";
 										echo "<input type='submit' class='button blue' value='" . __("Send") . "' tabindex='3' />";

@@ -80,18 +80,23 @@
 		public $lastCollab;
 		
 		/**
+			* Is this user logged in?
+			* @var boolean
+		*/
+		private $valid;
+		
+		/**
 			* Constructor.
-			* @param string $name Username
+			* @param string|null $name Username, leave empty when constructing a non-logged in user
 			* @return void
 		*/
-		public function __construct($name)	{
-			if(!is_string($name))	{
-				trigger_error("Bad argument #1 to user::__construct(), string expected, got " . gettype($name), E_USER_ERROR);
-			}
-			//
+		
+		public function __construct($name = null)	{
 			global $_MYSQL;
-			if($name != "Systemnachricht")	{
+			// If $name is null, it's a non-registered user (Guest)
+			if($name != null)	{
 				$data = $_MYSQL -> get("SELECT * FROM users WHERE name=?",array($name));
+				// The databse must return exactly one set of data. Everything different would be fatal!
 				if(count($data) == 1)	{
 					$this -> id 		= (int) $data[0]["id"];
 					$this -> name 		= (string) $data[0]["name"];
@@ -101,27 +106,28 @@
 					$this -> class 		= (int) $data[0]["class"];
 					$this -> last_login	= (int) $data[0]["last_login"];
 					$this -> last_ip 	= (string) $data[0]["last_ip"];
-					$this -> online 	= (boolean) true;
+					$this -> valid	 	= (boolean) true;
 					$this -> language 	= (string) $data[0]["language"];
 					$this -> signupDate	= (object) new time((int) $data[0]["signup"]);
 					$this -> lastCollab	= (object) new time((int) $data[0]["lastcollab"]);
 				}
 				else	{
-					$this -> online = false;
+					$this -> valid = false;
 				}
 			}
 			else	{
-				$this -> id = 0;
-				$this -> name = "Systemnachricht";
-				$this -> pass = "X";
-				$this -> mail = "X";
-				$this -> scratch = "X";
-				$this -> class = "user";
-				$this -> last_login = 0;
-				$this -> last_ip = "127.0.0.1";
-				$this -> online = true;
+				$this -> id = null;
+				$this -> name = "Unknown user";
+				$this -> pass = null;
+				$this -> mail = null;
+				$this -> scratch = null;
+				$this -> class = CP::USER_GUEST;
+				$this -> last_login = null;
+				$this -> last_ip = $_SERVER["REMOTE_ADDR"];
+				$this -> valid = false;
 			}
 		}
+		
 		/**
 			* Check if the user is online.
 			* @return boolean
@@ -129,12 +135,16 @@
 			* @api
 		*/
 		public function is_online()	{
-			if($this -> online == true)	{
-				return true;
-			}
-			else	{
-				return false;
-			}
+			return $this -> isLoggedIn();
+		}
+		
+		/**
+			* Check if user is logged in
+			* @return boolean
+			* @api
+		*/
+		public function isLoggedIn()	{
+			return $this -> valid == true;
 		}
 	}
 ?>
