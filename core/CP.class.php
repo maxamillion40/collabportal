@@ -106,7 +106,7 @@
 			* Database name
 			* @const
 		*/
-		const DB_NAME = "scratchcollabs";
+		const DB_NAME = "CollabPortal";
 		
 		/**
 			* MySQL server

@@ -49,7 +49,7 @@ function hasNewMessages(latestOnClient, callbackIfTrue, callbackIfFalse)	{
 			}
 		},
 		error: function(jqXHR, _, errorThrown)	{
-			alert(errorThrown);
+			console.log(errorThrown);
 		}
 	});
 }

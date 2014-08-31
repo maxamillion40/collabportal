@@ -38,7 +38,7 @@ $(document).ready(function()	{
 			// Check for new messages
 			hasNewMessages(latestHere, function()	{
 				// Load up to 10 new messages. The rest comes during the next update
-				getMessagesFromInterval(latestHere, latestHere + 10, function(res, error)	{
+				getMessagesFromInterval(latestHere + 1, latestHere + 10, function(res, error)	{
 					if(res != false)	{
 						// Notification
 						var audio = new Audio("sounds/pop.ogg");
