@@ -78,12 +78,17 @@ $(document).ready(function()	{
 		// Load 10 older messages
 		getMessagesFromInterval(oldestHere - 10, oldestHere - 1, function(res, error)	{
 			if(res != false)	{
-				// Loop the new messages
-				var i;
-				for(i = res.count - 1; i > 0; i--)	{
-					var msg = res.list[i];
-					// Prepend to #livechat
-					renderMessageAppend(msg);
+				if(res.count > 1)	{
+					// Loop the new messages
+					var i;
+					for(i = res.count - 1; i > 0; i--)	{
+						var msg = res.list[i];
+						// Prepend to #livechat
+						renderMessageAppend(msg);
+					}
+				}
+				else	{
+					$("#loadMore").replaceWith("<p>Discussion started here.</p>");
 				}
 			}
 		});
