@@ -21,7 +21,7 @@ function getMessagesFromInterval(lower, upper, callback)	{
 			callback(data, "");
 		},
 		error:	function(_, __, error)	{
-			alert(error);
+			console.log(error);
 			callback(false, error);
 		}
 	});
@@ -55,6 +55,9 @@ function hasNewMessages(latestOnClient, callbackIfTrue, callbackIfFalse)	{
 }
 
 // Render a collabmessages
-function renderMessage(msg)	{
+function renderMessagePrepend(msg)	{
 	$("#livechat").prepend('<div class="msg msg-' + msg.internalID + '"><div class="msg-head"><span class="msg-name">' + msg.absender + '</span>, ' + msg.timestamp + '</div><div class="msg-body">' + msg.message + '</div>');
+}
+function renderMessageAppend(msg)	{
+	$("#livechat").append('<div class="msg msg-' + msg.internalID + '"><div class="msg-head"><span class="msg-name">' + msg.absender + '</span>, ' + msg.timestamp + '</div><div class="msg-body">' + msg.message + '</div>');
 }

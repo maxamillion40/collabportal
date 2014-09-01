@@ -19,7 +19,7 @@ $(document).ready(function()	{
 					for(i = 0; i < res.count; i++)	{
 						var msg = res.list[i];
 						// Prepend to #livechat
-						renderMessage(msg);
+						renderMessagePrepend(msg);
 					}
 				}
 				else	{
@@ -50,7 +50,7 @@ $(document).ready(function()	{
 						for(i = 0; i < res.count; i++)	{
 							var msg = res.list[i];
 							// Prepend to #livechat
-							renderMessage(msg);
+							renderMessagePrepend(msg);
 						}
 					}
 					else	{
@@ -69,5 +69,23 @@ $(document).ready(function()	{
 		if($("title").html() == "Activity!")	{
 			$("title").html(title);
 		}
+	});
+	
+	// Load more
+	$("#loadMore").click(function()	{
+		var oldestHere = ($("div.msg").last().attr("class")).split(" ")[1];
+		oldestHere = Number(oldestHere.match(/\d/g).join(""));
+		// Load 10 older messages
+		getMessagesFromInterval(oldestHere - 10, oldestHere - 1, function(res, error)	{
+			if(res != false)	{
+				// Loop the new messages
+				var i;
+				for(i = res.count - 1; i > 0; i--)	{
+					var msg = res.list[i];
+					// Prepend to #livechat
+					renderMessageAppend(msg);
+				}
+			}
+		});
 	});
 });
