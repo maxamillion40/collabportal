@@ -3,7 +3,7 @@
 	require_once("includes/loader.php");
 	//Load Github Issues
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, "https://api.github.com/repos/webdesigner97/collabportal/issues");
+	curl_setopt($ch, CURLOPT_URL, "https://api.github.com/repos/CollabportalTeam/collabportal/issues");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]);

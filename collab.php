@@ -104,16 +104,17 @@
 						<?php
 							if($collab -> settings["new_members"] == true)	{
 						?>
-						<article class="box box-emphasis">
-							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Members wanted"); ?></h4>	
-							</div>
-							<div class="box-content">
-								<div class="inner">
-									<p><?php echo __("Good news! This collab is looking for new participants!"); ?></p>
+							<!-- new members wanted -->
+							<article class="box box-emphasis">
+								<div class="box-header">
+									<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/people.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Members wanted"); ?></h4>	
 								</div>
-							</div>
-						</article>
+								<div class="box-content">
+									<div class="inner">
+										<p><?php echo __("Good news! This collab is looking for new participants!"); ?></p>
+									</div>
+								</div>
+							</article>
 						<?php
 							}
 						?>
@@ -157,57 +158,68 @@
 								</div>
 							</div>
 						</article>
-						<article class="box">
-							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/player_flag2.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
-							</div>
-							<div class="box-content">
-								<div class="inner" style="padding: 0; padding-top: 15px;">
-								<?php
-									if($collab -> pid != "")	{
-								?>
-								<iframe allowtransparency="true" width="278" height="230" src="http://scratch.mit.edu/projects/embed/<?php echo $collab -> pid; ?>/?autostart=false" allowfullscreen></iframe>
-								<?php
-									}
-									else	{
-										echo __("Nothing here");
-									}
-								?>
+						<?php
+							if($_USER -> isLoggedIn())	{
+						?>
+							<!-- Project Preview -->
+							<article class="box">
+								<div class="box-header">
+									<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/player_flag2.png" alt="Info Icon" height="19" width="19" /> <?php echo __("Project preview"); ?></h4>
 								</div>
-							</div>
-						</article>
-						<!-- Announcement -->
-						<article class="box" id="box-announcements">
-							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;">
-									<img src="img/info.png" alt="Info Icon" height="19" width="19" />
-									<?php echo __("Announcements"); ?>
-									<img src="img/loader.gif" alt="Loader" height="19" width="19" class="boxLoader" />
-								</h4>
-							</div>
-							<div class="box-content">
-								<div class="inner">
+								<div class="box-content">
+									<div class="inner" style="padding: 0; padding-top: 15px;">
 									<?php
-										if($collab -> announcement != "")	{
-											if($collab -> member_rank($_USER -> name) == "founder")	{
-												echo "<p class=\"canEdit\">" . $collab -> announcement . "</p>";
-											}
-											else	{
-												echo "<p>" . $collab -> announcement . "</p>";
-											}
+										if($collab -> pid != "")	{
+									?>
+									<iframe allowtransparency="true" width="278" height="230" src="http://scratch.mit.edu/projects/embed/<?php echo $collab -> pid; ?>/?autostart=false" allowfullscreen></iframe>
+									<?php
 										}
 										else	{
-											if($collab -> member_rank($_USER -> name) == "founder")	{
-												echo "<p class=\"canEdit\">" . __("Nothing here") . "</p>";
-											}
-											else	{
-												echo "<p>" . __("Nothing here") . "</p>";
-											}
+											echo __("Nothing here");
 										}
 									?>
+									</div>
 								</div>
-							</div>
-						</article>
+							</article>
+						<?php
+							}
+							if($_USER -> isLoggedIn())	{
+						?>
+							<!-- Announcement -->
+							<article class="box" id="box-announcements">
+								<div class="box-header">
+									<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;">
+										<img src="img/info.png" alt="Info Icon" height="19" width="19" />
+										<?php echo __("Announcements"); ?>
+										<img src="img/loader.gif" alt="Loader" height="19" width="19" class="boxLoader" />
+									</h4>
+								</div>
+								<div class="box-content">
+									<div class="inner">
+										<?php
+											if($collab -> announcement != "")	{
+												if($collab -> member_rank($_USER -> name) == "founder")	{
+													echo "<p class=\"canEdit\">" . $collab -> announcement . "</p>";
+												}
+												else	{
+													echo "<p>" . $collab -> announcement . "</p>";
+												}
+											}
+											else	{
+												if($collab -> member_rank($_USER -> name) == "founder")	{
+													echo "<p class=\"canEdit\">" . __("Nothing here") . "</p>";
+												}
+												else	{
+													echo "<p>" . __("Nothing here") . "</p>";
+												}
+											}
+										?>
+									</div>
+								</div>
+							</article>
+						<?php
+							}
+						?>
 						<!-- Members -->
 						<article class="box">
 							<div class="box-header">
@@ -226,55 +238,61 @@
 								</div>
 							</div>
 						</article>
-						<!-- Buttons -->
-						<article class="box">
-							<div class="box-header">
-								<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/actions.png" alt="Action Icon" height="19" width="19" /> <?php echo __("Actions"); ?></h4>
-							</div>
-							<div class="box-content">
-								<div class="inner">
-									<?php
-										if($_USER -> isLoggedIn())	{
-											if($collab -> status == "open")	{
-												if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
-													//Buttons für normale Mitglieder
-													echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','" . __("Do you really want to leave this Collab?") . "')\">Austreten</button>";
-												}
-												elseif($_USER -> name == $collab -> owner -> name)	{
-													//Buttons für Gründer
-													echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">" . __("Administration") . "</button>";
-												}
-												elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
-													echo __("Your application is being processed");
-												}
-												else	{
-													//Buttons für Gäste
-													if(count($collab -> members["people"]) + 1 < $collab -> settings["members_max"] or $collab -> settings["members_max"] == false and !array_key_exists($_USER -> name,$collab-> members["candidates"]))	{
-														echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','" . __("Do you really want to join? Only do this if you are sure that you want to participate") . "');\">";
-														if($collab -> settings["confirm_join"] == true)	{
-															echo __("Apply");
-														}
-														else	{
-															echo __("Join");
-														}
-														echo "</button>";
+						<?php
+							if($_USER -> isLoggedIn())	{
+						?>
+							<!-- Buttons -->
+							<article class="box">
+								<div class="box-header">
+									<h4 style="font-size: 22px; margin-left: 15px; height: 26px; padding: 5px;"><img src="img/actions.png" alt="Action Icon" height="19" width="19" /> <?php echo __("Actions"); ?></h4>
+								</div>
+								<div class="box-content">
+									<div class="inner">
+										<?php
+											if($_USER -> isLoggedIn())	{
+												if($collab -> status == "open")	{
+													if(array_key_exists($_USER -> name, $collab -> members["people"]))	{
+														//Buttons für normale Mitglieder
+														echo "<button onClick=\"navigate('action.php?leave&id=".$_GET["id"]."','" . __("Do you really want to leave this Collab?") . "')\">Austreten</button>";
+													}
+													elseif($_USER -> name == $collab -> owner -> name)	{
+														//Buttons für Gründer
+														echo "<button onClick=\"navigate('admin.php?id=".$_GET["id"]."');\">" . __("Administration") . "</button>";
+													}
+													elseif(array_key_exists($_USER -> name, $collab -> members["candidates"]))	{
+														echo __("Your application is being processed");
 													}
 													else	{
-														echo __("Maximum number of members reached");
+														//Buttons für Gäste
+														if(count($collab -> members["people"]) + 1 < $collab -> settings["members_max"] or $collab -> settings["members_max"] == false and !array_key_exists($_USER -> name,$collab-> members["candidates"]))	{
+															echo "<button onClick=\"navigate('action.php?join&id=".$_GET["id"]."','" . __("Do you really want to join? Only do this if you are sure that you want to participate") . "');\">";
+															if($collab -> settings["confirm_join"] == true)	{
+																echo __("Apply");
+															}
+															else	{
+																echo __("Join");
+															}
+															echo "</button>";
+														}
+														else	{
+															echo __("Maximum number of members reached");
+														}
 													}
+												}
+												else	{
+													echo "<p>" . __("This collab is closed.") . "</p>";
 												}
 											}
 											else	{
-												echo "<p>" . __("This collab is closed.") . "</p>";
+												echo "<p>" . __("These actions are only available for members") . "</p>";
 											}
-										}
-										else	{
-											echo "<p>" . __("These actions are only available for members") . "</p>";
-										}
-									?>
+										?>
+									</div>
 								</div>
-							</div>
-						</article>
+							</article>
+						<?php
+							}
+						?>
 					</div>
 				</div>
 		</div>
