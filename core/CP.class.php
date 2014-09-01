@@ -30,7 +30,7 @@
 			* The name shown in <title>
 			* @const
 		*/
-		const NAME = "ScratchHub";
+		const NAME = "CollabPortal";
 		
 		/**
 			* Description for <head>
@@ -106,7 +106,7 @@
 			* Database name
 			* @const
 		*/
-		const DB_NAME = "CollabPortal";
+		const DB_NAME = "scratchcollabs";
 		
 		/**
 			* MySQL server
