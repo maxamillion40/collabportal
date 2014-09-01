@@ -57,7 +57,9 @@ function hasNewMessages(latestOnClient, callbackIfTrue, callbackIfFalse)	{
 // Render a collabmessages
 function renderMessagePrepend(msg)	{
 	$("#livechat").prepend('<div class="msg msg-' + msg.internalID + '"><div class="msg-head"><span class="msg-name">' + msg.absender + '</span>, ' + msg.timestamp + '</div><div class="msg-body">' + msg.message + '</div>');
+	scratchblocks2.parse("pre.blocks");
 }
 function renderMessageAppend(msg)	{
 	$("#livechat").append('<div class="msg msg-' + msg.internalID + '"><div class="msg-head"><span class="msg-name">' + msg.absender + '</span>, ' + msg.timestamp + '</div><div class="msg-body">' + msg.message + '</div>');
+	scratchblocks2.parse("pre.blocks");
 }
