@@ -85,7 +85,7 @@
 										<!-- Chat messages will go here. -->
 									</div>
 									<div id="loading">
-										<p><button id="loadMore"><?php echo __("Load more!"); ?></button></p>
+										<p><button id="loadMore"><?php echo __("Show some more!"); ?></button></p>
 									</div>
 									<?php
 										}
