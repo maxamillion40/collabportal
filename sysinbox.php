@@ -39,7 +39,7 @@
 						<div class="inner">
 							<?php
 							if(count($messages) == 0)
-								print "You have no mail currently. Just wait, the mailman is coming soon"
+								echo __("You have no mail currently. Just wait, the mailman is coming soon");
 								if(count($messages) > 0)	{
 									echo "<p><label><input type='checkbox' id='select-all' /> " . __("Select all") . "</label></p>";
 									echo "<hr />";
